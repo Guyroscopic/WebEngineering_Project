@@ -9,7 +9,7 @@
 	}
 
 	/* Including Database Configuration File */
-	require_once "database_configuration.php";
+	require_once "../Controller/database_configuration.php";
 
 	$username = $password = "";
 	$username_error = $password_error = "";
@@ -42,7 +42,7 @@
 		if(empty($username_error) && empty($password_error)){
 
 			/* SQL Query */
-			$sql_query  	   = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+			$sql_query  	   = "SELECT * FROM webproject.users WHERE username = '$username' AND password = '$password'";
 			$sql_query_execute = mysqli_query($databse_connection,$sql_query);
 			$sql_query_result  = mysqli_fetch_array($sql_query_execute);
 
