@@ -1,10 +1,9 @@
 <?php
 
 	/* Including Database Credentials */
-	require "DBinit.php";
-
+	require 'DBcreds.php';
 	/* Connecting to MySql Database*/
-	//$database_connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
+	$database_connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 	/* Check if connection establishes */
 	if(!$database_connection){
