@@ -6,6 +6,7 @@
 <body>
 
 	<?php
+		require 'DBinit.php';
 		if(@$_GET["msg"] == true){
 			echo "<div>" . $_GET["msg"] . "</div>";
 		}

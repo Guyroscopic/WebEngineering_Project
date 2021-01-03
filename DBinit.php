@@ -8,8 +8,8 @@
 	$database_connection = new mysqli($servername, $username, $password);
 	
 	// Check database_connectionection
-	if ($database_connection->database_connectionect_error) {
-	  	die("database_connectionection failed: " . $database_connection->database_connectionect_error);
+	if ($database_connection->error) {
+	  	die("database_connectionection failed: " . $database_connection->error);
 	}
 
 	// Create database
@@ -28,7 +28,8 @@
 
 	    	"INSERT INTO user (username,password,email) VALUES 
             ('Laraib Arjamand', '12345678', 'laraib@gmail.com'),
-            ('Abdul Rafey', '12345678', 'rafey@gmail.com');"
+            ('Abdul Rafey', '12345678', 'rafey@gmail.com'),
+            ('Fatima Khalid', '12345678', 'fatima@gmail.com');"
 	);
   
 
