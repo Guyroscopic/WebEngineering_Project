@@ -1,5 +1,6 @@
 <?php
 	
+	/*
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
@@ -10,14 +11,16 @@
 	// Check database_connectionection
 	if ($database_connection->error) {
 	  	die("database_connectionection failed: " . $database_connection->error);
-	}
+	}*/
+
+	require_once "Models/DBconfig.php";
 
 	// Create database
-	$sql = array("create database if not exists webproject;",
+	$sql = array("CREATE DATABASE IF NOT EXISTS webproject;",
 
-			"use webproject;",
+			"USE webproject;",
 
-			"drop table if exists user;",
+			"DROP TABLE IF EXISTS user;",
 
 		    "create table user(
 		    userID int NOT NULL primary key AUTO_INCREMENT,
@@ -34,10 +37,16 @@
   
 
 	foreach($sql as $query){
-	    if ($result = $database_connection->query($query)) 
+
+	    if ($result = $database_connection->query($query)){
 		  	echo "$database_connection->error";
-		else 
-		  	echo "$database_connection->error";}
+	    }
+		else{ 
+		  	echo "$database_connection->error";
+		}
+	}
+
+	$database_connection->close();
 
 
 ?>

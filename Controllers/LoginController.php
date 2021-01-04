@@ -4,18 +4,23 @@
 	session_start();
 	
 	/* Check if user is Already Logged In and redirect to Profile Page*/
-	if(isset($_SESSION['login_user_email']) and isset($_SESSION['login_user_username'])){
-		header("loaction: profile.php");
+	if(isset($_SESSION["current_student_email"]) and isset($_SESSION["current_student_username"])){
+		header("location: studentProfile.php");
+	}
+	else if(isset($_SESSION["current_teacher_email"]) and isset($_SESSION["current_teacher_username"])){
+		header("location: teacherProfile.php");
 	}
 
 	/* Including the User Model File */
 	require "../Models/UserModel.php";
 
 	/* Processing the Form Submission */
-	if(($_SERVER["REQUEST_METHOD"] == "POST")){
+	//if(($_SERVER["REQUEST_METHOD"] == "POST")){
+	if(isset($_POST["login"])){
 
 		$email    = $_POST["email"];
 		$password = $_POST["password"];
+		$loginType = $_POST["loginType"];
 
 		if(empty($email) || empty($password)){
 			header("location: ../Views/login.php?Empty= Enter Values Before Submitting");
@@ -28,19 +33,28 @@
 		//$password = mysql_real_escape_string($password);
 
 		//Calling the method in Model to get the user from email
-		$sql_query_result = getUserFromEmailID($email);
+		$sql_query_result = getUserFromEmailID($email, $loginType);
 
 		//Authenticating the user
 		if($sql_query_result && count($sql_query_result) > 0){
 
 			if($sql_query_result["password"] == $password){
-				//echo "Welcoe User: " . $sql_query_result["username"];
-				//echo "<script>location.replace('/webproject/Views/profile.php')</script>";
 
-				// Initializing Session
-				$_SESSION["login_user_email"]    = $email; 	
-				$_SESSION["login_user_username"] = $sql_query_result["username"]; 
-				header("location: ../Views/profile.php");
+				// Initializing Session and Redirecting based on login type
+				if($loginType == "student"){
+					
+					$_SESSION["current_student_email"]    = $email; 	
+					$_SESSION["current_student_username"] = $sql_query_result["username"]; 
+					//$_SESSION["current_student_type"]   = $loginType;
+					header("location: ../Views/studentProfile.php");
+				}
+				else if($loginType == "teacher"){
+
+					$_SESSION["current_teacher_email"]    = $email; 	
+					$_SESSION["current_teacher_username"] = $sql_query_result["username"]; 
+					//$_SESSION["current_teacher_type"]   = $loginType;
+					header("location: ../Views/teacherProfile.php");
+				}
 			}				
 		}
 		else{

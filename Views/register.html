@@ -8,19 +8,14 @@
 	<h2>Sign Up</h2>
 
         <?php
-                if(@$_GET["Invalid"] == true){
-        ?>
-                <div><?php echo $_GET["Invalid"]; ?></div>
-        <?php
+                if(@$_GET["Empty"] == true){
+                        echo "<div>".$_GET["Empty"]."</div>"; 
                 }
-        ?>
 
-        <?php
-                if(@$_GET["UserExists"] == true){
-        ?>
-                <div><?php echo $_GET["UserExists"]; ?></div>
-        <?php
-                }
+                elseif(@$_GET["UserExists"] == true){
+                        echo "<div>".$_GET["UserExists"]."</div>";
+        }
+
 
         ?>        
 	<form action="../Controllers/SignupController.php" method="POST">
@@ -35,10 +30,6 @@
 
         <label>Password</label>
         <input type="password" name="password">
-        <br><br>
-
-        <label>Confirm Password</label>
-        <input type="password" name="confirm-password">
         <br><br>
 
         <input type="submit" name="submit">
