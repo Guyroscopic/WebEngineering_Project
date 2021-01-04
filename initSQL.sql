@@ -19,5 +19,9 @@ INSERT INTO `student`(`email`, `username`, `password`) VALUES ("laraib@example.c
 INSERT INTO `student`(`email`, `username`, `password`) VALUES ("fatima@example.com",  "Fatima Aunty",  "12345678");
 INSERT INTO `student`(`email`, `username`, `password`) VALUES ("ghazala@example.com", "Qatil Haseena", "12345678");
 
+<<<<<<< HEAD
 INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher1@example.com", "Teacher 1", "12345678");
+=======
+INSERT INTO `tecaher`(`email`, `username`, `password`) VALUES ("teacher1@example.com", "Teacher 1", "12345678");
+>>>>>>> 338b18446cc5dbb41b608265947e5dc3bc29b077
 INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher2@example.com", "Teacher 2", "12345678");

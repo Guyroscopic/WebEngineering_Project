@@ -18,12 +18,13 @@
 	//if(($_SERVER["REQUEST_METHOD"] == "POST")){
 	if(isset($_POST["login"])){
 
-		$email    = $_POST["email"];
-		$password = $_POST["password"];
+
+		$email     = $_POST["email"];
+		$password  = $_POST["password"];
 		$loginType = $_POST["loginType"];
 
 		if(empty($email) || empty($password)){
-			header("location: ../Views/login.php?Empty= Enter Values Before Submitting");
+			header("location: ../Views/login.php?empty=''");
 		}
 
 		// To protect MySQL injection for Security purpose
@@ -32,15 +33,14 @@
 		//$email    = mysql_real_escape_string($email);
 		//$password = mysql_real_escape_string($password);
 
-		//Calling the method in Model to get the user from email
 		$sql_query_result = getUserFromEmailID($email, $loginType);
 
 		//Authenticating the user
 		if($sql_query_result && count($sql_query_result) > 0){
 
-			if($sql_query_result["password"] == $password){
+			if($sql_query_result["password"] == $password){				
 
-				// Initializing Session and Redirecting based on login type
+				//Initializing Session and Redirecting based on login type
 				if($loginType == "student"){
 					
 					$_SESSION["current_student_email"]    = $email; 	
@@ -58,7 +58,7 @@
 			}				
 		}
 		else{
-			header("location: ../Views/login.php?Invalid= Invalid Login Credentials");
+			header("location: ../Views/login.php?invalidcreds=''");
 			// "<script>location.replace('/webproject/Views/login.php')</script>";
 		}		
 	}

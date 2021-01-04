@@ -1,11 +1,9 @@
 <?php
 
-	/* Including Database Config File */
+	/* Including the Database Config File */
 	require_once "DBconfig.php";
 
 	function getUserFromEmailID($emailID, $loginType){
-
-		global $database_connection;
 
 		global $database_connection;
 		echo $emailID . " : " . $loginType;
@@ -39,5 +37,6 @@
 		else
 			return mysqli_connect_error();
 		}
+
 
 ?>
