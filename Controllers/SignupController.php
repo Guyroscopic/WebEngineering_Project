@@ -4,20 +4,25 @@
 	session_start();
 	
 	/* Check if user is Already Logged In and redirect to Profile Page*/
-	if(isset($_SESSION['signup_user_email']) and isset($_SESSION['signup_user_username'])){
-		header("location: profile.php");
-	}
+	if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
+			header("location: studentProfile.php");
+		}
+
+	if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+			header("location: teacherProfile.php");
+		}
 
 	/* Including the User Model File */
 	require "../Models/UserModel.php";
 
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-
+	//if(isset($_POST["submit"])){
 		$username = stripslashes($_POST["username"]);
 		$email    = stripslashes($_POST["email"]);
 		$password = stripslashes($_POST["password"]);
 		$confirm_password = stripslashes($_POST["confirm-password"]);
-		$getUser = getUserFromEmailID($email);
+		$userType = $_POST["userType"];
+		$getUser = getUserFromEmailID($email, $userType);
 
 		// Validating the user entered credentials
 
@@ -42,7 +47,7 @@
 		}
 
 		// Check If Both Passwords are Same
-		elseif($password != $confirm-password){
+		elseif($password != $confirm_password){
 			header("location: ../Views/register.php?Invalid=Password length cannot be less than length 8!");
 
 		}
@@ -54,8 +59,7 @@
 
 		// If Everything Goes Well
 		else{
-
-			$register_user_query_result = registerUser($username, $email, $password);
+			$register_user_query_result = registerUser($username, $email, $password, $userType);
 
 			if($register_user_query_result){
 				header("location: ../Views/login.php");

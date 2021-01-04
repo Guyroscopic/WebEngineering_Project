@@ -22,8 +22,18 @@
         <?php
                 }
 
-        ?>        
-	<form action="../Controllers/SignupController.php" method="POST">
+        ?>     
+
+        
+
+    <label for="userType">SignUp as:</label>
+        <select name="userType"  form="signupForm">
+          <option value="student">Student</option>
+          <option value="teacher">Teacher</option>
+        </select>
+        <br><br>
+
+	<form action="../Controllers/SignupController.php" method="POST" id="signupForm">
 
 		<label>Username</label>
         <input type="text" name="username" placeholder="Enter Your Name Here">
@@ -40,7 +50,6 @@
         <label>Confirm Password</label>
         <input type="password" name="confirm-password">
         <br><br>
-
         <input type="submit" name="submit">
 	</form>
 

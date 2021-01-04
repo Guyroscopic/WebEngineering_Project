@@ -1,7 +1,7 @@
 <?php
 
 	/* Including the Database Config File */
-	require_once "DBconfig.php";
+	require "DBconfig.php";
 
 	function getUserFromEmailID($emailID, $loginType){
 
@@ -9,34 +9,36 @@
 		echo $emailID . " : " . $loginType;
 		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		//echo $sql_query_execute ? 'true' : 'false';
-		/*if (!$sql_query_execute) {
+		echo $sql_query_execute ? 'true' : 'false';
+		if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));
 		    exit();
-		}*/
+		}
 
 		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
 
 		//Closing the DB Connection
-		$database_connection->close();
 		return $sql_query_result;
 	}
 
-	function registerUser($username, $email, $password){
+	function registerUser($username, $email, $password, $userType){
 
 		/*
 			Function to Add User into the database
 		*/
 		global $database_connection;
-
-		$sql_query = "INSERT INTO user (username, password, email) VALUES ('$username', '$password', '$email');";
+		echo $email . " : " . $userType;
+		$sql_query = "INSERT INTO " . $userType . "(`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		if($sql_query_execute)
-			return $sql_query_execute;
-		else
-			return mysqli_connect_error();
+		echo $sql_query_execute ? 'true' : 'false';
+		if (!$sql_query_execute) {
+		    printf("Error: %s\n", mysqli_error($database_connection));
+		    exit();
 		}
 
+		$database_connection->close();
+		return $sql_query_execute;
+		}
 
 ?>
