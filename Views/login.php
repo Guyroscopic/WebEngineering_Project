@@ -8,8 +8,12 @@
 	<?php
 		session_start();
 
-		if(isset($_SESSION['login_user_email']) and isset($_SESSION['login_user_username'])){
-			header("location: profile.php");
+		if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
+			header("location: studentProfile.php");
+		}
+
+		if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+			header("location: teacherProfile.php");
 		}
 	?>
 
@@ -27,6 +31,14 @@
 		if(@$_GET["empty"] == true){
 	?>
 		<div style="color: red">Enter Values Before Submitting</div>
+	<?php
+		}
+	?>
+
+	<?php
+		if(@$_GET["logoutbeforelogin"] == true){
+	?>
+		<div style="color: red">You need to Login before Logging Out!'</div>
 	<?php
 		}
 	?>

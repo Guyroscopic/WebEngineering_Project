@@ -21,7 +21,7 @@
 <body>
 
 	<?php
-		echo "<h1>Welcome Teacher" . $username . "</h1>";
+		echo "<h1>Welcome Teacher " . $username . "</h1>";
 		echo "<h3>Email ID: " . $email . "</h3>";
 	?>
 
