@@ -8,7 +8,6 @@
 	}
 	else{
 		header("location: login.php?logoutbeforelogin=true");
-	}
-	
+	}	
 
 ?>
