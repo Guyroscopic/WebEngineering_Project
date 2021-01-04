@@ -6,8 +6,10 @@
 <body>
 
 	<?php
-		if(@$_GET["msg"] == true){
-			echo "<div>" . $_GET["msg"] . "</div>";
+		if(@$_GET["loggedout"] == true){
+	?>
+		<div style="color: green">Logged out Successfully!</div>
+	<?php
 		}
 	?>
 
@@ -18,6 +20,7 @@
 		<li><a href="Views/about.php">About</a></li>
 		<li><a href="Views/login.php">Login</a></li>
 		<li><a href="Views/register.php">Register</a></li>
+	</ul>
 	
 </body>
 </html>

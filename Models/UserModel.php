@@ -11,16 +11,17 @@
 		die("ERROR: Could not Connect to Database. ". mysqli_connect_error());	
 	}
 
-	function getUserFromEmailID($emailID){
+	function getUserFromEmailID($emailID, $loginType){
 
 		global $database_connection;
-
-		$sql_query         = "SELECT * FROM user WHERE email = '$emailID'";
+		echo $emailID . " : " . $loginType;
+		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		/*if (!$sql_query_execute) {
+		echo $sql_query_execute ? 'true' : 'false';
+		if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));
 		    exit();
-		}*/
+		}
 
 		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
 
