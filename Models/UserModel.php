@@ -1,15 +1,18 @@
 <?php
-
-	/* Including Database Credentials */
-	require "DBcreds.php";
-
-	/* Connecting to MySql Database*/
+	
+	/*
+	/* Including Database Credentials 
+	require 'DBcreds.php';
+	/* Connecting to MySql Database
 	$database_connection = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-	/* Check if connection establishes */
+	/* Check if connection establishes 
 	if(!$database_connection){
 		die("ERROR: Could not Connect to Database. ". mysqli_connect_error());	
 	}
+	*/
+
+	/* Including the Database Config File */
 
 	function getUserFromEmailID($emailID, $loginType){
 
@@ -25,7 +28,11 @@
 
 		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
 
+		//Closing the DB Connection
+		$database_connection->close();
 		return $sql_query_result;
 	}
+
+
 
 ?>

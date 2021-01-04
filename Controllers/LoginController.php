@@ -35,9 +35,6 @@
 		//Calling the method in Model to get the respective user from email
 		$sql_query_result = getUserFromEmailID($email, $loginType);
 
-		//Closing the DB Connection
-		$database_connection->close();
-
 		//Authenticating the user
 		if($sql_query_result && count($sql_query_result) > 0){
 
