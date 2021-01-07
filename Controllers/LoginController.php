@@ -23,7 +23,7 @@
 		$loginType = $_POST["loginType"];
 
 		if(empty($email) || empty($password)){
-			header("location: ../Views/login.php?empty=''");
+			header("location: ../Views/login.php?empty=ture");
 		}
 
 		// To protect MySQL injection for Security purpose

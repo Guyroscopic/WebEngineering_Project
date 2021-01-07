@@ -18,7 +18,7 @@
 	function getUserFromEmailID($emailID, $loginType){
 
 		global $database_connection;
-		echo $emailID . " : " . $loginType;
+
 		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 		//echo $sql_query_execute ? 'true' : 'false';

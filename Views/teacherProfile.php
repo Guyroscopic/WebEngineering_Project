@@ -1,5 +1,5 @@
 <?php
-	//Checking if Student is logged in or not
+	//Checking if Teacher is logged in or not
 	session_start();
 
 	if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
@@ -19,6 +19,15 @@
 	<title>WebEng Project</title>
 </head>
 <body>
+
+	<!-- Output div for an Successful Tutorial Creation -->
+	<?php
+		if(@$_GET["created"] == true){
+	?>
+		<div style="color: green">Tutorial Successfully Created!</div>
+	<?php
+		}
+	?>
 
 	<?php
 		echo "<h1>Welcome Teacher " . $username . "</h1>";

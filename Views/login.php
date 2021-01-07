@@ -52,7 +52,7 @@
 	?>
 
 	<label for="loginType">Login as:</label>
-	<select name="loginType"  form="loginForm">
+	<select name="loginType" form="loginForm">
 	  <option value="student">Student</option>
 	  <option value="teacher">Teacher</option>
 	</select>
