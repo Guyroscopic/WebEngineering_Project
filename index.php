@@ -6,7 +6,7 @@
 <body>
 
 	<?php
-		require_once 'DBinit.php';
+		require 'DBinit.php';
 		if(@$_GET["loggedout"] == true){
 	?>
 		<div style="color: green">Logged out Successfully!</div>

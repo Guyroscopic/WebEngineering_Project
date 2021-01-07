@@ -18,6 +18,7 @@
 	//if(($_SERVER["REQUEST_METHOD"] == "POST")){
 	if(isset($_POST["login"])){
 
+
 		$email     = $_POST["email"];
 		$password  = $_POST["password"];
 		$loginType = $_POST["loginType"];
@@ -32,7 +33,6 @@
 		//$email    = mysql_real_escape_string($email);
 		//$password = mysql_real_escape_string($password);
 
-		//Calling the method in Model to get the respective user from email
 		$sql_query_result = getUserFromEmailID($email, $loginType);
 
 		//Authenticating the user
@@ -55,7 +55,6 @@
 					//$_SESSION["current_teacher_type"]   = $loginType;
 					header("location: ../Views/teacherProfile.php");
 				}
-				
 			}				
 		}
 		else{
