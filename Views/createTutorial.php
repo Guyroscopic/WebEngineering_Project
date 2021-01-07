@@ -16,6 +16,10 @@
 
 	$queryResult = getAllCategoriesQueryResult();
 
+	//Closing the connection
+	global $database_connnectiton;
+	$database_connection->close();
+
 ?>
 
 <!DOCTYPE html>

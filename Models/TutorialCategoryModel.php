@@ -15,8 +15,19 @@
 		//$sql_query_result  = mysqli_fetch_assoc($sql_query_execute);
 
 		//Closing the DB Connection
-		$database_connection->close();
+		//$database_connection->close();
 		return $sql_query_execute;
+	}
+
+	function getCategoryNameByID($id){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM tutorial_categeory WHERE id='$id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+
+		return $sql_query_result;
 	}
 
 ?>

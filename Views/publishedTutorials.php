@@ -32,7 +32,8 @@
 	<ul>
 		<?php
 		while($tutorial = $instructor_Tutorials->fetch_assoc()) {				
-				echo "<li><a href=tutorial?id=" . $tutorial["id"] . ">" . $tutorial["title"] . "</a></li>";
+				echo "<li><a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] .
+				     "</a></li>";
 		}
 		?>
 	</ul>

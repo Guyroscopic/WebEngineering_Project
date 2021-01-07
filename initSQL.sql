@@ -44,6 +44,7 @@ ALTER TABLE tutorial
 
 -- Adding the Foregin Key reference from "tutorial" to "teacher"
 ALTER TABLE teacher ENGINE=InnoDB; 
+ALTER TABLE student ENGINE=InnoDB;
 ALTER TABLE tutorial 
     ADD CONSTRAINT instructor
     FOREIGN KEY (instructor)
@@ -67,3 +68,21 @@ INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (1 , "Headin
 INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (1 , "Heading - 2", "This is the content of paragraph 2, this paragraph is a part of tutorial 1");
 INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (2 , "Heading - 1", "This is the content of paragraph 1 of tutorial 2");
 INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (2 , "Heading - 2", "This is the content of paragraph 2 of tutorial 2");
+
+-- Creating the "quiz" table
+CREATE TABLE `webproject`.`quiz` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+-- Adding the Foregin Key reference from "quiz "to "tutorial"
+ALTER TABLE quiz
+    ADD CONSTRAINT tutorial_id_inQuiz
+    FOREIGN KEY (tutorial_id)
+    REFERENCES tutorial(id);
+
+-- Creating the "question" table
+CREATE TABLE `webproject`.`question` ( `id` INT NOT NULL AUTO_INCREMENT , `quiz_id` INT NOT NULL , `statement` VARCHAR(1000) NOT NULL , `option1` VARCHAR(100) NOT NULL , `option2` VARCHAR(100) NOT NULL , `option3` VARCHAR(100) NULL , `option4` VARCHAR(100) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+-- Adding the Foregin Key reference from "question "to "question"
+ALTER TABLE question
+    ADD CONSTRAINT quiz_id_inQuestion
+    FOREIGN KEY (quiz_id)
+    REFERENCES quiz(id);

@@ -10,14 +10,13 @@
 		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 		echo $sql_query_execute ? 'true' : 'false';
-		if (!$sql_query_execute) {
+		/*if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));
 		    exit();
-		}
+		}*/
 
 		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
 
-		//Closing the DB Connection
 		return $sql_query_result;
 	}
 
@@ -32,13 +31,24 @@
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 		echo $sql_query_execute ? 'true' : 'false';
-		if (!$sql_query_execute) {
+		/*if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));
 		    exit();
-		}
+		}*/
 
-		$database_connection->close();
+		//$database_connection->close();
 		return $sql_query_execute;
 		}
+
+	function getTeacherByEmail($email){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM teacher WHERE email='$email'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+
+		return $sql_query_result;
+	}
 
 ?>
