@@ -22,6 +22,16 @@
 		return $tutorial_id;
 	}
 
+	function getAllTutorials(){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM tutorial";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		return $sql_query_execute;
+	}
+
 	function getTutorialsByTeacherEmail($email){
 
 		global $database_connection;

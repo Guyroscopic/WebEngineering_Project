@@ -17,8 +17,16 @@
 
 		
 		//return $sql_query_execute;
+	}
 
+	function getParagaphsByTutorialID($tutorial_id){
 
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM paragraph WHERE tutorial_id='$tutorial_id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		return $sql_query_execute;	
 	}
 
 ?>
