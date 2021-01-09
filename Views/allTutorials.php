@@ -30,6 +30,9 @@
 	//Fetching all the tutrials
 	$all_tutorials_SQL_result = getAllTutorials();
 
+	//Closing the DB Connection
+	$database_connection->close();
+
 ?>
 
 <!DOCTYPE html>
