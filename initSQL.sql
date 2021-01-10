@@ -36,6 +36,7 @@ INSERT INTO `tutorial_categeory`(`name`) VALUES ("biology");
 CREATE TABLE `webproject`.`tutorial` ( `id` INT NOT NULL AUTO_INCREMENT , `category_id` INT NOT NULL , `instructor` VARCHAR(100) NOT NULL , `title` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Adding the Foregin Key reference from "tutorial" to "tutorial_category"
+ALTER TABLE `tutorial` ADD `description` VARCHAR(1000) NOT NULL AFTER `title`;
 ALTER TABLE tutorial 
     ADD CONSTRAINT category_id
     FOREIGN KEY (category_id)
@@ -82,7 +83,9 @@ ALTER TABLE quiz
 CREATE TABLE `webproject`.`question` ( `id` INT NOT NULL AUTO_INCREMENT , `quiz_id` INT NOT NULL , `statement` VARCHAR(1000) NOT NULL , `option1` VARCHAR(100) NOT NULL , `option2` VARCHAR(100) NOT NULL , `option3` VARCHAR(100) NULL , `option4` VARCHAR(100) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Adding the Foregin Key reference from "question "to "question"
+ALTER TABLE `question` ADD `correct_option` VARCHAR(7) NOT NULL AFTER `option4`;
 ALTER TABLE question
     ADD CONSTRAINT quiz_id_inQuestion
     FOREIGN KEY (quiz_id)
     REFERENCES quiz(id);
+

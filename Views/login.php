@@ -44,9 +44,17 @@
 	?>
 
 	<?php
-		if(@$_GET["invalidcreds"] == true){
+		if(@$_GET["invalidemail"]){
 	?>
-		<div style="color: red">Invalid Credentials! Please Try Again</div>
+		<div style="color: red">Invalid Email! Please Try Again</div>
+	<?php
+		}
+	?>
+
+	<?php
+		if(@$_GET["invalidpassword"]){
+	?>
+		<div style="color: red">Wrong Password! Please Try Again</div>
 	<?php
 		}
 	?>

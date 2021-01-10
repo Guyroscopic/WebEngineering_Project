@@ -10,8 +10,6 @@
 		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
-		    //printf("Error: %s\n", mysqli_error($database_connection));
-		    //exit();
 		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
 
 		return $sql_query_result;
