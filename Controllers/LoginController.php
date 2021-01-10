@@ -24,7 +24,7 @@
 		$loginType = $_POST["loginType"];
 
 		if(empty($email) || empty($password)){
-			header("location: ../Views/login.php?empty=''");
+			header("location: ../Views/login.php?empty=ture");
 		}
 
 		// To protect MySQL injection for Security purpose
@@ -55,11 +55,13 @@
 					//$_SESSION["current_teacher_type"]   = $loginType;
 					header("location: ../Views/teacherProfile.php");
 				}
+				mysqli_close($database_connection);
 			}				
 		}
 		else{
 			header("location: ../Views/login.php?invalidcreds=''");
 			// "<script>location.replace('/webproject/Views/login.php')</script>";
+			mysqli_close($database_connection);
 		}		
 	}
 ?>

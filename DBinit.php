@@ -45,7 +45,7 @@
 );
   
 
-	foreach($sql as $query){
+	/*foreach($sql as $query){
 
 	    if ($result = $database_connection->query($query)){
 		  	echo "$database_connection->error";
@@ -53,9 +53,9 @@
 		else{ 
 		  	echo "$database_connection->error";
 		}
-	}
+	}*/
 
-	$database_connection->close();
+	mysqli_close($database_connection);
 
 
 ?>

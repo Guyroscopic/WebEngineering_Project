@@ -63,12 +63,14 @@
 
 			if($register_user_query_result){
 				header("location: ../Views/login.php");
+				mysqli_close($database_connection);
 			}
 
 			else{
 				header("location: ../Views/register.php?Empty= Could not Register, Try Again!");
+				mysqli_close($database_connection);
 			}
-		}
+		} 
 		}
 
 
