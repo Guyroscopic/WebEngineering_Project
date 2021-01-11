@@ -53,12 +53,14 @@
 		$current_tutorial_quizzes_SQL_result = getQuizByTutorialID($tutorial_id);
 	}
 
-	//Getting the tutorial ratings
+	//Checking if the student has already completed the tutorial
 	if($student_loggedin){
 		$rating = getRatingByStudentEmailandTutorialID($student_email, $tutorial_id)["tutorial_rating"];
-		$avg_tutorial_rating = getTutorialAvgRating($tutorial_id)[0];
-		$num_tutorial_rating = getTutorialNumOfRatings($tutorial_id)[0];
 	}
+
+	//Fetching the tutorial rating and number of ratings
+	$avg_tutorial_rating = getTutorialAvgRating($tutorial_id)[0];
+	$num_tutorial_rating = getTutorialNumOfRatings($tutorial_id)[0];
 
 	//Fetcing the info of logged in teacher and all of his published tutorials
 	if($teacher_loggedin){

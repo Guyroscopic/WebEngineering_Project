@@ -24,11 +24,20 @@
 		//Marking the tutorial complete for student in the DB
 		markTutorialCompleteForStudent($student_email, $tutorial_id, $rating);
 
+		//Closing the Database connection		
+		global $database_connnectiton;
+		$database_connection->close();
+
 		//Redirecting to view all tutorial page
 		header("location: ../Views/allTutorials.php?completed=true");
 
 	}
 	else{
+		//Closing the Database connection		
+		global $database_connnectiton;
+		$database_connection->close();
+
+		//Redirecting
 		header("location: ../Views/studentProfile.php?invalidAccess=true");
 	}
 

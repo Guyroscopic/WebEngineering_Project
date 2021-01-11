@@ -12,6 +12,7 @@
 		header("location: login.php?notloggedin=true");
 	}
 
+	//Adding the required Models
 	require_once "../Models/TutorialCategoryModel.php";
 
 	$queryResult = getAllCategoriesQueryResult();

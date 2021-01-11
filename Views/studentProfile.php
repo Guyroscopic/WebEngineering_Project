@@ -34,8 +34,8 @@
 
 	<ul>
 		<?php
-			echo "<li><a href='allTutorials.php'>Browse All Tutorials</a></li>";
-			echo "<li><a href='tutorialCategories.php'>Browse Tutorials by Category</a></li>";
+			echo "<li><a href='viewTutorials.php'>Browse Tutorials</a></li>";
+			echo "<li><a href='tutorialsByCategory.php'>Browse Tutorials by Category</a></li>";
 			echo "<li><a href='studentLogout.php'>Logout</a></li>";
 		?>
 	</ul>
