@@ -57,6 +57,10 @@
 		<label>Title: </label>
 		<input type='text' name='title' placeholder='Enter Title' required><br><br>
 
+		<label>Description: </label>
+		<textarea name='description' 
+				  placeholder='Tutorial Description' required></textarea><br><br>
+
 		<label>Paragraph 1 Heading: </label>
 		<input type='text' name='heading_1' placeholder='Enter Heading' required><br><br>
 

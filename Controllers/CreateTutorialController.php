@@ -20,6 +20,7 @@
 	if(isset($_POST["create"])){
 
 		$title 			   = $_POST["title"];
+		$description	   = $_POST["description"];
 		$tutrialCategoryID = $_POST["tutorialCategory"];
 		$numOfParagrphs    = $_POST["numOfParagraphs"];
 		$instructor        = $current_teacher_email;
@@ -43,7 +44,7 @@
 		}
 
 		//Creating a Tutorial in the Database
-		$tutorialID  = addTutorial($tutrialCategoryID, $instructor, $title);
+		$tutorialID  = addTutorial($tutrialCategoryID, $instructor, $title, $description);
 		echo "Tutorial ID: " . $tutorialID . "<br>";
 		//echo "Title: " . $title . "<br>" . "Category: " . $tutrialCategory . "<br>"; 
 		

@@ -10,7 +10,13 @@
 	}
 	else{
 		header("location: login.php?notloggedin=true");
-	}	
+	}
+
+	//Adding the required Models
+	require_once "../Models/StudentTutorialBridgeModel.php";
+
+	//Fetching the number of tutorials student has completed
+	$num_completed_tutorials = getNumOfCompletedTutorialsByStudentEmail($email)[0];
 ?>
 
 <!DOCTYPE html>
@@ -21,23 +27,16 @@
 <body>
 
 	<?php if(@$_GET["invalidAccess"]){ ?>
-
 		<p style="color: red">Your access was Invalid</p>
 	<?php } ?>
 
-	<h1>All Tutorials</h1>
-
-	<?php
-		echo "<h1>Welcome Student " . $username . "</h1>";
-		echo "<h3>Email ID: " . $email . "</h3>";		
-	?>
+	<h1>Welcome Student <?php echo $username ?></h1>	
+	<h3>Email ID: <?php echo $email ?></h3>
+	<h3>Tutorials Completed: <?php echo $num_completed_tutorials ?></h3>
 
 	<ul>
-		<?php
-			echo "<li><a href='viewTutorials.php'>Browse Tutorials</a></li>";
-			echo "<li><a href='tutorialsByCategory.php'>Browse Tutorials by Category</a></li>";
-			echo "<li><a href='studentLogout.php'>Logout</a></li>";
-		?>
+		<li><a href='viewTutorials.php'>Browse Tutorials</a></li>
+		<li><a href='studentLogout.php'>Logout</a></li>
 	</ul>
 
 </body>

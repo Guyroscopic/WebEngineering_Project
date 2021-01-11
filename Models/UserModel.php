@@ -50,5 +50,4 @@
 
 		return $sql_query_result;
 	}
-
 ?>

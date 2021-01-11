@@ -29,7 +29,7 @@
 		$database_connection->close();
 
 		//Redirecting to view all tutorial page
-		header("location: ../Views/allTutorials.php?completed=true");
+		header("location: ../Views/viewTutorials.php?completed=true");
 
 	}
 	else{

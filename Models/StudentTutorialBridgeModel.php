@@ -51,4 +51,17 @@
 		
 	}
 
+	function getNumOfCompletedTutorialsByStudentEmail($email){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT COUNT(*) FROM student_tutorial_bridge WHERE " .
+		    				 "student_email='$email'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		
+		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+
+		return $sql_query_result;
+	}
+
 ?>
