@@ -14,9 +14,6 @@
 		    exit();
 		}*/
 		//$sql_query_result  = mysqli_fetch_assoc($sql_query_execute);
-
-		
-		//return $sql_query_execute;
 	}
 
 	function getParagaphsByTutorialID($tutorial_id){

@@ -20,6 +20,13 @@
 </head>
 <body>
 
+	<?php if(@$_GET["invalidAccess"]){ ?>
+
+		<p style="color: red">Your access was Invalid</p>
+	<?php } ?>
+
+	<h1>All Tutorials</h1>
+
 	<?php
 		echo "<h1>Welcome Student " . $username . "</h1>";
 		echo "<h3>Email ID: " . $email . "</h3>";		

@@ -42,10 +42,13 @@
 </head>
 <body>
 
+	<?php if(@isset($_GET["completed"])){ ?>
+	<p style="color: green">Tutorial Completed! Time for another one</p>
+	<?php } ?>
+
 	<h1>All Tutorials</h1>
 
 	<?php
-
 	//Displaying
 	echo "<ol>";
 	while($tutorial = $all_tutorials_SQL_result->fetch_assoc()){
@@ -57,7 +60,6 @@
 
 	}
 	echo "</ol>"
-
 	?>
 
 </body>

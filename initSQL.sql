@@ -20,7 +20,7 @@ INSERT INTO `student`(`email`, `username`, `password`) VALUES ("fatima@example.c
 INSERT INTO `student`(`email`, `username`, `password`) VALUES ("ghazala@example.com", "Qatil Haseena", "12345678");
 
 INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher1@example.com", "Teacher 1", "12345678");
-INSERT INTO `tecaher`(`email`, `username`, `password`) VALUES ("teacher1@example.com", "Teacher 1", "12345678");
+INSERT INTO `tecaher`(`email`, `username`, `password`) VALUES ("teacher3@example.com", "Teacher 3", "12345678");
 INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher2@example.com", "Teacher 2", "12345678");
 
 -- Creating and populating the "tutorial_category" table
@@ -52,8 +52,8 @@ ALTER TABLE tutorial
     REFERENCES teacher(email);
 
 -- Populating the "tutorial" table
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`) VALUES (1, "teacher1@example.com", "This is the FirstTutorial")
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`) VALUES (1, "teacher2@example.com", "This is the Second Tutorial")
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, "teacher1@example.com", "This is the FirstTutorial", "Description")
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, "teacher2@example.com", "This is the Second Tutorial", "Description")
 
 -- Creating the "paragraph" table
 CREATE TABLE `webproject`.`paragraph` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , `heading` VARCHAR(100) NOT NULL , `content` VARCHAR(5000) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB
@@ -89,3 +89,19 @@ ALTER TABLE question
     FOREIGN KEY (quiz_id)
     REFERENCES quiz(id);
 
+-- Creating the "student_tutorial_bridge" table
+CREATE TABLE `webproject`.`student_tutorial_bridge` ( `student_email` VARCHAR(100) NOT NULL , `tutorial_id` INT NOT NULL , `tutorial_rating` INT NOT NULL ) ENGINE = InnoDB;
+
+-- Adding the Foregin Key reference from "student_tutorial_bridge "to "student"
+ALTER TABLE student_tutorial_bridge
+    ADD CONSTRAINT tutorial_email_inSTB
+    FOREIGN KEY (student_email)
+    REFERENCES student(email);
+-- Adding the Foregin Key reference from "student_tutorial_bridge "to "tutorial"
+ALTER TABLE student_tutorial_bridge
+    ADD CONSTRAINT tutorial_id_inSTB
+    FOREIGN KEY (tutorial_id)
+    REFERENCES tutorial(id);
+
+-- Making the Composite Primary Key in "student_tutorial_bridge"
+ALTER TABLE `student_tutorial_bridge` ADD PRIMARY KEY( `student_email`, `tutorial_id`);

@@ -20,14 +20,14 @@
 </head>
 <body>
 
+	<?php if(@$_GET["invalidAccess"]){ ?>
+		<p style="color: red">Your access was Invalid</p>
+	<?php } ?>
+
 	<!-- Output div for an Successful Tutorial Creation -->
-	<?php
-		if(@$_GET["created"] == true){
-	?>
+	<?php if(@$_GET["created"]){ ?>
 		<div style="color: green">Tutorial Successfully Created!</div>
-	<?php
-		}
-	?>
+	<?php }	?>
 
 	<?php
 		echo "<h1>Welcome Teacher " . $username . "</h1>";
