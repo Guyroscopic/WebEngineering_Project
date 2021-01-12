@@ -119,14 +119,6 @@
 		}
 		?>
 	</form>
-	<form name="viewQuizForm" action="viewQuiz.php" method="POST">
-		<input type="hidden" name="tutorial_id" value=<?php echo $tutorial_id ?>>
-		<?php
-		if($match > 0){
-			echo "<button name='viewQuiz'>View Quiz for Tutorial</button>";	
-		}
-		?>
-	</form>
 
 	<!-- Form for marking current tutorial as comepleted along with the tutorial ID -->
 	<form name="completedTutrial" action="../Controller/CompletedTutorialController.php" method="POST">

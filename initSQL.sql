@@ -1,5 +1,12 @@
 CREATE DATABASE IF NOT EXISTS webproject;
 
+DROP TABLE student;
+DROP TABLE teacher;
+DROP TABLE tutorial;
+DROP TABLE tutorial_categeory;
+DROP TABLE paragraph;
+DROP TABLE quiz;
+DROP TABLE question;
 CREATE TABLE IF NOT EXISTS student(
 			
 	    email VARCHAR(100) NOT NULL PRIMARY KEY,

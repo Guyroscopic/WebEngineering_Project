@@ -28,11 +28,11 @@
 		$sql_query = "INSERT INTO `question`(`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`) VALUES ('$quiz_id', '$questionStatement', '$option1', '$option2', '$option3','$option4')";
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		if (!$sql_query_execute) {
-		    printf("Q Error: %s\n", mysqli_error($database_connection));
-		    exit();
+		//if (!$sql_query_execute) {
+		//    printf("Q Error: %s\n", mysqli_error($database_connection));
+		//    exit();
 		}
-	}
+	
 
 	function getQuiz($tutorial_id){
 
@@ -50,6 +50,21 @@
 		    exit();
 		}
 		$result = mysqli_fetch_array($sql_query_execute);
+		return $result;
+	}
+
+
+	function getAllQuizzes($email){
+
+		global $database_connection;
+
+		$sql_query = "SELECT * FROM quiz RIGHT JOIN
+					 tutorial WHERE quiz.tutorial_id = tutorial.id AND instructor = '$email'";
+
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		$result = mysqli_fetch_array($sql_query_execute);
+
 		return $result;
 	}
 

@@ -46,6 +46,7 @@
 		<?php
 			echo "<li><a href='allTutorials.php'>View All Tutorials</a></li>";
 			echo "<li><a href='publishedTutorials.php'>View Published Tutorials</a></li>";
+			echo "<li><a href='viewQuiz.php'>View All Quizzes</a></li>";
 			echo "<li><a href='createTutorial.php'>Create New Tutorial</a></li>";
 			echo "<li><a href='editTutorial.php'>Edit Existing Tutorials</a></li>";
 			echo "<li><a href='teacherLogout.php'>Logout</a></li>";
