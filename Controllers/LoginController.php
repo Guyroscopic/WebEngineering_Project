@@ -5,10 +5,10 @@
 	
 	/* Redirecting to Profile Page if user is Already Logged In */
 	if(isset($_SESSION["current_student_email"]) and isset($_SESSION["current_student_username"])){
-		header("location: studentProfile.php");
+		header("location: ../Views/studentProfile.php");
 	}
 	else if(isset($_SESSION["current_teacher_email"]) and isset($_SESSION["current_teacher_username"])){
-		header("location: teacherProfile.php");
+		header("location: ../ViewsteacherProfile.php");
 	}
 
 	/* Including the User Model */

@@ -1,4 +1,18 @@
-<!Doctype html>
+<?php
+    //Starting Session
+    session_start();
+
+    //Redirecting in case user is alread logged in 
+    if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
+        header("location: studentProfile.php");
+    }
+
+    if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+        header("location: teacherProfile.php");
+    }
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -69,6 +83,27 @@
     </section>
     
     <!-- NAVBAR PART END -->
+
+    <!-- Output divs for flash msgs -->
+    <?php if(@$_GET["notloggedin"] == true){ ?>
+        <div style="color: red">You need to Login to Access that Page</div>
+    <?php } ?>
+
+    <?php if(@$_GET["empty"] == true){ ?>
+        <div style="color: red">Enter Values Before Submitting</div>
+    <?php } ?>
+
+    <?php if(@$_GET["logoutbeforelogin"] == true){ ?>
+        <div style="color: red">You need to Login before Logging Out!'</div>
+    <?php } ?>
+
+    <?php if(@$_GET["invalidemail"]){ ?>
+        <div style="color: red">Invalid Email! Please Try Again</div>
+    <?php } ?>
+
+    <?php if(@$_GET["invalidpassword"]){ ?>
+        <div style="color: red">Wrong Password! Please Try Again</div>
+    <?php } ?>
     
     <!-- LOGIN PART START -->
     <div class="login-bg-img">
