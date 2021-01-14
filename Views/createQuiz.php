@@ -29,6 +29,15 @@
 </head>
 <body>	
 
+	<!-- Output div for an empty submissoin -->
+	<?php
+		if(@$_GET["Empty"] == true){
+	?>
+		<div style="color: red">OOPS! Looks like you left a field empty</div>
+	<?php
+		}
+	?>
+
 	<h1>Create Quiz</h1>
 
 	<form id="createQuiz" action="../Controllers/CreateQuizController.php" method="POST">

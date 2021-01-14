@@ -24,17 +24,8 @@
 	else{
 		header("location: login.php?notloggedin=true");
 	}
-?>
-	<?php
-	if(@$_GET["quizUpdated"] == 'true'){?>
-		<div style='color: green'>Quiz Updated Successfully</div>
-	<?php
-	}
 
-	if(@$_GET["Error"] == 'true'){?>
-		<div style='color: red'>Error</div>
-	<?php
-	}
+	
 	//Adding the required Models
 	require_once "../Models/QuizModel.php";
 

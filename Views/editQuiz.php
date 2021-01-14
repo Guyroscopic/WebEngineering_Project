@@ -22,30 +22,6 @@
 		header("location: login.php?notloggedin=true");
 	}
 ?>
-	<?php
-		if(@$_GET["created"] == true){
-	?>
-		<div style="color: green">Quiz Created Successfully</div>
-	<?php
-		}
-	?>
-
-	<!-- Output div for any unknown error -->
-	<?php
-		if(@$_GET["Error"] == true){
-	?>
-		<div style="color: red">An Unknown Error Occured!<br>Please Try Again!</div>
-	<?php
-		}
-	?>
-	<!-- Output div for any unknown error -->
-	<?php
-		if(@$_GET["Empty"] == true){
-	?>
-		<div style="color: red">An Unknown Error Occured!<br>Please Try Again!</div>
-	<?php
-		}
-	?>
 	
 
 <?php
@@ -72,6 +48,18 @@
 
 </head>
 <body>
+
+	<?php
+		if(@$_GET["Empty"] == true){
+	?>
+		<div style="color: red">OOPS! Looks like you left a field empty</div>
+	<?php
+		}
+	if(@$_GET["Error"] == true){?>
+		<div style='color: red'>Error</div>
+	<?php
+	}?>
+
 
 	<form name='UpdateQuizForm' method='POST' action='../Controllers/EditQuizController.php'>
 

@@ -26,9 +26,15 @@
 	//Handling the Form Submission
 	if(isset($_POST["update"])){
 
-		$num_of_questions     = $_POST["num_of_questions"];
-		$new_num_of_questions = $_POST["new_num_of_questions"];
+		$num_of_questions     = (int)$_POST["num_of_questions"];
+		$new_num_of_questions = (int)$_POST["new_num_of_questions"];
 		$quizId               = $_POST["quiz_id"];
+
+		$total_qs = $num_of_questions + $new_num_of_questions;
+
+		if(isset($_POST["new_num_of_questions"])){
+			$new_num_of_questions = $num_of_questions;
+		}
 
 		// adding questions to quiz
 		for($i=1; $i<=$new_num_of_questions; $i++){
@@ -61,31 +67,26 @@
 			$correct_answer = $_POST[$q_correct_answer];
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
-				header("location: ../Views/editQuiz.php?empty=true");
+				header("location: ../Views/teacherProfile.php?Empty=true");
 			}
 
 			if($i > $num_of_questions){
 				// calling addQuestions function to add questions to database
 				addQuestions($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);
 			}
-			else{
-				// calling addQuestions function to add questions to database
-				$updateQuiz = updateQuiz($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);
-			}
 
-			if($updateQuiz){
-				header("location: ../Views/teacherProfile.php?quizUpdated=true");	
+			elseif($i <= $num_of_questions){
+			// calling addQuestions function to add questions to database
+			$updateQuiz = updateQuiz($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);}
 			}
-			else{
-				header("location: ../Views/editQuiz.php?Error=true");
-			}
-		}
-
+		
+		header("location: ../Views/quiz.php?id='$quizId'");
 		//Closing the DB Connection
 		mysqli_close($database_connection);	
 	}
 
 	else{
 		header("location: ../Views/editQuiz.php?Error=true");
+		//echo "Unknown Error";
 	}
 ?>

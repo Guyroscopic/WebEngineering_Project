@@ -31,6 +31,7 @@
 		//if (!$sql_query_execute) {
 		//    printf("Q Error: %s\n", mysqli_error($database_connection));
 		//    exit();
+		return $sql_query_execute;
 		}
 	
 

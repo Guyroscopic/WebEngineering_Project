@@ -17,7 +17,7 @@
 
 		global $database_connection;
 
-		$sql_query = "UPDATE `question` SET `quiz_id`='$quiz_id', `statement`='$question_statement', `option1`='$option1', `option2`='$option2', `option3`='$option3', `option4`='$option4', `correct_option`='$correct_option' WHERE `quiz_id`='$quiz_id'";
+		$sql_query = "UPDATE `question` SET `statement`='$question_statement', `option1`='$option1', `option2`='$option2', `option3`='$option3', `option4`='$option4', `correct_option`='$correct_option' WHERE `quiz_id`='$quiz_id'";
 
 		$query_execute = mysqli_query($database_connection,$sql_query);
 
