@@ -37,14 +37,14 @@
 	?>
 
 	<?php
-		if(@$_GET["quizCreated"] == true){
+		if(@$_GET["quizCreated"]){
 	?>
 		<div style="color: green">Quiz Successfully Created!</div>
 	<?php
 		}
 	?>
 	<?php
-		if(@$_GET["quizUpdated"] == true){
+		if(@$_GET["quizUpdated"]){
 	?>
 		<div style="color: green">Quiz Successfully Updated!</div>
 	<?php

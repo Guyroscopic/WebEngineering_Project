@@ -49,26 +49,31 @@
 			$q_correct_answer	= "question".$i."_correct_answer";
 			$q_question_id        = "question".$i."_id";
 
-			$question  = $_POST[$question_statement];
-			$option1   = $_POST[$q_option_1];
-			$option2   = $_POST[$q_option_2];
+			$question  = stripslashes($_POST[$question_statement]);
+			$option1   = stripslashes($_POST[$q_option_1]);
+			$option2   = stripslashes($_POST[$q_option_2]);
 
 
 			if(!empty($_POST[$q_option_3])){
-				$option3 = $_POST[$q_option_3];
+				$option3 = stripslashes($_POST[$q_option_3]);
 			}
 			else{
 				$option3 = "";
 			}
 			if(!empty($_POST[$q_option_4])){
-				$option4   = $_POST[$q_option_4];
+				$option4   = stripslashes($_POST[$q_option_4]);
 			}
 			else{
 				$option4 = "";
 			}
 
-			$select_correct_answer = $_POST[$q_correct_answer];
-			$correct_answer = $_POST[$select_correct_answer];
+			$select_correct_answer = stripslashes($_POST[$q_correct_answer]);
+			if(!$select_correct_answer){
+				header("location: ../Views/editQuiz.php?Empty=true");
+				exit();
+			}
+			
+			$correct_answer = stripslashes($_POST[$select_correct_answer]);
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
 				header("location: ../Views/teacherProfile.php?Empty=true");
@@ -80,8 +85,7 @@
 			}
 
 			elseif($i <= $num_of_questions){
-				$question_id = $_POST[$q_question_id];
-
+				$question_id = stripslashes($_POST[$q_question_id]);
 				// calling addQuestions function to add questions to database
 				$updateQuiz = updateQuiz($question_id, $question, $option1, $option2, $option3, $option4, $correct_answer);}
 		}

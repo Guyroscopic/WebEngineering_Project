@@ -25,9 +25,9 @@
 	//Handling the Form Submission
 	if(isset($_POST["create"])){
 
-		$num_of_questions = $_POST["numOfQuestions"];
-		$tutorial_id	  = $_POST["tutorialId"];
-		$quiz_topic		  = $_POST["quiz_topic"];
+		$num_of_questions = stripslashes($_POST["numOfQuestions"]);
+		$tutorial_id	  = stripslashes($_POST["tutorialId"]);
+		$quiz_topic		  = stripslashes($_POST["quiz_topic"]);
 		// creating quiz
 		$quiz_id		  = addQuiz($tutorial_id, $quiz_topic);
 
@@ -41,17 +41,23 @@
 			$q_option_4			= "question".$i."_option4";
 			$q_correct_answer	= "question".$i."_correct_answer";
 
-			$quizTopic = $_POST["quiz_topic"];
-			$question  = $_POST[$question_statement];
-			$option1   = $_POST[$q_option_1];
-			$option2   = $_POST[$q_option_2];
-			$option3   = $_POST[$q_option_3];
-			$option4   = $_POST[$q_option_4];
-			$correct_answer_post = $_POST[$q_correct_answer];
-			$correct_answer = $_POST[$correct_answer];
+			$quizTopic = stripslashes($_POST["quiz_topic"]);
+			$question  = stripslashes($_POST[$question_statement]);
+			$option1   = stripslashes($_POST[$q_option_1]);
+			$option2   = stripslashes($_POST[$q_option_2]);
+			$option3   = stripslashes($_POST[$q_option_3]);
+			$option4   = stripslashes($_POST[$q_option_4]);
+			$correct_answer_post = stripslashes($_POST[$q_correct_answer]);
+
+			if(!$correct_answer_post){
+				header("location: ../Views/createQuiz.php?Empty=true");
+				exit();
+			}
+
+			$correct_answer = stripslashes($_POST[$correct_answer]);
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
-				header("location: ../Views/createQuiz.php?empty=true");
+				header("location: ../Views/createQuiz.php?Empty=true");
 			}
 
 			// calling addQuestions function to add questions to database
@@ -64,6 +70,6 @@
 	}
 
 	else{
-		header("location: ../Views/createQuiz.php?error=true");
+		header("location: ../Views/createQuiz.php?Error=true");
 	}
 ?>

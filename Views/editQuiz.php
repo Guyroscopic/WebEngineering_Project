@@ -50,12 +50,12 @@
 <body>
 
 	<?php
-		if(@$_GET["Empty"] == true){
+		if(@$_GET["Empty"]){
 	?>
 		<div style="color: red">OOPS! Looks like you left a field empty</div>
 	<?php
 		}
-	if(@$_GET["Error"] == true){?>
+	if(@$_GET["Error"]){?>
 		<div style='color: red'>Error</div>
 	<?php
 	}?>
@@ -94,14 +94,15 @@
 					$quiz_question_list .= "<li><input type='text' name='question".$i."_option4' value=''></li>";
 				}
 
+
 				$quiz_question_list .= "</ul>";
 				$quiz_question_list .= "Correct Answer: <select name='question".$i."_correct_answer' id='correct_answer'>".
-							  "<option value='question".$i."_select'>Select</option>".
-							  "<option value='question".$i."_option1'>Option 1</option>".
-							  "<option value='question".$i."_option2'>Option 2</option>".
-							  "<option value='question".$i."_option3'>Option 3</option>".
-							  "<option value='question".$i."_option4'>Option 4</option>".
-							"</select><br>";
+							  "<option value=''>Select</option>".
+							  "<option value='question".$i."_option1'". (($correct_option == $option1) ? "selected='selected'":'').">Option 1</option>".
+							  "<option value='question".$i."_option2'". (($correct_option == $option2) ? "selected='selected'":'').">Option 2</option>".
+							  "<option value='question".$i."_option3'". (($correct_option == $option3) ? "selected='selected'":'').">Option 3</option>".
+							  "<option value='question".$i."_option4'". (($correct_option == $option4) ? "selected='selected'":'').">Option 4</option>".
+							  "</select><br>";
 				$quiz_question_list .= "<input type='hidden' name='question".$i."_id' value='". $question_id."'>";
 			}
 			
@@ -139,7 +140,7 @@
 						  "<input type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
 						  "<label>Correct Answer: </label>" +
 						  "'<select name='question"+clicked+"_correct_answer' id='correct_answer'>"+
-						  	  "<option value='question"+clicked+"_select'>Select</option>"+
+						  	  "<option value=''>Select</option>"+
 							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
 							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
 							  "<option value='question"+clicked+"_option3'>Option 3</option>"+

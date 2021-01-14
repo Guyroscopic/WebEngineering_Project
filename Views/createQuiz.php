@@ -31,9 +31,18 @@
 
 	<!-- Output div for an empty submissoin -->
 	<?php
-		if(@$_GET["Empty"] == true){
+		if(@$_GET["Empty"]){
 	?>
 		<div style="color: red">OOPS! Looks like you left a field empty</div>
+	<?php
+		}
+	?>
+
+	<!-- Output div for an Error -->
+	<?php
+		if(@$_GET["Error"]){
+	?>
+		<div style="color: red">An Unknown Error</div>
 	<?php
 		}
 	?>
@@ -68,7 +77,7 @@
 
 		<label>Correct Answer: </label>
 		<select name="question1_correct_answer" id="correct_answer">
-		  <option value='question1_select'>Select</option>
+		  <option value=''>Select</option>
 		  <option value="question1_option1">Option 1</option>
 		  <option value="question1_option2">Option 2</option>
 		  <option value="question1_option3">Option 3</option>
@@ -104,7 +113,7 @@
 						  "<input type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
 						  "<label>Correct Answer: </label>" +
 						  "<select name='question"+clicked+"_correct_answer'>"+
-						  	  "<option value='question"+clicked+"_select'>Select</option>"+
+						  	  "<option value=''>Select</option>"+
 							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
 							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
 							  "<option value='question"+clicked+"_option3'>Option 3</option>"+

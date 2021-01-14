@@ -73,8 +73,12 @@
 	<!-- Displaying The Quiz Content -->
 	<?php
 			
-		if($teacher_loggedin){
+		if(mysqli_num_rows($quiz_question) == 0){
+			echo "No Questions In This Quiz";
+			exit();
+		}
 
+		if($teacher_loggedin){
 
 			if($match > 0){
 			echo "<form name='EditQuizForm' method='POST' action='editQuiz.php'>

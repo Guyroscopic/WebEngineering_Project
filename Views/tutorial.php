@@ -110,7 +110,6 @@
 	</div>
 	<?php } ?> 
 
-
 	<?php
 	//Dispaying Paragraphs of the Tutorial
 	while($paragraph = $current_tutorial_pargraphs_SQL_result->fetch_assoc()){
@@ -119,12 +118,6 @@
 		echo "<p>"  . $paragraph["content"]  . "</p>\n";
 	}	
 	?>
-
-	<form name="viewQuizForm" action="viewQuiz.php" method="POST">
-
-		<input type="hidden" name="tutorial_id" value=<?php echo $tutorial_id ?>>
-		<button name='view'>view Quizzes for Tutorial</button>
-	</form><br>
 	
 	<!-- Checking if the current user is a teacher and if its his own tutorial, and displaying the relevant 	 informating -->
 	<?php if($match > 0){ ?>
@@ -192,6 +185,17 @@
 			echo "<p>No Quiz uploaded for this tutorial</p>";	
 		}
 	}
+	?>
+
+	<?php
+
+		if($teacher_loggedin){?>
+			<form name="viewQuizForm" action="viewQuiz.php" method="POST">
+				<input type="hidden" name="tutorial_id" value=<?php echo $tutorial_id ?>>
+				<button name='view'>view Quizzes for Tutorial</button>
+			</form><br>
+	<?php	}
+
 	?>
 
 </body>
