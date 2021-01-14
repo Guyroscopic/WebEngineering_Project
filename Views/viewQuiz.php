@@ -24,17 +24,8 @@
 	else{
 		header("location: login.php?notloggedin=true");
 	}
-?>
-	<?php
-	if(@$_GET["quizUpdated"] == 'true'){?>
-		<div style='color: green'>Quiz Updated Successfully</div>
-	<?php
-	}
 
-	if(@$_GET["Error"] == 'true'){?>
-		<div style='color: red'>Error</div>
-	<?php
-	}
+	
 	//Adding the required Models
 	require_once "../Models/QuizModel.php";
 
@@ -55,7 +46,7 @@
 		echo "<ol>";
 		while($row = mysqli_fetch_assoc($quiz)) {
 
-			echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["Topic"]."</a></li><br>";
+			echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
 		}
 		echo "</ol>";
 	}

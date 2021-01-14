@@ -41,13 +41,14 @@
 			$q_option_4			= "question".$i."_option4";
 			$q_correct_answer	= "question".$i."_correct_answer";
 
-			$quizTopic = $_POST["quizTopic"];
+			$quizTopic = $_POST["quiz_topic"];
 			$question  = $_POST[$question_statement];
 			$option1   = $_POST[$q_option_1];
 			$option2   = $_POST[$q_option_2];
 			$option3   = $_POST[$q_option_3];
 			$option4   = $_POST[$q_option_4];
-			$correct_answer = $_POST[$q_correct_answer];
+			$correct_answer_post = $_POST[$q_correct_answer];
+			$correct_answer = $_POST[$correct_answer];
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
 				header("location: ../Views/createQuiz.php?empty=true");

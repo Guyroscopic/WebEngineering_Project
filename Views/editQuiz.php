@@ -22,30 +22,6 @@
 		header("location: login.php?notloggedin=true");
 	}
 ?>
-	<?php
-		if(@$_GET["created"] == true){
-	?>
-		<div style="color: green">Quiz Created Successfully</div>
-	<?php
-		}
-	?>
-
-	<!-- Output div for any unknown error -->
-	<?php
-		if(@$_GET["Error"] == true){
-	?>
-		<div style="color: red">An Unknown Error Occured!<br>Please Try Again!</div>
-	<?php
-		}
-	?>
-	<!-- Output div for any unknown error -->
-	<?php
-		if(@$_GET["Empty"] == true){
-	?>
-		<div style="color: red">An Unknown Error Occured!<br>Please Try Again!</div>
-	<?php
-		}
-	?>
 	
 
 <?php
@@ -73,6 +49,18 @@
 </head>
 <body>
 
+	<?php
+		if(@$_GET["Empty"] == true){
+	?>
+		<div style="color: red">OOPS! Looks like you left a field empty</div>
+	<?php
+		}
+	if(@$_GET["Error"] == true){?>
+		<div style='color: red'>Error</div>
+	<?php
+	}?>
+
+
 	<form name='UpdateQuizForm' method='POST' action='../Controllers/EditQuizController.php'>
 
 		<?php
@@ -88,6 +76,7 @@
 				$option3   		 = $question["option3"];
 				$option4   		 = $question["option4"];
 				$correct_option  = $question["correct_option"];
+				$question_id 	 = $question["id"];
 
 				$quiz_question_list .= "<li><input type='text' name='question".$i."' value='".$statement.
 					 "'><ul><li><input type='text' name='question".$i."_option1' value='".$option1."'></li><li><input type='text' name='question".$i."_option2' value='".$option2."''></li>";
@@ -106,7 +95,14 @@
 				}
 
 				$quiz_question_list .= "</ul>";
-				$quiz_question_list .= "Correct Answer: <input type='text' name='question".$i."_correct_answer' value='".$correct_option."'>";
+				$quiz_question_list .= "Correct Answer: <select name='question".$i."_correct_answer' id='correct_answer'>".
+							  "<option value='question".$i."_select'>Select</option>".
+							  "<option value='question".$i."_option1'>Option 1</option>".
+							  "<option value='question".$i."_option2'>Option 2</option>".
+							  "<option value='question".$i."_option3'>Option 3</option>".
+							  "<option value='question".$i."_option4'>Option 4</option>".
+							"</select><br>";
+				$quiz_question_list .= "<input type='hidden' name='question".$i."_id' value='". $question_id."'>";
 			}
 			
 			$quiz_question_list .= "</ol>";
@@ -142,8 +138,13 @@
 						  "<label>Option4: </label>"+
 						  "<input type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
 						  "<label>Correct Answer: </label>" +
-						  "<input type='text' id='correct_answer' name='question"+clicked+"_correct_answer'" + 
-				  		  "placeholder='Write the Correct Answer'><br>";
+						  "'<select name='question"+clicked+"_correct_answer' id='correct_answer'>"+
+						  	  "<option value='question"+clicked+"_select'>Select</option>"+
+							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
+							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
+							  "<option value='question"+clicked+"_option3'>Option 3</option>"+
+							  "<option value='question"+clicked+"_option4'>Option 4</option>"+
+							"</select><br><br>";
 									  
 			$("#newNumOfQuestions").attr("value", clicked);
 			$("#quiz_list").after(str);
