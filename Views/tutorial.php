@@ -167,7 +167,7 @@
 			$quiz_num += 1;
 		}
 		
-		//Notifying Student if no Quiz is uploaded for this quiz 
+		//Notifying Student if no Quiz is uploaded for this tutorial
 		if(!($quiz_num > 1)){
 			echo "<p>No Quiz uploaded for this tutorial</p>";	
 		}

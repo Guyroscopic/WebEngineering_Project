@@ -30,13 +30,7 @@
 		$sql_query = "INSERT INTO " . $userType . "(`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		//echo $sql_query_execute ? 'true' : 'false';
-		/*if (!$sql_query_execute) {
-		    printf("Error: %s\n", mysqli_error($database_connection));
-		    exit();
-		}*/
 
-		//$database_connection->close();
 		return $sql_query_execute;
 		}
 
