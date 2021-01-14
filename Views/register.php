@@ -1,57 +1,205 @@
-<!DOCTYPE html>
-<html>
+<!Doctype html>
+<html lang="en">
 <head>
-	<title>Register Here!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+
+    <!-- Title -->
+    <title>LOGIN</title>
+
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+    <!-- Line Icons css -->
+    <link rel="stylesheet" href="../assets/css/LineIcons.css"> 
+    
+    <!-- Slick css -->
+    <link rel="stylesheet" href="../assets/css/slick.css"> 
+
+    <!-- Animate css -->
+    <link rel="stylesheet" href="../assets/css/animate.css">
+
+    <!-- Default css -->
+    <link rel="stylesheet" href="../assets/css/default.css">
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+    
 <body>
+    <!-- NAVBAR PART START -->
+    <section class="header-area">
+        <div class="navbar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="#">
+                                <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
+                            </a>
 
-	<h2>Sign Up</h2>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                            </button>
 
-        <?php
-                if(@$_GET["Invalid"] == true){
-        ?>
-                <div><?php echo $_GET["Invalid"]; ?></div>
-        <?php
-                }
-        ?>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                        <a class="page-scroll" href="/webproject">HOME</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="about.php">ABOUT</a>
+                                    </li>
+                                    <li><input style="margin-top: 15px;margin-left: 60px; margin-bottom: 20px; width: 200%;" type="text" placeholder="Search tutorial"></li> 
+                                </ul>
+                            </div>
 
-        <?php
-                if(@$_GET["UserExists"] == true){
-        ?>
-                <div><?php echo $_GET["UserExists"]; ?></div>
-        <?php
-                }
+                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
+                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
+                            </div>
+                        </nav> 
+                    </div>
+                </div> 
+            </div> 
+        </div>
+    </section>
+    
+    <!-- NAVBAR PART END -->
+    
+    <!-- REGISTRATION PART START -->
+    <div class="main-register-form">
+            <div class="register">
+                <h2>Register Here</h2>
+                <form id="register" action="#">
+                    <div class="radio">
+                        <label>Register as</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="student" name="registertype" class="student" required>
+                        <span id="student">Student</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" value="teacher" name="registertype" class="teacher" required>
+                        <span id="teacher">Teacher</span>
+                    </div>
+                    <br>
+                    
+                    <label>First Name</label>
+                    <br>
+                    <input type="text" name="fname" id="name" placeholder="Enter Your First Name">
+                    <br><br>
+                    
+                    <label>Last Name</label>
+                    <br>
+                    <input type="text" name="lname" id="name" placeholder="Enter Your Last Name">
+                    <br><br>
+                    
+                    <label>Email</label>
+                    <br>
+                    <input type="email" name="email" id="name" placeholder="Enter Your Valid Email">
+                    <br><br>
+                    
+                    <label>Username</label>
+                    <br>
+                    <input type="text" name="uname" id="name" placeholder="Enter Your Username">
+                    <br><br>
+                    
+                    <label>Phone</label>
+                    <br>
+                    <input type="text" name="phone" id="phone" placeholder="Enter Your Phone no.">
+                    <br><br>
+                    
+                    <label>Gender</label>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gender" id="male">
+                    <span id="male">Male</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gender" id="female">
+                    <span id="female">Female</span>
+                    <br><br>
+                    
+                    <label>Password</label>
+                    <br>
+                    <input type="password" name="pass" id="password" placeholder="Enter Your Password">
+                    <br><br>
+                    
+                    <label>Confirm Password</label>
+                    <br>
+                    <input type="password" name="pass2" id="password" placeholder="Confirm Your Password">
+                    <br><br>
+                    
+                    <div id ="submit">
+                        <input type="submit" value="Register">
+                    </div>
 
-        ?>     
+                    <div id="login">Already have an account?
+                        <a href="login.php">Login Here</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    <!-- REGISTRATION PART END -->
 
-        
+    <!-- SIDEBAR PART START -->
+    <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="#"><img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img1"></a>
+            </div> <!-- logo -->
+            <div class="sidebar-menu">
+                <ul>
+                   
+                    <li class="nav-item">
+                        <a class="page-scroll" href="about.php">About Us</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="contactus.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="#">Login as Admin</a>
+                    </li>
+                </ul>
+            </div> <!-- menu -->
+          <div>
+        </div> 
+        </div> <!-- content -->
+    </div> 
+    <!-- SIDEBAR PART ENDS -->
 
-    <label for="userType">SignUp as:</label>
-        <select name="userType"  form="signupForm">
-          <option value="student">Student</option>
-          <option value="teacher">Teacher</option>
-        </select>
-        <br><br>
 
-	<form action="../Controllers/SignupController.php" method="POST" id="signupForm">
+    <!-- Jquery js -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script> 
 
-		<label>Username</label>
-        <input type="text" name="username" placeholder="Enter Your Name Here">
-        <br><br>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
 
-        <label>Email</label>
-        <input type="text" name="email" placeholder="Enter Your Email Here">
-        <br><br>
 
-        <label>Password</label>
-        <input type="password" name="password">
-        <br><br>
+    <!-- Slick js -->
+    <script src="assets/js/slick.min.js"></script>
 
-        <label>Confirm Password</label>
-        <input type="password" name="confirm-password">
-        <br><br>
-        <input type="submit" name="submit">
-	</form>
+    <!-- Isotope js -->
+    <script src="assets/js/isotope.pkgd.min.js"></script>
 
-</body>
+    <!-- Images Loaded js -->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script> 
+    
+    <!-- Scrolling js -->
+    <script src="assets/js/scrolling-nav.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script> 
+
+    <!-- wow js -->
+    <script src="assets/js/wow.min.js"></script>
+
+    <!-- Main js -->
+    <script src="assets/js/main.js"></script>
+    
+    </body>
+
 </html>
