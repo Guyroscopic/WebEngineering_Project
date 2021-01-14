@@ -112,7 +112,7 @@
                                         <a class="page-scroll" href="Views/login.php">LOGIN</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="register.php">Register</a>
+                                        <a class="page-scroll" href="Views/register.php">Register</a>
                                     </li>
                                     <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li> 
                                 </ul>
