@@ -29,6 +29,9 @@
 	//Extracting Quiz ID from URL and fetching the respective Quiz and Its Questions
 	$quiz_id 		  = $_GET["id"];
 
+	$tutorial_id_array= getTutorialByQuizId($quiz_id);
+	$tutorial_id      = $tutorial_id_array["tutorial_id"];
+
 	$quiz 	 		  = getQuizById($quiz_id);
 	$quiz_question    = getQuizQuestionById($quiz_id);
 
@@ -71,6 +74,7 @@
 	<?php
 			
 		if($teacher_loggedin){
+
 
 			if($match > 0){
 			echo "<form name='EditQuizForm' method='POST' action='editQuiz.php'>

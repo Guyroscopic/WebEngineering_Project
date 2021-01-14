@@ -27,9 +27,7 @@
 	<title>WebEng Project</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
-
-	
+<body>	
 
 	<h1>Create Quiz</h1>
 
@@ -64,7 +62,7 @@
 				  placeholder='Write the Correct Answer' required><br>
 
 
-		<input type="button" id="addQuestionButton" onclick="addQuestions()" value="Add More Question"></button><br><br>
+		<input type="button" id="addQuestionButton" onclick="addQuestions()" value="Add More Question"><br><br>
 
 		<input id="numOfQuestions" type="hidden" name="numOfQuestions" value=1>
 		<button name="create">Create</button>

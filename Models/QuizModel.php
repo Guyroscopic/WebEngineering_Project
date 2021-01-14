@@ -94,4 +94,15 @@
 
 	}
 
+	function getTutorialByQuizId($quiz_id){
+
+		global $database_connection;
+
+		$sql_query = "SELECT `tutorial_id` FROM `quiz` WHERE `id`='$quiz_id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		$tutorial_id = mysqli_fetch_array($sql_query_execute);
+
+		return $tutorial_id;
+	}
+
 ?>

@@ -21,15 +21,17 @@
 
 	//Adding the required Models
 	require_once "../Models/QuizQuestionModel.php";
+	require_once "../Models/QuizModel.php";
 
 	//Handling the Form Submission
 	if(isset($_POST["update"])){
 
-		$num_of_questions = $_POST["num_of_questions"];
-		$quizId           = $_POST["quiz_id"];
+		$num_of_questions     = $_POST["num_of_questions"];
+		$new_num_of_questions = $_POST["new_num_of_questions"];
+		$quizId               = $_POST["quiz_id"];
 
 		// adding questions to quiz
-		for($i=1; $i<=$num_of_questions; $i++){
+		for($i=1; $i<=$new_num_of_questions; $i++){
 
 			$question_statement = "question".$i;
 			$q_option_1			= "question".$i."_option1";
@@ -62,8 +64,15 @@
 				header("location: ../Views/editQuiz.php?empty=true");
 			}
 
-			// calling addQuestions function to add questions to database
-			$updateQuiz = updateQuiz($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);
+			if($i > $num_of_questions){
+				// calling addQuestions function to add questions to database
+				addQuestions($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);
+			}
+			else{
+				// calling addQuestions function to add questions to database
+				$updateQuiz = updateQuiz($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);
+			}
+
 			if($updateQuiz){
 				header("location: ../Views/teacherProfile.php?quizUpdated=true");	
 			}

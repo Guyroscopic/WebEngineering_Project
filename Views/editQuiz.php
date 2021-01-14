@@ -61,13 +61,22 @@
 
 	$quiz 	 		  = getQuizById($quiz_id);
 	$quiz_question    = getQuizQuestionById($quiz_id);
+?>
 
-	echo "Edit Quiz";
-	echo  $quiz_id;
+<!DOCTYPE html>
+<html>
+<head>
 
-		echo "<form name='UpdateQuizForm' method='POST' action='../Controllers/EditQuizController.php'>";
-	
-			$quiz_question_list .= "<ol>";
+	<title><?php echo "Edit Quiz"; echo  $quiz_id; ?></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+	<form name='UpdateQuizForm' method='POST' action='../Controllers/EditQuizController.php'>
+
+		<?php
+			$quiz_question_list .= "<ol id='quiz_list'>";
 			while($question = mysqli_fetch_assoc($quiz_question)){
 
 				$num_of_questions += 1;
@@ -102,9 +111,44 @@
 			
 			$quiz_question_list .= "</ol>";
 			echo $quiz_question_list;
-	
-			echo "<input type='hidden' value='". $quiz_id ."' name='quiz_id'>
-				<input type='hidden' value='". $num_of_questions ."' name='num_of_questions'><input type='submit' name='update' value='Update'>
+		?>
+
+		<input type='hidden' value='<?php echo $quiz_id; ?>' name='quiz_id'>
+		<input type='hidden' value='<?php echo $num_of_questions; ?>' name='num_of_questions' id='numOfQuestions'>
+		<input type='hidden' value='' name='new_num_of_questions' id='newNumOfQuestions'>
+		<input type='button' id='addQuestionButton' onclick='addQuestions()' value='Add More Question'>
+		<input type='submit' name='update' value='Update'>
 				
-			</form>";
-?>
+		</form>
+
+
+	<script type="text/javascript">
+		
+		let clicked = parseInt(document.getElementById("numOfQuestions").value);
+
+		/* Function to dynamically add questions to a Quiz */
+		function addQuestions(){
+
+			clicked    += 1;
+			str         = "<br><br><label>Question "+clicked+": </label>" +
+						  "<input type='text' name='question"+ clicked + "' placeholder='Enter Question' required><br>"+
+
+						  "<label>Option1: </label>" + 
+						  "<input type='text' id='option1' name='question"+clicked+"_option1' placeholder='Enter the First Choice' required><br>" +
+						  "<label>Option2: </label>" + 
+						  "<input type='text' id='option2' name='question"+clicked+"_option2' placeholder='Enter the First Choice' required><br>" +
+						  "<label>Option3: </label>" +
+						  "<input type='text' id='option3' name='question"+clicked+"_option3' placeholder='Enter the Second Choice(optional)'><br>"+
+						  "<label>Option4: </label>"+
+						  "<input type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
+						  "<label>Correct Answer: </label>" +
+						  "<input type='text' id='correct_answer' name='question"+clicked+"_correct_answer'" + 
+				  		  "placeholder='Write the Correct Answer'><br>";
+									  
+			$("#newNumOfQuestions").attr("value", clicked);
+			$("#quiz_list").after(str);
+		}
+
+	</script>
+</body>
+</html>
