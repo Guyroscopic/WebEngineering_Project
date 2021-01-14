@@ -33,6 +33,13 @@
 </head>
 <body>
 
+    <!-- Output Div for Successful Logout msg -->
+    <?php
+        //require 'DBinit.php';
+        if(@$_GET["loggedout"] == true){
+    ?>
+        <div style="color: green">Logged out Successfully!</div>
+    <?php } ?>
 
     <!-- NAVBAR PART START -->
 
@@ -58,10 +65,10 @@
                                         <a class="page-scroll" href="About.html">ABOUT</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="TutorsPage.html">TUTORS</a>
+                                        <a class="page-scroll" href="TutorsPage.html">Login</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Contact.html">Contact</a>
+                                        <a class="page-scroll" href="Contact.html">Register</a>
                                     </li>
                                     <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li>
                                     </ul> 

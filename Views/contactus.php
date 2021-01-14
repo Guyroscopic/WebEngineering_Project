@@ -1,13 +1,15 @@
-<!Doctype html>
+<!doctype html>
 <html lang="en">
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
 
     <!-- Title -->
-    <title>LOGIN</title>
+    <title>Tutor</title>
+
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -26,13 +28,21 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    
-    <!-- Icons Stylesheet Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <style>
+         @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+         body {
+      background-color: #D3D3D3;
+    }
+    </style>
+
+
 </head>
-    
 <body>
+
+
     <!-- NAVBAR PART START -->
+
     <section class="header-area">
         <div class="navbar-area">
             <div class="container">
@@ -51,73 +61,32 @@
                                     <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
+                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 60px; margin-bottom: 20px; width: 200%;" type="text" placeholder="Search tutorial"></li> 
+                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="login.php">LOGIN</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="register.php">REGISTER</a>
+                                    </li>
+                                   <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li> 
+                                    </ul> 
                                 </ul>
                             </div>
 
                             <div class="navbar-btn d-none mt-15 d-lg-inline-block">
                                 <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
                             </div>
-                        </nav> 
+                        </nav> <!-- navbar -->
                     </div>
-                </div> 
-            </div> 
-        </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- navbar area -->
     </section>
-    
-    <!-- NAVBAR PART END -->
-    
-    <!-- LOGIN PART START -->
-    <div class="login-bg-img">
-        <div class="login-box">
-            <header>Login Here</header>
-            <form action="../Controllers/LoginController.php" id="loginForm" method="POST">
-                <div class="login-type">
-                    <label>Login as</label><!-- Login Type -->
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" class="student" value="student" name="loginType" required>
-                    <span id="student">Student</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" class="teacher" value="teacher" name="loginType" required>
-                    <span id="teacher">Teacher</span>
-                </div>
-                <br>
-                
-                <div class="field"><!-- Email or Username Input fields -->
-                    <span class="fa fa-user"></span>
-                    <input type="text" name="email" placeholder="yourname@example.com" required>
-                </div>
-                <br>
-                
-                <div class="field"><!-- Password field -->
-                    <span class="fa fa-lock"></span>
-                    <input type="password" class="pass-key" name="password" placeholder="Password" required>
-                    <span class="show">SHOW</span>
-                </div>
-                
-                <div class="forgot-pass">
-                    <a href="#">Forgot Password?</a>
-                </div><br>
-                <div class="field">
-                    <button type="submit" name="login">LOGIN</button>
-                </div>
-                <div class="rem-check">
-                    <input type="checkbox"><span>Remember me</span>
-                </div>
-            </form>
-            <br><br>
-        
-        <div class="log-register">Don't have an account?
-          <a href="register.php">Register Here</a>
-        </div>
-      </div>
-    </div>
-    <!-- LOGIN PART END -->
 
-    <!-- SIDEBAR PART START -->
+    <!--====== SAIDEBAR PART START ======-->
+
     <div class="sidebar-right">
         <div class="sidebar-close">
             <a class="close" href="#close"><i class="lni-close"></i></a>
@@ -129,11 +98,11 @@
             <div class="sidebar-menu">
                 <ul>
                     <li class="nav-item">
-                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
+                        <a class="page-scroll" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="page-scroll" href="about.php">About</a>
-                    </li>                    
+                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
+                    </li>
                     <li class="nav-item">
                         <a class="page-scroll" href="contactus.php">Contact Us</a>
                     </li>
@@ -146,23 +115,53 @@
         </div> 
         </div> <!-- content -->
     </div> 
-    <!-- SIDEBAR PART ENDS -->
+    <div class="overlay-right"></div>
 
+    <!--====== SAIDEBAR PART ENDS ======-->
 
-    <!-- Jquery js -->
+ 
+  <!--====== Contact PART STARTS ======-->
+   
+                <div class="col-lg-4 col-md-7 col-sm-9">
+
+                        <div class="mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
+                            <div class="text-color">
+                            <h1>Contact</h1>
+                            <p><b>For further queries you can reach us out through our email 
+                            adresses.</b></p>
+                            <p>Click on the picture and talk to us.</p>
+                        </div>
+                            
+                        </div>
+                            <div id="container">
+                            <div id="box">
+                                <div class="mt-35 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
+                                <a href="mailto:fkhalid.bese18seecs@seecs.edu.pk"><img src="../assets/images/student-1.jpg" alt="s1" class="img2"></a>
+                                <a href="mailto:larjamand.bese18seecs@seecs.edu.pk"><img src="../assets/images/student-2.jpg" alt="s2"class="img2"></a>
+                                <a href="mailto:arafey.bese18seecs@seecs.edu.pk"><img src="../assets/images/student-3.jpg" alt="s3"class="img2"></a>
+                                <a href="mailto:gbibi.bese18seecs@seecs.edu.pk"><img src="../assets/images/student-4.jpg" alt="s4"class="img2"></a>
+                            </div>
+                            </div>
+                        </div> 
+                </div>
+
+    <!--====== Contact PART ENDS ======-->
+
+    <!--====== jquery js ======-->
+ 
     <script src="../assets/js/jquery-1.12.4.min.js"></script> 
 
-    <!-- Bootstrap js -->
+    <!--====== Bootstrap js ======-->
     <script src="../assets/js/bootstrap.min.js"></script>
 
 
-    <!-- Slick js -->
+    <!--====== Slick js ======-->
     <script src="../assets/js/slick.min.js"></script>
 
-    <!-- Isotope js -->
+    <!--====== Isotope js ======-->
     <script src="../assets/js/isotope.pkgd.min.js"></script>
 
-    <!-- Images Loaded js -->
+    <!--====== Images Loaded js ======-->
     <script src="../assets/js/imagesloaded.pkgd.min.js"></script> 
     
     <!-- Scrolling js -->
@@ -174,7 +173,7 @@
 
     <!-- Main js -->
     <script src="../assets/js/main.js"></script>
-    
-    </body>
+
+</body>
 
 </html>

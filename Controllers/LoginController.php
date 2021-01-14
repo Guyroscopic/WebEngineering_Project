@@ -72,4 +72,7 @@
 			header("location: ../Views/login.php?invalidemail=true");
 		}				
 	}
+	else{
+		echo "login not set";
+	}
 ?>

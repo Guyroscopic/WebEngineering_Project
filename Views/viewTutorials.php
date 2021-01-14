@@ -65,7 +65,7 @@
 		<select name="tutorialCategory">
 			<option value="all">All</option>
 			<?php
-				while($row = $all_tutorial_categories_SQL_result->fetch_assoc()) {
+				while($row = mysqli_fetch_assoc($all_tutorial_categories_SQL_result)) {
 
 					if($category_id == $row["id"]){			
 						echo "<option value='" . $row["id"] . "' selected>" . $row["name"] . "</option>";
@@ -82,12 +82,17 @@
 	<?php
 	//Displaying
 	echo "<ol>";
-	while($tutorial = $tutorials_SQL_result->fetch_assoc()){
+	while($tutorial = mysqli_fetch_assoc($tutorials_SQL_result)){
 
 		echo "<li>";
 		echo "<a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] . "</a><br>";
-		echo "<p>" . $tutorial["description"] . "</p><br>";
-		echo "</li>";
+		if($tutorial["video"]){
+			echo "<p>Video Based Tutorial | " . $tutorial["description"] ."</p>";
+		}
+		else{
+			echo "<p>Text Based Tutorial | "  . $tutorial["description"] ."</p>";
+		}		
+		echo "<br></li>";
 
 	}
 	echo "</ol>"
