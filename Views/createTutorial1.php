@@ -20,7 +20,6 @@
 	//Closing the connection
 	global $database_connection;
 	mysqli_close($database_connection);
-
 ?>
 
 <!DOCTYPE html>
