@@ -47,12 +47,12 @@
 			$content      = $_POST[$content_name];
 
 			if(empty($heading) || empty($content)){
-				header("location: ../Views/createTutorial.php?empty=ture");
+				header("location: ../Views/createTutorial.php?empty=true");
 			}
 		}
 
 		//Adding a Tutorial in the Database
-		//$tutorialID  = addTutorial($tutrialCategoryID, $instructor, $title, $description);
+		$tutorialID  = addTutorial($tutrialCategoryID, $instructor, $title, $description);
 		//echo "Tutorial ID: " . $tutorialID . "<br>";
 		
 		//Adding the paragraphs into the Database
@@ -65,7 +65,7 @@
 			$content      = $_POST[$content_name];
 			
 			//echo "<br>Heading: " . $heading . "<br>" . "Content: " . $content . "<br>";
-			//addParagraph($tutorialID, $heading, $content);
+			addParagraph($tutorialID, $heading, $content);
 		}
 
 		//Code for handling file upload
@@ -83,17 +83,19 @@
 				header("location: ../Views/createTutorial.php?error=" . $_FILES["file"]["error"]);
 		    }
 		    else{
-		    	echo "Upload: " . $_FILES["video"]["name"] . "<br />";
-			    echo "Type: " . $_FILES["video"]["type"] . "<br />";
-			    echo "Size: " . ($_FILES["video"]["size"] / 1024) . " Kb<br />";
-			    echo "Temp file: " . $_FILES["video"]["tmp_name"] . "<br />";
+		    	//echo "Upload: " . $_FILES["video"]["name"] . "<br />";
+			    //echo "Type: " . $_FILES["video"]["type"] . "<br />";
+			    //echo "Size: " . ($_FILES["video"]["size"] / 1024) . " Kb<br />";
+			    //echo "Temp file: " . $_FILES["video"]["tmp_name"] . "<br />";
 			    
 			    $file_path = "../assets/videos/" . "videoForTutorial_" . $tutorialID . 
 			    			 "." . $extension;
 			    $result = move_uploaded_file($_FILES["video"]["tmp_name"], $file_path);
+			    setTutorialVideo($tutorialID, $file_path);
 
 			    //Closing the DB Connection
-				$database_connection->close();
+				//$database_connection->close();
+			    mysqli_close($database_connection);
 
 			    //Redirecting after successful tutorial creation
 			    header("location: ../Views/teacherProfile.php?created=true");
@@ -101,7 +103,8 @@
 		   }
 		   else{
 			   	//Closing the DB Connection
-				$database_connection->close();
+				//$database_connection->close();
+				mysqli_close($database_connection);
 
 				//Redirecting with error msg
 			   	header("location: ../Views/createTutorial.php?error=invalid File");
@@ -109,9 +112,11 @@
 	}
 	else{
 		//Closing the DB Connection
-		$database_connection->close();
+		//$database_connection->close();
+		mysqli_close($database_connection);
 
 		//Redirecting incase of invalid access through URL		
 		header("location: ../Views/createTutorial.php");
+		mysqli_close($database_connection);
 	}
 ?>

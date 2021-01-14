@@ -37,13 +37,13 @@
 
 		$sql_query_result = getUserFromEmailID($email, $loginType);
 
-		echo "<br>Afer getting user<br>";
-		echo $loginType;
+		//echo "<br>Afer getting user<br>";
+		//echo $loginType;
 
 		//Authenticating the user
 		if($sql_query_result && count($sql_query_result) > 0){
 
-			echo "<br>here<br>";
+			//echo "<br>here<br>";
 
 			if($sql_query_result["password"] == $password){				
 
@@ -62,6 +62,7 @@
 					//$_SESSION["current_teacher_type"]   = $loginType;
 					header("location: ../Views/teacherProfile.php");
 				}
+
 			}//Password Didnt match
 			else{
 				header("location: ../Views/login.php?invalidpassword=true");

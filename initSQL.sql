@@ -1,5 +1,14 @@
 CREATE DATABASE IF NOT EXISTS webproject;
 
+DROP TABLE student;
+DROP TABLE teacher;
+DROP TABLE tutorial;
+DROP TABLE tutorial_categeory;
+DROP TABLE paragraph;
+DROP TABLE quiz;
+DROP TABLE question;
+DROP TABLE student_tutorial_bridge;
+
 CREATE TABLE IF NOT EXISTS student(
 			
 	    email VARCHAR(100) NOT NULL PRIMARY KEY,
@@ -20,7 +29,7 @@ INSERT INTO `student`(`email`, `username`, `password`) VALUES ("fatima@example.c
 INSERT INTO `student`(`email`, `username`, `password`) VALUES ("ghazala@example.com", "Qatil Haseena", "12345678");
 
 INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher1@example.com", "Teacher 1", "12345678");
-INSERT INTO `tecaher`(`email`, `username`, `password`) VALUES ("teacher3@example.com", "Teacher 3", "12345678");
+INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher3@example.com", "Teacher 3", "12345678");
 INSERT INTO `teacher`(`email`, `username`, `password`) VALUES ("teacher2@example.com", "Teacher 2", "12345678");
 
 -- Creating and populating the "tutorial_category" table
@@ -37,6 +46,7 @@ CREATE TABLE `webproject`.`tutorial` ( `id` INT NOT NULL AUTO_INCREMENT , `categ
 
 -- Adding the Foregin Key reference from "tutorial" to "tutorial_category"
 ALTER TABLE `tutorial` ADD `description` VARCHAR(1000) NOT NULL AFTER `title`;
+ALTER TABLE `tutorial` ADD `video` VARCHAR(100) NULL AFTER `description`;
 ALTER TABLE tutorial 
     ADD CONSTRAINT category_id
     FOREIGN KEY (category_id)
@@ -74,6 +84,7 @@ INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (2 , "Headin
 CREATE TABLE `webproject`.`quiz` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Adding the Foregin Key reference from "quiz "to "tutorial"
+ALTER TABLE `quiz` ADD `topic` VARCHAR(100) NOT NULL AFTER `tutorial_id`;
 ALTER TABLE quiz
     ADD CONSTRAINT tutorial_id_inQuiz
     FOREIGN KEY (tutorial_id)

@@ -54,7 +54,7 @@
 
 		// Check if user already exists
 		elseif ($getUser["email"] == $email) {
-			header("location: ../Views/register.php?UserExists=User Already Exists!\nForgot Password?");
+			header("location: ../Views/register.php?UserExists=User Already Exists!");
 		}
 
 		// If Everything Goes Well
@@ -63,12 +63,14 @@
 
 			if($register_user_query_result){
 				header("location: ../Views/login.php");
+				mysqli_close($database_connection);
 			}
 
 			else{
 				header("location: ../Views/register.php?Empty= Could not Register, Try Again!");
+				mysqli_close($database_connection);
 			}
-		}
+		} 
 		}
 
 

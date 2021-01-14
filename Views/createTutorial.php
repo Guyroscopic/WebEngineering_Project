@@ -18,8 +18,8 @@
 	$queryResult = getAllCategoriesQueryResult();
 
 	//Closing the connection
-	global $database_connnectiton;
-	$database_connection->close();
+	global $database_connection;
+	mysqli_close($database_connection);
 
 ?>
 
