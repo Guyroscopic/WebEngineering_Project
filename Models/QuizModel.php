@@ -39,7 +39,7 @@
 
 		global $database_connection;
 
-		$sql_query = "SELECT Topic, id FROM quiz WHERE tutorial_id='$tutorial_id'";
+		$sql_query = "SELECT topic, id FROM quiz WHERE tutorial_id='$tutorial_id'";
 
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);

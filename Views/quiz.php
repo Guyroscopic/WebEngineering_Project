@@ -52,7 +52,7 @@
 		}
 	}
 
-	$quiz_title = $quiz["Topic"];
+	$quiz_title = $quiz["topic"];
 	$quiz_question_list = "";
 	$quiz_form			= "";
 	$question_num 		= 0;

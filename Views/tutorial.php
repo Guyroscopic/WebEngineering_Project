@@ -40,10 +40,11 @@
 		exit();
 	}
 
-	//Extracting the Tutorial Informating
+	//Extracting the Tutorial Information
 	$title               = $tutorial["title"];
 	$tutorial_instructor = getTeacherByEmail($tutorial["instructor"]);
 	$category    		 = getCategoryNameByID($tutorial["category_id"]);
+	$video_path			 = $tutorial["video"];
 
 	//Fetching the paragraphs of tutorial
 	$current_tutorial_pargraphs_SQL_result = getParagaphsByTutorialID($tutorial_id);
@@ -100,6 +101,15 @@
 	<h3>Tutorial By: <?php echo $tutorial_instructor["username"] ?></h3>
 	<h3>Contact Instructor at: <?php echo $tutorial_instructor["email"] ?></h3>
 	<h3>Category: <?php echo $category["name"] ?></h3>
+
+	<?php if($video_path){ ?>
+		<div align=center>
+		<video width="640" height="480" controls>
+			<source src="<?php echo $video_path ?>">
+		</video>
+	</div>
+	<?php } ?> 
+
 
 	<?php
 	//Dispaying Paragraphs of the Tutorial
@@ -166,15 +176,18 @@
 	<?php } ?>	
 
 	<!-- Displaying Attempt Quiz Links -->
+	
 	<?php
 	if($student_loggedin){
+		echo "<h3>Quizzes:</h3>";
 		$quiz_num = 1;
 		while($quiz = $current_tutorial_quizzes_SQL_result->fetch_assoc()){
-			echo "<br><a href='quiz.php?id=" . $quiz["id"] . "'>Attempt Quiz " . $quiz_num . "</a>";
+			echo "<a href='quiz.php?id=" . $quiz["id"] . "'>" . $quiz_num . ")Attempt Quiz: " . 
+				 $quiz["topic"] . "</a><br>";
 			$quiz_num += 1;
 		}
 		
-		//Notifying Student if no Quiz is uploaded for this quiz 
+		//Notifying Student if no Quiz is uploaded for this tutorial
 		if(!($quiz_num > 1)){
 			echo "<p>No Quiz uploaded for this tutorial</p>";	
 		}

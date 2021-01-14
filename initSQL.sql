@@ -46,6 +46,7 @@ CREATE TABLE `webproject`.`tutorial` ( `id` INT NOT NULL AUTO_INCREMENT , `categ
 
 -- Adding the Foregin Key reference from "tutorial" to "tutorial_category"
 ALTER TABLE `tutorial` ADD `description` VARCHAR(1000) NOT NULL AFTER `title`;
+ALTER TABLE `tutorial` ADD `video` VARCHAR(100) NULL AFTER `description`;
 ALTER TABLE tutorial 
     ADD CONSTRAINT category_id
     FOREIGN KEY (category_id)
@@ -83,6 +84,7 @@ INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (2 , "Headin
 CREATE TABLE `webproject`.`quiz` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Adding the Foregin Key reference from "quiz "to "tutorial"
+ALTER TABLE `quiz` ADD `topic` VARCHAR(100) NOT NULL AFTER `tutorial_id`;
 ALTER TABLE quiz
     ADD CONSTRAINT tutorial_id_inQuiz
     FOREIGN KEY (tutorial_id)

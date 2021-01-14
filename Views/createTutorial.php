@@ -32,13 +32,17 @@
 <body>
 
 	<!-- Output div for an empty submissoin -->
-	<?php
-		if(@$_GET["empty"] == true){
-	?>
+	<?php if(@$_GET["empty"]){ ?>
 		<div style="color: red">OOPS! Looks like you left a field empty</div>
-	<?php
-		}
-	?>
+	<?php }	?>
+
+	<!-- Output div for error in video upload -->
+	<?php if(@$_GET["error"]){ ?>
+		<div style="color: red">
+			OOPS! Looks like there was an error in your video uplaod<br>
+			ERROR: <?php echo $_GET["error"] ?>
+		</div>
+	<?php }	?>
 
 	<h1>Create Tutorial</h1>
 
@@ -52,14 +56,18 @@
 	</select>
 	<br><br>
 
-	<form id="createTutorialForm" action="../Controllers/CreateTutorialController.php" method="POST">
-
+	<form id="createTutorialForm" action="../Controllers/CreateTutorialController.php" 
+		  method="POST" enctype="multipart/form-data">
+		
 		<label>Title: </label>
 		<input type='text' name='title' placeholder='Enter Title' required><br><br>
 
 		<label>Description: </label>
 		<textarea name='description' 
 				  placeholder='Tutorial Description' required></textarea><br><br>
+
+		<label>Video (optional):</label>
+		<input type="file" name="video" id="video"><br><br>
 
 		<label>Paragraph 1 Heading: </label>
 		<input type='text' name='heading_1' placeholder='Enter Heading' required><br><br>
