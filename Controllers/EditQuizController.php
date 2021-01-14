@@ -67,7 +67,8 @@
 				$option4 = "";
 			}
 
-			$correct_answer = $_POST[$q_correct_answer];
+			$select_correct_answer = $_POST[$q_correct_answer];
+			$correct_answer = $_POST[$select_correct_answer];
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
 				header("location: ../Views/teacherProfile.php?Empty=true");

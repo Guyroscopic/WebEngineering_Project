@@ -95,7 +95,13 @@
 				}
 
 				$quiz_question_list .= "</ul>";
-				$quiz_question_list .= "Correct Answer: <input type='text' name='question".$i."_correct_answer' value='".$correct_option."'>";
+				$quiz_question_list .= "Correct Answer: <select name='question".$i."_correct_answer' id='correct_answer'>".
+							  "<option value='question".$i."_select'>Select</option>".
+							  "<option value='question".$i."_option1'>Option 1</option>".
+							  "<option value='question".$i."_option2'>Option 2</option>".
+							  "<option value='question".$i."_option3'>Option 3</option>".
+							  "<option value='question".$i."_option4'>Option 4</option>".
+							"</select><br>";
 				$quiz_question_list .= "<input type='hidden' name='question".$i."_id' value='". $question_id."'>";
 			}
 			
@@ -132,8 +138,13 @@
 						  "<label>Option4: </label>"+
 						  "<input type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
 						  "<label>Correct Answer: </label>" +
-						  "<input type='text' id='correct_answer' name='question"+clicked+"_correct_answer'" + 
-				  		  "placeholder='Write the Correct Answer'><br>";
+						  "'<select name='question"+clicked+"_correct_answer' id='correct_answer'>"+
+						  	  "<option value='question"+clicked+"_select'>Select</option>"+
+							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
+							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
+							  "<option value='question"+clicked+"_option3'>Option 3</option>"+
+							  "<option value='question"+clicked+"_option4'>Option 4</option>"+
+							"</select><br><br>";
 									  
 			$("#newNumOfQuestions").attr("value", clicked);
 			$("#quiz_list").after(str);
