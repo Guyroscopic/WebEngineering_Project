@@ -54,7 +54,7 @@
 
 		// Check if user already exists
 		elseif ($getUser["email"] == $email) {
-			header("location: ../Views/register.php?UserExists=User Already Exists!\nForgot Password?");
+			header("location: ../Views/register.php?UserExists=User Already Exists!");
 		}
 
 		// If Everything Goes Well

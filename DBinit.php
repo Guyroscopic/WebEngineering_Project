@@ -16,7 +16,7 @@
 	require_once "Models/DBconfig.php";
 
 	// Create database
-	$sql = array("CREATE DATABASE IF NOT EXISTS webproject;",
+	/*$sql = array("CREATE DATABASE IF NOT EXISTS webproject;",
 
 				"CREATE TABLE IF NOT EXISTS student(
 							
@@ -55,7 +55,7 @@
 		}
 	}*/
 
-	mysqli_close($database_connection);
+	//mysqli_close($database_connection);
 
 
 ?>
