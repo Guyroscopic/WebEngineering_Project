@@ -105,7 +105,7 @@
             <br><br>
 
             <label>Title:</label>
-            <input type="text" name="title" id="title" placeholder="Enter Title"><br><br>
+            <input type="text" name="title" id="title" placeholder="Enter Title" required><br><br>
 
             <label>Description: </label>
             <textarea name='description' 

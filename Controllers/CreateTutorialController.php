@@ -21,7 +21,9 @@
 	//echo $_FILES["video"]["size"] . "<br>";
 	//echo $_FILES["video"]["tmp_name"] . "<br>";
 	//echo $_FILES["video"]["type"] . "<br>";
-
+	//$_FILES["video"]["name"] != "" ? $x = "111" : $x = "222";
+	//echo $x;
+	//echo $_FILES["video"]["name"];
 	//exit();
 
 	//Handling the Form Submission
@@ -72,7 +74,7 @@
 		$allowedExts = array("mp4", "mov", "mkv");
 		$extension   = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
 
-		if($_FILES["video"]){
+		if($_FILES["video"]["name"] != ""){
 			if ((   ($_FILES["video"]["type"] == "video/mp4")
 				 || ($_FILES["video"]["type"] == "video/mov")
 				 || ($_FILES["video"]["type"] == "video/mkv")
