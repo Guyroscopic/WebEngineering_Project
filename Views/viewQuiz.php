@@ -46,7 +46,7 @@
 		echo "<ol>";
 		while($row = mysqli_fetch_assoc($quiz)) {
 
-			echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["Topic"]."</a></li><br>";
+			echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
 		}
 		echo "</ol>";
 	}

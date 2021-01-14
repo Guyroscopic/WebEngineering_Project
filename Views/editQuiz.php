@@ -76,6 +76,7 @@
 				$option3   		 = $question["option3"];
 				$option4   		 = $question["option4"];
 				$correct_option  = $question["correct_option"];
+				$question_id 	 = $question["id"];
 
 				$quiz_question_list .= "<li><input type='text' name='question".$i."' value='".$statement.
 					 "'><ul><li><input type='text' name='question".$i."_option1' value='".$option1."'></li><li><input type='text' name='question".$i."_option2' value='".$option2."''></li>";
@@ -95,6 +96,7 @@
 
 				$quiz_question_list .= "</ul>";
 				$quiz_question_list .= "Correct Answer: <input type='text' name='question".$i."_correct_answer' value='".$correct_option."'>";
+				$quiz_question_list .= "<input type='hidden' name='question".$i."_id' value='". $question_id."'>";
 			}
 			
 			$quiz_question_list .= "</ol>";

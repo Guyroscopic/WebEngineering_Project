@@ -30,14 +30,16 @@
 		$new_num_of_questions = (int)$_POST["new_num_of_questions"];
 		$quizId               = $_POST["quiz_id"];
 
-		$total_qs = $num_of_questions + $new_num_of_questions;
-
-		if(isset($_POST["new_num_of_questions"])){
-			$new_num_of_questions = $num_of_questions;
+		if($new_num_of_questions == 0){
+			$total_qs = $num_of_questions;
+		}
+		else{
+			$total_qs = $new_num_of_questions;
 		}
 
+	
 		// adding questions to quiz
-		for($i=1; $i<=$new_num_of_questions; $i++){
+		for($i=1; $i<=$total_qs; $i++){
 
 			$question_statement = "question".$i;
 			$q_option_1			= "question".$i."_option1";
@@ -45,6 +47,7 @@
 			$q_option_3			= "question".$i."_option3";
 			$q_option_4			= "question".$i."_option4";
 			$q_correct_answer	= "question".$i."_correct_answer";
+			$q_question_id        = "question".$i."_id";
 
 			$question  = $_POST[$question_statement];
 			$option1   = $_POST[$q_option_1];
@@ -76,11 +79,13 @@
 			}
 
 			elseif($i <= $num_of_questions){
-			// calling addQuestions function to add questions to database
-			$updateQuiz = updateQuiz($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);}
-			}
+				$question_id = $_POST[$q_question_id];
+
+				// calling addQuestions function to add questions to database
+				$updateQuiz = updateQuiz($question_id, $question, $option1, $option2, $option3, $option4, $correct_answer);}
+		}
 		
-		header("location: ../Views/quiz.php?id='$quizId'");
+		header("location: ../Views/quiz.php?id=$quizId");
 		//Closing the DB Connection
 		mysqli_close($database_connection);	
 	}

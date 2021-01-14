@@ -28,10 +28,13 @@
 		$sql_query = "INSERT INTO `question`(`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`) VALUES ('$quiz_id', '$questionStatement', '$option1', '$option2', '$option3','$option4', '$correct_option')";
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		if (!$sql_query_execute) {
+		    printf("Q Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
 		//if (!$sql_query_execute) {
 		//    printf("Q Error: %s\n", mysqli_error($database_connection));
 		//    exit();
-		return $sql_query_execute;
 		}
 	
 
@@ -89,6 +92,10 @@
 
 		$sql_query = "SELECT * FROM `quiz` WHERE `id`='$quiz_id'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		if (!$sql_query_execute) {
+		    printf("Q Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
 		$quiz = mysqli_fetch_array($sql_query_execute);
 
 		return $quiz;
@@ -101,6 +108,10 @@
 
 		$sql_query = "SELECT `tutorial_id` FROM `quiz` WHERE `id`='$quiz_id'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		if (!$sql_query_execute) {
+		    printf("Q Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
 		$tutorial_id = mysqli_fetch_array($sql_query_execute);
 
 		return $tutorial_id;
