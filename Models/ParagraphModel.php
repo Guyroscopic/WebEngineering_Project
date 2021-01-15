@@ -26,4 +26,13 @@
 		return $sql_query_execute;	
 	}
 
+	function getParagraphTable(){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM paragraph";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		return $sql_query_execute;
+	}	
 ?>

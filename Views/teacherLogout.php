@@ -7,7 +7,7 @@
 		header("location: ../index.php?loggedout=true");
 	}
 	else{
-		header("location: login.php?logoutbeforelogin=true");	}
-	
+		header("location: login.php?logoutbeforelogin=true");	
+	}
 
 ?>

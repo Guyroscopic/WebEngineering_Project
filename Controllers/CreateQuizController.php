@@ -50,14 +50,14 @@
 			$correct_answer_post = stripslashes($_POST[$q_correct_answer]);
 
 			if(!$correct_answer_post){
-				header("location: ../Views/createQuiz.php?Empty=true");
+				header("location: ../Views/createQuiz.php?empty=true");
 				exit();
 			}
 
 			$correct_answer = stripslashes($_POST[$correct_answer]);
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
-				header("location: ../Views/createQuiz.php?Empty=true");
+				header("location: ../Views/createQuiz.php?empty=true");
 			}
 
 			// calling addQuestions function to add questions to database

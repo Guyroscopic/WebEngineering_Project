@@ -52,10 +52,11 @@
 		}
 	}
 
-	$quiz_title = $quiz["Topic"];
+	$quiz_title = $quiz["topic"];
 	$quiz_question_list = "";
 	$quiz_form			= "";
 	$question_num 		= 0;
+	
 	//Closing the DB Connection
 	$database_connection->close(); 
 ?>
@@ -82,9 +83,9 @@
 
 			if($match > 0){
 			echo "<form name='EditQuizForm' method='POST' action='editQuiz.php'>
-				<button type='submit' name='editQuiz'>Edit Quiz</button>
-				<input type='hidden' value='". $quiz_id ."' name='quiz_id'>
-			</form>";
+					<button type='submit' name='editQuiz'>Edit Quiz</button>
+					<input type='hidden' value='". $quiz_id ."' name='quiz_id'>
+				  </form>";
 		}
 
 			$quiz_question_list .= "<ol>";
@@ -97,17 +98,17 @@
 				$option4   		 = $question["option4"];
 				$correct_option  = $question["correct_option"];
 
-				$quiz_question_list .= "<li>".$statement.
-					 "<ul><li>".$option1."</li><li>".$option2."</li>";
+				$quiz_question_list .= "<li>" . $statement .
+					 				   "<ul><li>" . $option1 . "</li><li>" . $option2 . "</li>";
 
 				if($option3){
-					$quiz_question_list .= "<li>".$option3."</li>";	
+					$quiz_question_list .= "<li>" . $option3 . "</li>";	
 				}
 				if($option4){
-					$quiz_question_list .= "<li>".$option4."</li>";
+					$quiz_question_list .= "<li>" . $option4 . "</li>";
 				}
 				$quiz_question_list .= "</ul>";
-				$quiz_question_list .= "Correct Answer: ".$correct_option;
+				$quiz_question_list .= "<b>Correct Answer: " . $correct_option . "</b><br><br>";
 			}
 			
 			$quiz_question_list .= "</ol>";
@@ -132,8 +133,11 @@
 
 				$quiz_form .= "<li>". $statement;
 
-				$quiz_form .= "<br><input type='radio' name='". $question_num. "_option1' value='". $option1."'><label>".$option1."</label><br>";
-				$quiz_form .= "<input type='radio' name='". $question_num. "_option2' value='". $option2."'><label>".$option2."</label><br>";
+				$quiz_form .= "<br><input type='radio' name='". $question_num. "_option1' value='".
+				               $option1 . "'><label>" . $option1 . "</label><br>";
+
+				$quiz_form .= "<input type='radio' name='". $question_num. "_option2' value='". 
+							   $option2 . "'><label>" . $option2 . "</label><br>";
 
 				if($option3){
 					$quiz_form .= "<input type='radio' name='". $question_num. "_option3' value='". $option3."'><label>".$option3."</label><br>";

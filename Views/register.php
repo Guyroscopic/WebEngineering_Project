@@ -163,7 +163,7 @@
                         <a class="page-scroll" href="contactus.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="page-scroll" href="#">Login as Admin</a>
+                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
                     </li>
                 </ul>
             </div> <!-- menu -->

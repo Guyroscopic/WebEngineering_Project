@@ -1,3 +1,15 @@
+<?php
+	session_start();
+
+	if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
+		header("location: studentProfile.php");
+	}
+
+	if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+		header("location: teacherProfile.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,59 +17,27 @@
 </head>
 <body>
 
-	<?php
-		session_start();
-
-		if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
-			header("location: studentProfile.php");
-		}
-
-		if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
-			header("location: teacherProfile.php");
-		}
-	?>
-
 	<h1>Login Form</h1>
 
-	<?php
-		if(@$_GET["notloggedin"] == true){
-	?>
+	<?php if(@$_GET["notloggedin"]){ ?>
 		<div style="color: red">You need to Login to Access that Page</div>
-	<?php
-		}
-	?>
+	<?php }	?>
 
-	<?php
-		if(@$_GET["empty"] == true){
-	?>
+	<?php if(@$_GET["empty"]){ ?>
 		<div style="color: red">Enter Values Before Submitting</div>
-	<?php
-		}
-	?>
+	<?php }	?>
 
-	<?php
-		if(@$_GET["logoutbeforelogin"] == true){
-	?>
+	<?php if(@$_GET["logoutbeforelogin"]){ ?>
 		<div style="color: red">You need to Login before Logging Out!'</div>
-	<?php
-		}
-	?>
+	<?php }	?>
 
-	<?php
-		if(@$_GET["invalidemail"]){
-	?>
+	<?php if(@$_GET["invalidemail"]){ ?>
 		<div style="color: red">Invalid Email! Please Try Again</div>
-	<?php
-		}
-	?>
+	<?php } ?>
 
-	<?php
-		if(@$_GET["invalidpassword"]){
-	?>
+	<?php if(@$_GET["invalidpassword"]){ ?>
 		<div style="color: red">Wrong Password! Please Try Again</div>
-	<?php
-		}
-	?>
+	<?php }	?>
 
 	<label for="loginType">Login as:</label>
 	<select name="loginType" form="loginForm">

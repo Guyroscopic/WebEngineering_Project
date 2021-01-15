@@ -2,13 +2,17 @@
     //Starting Session
     session_start();
 
-    //Redirecting in case user is alread logged in 
+    //Redirecting in case user is already logged in 
     if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
         header("location: studentProfile.php");
     }
 
     if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
         header("location: teacherProfile.php");
+    }
+    //Redirecting in case admin is already logged in 
+    if(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
+        header("location: adminPanel.php");
     }
 ?>
 
@@ -85,15 +89,15 @@
     <!-- NAVBAR PART END -->
 
     <!-- Output divs for flash msgs -->
-    <?php if(@$_GET["notloggedin"] == true){ ?>
+    <?php if(@$_GET["notloggedin"]){ ?>
         <div style="color: red">You need to Login to Access that Page</div>
     <?php } ?>
 
-    <?php if(@$_GET["empty"] == true){ ?>
+    <?php if(@$_GET["empty"]){ ?>
         <div style="color: red">Enter Values Before Submitting</div>
     <?php } ?>
 
-    <?php if(@$_GET["logoutbeforelogin"] == true){ ?>
+    <?php if(@$_GET["logoutbeforelogin"]){ ?>
         <div style="color: red">You need to Login before Logging Out!'</div>
     <?php } ?>
 
@@ -173,7 +177,7 @@
                         <a class="page-scroll" href="contactus.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="page-scroll" href="#">Login as Admin</a>
+                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
                     </li>
                 </ul>
             </div> <!-- menu -->

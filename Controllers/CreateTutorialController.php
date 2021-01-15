@@ -127,6 +127,6 @@
 
 		//Redirecting incase of invalid access through URL		
 		header("location: ../Views/createTutorial.php");
-		mysqli_close($database_connection);
+		//mysqli_close($database_connection);
 	}
 ?>

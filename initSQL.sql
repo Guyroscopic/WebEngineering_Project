@@ -94,7 +94,7 @@ ALTER TABLE quiz
 CREATE TABLE `webproject`.`question` ( `id` INT NOT NULL AUTO_INCREMENT , `quiz_id` INT NOT NULL , `statement` VARCHAR(1000) NOT NULL , `option1` VARCHAR(100) NOT NULL , `option2` VARCHAR(100) NOT NULL , `option3` VARCHAR(100) NULL , `option4` VARCHAR(100) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Adding the Foregin Key reference from "question "to "question"
-ALTER TABLE `question` ADD `correct_option` VARCHAR(7) NOT NULL AFTER `option4`;
+ALTER TABLE `question` ADD `correct_option` VARCHAR(100) NOT NULL AFTER `option4`;
 ALTER TABLE question
     ADD CONSTRAINT quiz_id_inQuestion
     FOREIGN KEY (quiz_id)
@@ -116,3 +116,10 @@ ALTER TABLE student_tutorial_bridge
 
 -- Making the Composite Primary Key in "student_tutorial_bridge"
 ALTER TABLE `student_tutorial_bridge` ADD PRIMARY KEY( `student_email`, `tutorial_id`);
+
+-- Creating the "admin" table
+CREATE TABLE `webproject`.`admin` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
+
+-- Populating the "admin" table
+INSERT INTO `admin`(`email`, `username`, `password`) VALUES ('admin1@example.com', 'Admin 1', '12345678');
+INSERT INTO `admin`(`email`, `username`, `password`) VALUES ('admin2@example.com', 'Admin 2', '12345678');
