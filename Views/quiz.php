@@ -159,10 +159,10 @@
 				$quiz_form .= "<li>". $statement;
 
 
-				$quiz_form .= "<br><input type='radio' name='". $question_num. "_option1' value='".
+				$quiz_form .= "<br><input type='radio' name='". $question_num. "' value='".
 				               $option1 . "'><label>" . $option1 . "</label><br>";
 
-				$quiz_form .= "<input type='radio' name='". $question_num. "_option2' value='". 
+				$quiz_form .= "<input type='radio' name='". $question_num. "' value='". 
 							   $option2 . "'><label>" . $option2 . "</label><br>";
 
 				if($option3){

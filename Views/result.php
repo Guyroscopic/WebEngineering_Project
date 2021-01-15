@@ -24,8 +24,8 @@
 	
 		// retrieving values
 		$score			 = 0;
-		$num_of_question = $_POST["num_of_question"];
-		$quiz_id 		 = $_POST["quiz_id"];
+		$num_of_question = stripslashes($_POST["num_of_question"]);
+		$quiz_id 		 = stripslashes($_POST["quiz_id"]);
 
 		$tutorial_id_query = getTutorialByQuizId($quiz_id);
 		$tutorial_id = $tutorial_id_query["tutorial_id"];
@@ -43,8 +43,15 @@
 
 				$question_num += 1;
 
-				$selected_option = $_POST[$question_num];
-				$correct_answer	 = $_POST[$question_num ."_answer"];
+				
+				if(empty($_POST[$question_num])){
+					$selected_option = "none";
+				}
+				else{
+					$selected_option = stripslashes($_POST[$question_num]);
+				}
+
+				$correct_answer	 = stripslashes($_POST[$question_num ."_answer"]);
 
 				if($selected_option == $correct_answer){
 					$score++ ;
