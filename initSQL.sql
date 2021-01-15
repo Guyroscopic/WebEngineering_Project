@@ -116,3 +116,6 @@ ALTER TABLE student_tutorial_bridge
 
 -- Making the Composite Primary Key in "student_tutorial_bridge"
 ALTER TABLE `student_tutorial_bridge` ADD PRIMARY KEY( `student_email`, `tutorial_id`);
+
+CREATE TABLE `webproject`.`student_quiz_bridge` ( `student_email` VARCHAR(100) NOT NULL, `quiz_id` INT NOT NULL, `$quiz_score` INT NOT NULL, CONSTRAINT PK_quiz_bridge PRIMARY KEY (student_email,quiz_id),
+FOREIGN KEY(student_email) REFERENCES student(email), FOREIGN KEY(quiz_id) REFERENCES quiz(id);

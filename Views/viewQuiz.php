@@ -30,7 +30,7 @@
 	require_once "../Models/QuizModel.php";
 
 
-	if(isset($_POST["view"])){
+	if(isset($_POST["view"]) || isset($_POST["backbutton"])){
 
 		//Extracting Tutorial ID from URL and fetching the respective Quizzes
 		$tutorial_id = $_POST["tutorial_id"];

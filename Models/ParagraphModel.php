@@ -4,6 +4,8 @@
 
 	function addParagraph($tutorial_id, $heading, $content){
 
+		/* This function adds a new paragraph to database */
+
 		global $database_connection;
 
 		$sql_query         = "INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) " .
@@ -17,6 +19,8 @@
 	}
 
 	function getParagaphsByTutorialID($tutorial_id){
+
+		/* This function retrieves a paragraph from database using tutorial id */
 
 		global $database_connection;
 
