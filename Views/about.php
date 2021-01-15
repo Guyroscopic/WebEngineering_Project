@@ -155,7 +155,7 @@
                     </li>
                     <?php if(!$student_loggedin && !$teacher_loggedin){ ?>
                     <li class="nav-item">
-                        <a class="page-scroll" href="#">Login as Admin</a>
+                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
                     </li>
                     <?php } ?>
 

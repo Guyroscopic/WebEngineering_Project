@@ -53,18 +53,16 @@
 
 			// if the teacher doesnt provide the correct answer
 			if(!$correct_answer_post){
-				mysqli_close($database_connection);
-				header("location: ../Views/createQuiz.php?Empty=true");
+
+				header("location: ../Views/createQuiz.php?empty=true");
 				exit();
 			}
 
 			// else retrieving the correct answer
 			$correct_answer = stripslashes($_POST[$correct_answer]);
 
-			// checking for empty fields
-			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer_post)){
-				mysqli_close($database_connection);
-				header("location: ../Views/createQuiz.php?Empty=true");
+			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
+				header("location: ../Views/createQuiz.php?empty=true");
 			}
 
 			if($correct_answer_post == $option3 && empty($option3)){

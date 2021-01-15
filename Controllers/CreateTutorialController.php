@@ -21,7 +21,9 @@
 	//echo $_FILES["video"]["size"] . "<br>";
 	//echo $_FILES["video"]["tmp_name"] . "<br>";
 	//echo $_FILES["video"]["type"] . "<br>";
-
+	//$_FILES["video"]["name"] != "" ? $x = "111" : $x = "222";
+	//echo $x;
+	//echo $_FILES["video"]["name"];
 	//exit();
 
 	//Handling the Form Submission
@@ -72,43 +74,51 @@
 		$allowedExts = array("mp4", "mov", "mkv");
 		$extension   = pathinfo($_FILES['video']['name'], PATHINFO_EXTENSION);
 
-		if ((   ($_FILES["video"]["type"] == "video/mp4")
-			 || ($_FILES["video"]["type"] == "video/mov")
-			 || ($_FILES["video"]["type"] == "video/mkv")
-			)&& ($_FILES["video"]["size"] < 256000000)
-			 && in_array($extension, $allowedExts)
-		   )
-		   {
-			if ($_FILES["video"]["error"] > 0){
-				header("location: ../Views/createTutorial.php?error=" . $_FILES["file"]["error"]);
-		    }
-		    else{
-		    	//echo "Upload: " . $_FILES["video"]["name"] . "<br />";
-			    //echo "Type: " . $_FILES["video"]["type"] . "<br />";
-			    //echo "Size: " . ($_FILES["video"]["size"] / 1024) . " Kb<br />";
-			    //echo "Temp file: " . $_FILES["video"]["tmp_name"] . "<br />";
-			    
-			    $file_path = "../assets/videos/" . "videoForTutorial_" . $tutorialID . 
-			    			 "." . $extension;
-			    $result = move_uploaded_file($_FILES["video"]["tmp_name"], $file_path);
-			    setTutorialVideo($tutorialID, $file_path);
+		if($_FILES["video"]["name"] != ""){
+			if ((   ($_FILES["video"]["type"] == "video/mp4")
+				 || ($_FILES["video"]["type"] == "video/mov")
+				 || ($_FILES["video"]["type"] == "video/mkv")
+				)&& ($_FILES["video"]["size"] < 256000000)
+				 && in_array($extension, $allowedExts)
+			   )
+			   {
+				if ($_FILES["video"]["error"] > 0){
+					header("location: ../Views/createTutorial.php?error=" . $_FILES["file"]["error"]);
+			    }
+			    else{
+			    	//echo "Upload: " . $_FILES["video"]["name"] . "<br />";
+				    //echo "Type: " . $_FILES["video"]["type"] . "<br />";
+				    //echo "Size: " . ($_FILES["video"]["size"] / 1024) . " Kb<br />";
+				    //echo "Temp file: " . $_FILES["video"]["tmp_name"] . "<br />";
+				    
+				    $file_path = "../assets/videos/" . "videoForTutorial_" . $tutorialID . 
+				    			 "." . $extension;
+				    $result = move_uploaded_file($_FILES["video"]["tmp_name"], $file_path);
+				    setTutorialVideo($tutorialID, $file_path);
 
-			    //Closing the DB Connection
-				//$database_connection->close();
-			    mysqli_close($database_connection);
+				    //Closing the DB Connection
+				    mysqli_close($database_connection);
 
-			    //Redirecting after successful tutorial creation
-			    header("location: ../Views/teacherProfile.php?created=true");
-		    }
-		   }
-		   else{
-			   	//Closing the DB Connection
-				//$database_connection->close();
+				    //Redirecting after successful tutorial creation
+				    header("location: ../Views/teacherProfile.php?created=true");
+			    }
+			   }
+			   else{
+				   	//Closing the DB Connection
+					//$database_connection->close();
+					mysqli_close($database_connection);
+
+					//Redirecting with error msg
+				   	header("location: ../Views/createTutorial.php?error=invalid File");
+			   }
+		   	}
+		   	else{
+		   		//Closing the DB Connection
 				mysqli_close($database_connection);
 
-				//Redirecting with error msg
-			   	header("location: ../Views/createTutorial.php?error=invalid File");
-		   }		
+				//Redirecting after successful tutorial creation
+				header("location: ../Views/teacherProfile.php?created=true");
+		   	}
 	}
 	else{
 		//Closing the DB Connection
@@ -117,6 +127,6 @@
 
 		//Redirecting incase of invalid access through URL		
 		header("location: ../Views/createTutorial.php");
-		mysqli_close($database_connection);
+		//mysqli_close($database_connection);
 	}
 ?>

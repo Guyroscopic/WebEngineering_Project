@@ -163,8 +163,7 @@
 
 
 
-        <!--====== jquery js ======-->
- 
+    <!--====== jquery js ======--> 
     <script src="../assets/js/jquery-1.12.4.min.js"></script> 
 
     <!--====== Bootstrap js ======-->

@@ -64,4 +64,14 @@
 		return $sql_query_result;
 	}
 
+	function getStudentTutorialBridgeTable(){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM student_tutorial_bridge";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		return $sql_query_execute;
+	}
+
 ?>

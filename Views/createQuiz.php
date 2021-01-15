@@ -10,42 +10,41 @@
 	}
 	//If an unauthorized user(student) tries to access the page
 	elseif(isset($_SESSION["current_student_email"]) and isset($_SESSION["current_student_username"])){
-		echo "Acces Denied";
-		header("location: studentProfile.php");
+
+		header("location: studentProfile.php?invalidAccess=true");
 	}
 
 	else{
 		header("location: login.php?notloggedin=true");
 	}
 
-	$tutorial_id = $_POST["tutorial_id"];
+	if(isset($_POST["create"])){
+		$tutorial_id = $_POST["tutorial_id"];
+	}
+	else{
+		header("location: teacherProfile.php?invalidAccess=true");
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>WebEng Project</title>
+
+	<!-- Importing jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>	
 
 	<!-- Output div for an empty submissoin -->
-	<?php
-		if(@$_GET["Empty"]){
-	?>
+	<?php if(@$_GET["empty"]){ ?>
 		<div style="color: red">OOPS! Looks like you left a field empty</div>
-	<?php
-		}
-	?>
+	<?php } ?>
 
 	<!-- Output div for an Error -->
-	<?php
-		if(@$_GET["Error"]){
-	?>
+	<?php if(@$_GET["error"]){ 	?>
 		<div style="color: red">An Unknown Error</div>
-	<?php
-		}
-	?>
+	<?php } ?>
 
 	<h1>Create Quiz</h1>
 
@@ -61,19 +60,19 @@
 
 		<label>Option1: </label>
 		<input type="text" id='option1' name='question1_option1' 
-				  placeholder='Enter the First Choice' required><br>
+				  placeholder='Option 1' required><br>
 
 		<label>Option2: </label>
 		<input type="text" id='option2' name='question1_option2' 
-				  placeholder='Enter the Second Choice' required><br>
+				  placeholder='Option 2' required><br>
 
 		<label>Option3(Optional): </label>
 		<input type="text" id='option3' name='question1_option3' 
-				  placeholder='Enter the Third Choice(optional)'><br>
+				  placeholder='Option 3'><br>
 
 		<label>Option4(Optional): </label>
 		<input type="text" id='option4' name='question1_option4' 
-				  placeholder='Enter the Last Choice(optional)'><br>
+				  placeholder='Option 4'><br>
 
 		<label>Correct Answer: </label>
 		<select name="question1_correct_answer" id="correct_answer">

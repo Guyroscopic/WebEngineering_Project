@@ -7,14 +7,19 @@
 	if(isset($_SESSION["current_student_email"]) and isset($_SESSION["current_student_username"])){
 		header("location: ../Views/studentProfile.php");
 	}
-	else if(isset($_SESSION["current_teacher_email"]) and isset($_SESSION["current_teacher_username"])){
+	elseif(isset($_SESSION["current_teacher_email"]) and isset($_SESSION["current_teacher_username"])){
 		header("location: ../ViewsteacherProfile.php");
 	}
+	//Redirecting in case admin is already logged in 
+    elseif(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
+        header("location: ../Views/adminPanel.php");
+    }
+    else{
+    	header("locatoion: ../Views/login.php?notloggedin=true");
+    }
 
 	/* Including the User Model */
 	require "../Models/UserModel.php";
-
-	echo "After Import<br>";
 
 	/* Processing the Form Submission */
 	//if(($_SERVER["REQUEST_METHOD"] == "POST")){
@@ -25,23 +30,25 @@
 		$password  = $_POST["password"];
 		$loginType = $_POST["loginType"];
 
+		//Checking for empty submission
 		if(empty($email) || empty($password)){
+
+			//Closing the DB Connection
+			mysqli_close($database_connection);
+
+			//Redirecting to login page
 			header("location: ../Views/login.php?empty=ture");
 		}
 
-		// To protect MySQL injection for Security purpose
-		$email    = stripslashes($email);
-		$password = stripslashes($password);
-		//$email    = mysql_real_escape_string($email);
-		//$password = mysql_real_escape_string($password);
-
+		//Sanitiing input to avoid SQL injection attacks
+		$email    = mysqli_real_escape_string($database_connection, stripslashes($email));
+		$password = mysqli_real_escape_string($database_connection,stripslashes($password));
+		
+		//Fetching the user from the database
 		$sql_query_result = getUserFromEmailID($email, $loginType);
 
-		//echo "<br>Afer getting user<br>";
-		//echo $loginType;
-
 		//Authenticating the user
-		if($sql_query_result && count($sql_query_result) > 0){
+		if($sql_query_result && count($sql_query_result) > 0){ //Authenticating email
 
 			//echo "<br>here<br>";
 
@@ -49,26 +56,42 @@
 
 				//Initializing Session and Redirecting based on login type
 				if($loginType == "student"){
-					echo "IN STUDENT";
+					
 					$_SESSION["current_student_email"]    = $email; 	
-					$_SESSION["current_student_username"] = $sql_query_result["username"]; 
-					//$_SESSION["current_student_type"]   = $loginType;
+					$_SESSION["current_student_username"] = $sql_query_result["username"];
+
+					//Closing the DB Connection
+					mysqli_close($database_connection);
+					
+					//Redirecting to student profile
 					header("location: ../Views/studentProfile.php");
 				}
 				else if($loginType == "teacher"){
 
 					$_SESSION["current_teacher_email"]    = $email; 	
 					$_SESSION["current_teacher_username"] = $sql_query_result["username"]; 
-					//$_SESSION["current_teacher_type"]   = $loginType;
+
+					//Closing the DB Connection
+					mysqli_close($database_connection);
+					
+					//Redirecting to teacher profile
 					header("location: ../Views/teacherProfile.php");
 				}
 
 			}//Password Didnt match
 			else{
+				//Closing the DB Connection
+				mysqli_close($database_connection);
+
+				//Redrecting to login page
 				header("location: ../Views/login.php?invalidpassword=true");
 			}
 		}//No user with such email 
 		else{
+			//Closing the DB Connection
+			mysqli_close($database_connection);
+
+			//Redrecting to login page
 			header("location: ../Views/login.php?invalidemail=true");
 		}				
 	}
