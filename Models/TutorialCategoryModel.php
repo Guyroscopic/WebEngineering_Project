@@ -40,4 +40,12 @@
 		return $sql_query_execute;
 	}
 
+	function addTutorialCategory($name){
+
+		global $database_connection;
+
+		$sql_query         = "INSERT INTO tutorial_categeory(`name`) VALUES ('$name')";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+	}
+
 ?>

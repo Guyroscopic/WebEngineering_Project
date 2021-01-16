@@ -14,8 +14,6 @@
 
     //Adding the required Models
     require_once "../Models/AdminModel.php";
-
-
 ?>
 
 <!DOCTYPE html>

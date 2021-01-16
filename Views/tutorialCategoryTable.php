@@ -39,8 +39,13 @@
 </head>
 <body>
 
+	<!-- Output divs for flash msgs -->
+	<?php if(@$_GET["added"]){ ?>
+        <div style="color: green">Tutorial Category Added Successfuly!</div>
+    <?php } ?>
+
 	<!-- Anchor tag for adding a student -->
-	<a href="addTeacher.php">Add a Tutorial Category</a><br><br>
+	<a href="addTutorialCategory.php">Add a Tutorial Category</a><br><br>
 
 	<!-- Table tag for displaying the student table -->
 	<table>

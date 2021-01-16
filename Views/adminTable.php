@@ -42,7 +42,7 @@
 <body>
 
 	<!-- Anchor tag for adding a student -->
-	<a href="addTeacher.php">Add an Admin</a><br><br>
+	<a href="addAdmin.php">Add an Admin</a><br><br>
 
 	<!-- Table tag for displaying the student table -->
 	<table>
