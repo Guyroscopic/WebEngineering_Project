@@ -1,0 +1,532 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+* {
+    box-sizing: border-box;
+}
+body{
+    background-color: #ffffff;
+}
+/* Styling of SIDE Bar */
+.logo{
+      position: relative;
+      left:40px;
+      width:150px;
+    }
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0; 
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+  
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color:#ffffff;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #38f9d7;
+    background: #fff;
+    text-decoration: none;
+}
+
+/* Styling of main content-Create New Tutorials*/
+.tut-bg{
+    margin-left: 250px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+.main-tut-header{
+    color: black;
+    padding: 0px 10px;
+
+}
+#tut-header{
+    font-family: 'Montserrat',sans-serif;
+    font-size: 45px;
+    padding:30px 0;
+    color: #1F2833;
+    border-bottom: 2px solid #66FCF1;
+    border-top: 2px solid #66FCF1;
+    text-align: center;
+    background-image: linear-gradient(to left, #43cae9 0%, #38f9d7 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+label{
+    font-family: 'Poppins',sans-serif;
+    position: relative;
+    left: 0px;
+}
+
+#content{
+    position: relative;
+    top: -90px;
+}
+
+/* Basic styling for Basic Dropdown list */
+.category-select-wrapper {
+    position: relative;
+    width: 500px;
+    user-select: none;
+}
+.category-select {
+    position: relative;
+    top: -40px;
+    left: 250px;
+    display: flex;
+    flex-direction: column;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #66FCF1;
+}
+.category-select__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+    height: 50px;
+    line-height: 50px;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+    cursor: pointer;
+    border-width: 0 2px 0 2px;
+    border-style: solid;
+    border-color: #66FCF1;
+}
+.category-options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid #66FCF1;
+    border-top: 0;
+    background: white;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+.category-select.open .category-options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+.category-option {
+    position: relative;
+    display: block;
+    padding: 0 22px 0 22px;
+    font-size: 18px;
+    font-weight: 300;
+    color:  black;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.category-option:hover {
+    cursor: pointer;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+}
+.category-option.selected {
+    color: white;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+}
+/* CSS for dropdown arrow */
+.arrow {
+    position: relative;
+    height: 15px;
+    width: 15px;
+}
+.arrow::before, .arrow::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+}
+.arrow::before {
+    left: -5px;
+    transform: rotate(45deg);
+    background-color:  #66FCF1;
+}
+.arrow::after {
+    left: 5px;
+    transform: rotate(-45deg);
+    background-color: #66FCF1;
+}
+.open .arrow::before {
+    left: -5px;
+    transform: rotate(-45deg);
+}
+.open .arrow::after {
+    left: 5px;
+    transform: rotate(45deg);
+}
+
+.main-content{
+    font-size: 26px;
+    margin-left: 150px;
+    margin-top: 50px;
+    color: grey;
+    text-decoration: none;
+}
+
+
+/*text in the tutorials page which leads to a link*/
+.main-content1{
+    font-size: 30px;
+    margin-left: 130px;
+    margin-top: 50px;
+    color: black;
+    text-decoration: none;
+}
+
+.main-content1:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.main-content2{
+    font-size: 26px;
+    margin-left: -100px;
+    margin-top: 50px;
+    color: grey;
+    text-decoration: none;
+}
+
+.main-content3{
+    font-size: 35px;
+    margin-left: 130px;
+    margin-top: 50px;
+    color: #708090;
+    text-decoration: none;
+}
+
+.main-content4{
+    font-size: 30px;
+    margin-left: 130px;
+    margin-top: 50px;
+    color: black;
+    text-decoration: none;
+}
+
+/*Tutorial page CSS*/
+
+.container {
+    position: relative; 
+    display: inline-block;
+    float: left;
+    margin: 0; 
+    width:100%; 
+    background: white; 
+    min-height: 150px; 
+}
+
+.white-box { 
+    font-family: 'Montserrat', sans-serif;
+    width: 300px; 
+    height: 100px;
+    float: left; 
+    margin-top: 10px; 
+    margin-left: 5px;  
+    background: rgba(255,255,255,0.3);
+    padding: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.50);
+    border-radius: 5px;
+}
+
+.white-box:hover{
+    cursor: pointer;
+    background: #AFEEEE;
+    width: 320px;
+    height: 120px;
+}
+
+.white-box-next { 
+    font-family: 'Montserrat', sans-serif;
+    width: 300px; 
+    height: 100px; 
+    float: left;
+    margin-top: 10px; 
+    margin-left: 60px;    
+    background: rgba(255,255,255,0.3);
+    padding: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.50);
+    border-radius: 5px;
+}
+
+.white-box-next:hover{
+    cursor: pointer;
+    background: #AFEEEE;
+    width: 320px;
+    height: 120px;
+}
+
+.white-box-next-next { 
+    font-family: 'Montserrat', sans-serif;
+    width: 300px; 
+    height: 100px; 
+    float: left;
+    margin-top: 10px; 
+    margin-left: 60px;    
+    background: rgba(255,255,255,0.3);
+    padding: 30px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.50);
+    border-radius: 5px;
+}
+
+.white-box-next-next:hover{
+    cursor: pointer;
+    background: #AFEEEE;
+    width: 320px;
+    height: 120px;
+}
+
+.featured:before {
+font-weight: 400;
+display: inline-block;
+margin-left: 5px;
+color: #4CB1FF;
+}
+
+/*Tutorial page "Edit and quiz buttons"*/
+
+.EQ-button {
+color: #494949;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949;
+transition: all 0.4s ease 0s;
+margin-left: 50px;
+float: left;
+margin-bottom: 20px;
+}
+
+.EQ-button:hover {
+color: #ffffff;
+background: #43cae9;
+border-color: #38f9d7;
+transition: all 0.4s ease 0s;
+}
+
+
+/* Basic styling for Rating Dropdown list */
+.category-mark{
+    float: left;
+}
+
+.category-select-wrapper1 {
+    position: relative;
+    width: 180px;
+    user-select: none;
+}
+.category-select1 {
+    position: relative;
+    top: -40px;
+    left: 200px;
+    display: flex;
+    flex-direction: column;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #66FCF1;
+}
+.category-select__trigger1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+    height: 50px;
+    line-height: 30px;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+    cursor: pointer;
+    border-width: 0 2px 0 2px;
+    border-style: solid;
+    border-color: #66FCF1;
+}
+.category-options1 {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid #66FCF1;
+    border-top: 0;
+    background: white;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+.category-select1.open .category-options1 {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+.category-option1 {
+    position: relative;
+    display: block;
+    padding: 0 15px 0 15px;
+    font-size: 15px;
+    font-weight: 200;
+    color:  black;
+    line-height: 50px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.category-option1:hover {
+    cursor: pointer;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+}
+.category-option1.selected1 {
+    color: white;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+}
+/* CSS for Rate tutorial dropdown arrow */
+.arrow1 {
+    position: relative;
+    height: 15px;
+    width: 15px;
+}
+.arrow1::before, .arrow1::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 0.15rem;
+    height: 100%;
+    transition: all 0.5s;
+}
+.arrow1::before {
+    left: -5px;
+    transform: rotate(45deg);
+    background-color:  #66FCF1;
+}
+.arrow1::after {
+    left: 5px;
+    transform: rotate(-45deg);
+    background-color: #66FCF1;
+}
+.open .arrow1::before {
+    left: -5px;
+    transform: rotate(-45deg);
+}
+.open .arrow1::after {
+    left: 5px;
+    transform: rotate(45deg);
+}
+
+/*CSS for mark as completed button*/
+
+.EQ-button-mark {
+color: #494949;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949;
+transition: all 0.4s ease 0s;
+margin-left: 300px;
+}
+
+.EQ-button-mark:hover {
+color: #ffffff;
+background: #43cae9;
+border-color: #38f9d7;
+transition: all 0.4s ease 0s;
+}
+
+
+/*Radio buttons for quizes*/
+.custom-radio{
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        top: 3px;
+    }
+    .custom-radio:hover{            
+        background:  #43cae9;
+    }
+    .custom-radio.selected{
+        background:  #43cae9;
+    }
+    .custom-radio input[type="radio"]{
+        margin: 1px;
+        position: absolute;
+        z-index: 2;            
+        cursor: pointer;
+        outline: none;
+        opacity: 0;
+    }
+
+    .main-content5{
+        margin-left: 250px;
+        font-size: 18px;
+        margin-top: 50px;
+        color: black;
+        text-decoration: none;
+    }
+    
+    /* Let's Beautify Our Form */
+    form{
+        margin: 20px;
+    }
+    label{
+        display: block;
+        padding: 2px 0;
+    }
+    input[type="submit"]{
+        float: left;
+        background: #f2f2f2;
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        margin-top: 20px;
+        padding: 4px 10px;
+        cursor: pointer;
+        outline: none;
+    }
+    input[type="submit"]:hover{
+        color: #fff;
+        border-color: #1b7aa9;
+        background:  #43cae9;
+    }
+
+/*quiz buttons*/
+.quiz-button {
+color: #494949;
+text-transform: uppercase;
+text-decoration: none;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949;
+transition: all 0.4s ease 0s;
+margin-left: 280px;
+}
+
+.quiz-button:hover {
+color: #ffffff;
+background: #43cae9;
+border-color: #38f9d7;
+transition: all 0.4s ease 0s;
+}
