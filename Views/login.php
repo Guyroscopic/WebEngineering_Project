@@ -21,8 +21,8 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title -->
     <title>LOGIN</title>
@@ -72,7 +72,6 @@
                                     <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 60px; margin-bottom: 20px; width: 200%;" type="text" placeholder="Search tutorial"></li> 
                                 </ul>
                             </div>
 
@@ -134,20 +133,15 @@
                 <div class="field"><!-- Password field -->
                     <span class="fa fa-lock"></span>
                     <input type="password" class="pass-key" name="password" placeholder="Password" required>
-                    <span class="show">SHOW</span>
                 </div>
+                <br>
                 
-                <div class="forgot-pass">
-                    <a href="#">Forgot Password?</a>
-                </div><br>
-                <div class="field">
+                <div class="login-btn">
                     <button type="submit" name="login">LOGIN</button>
                 </div>
-                <div class="rem-check">
-                    <input type="checkbox"><span>Remember me</span>
-                </div>
+                
             </form>
-            <br><br>
+            <br>
         
         <div class="log-register">Don't have an account?
           <a href="register.php">Register Here</a>
@@ -186,7 +180,48 @@
         </div> <!-- content -->
     </div> 
     <!-- SIDEBAR PART ENDS -->
+    
+     <br><br>
 
+    <!--===== FOOTERpart starts ======-->
+    
+  <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About our Project</h6>
+            <p class="text-justify">Our project is tutoring website for students where teachers can post and edit tutorials while students can see tutorials and can examine themselves through quizes. It is managed by Admin. We have used PHP for backend and HTML, CSS, jQuery and Bootstrap for frontend.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Contact Information</h6>
+            <ul>
+              <p>SEECS</p>
+              <p>NUST, H12 Campus</p>
+              <p>ISLAMABAD</p>
+            </ul>
+          </div>
+          <br><br><br>
+          <div class="col-xs-6 col-md-3"><br>
+            <ul>
+              <p>BESE9B</p>
+              <p>Batch'2k18</p>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
+            </p>
+          </div>
+        </div>
+      </div>
+</footer>
+
+    <!--===== FOOTERpart ends ======-->
 
     <!-- Jquery js -->
     <script src="../assets/js/jquery-1.12.4.min.js"></script> 
