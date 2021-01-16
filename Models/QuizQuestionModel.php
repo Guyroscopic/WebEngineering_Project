@@ -4,6 +4,8 @@
 
 	function  getQuizQuestionById($quiz_id){
 
+		/* This function retrieves quiz question using quiz id */
+
 		global $database_connection;
 
 		$sql_query = "SELECT * FROM `question` WHERE `quiz_id`='$quiz_id'";
@@ -14,6 +16,8 @@
 	}
 
 	function updateQuiz($question_id, $question_statement, $option1, $option2, $option3, $option4, $correct_option){
+
+		/* This function updates the quiz */
 
 		global $database_connection;
 

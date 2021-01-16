@@ -77,10 +77,9 @@
                                     <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                     <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
+                                     <li input style="margin-top: 15px;margin-left: 500px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="teacherLogout.php">LOGOUT</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 60px; margin-bottom: 20px; width: 200%;" type="text" placeholder="Search tutorial"></li>
                                     </ul> 
                                 </ul>
                             </div>
@@ -94,7 +93,7 @@
             </div> 
         </div>
 
-          <!-- background image for student profile -->
+          <!-- background image for teacher profile -->
             <div class="teacher-big-image">
                 <div class="teacher-overlay1">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
@@ -161,35 +160,71 @@
 
     <!--====== SAIDEBAR PART ENDS ======-->
 
-
-
-
-        <!--====== jquery js ======-->
- 
-    <script src="assets/js/jquery-1.12.4.min.js"></script> 
-
-    <!--====== Bootstrap js ======-->
-    <script src="assets/js/bootstrap.min.js"></script>
-
-
-    <!--====== Slick js ======-->
-    <script src="assets/js/slick.min.js"></script>
-
-    <!--====== Isotope js ======-->
-    <script src="assets/js/isotope.pkgd.min.js"></script>
-
-    <!--====== Images Loaded js ======-->
-    <script src="assets/js/imagesloaded.pkgd.min.js"></script> 
+       <!--===== FOOTERpart starts ======-->
     
+  <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About our Project</h6>
+            <p class="text-justify">Our project is tutoring website for students where teachers can post and edit tutorials while students can see tutorials and can examine themselves through quizes. It is managed by Admin. We have used PHP for backend and HTML, CSS, jQuery and Bootstrap for frontend.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Contact Information</h6>
+            <ul>
+              <p>SEECS</p>
+              <p>NUST, H12 Campus</p>
+              <p>ISLAMABAD</p>
+            </ul>
+          </div>
+          <br><br><br>
+          <div class="col-xs-6 col-md-3"><br>
+            <ul>
+              <p>BESE9B</p>
+              <p>Batch'2k18</p>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
+            </p>
+          </div>
+        </div>
+      </div>
+</footer>
+
+    <!--===== FOOTERpart ends ======-->
+
+    <!-- Jquery js -->
+    <script src="../assets/js/jquery-1.12.4.min.js"></script> 
+
+    <!-- Bootstrap js -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+
+
+    <!-- Slick js -->
+    <script src="../assets/js/slick.min.js"></script>
+
+    <!-- Isotope js -->
+    <script src="../assets/js/isotope.pkgd.min.js"></script>
+
+    <!-- Images Loaded js -->
+    <script src="../assets/js/imagesloaded.pkgd.min.js"></script> 
+
     <!-- Scrolling js -->
-    <script src="assets/js/scrolling-nav.js"></script>
-    <script src="assets/js/jquery.easing.min.js"></script> 
+    <script src="../assets/js/scrolling-nav.js"></script>
+    <script src="../assets/js/jquery.easing.min.js"></script> 
 
     <!-- wow js -->
-    <script src="assets/js/wow.min.js"></script>
+    <script src="../assets/js/wow.min.js"></script>
 
     <!-- Main js -->
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
 </body>
 

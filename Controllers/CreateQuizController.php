@@ -34,6 +34,7 @@
 		// adding questions to quiz
 		for($i=1; $i<=$num_of_questions; $i++){
 
+			// defining the variables to index the global POST array 
 			$question_statement = "question".$i;
 			$q_option_1			= "question".$i."_option1";
 			$q_option_2 		= "question".$i."_option2";
@@ -41,6 +42,7 @@
 			$q_option_4			= "question".$i."_option4";
 			$q_correct_answer	= "question".$i."_correct_answer";
 
+			// retrieving the quiz question data frorm POST
 			$quizTopic = stripslashes($_POST["quiz_topic"]);
 			$question  = stripslashes($_POST[$question_statement]);
 			$option1   = stripslashes($_POST[$q_option_1]);
@@ -49,17 +51,29 @@
 			$option4   = stripslashes($_POST[$q_option_4]);
 			$correct_answer_post = stripslashes($_POST[$q_correct_answer]);
 
+			// if the teacher doesnt provide the correct answer
 			if(!$correct_answer_post){
+
 				header("location: ../Views/createQuiz.php?empty=true");
 				exit();
 			}
 
+			// else retrieving the correct answer
 			$correct_answer = stripslashes($_POST[$correct_answer]);
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
 				header("location: ../Views/createQuiz.php?empty=true");
 			}
 
+			if($correct_answer_post == $option3 && empty($option3)){
+				mysqli_close($database_connection);
+				header("location: ../Views/createQuiz.php?Empty=true");
+			}
+
+			if($correct_answer_post == $option4 && empty($option4)){
+				mysqli_close($database_connection);
+				header("location: ../Views/createQuiz.php?Empty=true");
+			}
 			// calling addQuestions function to add questions to database
 			addQuestions($quiz_id, $question, $option1, $option2, $option3, $option4, $correct_answer);
 		}
@@ -70,6 +84,7 @@
 	}
 
 	else{
+		mysqli_close($database_connection);
 		header("location: ../Views/createQuiz.php?Error=true");
 	}
 ?>

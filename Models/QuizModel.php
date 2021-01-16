@@ -4,22 +4,26 @@
 
 	function addQuiz($tutorial_id, $quiz_topic){
 
+		/* This function adds a new quiz to database */
+
 		global $database_connection;
 
 		// executing the query to create a quiz
 		$sql_query = "INSERT INTO `quiz`(`tutorial_id`, `Topic`) VALUES ('$tutorial_id', '$quiz_topic')";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
-		if (!$sql_query_execute) {
+		/*if (!$sql_query_execute) {
 		    printf("Quiz Error: %s\n", mysqli_error($database_connection));
 		    exit();
-		}
+		}*/
 		$quiz_id =  mysqli_insert_id($database_connection);
 
 		return $quiz_id;
 	}
 
 	function addQuestions($quiz_id, $questionStatement, $option1, $option2, $option3, $option4, $correct_option){
+
+		/* This function adds new questions to database */
 
 		global $database_connection;
 
@@ -40,6 +44,8 @@
 
 	function getQuizByTutorialID($tutorial_id){
 
+		/* This function retrieves quiz using tutorial id */
+
 		global $database_connection;
 
 		$sql_query = "SELECT topic, id FROM quiz WHERE tutorial_id='$tutorial_id'";
@@ -57,6 +63,8 @@
 
 	function getAllQuizzesByEmail($email,$quiz_id){
 
+		/* This function retrieves quiz using user email and quiz id */		
+
 		global $database_connection;
 
 		$sql_query = "SELECT quiz.id quiz_id, tutorial.id tutorial_id FROM quiz INNER JOIN tutorial on quiz.tutorial_id=tutorial.id WHERE instructor='$email' and quiz.id='$quiz_id'";
@@ -71,6 +79,8 @@
 	}
 
 	function getAllQuizzes(){
+
+		/* This function retrieves all quizzes from database */
 
 		global $database_connection;
 
@@ -88,6 +98,8 @@
 
 	function getQuizById($quiz_id){
 
+		/* This function retrieves quiz using quiz id */
+
 		global $database_connection;
 
 		$sql_query = "SELECT * FROM `quiz` WHERE `id`='$quiz_id'";
@@ -103,6 +115,8 @@
 	}
 
 	function getTutorialByQuizId($quiz_id){
+
+		/* This function retrieves tutorial id using quiz id from quiz table*/
 
 		global $database_connection;
 

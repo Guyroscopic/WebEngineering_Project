@@ -86,7 +86,6 @@
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="Views/studentLogout.php">Logout</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li>
                                 </ul>
                             </div>
                             <?php }elseif($teacher_loggedin){ ?>
@@ -104,7 +103,6 @@
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="Views/teacherLogout.php">Logout</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li>
                                 </ul>
                             </div>
                             <?php }else{ ?>
@@ -116,13 +114,12 @@
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="login.php">LOGIN</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="register.php">REGISTER</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li>
                                     </ul> 
                                 </ul>
                             </div>
@@ -198,9 +195,50 @@
                             </div>
                             </div>
                         </div> 
-                </div>
+                </div><br><br><br><br><br><br><br><br><br><br>
 
     <!--====== Contact PART ENDS ======-->
+
+    <!--===== FOOTERpart starts ======-->
+    
+  <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About our Project</h6>
+            <p class="text-justify">Our project is tutoring website for students where teachers can post and edit tutorials while students can see tutorials and can examine themselves through quizes. It is managed by Admin. We have used PHP for backend and HTML, CSS, jQuery and Bootstrap for frontend.</p>
+          </div>
+
+          <div class="col-xs-6 col-md-3">
+            <h6>Contact Information</h6>
+            <ul>
+              <p>SEECS</p>
+              <p>NUST, H12 Campus</p>
+              <p>ISLAMABAD</p>
+            </ul>
+          </div>
+          <br><br><br>
+          <div class="col-xs-6 col-md-3"><br>
+            <ul>
+              <p>BESE9B</p>
+              <p>Batch'2k18</p>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
+            </p>
+          </div>
+        </div>
+      </div>
+</footer>
+
+    <!--===== FOOTERpart ends ======-->
+
 
     <!--====== jquery js ======-->
  

@@ -117,6 +117,10 @@ ALTER TABLE student_tutorial_bridge
 -- Making the Composite Primary Key in "student_tutorial_bridge"
 ALTER TABLE `student_tutorial_bridge` ADD PRIMARY KEY( `student_email`, `tutorial_id`);
 
+-- Adding the student_quiz_bridge_table with composite PRIMARY KEY --
+CREATE TABLE `webproject`.`student_quiz_bridge` ( `student_email` VARCHAR(100) NOT NULL, `quiz_id` INT NOT NULL, `$quiz_score` INT NOT NULL, CONSTRAINT PK_quiz_bridge PRIMARY KEY (student_email,quiz_id),
+FOREIGN KEY(student_email) REFERENCES student(email), FOREIGN KEY(quiz_id) REFERENCES quiz(id);
+
 -- Creating the "admin" table
 CREATE TABLE `webproject`.`admin` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
 

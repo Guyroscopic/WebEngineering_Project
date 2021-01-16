@@ -823,8 +823,7 @@ ul, ol {
     font-family: 'Montserrat',sans-serif;
     border-bottom: 4px solid #fff;
 }
-        
-        
+               
 .login-type{
     text-align: left;
     width: 100%;
@@ -835,17 +834,9 @@ ul, ol {
     background: transparent;
     color: #fff;
 }
-
-.login-type span{
-    color: #fff;
-    width: 40px;
-    line-height: 45px;
-    background: transparent;
-    font-size: 16px;
-    font-family: 'Poppins',sans-serif;
-}
 .field{
     position: relative;
+    border-radius: 5px;
     height: 45px;
     width: 100%;
     display: flex;
@@ -866,56 +857,26 @@ ul, ol {
     font-size: 16px;
     font-family: 'Poppins',sans-serif;
 }
-.space{
-    margin-top: 16px;
-}
-.show{
-    position: absolute;
-    right: 13px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #222;
-    display: none;
+
+.login-btn button[type="submit"]{
+    display: flex;
+    width: 100%;
+    color: #ffffff;
+    justify-content: center;
+    letter-spacing: 1em;
+    border: 2px solid #66FCF1;
+    padding: 12px 22px;
     cursor: pointer;
-    font-family: 'Montserrat',sans-serif;
-}
-.pass-key:valid ~ .show{
-    display: block;
-}
-.forgot-pass{
-    text-align: right;
-    margin: 10px 0;
-}
-.forgot-pass a{
-    color: white;
+    font-size: 16px;
+    font-weight: 500;  
+    border-radius: 15px;
     text-decoration: none;
-    font-family: 'Poppins',sans-serif;
-}
-.forgot-pass:hover a{
-    text-decoration: underline;
-}
-.field input[type="submit"]{
-    background: #43cae9;
-    border: 1px solid #43cae9;
-    color: white;
-    font-size: 18px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Montserrat',sans-serif;
-}
-.field input[type="submit"]:hover{
-    background:  #43cae9;
-}
-.login{
-    color: white;
-    margin: 20px 0;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
 }
 
-.rem-check{
-    color:#fff;
-    float: left;
+.login-btn button[type="submit"]:hover{
+    background:  #43cae9;
 }
 
 .log-register{
@@ -924,7 +885,7 @@ ul, ol {
     font-family: 'Poppins',sans-serif;
 }
 .log-register a{
-    color: #43cae9;
+    color: #66FCF1;
     text-decoration: none;
 }
 .log-register a:hover{
@@ -940,48 +901,48 @@ ul, ol {
 }
         
 body{
-    background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG9ubGluZSUyMGxlYXJuaW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fG9ubGluZSUyMGxlYXJuaW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
 }
 
 .main-register-form{
-    width: 600px;
-    margin: 100px auto 0px auto;
+  width: 600px;
+  margin: 200px auto 0px auto;
 }
 
 h2{
-    color: white;
-    text-align: center;
-    font-size: 33px;
-    font-weight: 600;
-    margin: 60px 0 35px 0;
-    font-family: 'Montserrat',sans-serif;
-    border-bottom: 4px solid #fff;
+  color: white;
+  text-align: center;
+  font-size: 33px;
+  font-weight: 600;
+  margin: 60px 0 35px 0;
+  font-family: 'Montserrat',sans-serif;
+  border-bottom: 4px solid #fff;
 }
 
 .register{
-    background-color: rgba(0,0,0,0.5);
-    width: 100%;
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
-    color:#fff;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  font-size: 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+  color:#fff;
 }
 
 #register{
-    margin: 40px;
+  margin: 40px;
 }
 
 label{
-    font-family: 'Poppins',sans-serif;
-    font-size: 18px;
+  font-family: 'Poppins',sans-serif;
+  font-size: 18px;
 }
 
-#name,#password,#phone{
-    width: 300px;
+#name,#password{
+    width: 100%;
     border: 1px solid #ddd;
     border-radius: 3px;
     outline: 0;
@@ -994,48 +955,35 @@ label,span,h2{
     text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 }
 
-#submit{
-    position: relative;
-    height: 45px;
-    width: 100%;
+.reg-btn button[type="submit"]{
     display: flex;
-}
-
-#submit input{
-    height: 100%;
     width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #222;
+    color: #ffffff;
+    justify-content: center;
+    letter-spacing: 1.5em;
+    border: 2px solid #66FCF1;
+    padding: 12px 20px;
+    cursor: pointer;
     font-size: 16px;
-    font-family: 'Poppins',sans-serif;
+    font-weight: 500;  
+    border-radius: 15px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(#43cae9 0%, #38f9d7 100%);
 }
 
-#submit input[type="submit"]{
-    background: #43cae9;
-    border: 1px solid #43cae9;
-    color: white;
-    font-size: 18px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Poppins',sans-serif;
-    border-radius: 20px;
-}
-        
-#submit input[type="submit"]:hover{
+.reg-btn button[type="submit"]:hover{
     background:  #43cae9;
 }
 
 #login{
-    font-size: 15px;
+    font-size: 16px;
     color: white;
     font-family: 'Poppins',sans-serif;
 }
 
 #login a{
-    color: #43cae9;
+    color: #66FCF1;
     text-decoration: none;
 }
         
@@ -1043,5 +991,37 @@ label,span,h2{
     text-decoration: underline;
 }
 
+/* FOOTER CSS*/
+.site-footer
+{
+  background-color: grey;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:black;  
+}
 
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+
+.site-footer a
+{
+  color:black;
+} 
+.site-footer a:hover
+{
+  color:black;
+  text-decoration:none;
+}
+
+.copyright-text
+{
+  margin-left:400px;
+}
 

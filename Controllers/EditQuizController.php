@@ -37,10 +37,10 @@
 			$total_qs = $new_num_of_questions;
 		}
 
-	
 		// adding questions to quiz
 		for($i=1; $i<=$total_qs; $i++){
 
+			// defining the variables to index the global POST array
 			$question_statement = "question".$i;
 			$q_option_1			= "question".$i."_option1";
 			$q_option_2 		= "question".$i."_option2";
@@ -49,11 +49,12 @@
 			$q_correct_answer	= "question".$i."_correct_answer";
 			$q_question_id        = "question".$i."_id";
 
+			// retrieving the quiz question data frorm POST
 			$question  = stripslashes($_POST[$question_statement]);
 			$option1   = stripslashes($_POST[$q_option_1]);
 			$option2   = stripslashes($_POST[$q_option_2]);
 
-
+			// checking for empty and non empty fields
 			if(!empty($_POST[$q_option_3])){
 				$option3 = stripslashes($_POST[$q_option_3]);
 			}
@@ -67,6 +68,7 @@
 				$option4 = "";
 			}
 
+			// retrieving the correct answer
 			$select_correct_answer = stripslashes($_POST[$q_correct_answer]);
 			if(!$select_correct_answer){
 				header("location: ../Views/editQuiz.php?Empty=true");
@@ -74,29 +76,33 @@
 			}
 			
 			$correct_answer = stripslashes($_POST[$select_correct_answer]);
-
+			// checking for empty and non empty fields
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
 				header("location: ../Views/teacherProfile.php?Empty=true");
 			}
 
+			// if a new question has been added to quiz, Add it to database
 			if($i > $num_of_questions){
 				// calling addQuestions function to add questions to database
 				addQuestions($quizId, $question, $option1, $option2, $option3, $option4, $correct_answer);
 			}
 
+			// if a previous question has been edited,update it
 			elseif($i <= $num_of_questions){
 				$question_id = stripslashes($_POST[$q_question_id]);
 				// calling addQuestions function to add questions to database
 				$updateQuiz = updateQuiz($question_id, $question, $option1, $option2, $option3, $option4, $correct_answer);}
 		}
-		
-		header("location: ../Views/quiz.php?id=$quizId");
+
 		//Closing the DB Connection
 		mysqli_close($database_connection);	
+		header("location: ../Views/quiz.php?id=$quizId");	
 	}
 
 	else{
+
+		//Closing the DB Connection
+		mysqli_close($database_connection);	
 		header("location: ../Views/editQuiz.php?Error=true");
-		//echo "Unknown Error";
 	}
 ?>

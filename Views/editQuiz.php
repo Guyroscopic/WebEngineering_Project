@@ -33,8 +33,8 @@
 	$num_of_questions = 0;
 
 	//Extracting Quiz ID from URL and fetching the respective Quiz and Its Questions
-	$quiz_id 		  = $_POST["quiz_id"];
-
+	$quiz_id = $_POST["quiz_id"];
+	
 	$quiz 	 		  = getQuizById($quiz_id);
 	$quiz_question    = getQuizQuestionById($quiz_id);
 ?>
@@ -50,16 +50,16 @@
 <body>
 
 	<?php
-		if(@$_GET["Empty"]){
+		if(@$_GET["empty"]){
 	?>
 		<div style="color: red">OOPS! Looks like you left a field empty</div>
 	<?php
 		}
-	if(@$_GET["Error"]){?>
+	if(@$_GET["error"]){?>
 		<div style='color: red'>Error</div>
 	<?php
-	}?>
-
+	}
+	?>
 
 	<form name='UpdateQuizForm' method='POST' action='../Controllers/EditQuizController.php'>
 
@@ -79,7 +79,7 @@
 				$question_id 	 = $question["id"];
 
 				$quiz_question_list .= "<li><input type='text' name='question".$i."' value='".$statement.
-					 "'><ul><li><input type='text' name='question".$i."_option1' value='".$option1."'></li><li><input type='text' name='question".$i."_option2' value='".$option2."''></li>";
+					 "'><ul><li><input type='text' name='question".$i."_option1' value='".$option1."' required></li><li><input type='text' name='question".$i."_option2' value='".$option2."' required></li>";
 
 				if(!empty($option3)){
 					$quiz_question_list .= "<li><input type='text' name='question".$i."_option3' value='".$option3."'></li>";	
