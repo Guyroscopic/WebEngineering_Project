@@ -103,4 +103,12 @@
 		return $sql_query_execute;
 	}
 
+	function deleteTutorial($id){
+
+		global $database_connection;
+
+		$sql_query         = "DELETE FROM tutorial WHERE id='$id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+	}
+
 ?>

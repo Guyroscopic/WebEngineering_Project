@@ -42,6 +42,10 @@
 </head>
 <body>
 
+	<?php if(@$_GET["success"]){ ?>
+		<div style="color: green">Question Deleted Successfully!</div>
+	<?php } ?>
+
 	<!-- Table tag for displaying the student table -->
 	<table>
 		<tr>
@@ -65,7 +69,7 @@
 			<td><?php echo $row["option3"] ?></td>
 			<td><?php echo $row["option4"] ?></td>
 			<td><?php echo $row["correct_option"] ?></td>
-			<td><a href="#">Delete</a></td>
+			<td><a href='../Controllers/DeleteController.php?table=question&id=<?php echo $row["id"] ?>'>Delete</a></td>
 		</tr>
 		<?php } ?>
 	</table>

@@ -38,4 +38,12 @@
 
 		return $sql_query_execute;
 	}
+
+	function deleteQuestion($id){
+
+		global $database_connection;
+
+		$sql_query         = "DELETE FROM question WHERE id='$id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+	}
 ?>

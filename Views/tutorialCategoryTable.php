@@ -44,6 +44,10 @@
         <div style="color: green">Tutorial Category Added Successfuly!</div>
     <?php } ?>
 
+    <?php if(@$_GET["success"]){ ?>
+		<div style="color: green">Tutorial Category Deleted Successfully!</div>
+	<?php } ?>
+
 	<!-- Anchor tag for adding a student -->
 	<a href="addTutorialCategory.php">Add a Tutorial Category</a><br><br>
 
@@ -58,7 +62,9 @@
 		<tr>
 			<td><?php echo $row["id"] ?></td>
 			<td><?php echo $row["name"] ?></td>
-			<td><a href="#">Delete</a></td>
+			<td><a 
+				href='../Controllers/DeleteController.php?table=tutorial_categeory&id=<?php echo $row["id"] ?>'>Delete
+			</a></td>
 		</tr>
 		<?php } ?>
 	</table>

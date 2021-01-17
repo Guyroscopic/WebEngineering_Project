@@ -48,4 +48,12 @@
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 	}
 
+	function deleteTutorialCategory($id){
+
+		global $database_connection;
+
+		$sql_query         = "DELETE FROM tutorial_categeory WHERE id='$id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+	}
+
 ?>

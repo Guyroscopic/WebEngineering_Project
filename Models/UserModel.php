@@ -57,4 +57,20 @@
 
 		return $sql_query_execute;
 	}
+
+	function deleteStudent($email){
+
+		global $database_connection;
+
+		$sql_query         = "DELETE FROM student WHERE email='$email'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+	}
+
+	function deleteTeacher($email){
+
+		global $database_connection;
+
+		$sql_query         = "DELETE FROM teacher WHERE email='$email'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+	}
 ?>

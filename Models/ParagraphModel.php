@@ -38,5 +38,13 @@
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		return $sql_query_execute;
-	}	
+	}
+
+	function deleteParagraph($id){
+
+		global $database_connection;
+
+		$sql_query         = "DELETE FROM paragraph WHERE id='$id'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+	}
 ?>

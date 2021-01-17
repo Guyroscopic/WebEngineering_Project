@@ -39,6 +39,10 @@
 </head>
 <body>
 
+	<?php if(@$_GET["success"]){ ?>
+		<div style="color: green">Student Deleted Successfully!</div>
+	<?php } ?>
+
 	<!-- Anchor tag for adding a student -->
 	<a href="addStudent.php">Add a Student</a><br><br>
 
@@ -53,7 +57,7 @@
 		<tr>
 			<td><?php echo $row["email"] ?></td>
 			<td><?php echo $row["username"] ?></td>
-			<td><a href='deleteUser.php?email=<?php echo $row["email"] ?>'>Delete</a></td>
+			<td><a href='../Controllers/DeleteController.php?table=student&email=<?php echo $row["email"] ?>'>Delete</a></td>
 		</tr>
 		<?php } ?>
 	</table>

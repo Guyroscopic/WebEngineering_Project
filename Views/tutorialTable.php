@@ -42,6 +42,10 @@
 </head>
 <body>
 
+	<?php if(@$_GET["success"]){ ?>
+		<div style="color: green">Tutorial Deleted Successfully!</div>
+	<?php } ?>
+
 	<!-- Table tag for displaying the student table -->
 	<table>
 		<tr>
@@ -57,7 +61,7 @@
 			<td><?php echo $row["category_id"] ?></td>
 			<td><?php echo $row["instructor"] ?></td>
 			<td><?php echo $row["title"] ?></td>
-			<td><a href="#">Delete</a></td>
+			<td><a href='../Controllers/DeleteController.php?table=tutorial&id=<?php echo $row["id"] ?>'>Delete</a></td>
 		</tr>
 		<?php } ?>
 	</table>
