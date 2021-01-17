@@ -1,4 +1,4 @@
-<!Doctype html>
+<!Doctype html> 
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -65,12 +65,25 @@
     </section>
     
     <!-- NAVBAR PART END -->
+
+    <!-- OUTPUT DIV FOR ERROR MESSAGES -->
+    <?php if(@$_GET["invalid"]){ ?>
+        <div style="color: red"><?php echo $_GET["invalid"]; ?></div>
+    <?php } ?>
+
+    <?php if(@$_GET["userexists"]){ ?>
+        <div style="color: red"><?php echo $_GET["userexists"]; ?></div>
+    <?php } ?> 
+
+    <?php if(@$_GET["empty"]){ ?>
+        <div style="color: red"><?php echo $_GET["empty"]; ?></div>
+    <?php } ?> 
     
     <!-- REGISTRATION PART START -->
     <div class="main-register-form">
             <div class="register">
-                <h2>Register Here</h2>
-                <form id="register" action="#">
+                    <h2>Register Here</h2>
+                <form  action="../Controllers/SignupController.php" method="POST" id="signupForm">
                     <div class="radio" align="center">
                         <label>Register as</label>
                         &nbsp;&nbsp;&nbsp;&nbsp;
@@ -83,21 +96,21 @@
                     <br>
                     
                     <div align=center>
-                    <input type="text" name="uname" id="name" placeholder="Enter Your Username">
+                    <input type="text" name="username" id="name" placeholder="Enter Your Username">
                     <br><br>
                     
                     <input type="email" name="email" id="name" placeholder="Enter Your Email">
                     <br><br>
                     
-                    <input type="password" name="pass" id="password" placeholder="Enter Your Password">
+                    <input type="password" name="password" id="password" placeholder="Enter Your Password">
                     <br><br>
                     
-                    <input type="password" name="pass2" id="password" placeholder="Confirm Your Password">
+                    <input type="password" name="confirm-password" id="password" placeholder="Confirm Your Password">
                     <br><br>
                     </div>
                     
                     <div class="reg-btn">
-                        <button type="submit" name="register">REGISTER</button>
+                        <button type="submit" name="registeruserbutton">REGISTER</button>
                     </div>
 
                     <div id="login">Already have an account?

@@ -10,9 +10,13 @@
 		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
-		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+		//$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+		if (!$sql_query_execute) {
+		    printf("Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
 
-		return $sql_query_result;
+		return $sql_query_execute;
 	}
 
 	function registerUser($username, $email, $password, $userType){
@@ -26,6 +30,18 @@
 
 		return $sql_query_execute;
 		}
+
+	function updateTeacherInfo($email, $education, $description){
+
+		/* Function to update the info of teacher */
+		global $database_connection;
+
+		$sql_query = "UPDATE `teacher` SET `education`='$education', `description`='$description' WHERE `email`='$email'";
+
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+	
+		return $sql_query_execute;
+	}
 
 	function getTeacherByEmail($email){
 
@@ -52,7 +68,7 @@
 
 		global $database_connection;
 
-		$sql_query         = "SELECT email, username FROM teacher";
+		$sql_query         = "SELECT email, username, education, description FROM teacher";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		return $sql_query_execute;

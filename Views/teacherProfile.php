@@ -105,6 +105,7 @@
                         <a class="btn" href="viewTutorials.php">View Tutorials</a><br>
                         <a class="btn" href="publishedTutorials.php">View Published Tutorials</a><br>
                         <a class="btn" href="createTutorial.php">Create New Tutorials</a><br>
+                        <a class="btn" href="updateInfo.php">Update Information</a><br>
                     </div>
                 </div>
             </div>

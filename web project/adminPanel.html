@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Panel</title>
+        <meta charset="UTF-8">
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+            body{
+                background-color: #fff; 
+                font-family: 'Poppins',sans-serif;
+            }
+
+            .main {
+                margin-left: 250px;
+                padding: 0px 10px;
+                color: black;
+            }
+            .main-head{
+                background-image: linear-gradient(to left, #43cae9 0%, #38f9d7 100%);
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                font-size: 50px;
+                font-weight: bold;
+            }
+
+            .admin-rights h3{
+                color: gray;
+                font-size: 24px;
+            }
+
+            li::marker{
+                color: #1F2833;
+                font-size: 1em;
+            }
+            li{
+                list-style-type: square;
+            }
+
+            li a{
+                text-decoration: none;
+                font-weight: 500;
+                color: #1F2833;
+                font-size: 16px;
+            }
+            li a:hover{
+                color: #66FCF1;
+                text-decoration: underline;
+            }
+            #logout-btn{
+                display: flex;
+                color: #ffffff;
+                width: fit-content;
+                text-transform: uppercase;
+                text-decoration: none;
+                border: 2px solid #66FCF1;
+                padding: 12px 22px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: 600;  
+                border-radius: 10px;
+                background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+            }
+
+            #logout-btn:hover{
+                background: #43cae9;
+                color: #fff;
+            }
+
+            .logo{
+                position: relative;
+                left:40px;
+                width:150px;
+            }
+            .sidenav {
+                height: 100%;
+                width: 250px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0; 
+                background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+                overflow-x: hidden;
+                padding-top: 20px;
+            }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color:#ffffff;
+                display: block;
+            }
+
+            .sidenav a:hover {
+                color: #38f9d7;
+                background: #fff;
+                text-decoration: none;
+            }
+
+
+            @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="sidenav">
+            <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
+            <br><br>
+            <a href="MainPage.html"><i class="fa fa-home"></i> Home</a>
+            <br>
+            <a href="About.html"><i class="fa fa-font"></i> About</a>
+            <br>
+            <a href="teacherProfile.html"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+            <br>
+            <a href="login.html"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+            <br>
+        </div>
+
+        <div class="main">
+        <h1><span class="main-head">Welcome Admin</span></h1>
+        <div class="admin-rights">
+        <h3>You have Add and Delete Rights on:</h3>
+            <ul>
+                <li><a href="#">Student Table</a></li>
+                <li><a href="#">Teacher Table</a></li>
+                <li><a href="#">Tutorial Category Table</a></li>
+            </ul>
+        </div>
+
+        <div class="admin-rights">
+        <h3>You have Viewing Rights on:</h3>
+            <ul>
+                <li><a href="#">Student Tutorial Bridge Table</a></li>
+                <li><a href="#">Student Quiz Bridge Table</a></li>
+                <li><a href="#">Tutorial Category Table</a></li>
+            </ul>
+        </div>
+
+        <div class="admin-rights">
+            <h3>You have Deleting Rights on:</h3>
+            <ul>
+                <li><a href="#">Tutorial Table</a></li>
+                <li><a href="#">Paragraphs Table</a></li>
+                <li><a href="#">Quiz Table</a></li>
+                <li><a href="#">Question Table</a></li>
+            </ul>
+        </div>
+
+        <div class="admin-rights">
+            <h3>You have Adding Rights on:</h3>
+            <ul>
+                <li><a href="#">Admin Table</a></li>
+            </ul>
+        </div>
+        <br>
+
+        <a href="#" id="logout-btn">Logout</a>
+        </div>
+    </body>
+</html>

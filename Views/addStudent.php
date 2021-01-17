@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html> 
 <head>
 	<title>Add Student</title>
 </head>
@@ -7,13 +7,23 @@
 
 	<h1>Add Student</h1>
 
-	<?php if(@$_GET["empty"]){ ?>
-        <div style="color: red">OOPS! Looks like you left a field empty</div>
+	<!-- OUTPUT DIV FOR ERROR MESSAGES -->
+
+    <?php if(@$_GET["invalid"]){ ?>
+		<div style="color: red"><?php echo $_GET["invalid"]; ?></div>
     <?php } ?>
 
-	<form action="../Controllers/AddUserController.php" method="POST">
+	<?php if(@$_GET["userexists"]){ ?>
+	    <div style="color: red"><?php echo $_GET["userexists"]; ?></div>
+	<?php } ?> 
 
-		<input type="hidden" name="loginType" value="student">
+	<?php if(@$_GET["empty"]){ ?>
+	    <div style="color: red"><?php echo $_GET["empty"]; ?></div>
+	<?php } ?> 
+
+	<form action="../Controllers/SignupController.php" method="POST">
+
+		<input type="hidden" name="registertype" value="student">
 
 		<label>Username</label>
 	    <input type="text" name="username" placeholder="Enter Username" required>
@@ -23,11 +33,13 @@
 	    <input type="text" name="email" placeholder="Enter Email ID" required>
 	    <br><br>
 
-	    <label>Password</label>
-	    <input type="text" name="password" placeholder="Enter Password" required>
+	    <!--<label>Password</label>-->
+	    <input type="hidden" name="password" placeholder="Enter Password" value=12345678>
 	    <br><br>
 
-	    <button name="add">Add Student</button>
+	    <input type="hidden" name="confirm-password" value=12345678>
+
+	    <button name="addstudentbutton">Add Student</button>
 
 	</form>
 

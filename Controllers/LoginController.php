@@ -45,7 +45,8 @@
 		$password = mysqli_real_escape_string($database_connection,stripslashes($password));
 		
 		//Fetching the user from the database
-		$sql_query_result = getUserFromEmailID($email, $loginType);
+		$user_query_result = getUserFromEmailID($email, $loginType);
+		$sql_query_result = mysqli_fetch_array($user_query_result);
 
 		//Authenticating the user
 		if($sql_query_result && count($sql_query_result) > 0){ //Authenticating email

@@ -44,7 +44,7 @@
 	<?php } ?>
 
 	<!-- Anchor tag for adding a student -->
-	<a href="addTeacher.php">Add a Teacher</a><br><br>
+	<a href="registerUser.php?usertype=<?php echo 'addTeacher'?>">Add a Teacher</a><br><br>
 
 	<!-- Table tag for displaying the student table -->
 	<table>
