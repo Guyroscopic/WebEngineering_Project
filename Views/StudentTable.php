@@ -53,7 +53,7 @@
 		<tr>
 			<td><?php echo $row["email"] ?></td>
 			<td><?php echo $row["username"] ?></td>
-			<td><a href="#">Delete</a></td>
+			<td><a href='deleteUser.php?email=<?php echo $row["email"] ?>'>Delete</a></td>
 		</tr>
 		<?php } ?>
 	</table>
