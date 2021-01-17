@@ -31,6 +31,18 @@
 		return $sql_query_execute;
 		}
 
+	function updateTeacherInfo($email, $education, $description){
+
+		/* Function to update the info of teacher */
+		global $database_connection;
+
+		$sql_query = "UPDATE `teacher` SET `education`='$education', `description`='$description' WHERE `email`='$email'";
+
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+	
+		return $sql_query_execute;
+	}
+
 	function getTeacherByEmail($email){
 
 		global $database_connection;
@@ -56,7 +68,7 @@
 
 		global $database_connection;
 
-		$sql_query         = "SELECT email, username FROM teacher";
+		$sql_query         = "SELECT email, username, education, description FROM teacher";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		return $sql_query_execute;
