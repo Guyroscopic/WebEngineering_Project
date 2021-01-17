@@ -10,9 +10,13 @@
 		$sql_query         = "SELECT * FROM " . $loginType . " WHERE email = '$emailID'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
-		$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+		//$sql_query_result  = mysqli_fetch_array($sql_query_execute);
+		if (!$sql_query_execute) {
+		    printf("Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
 
-		return $sql_query_result;
+		return $sql_query_execute;
 	}
 
 	function registerUser($username, $email, $password, $userType){

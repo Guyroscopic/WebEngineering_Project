@@ -40,7 +40,7 @@
 <body>
 
 	<!-- Anchor tag for adding a student -->
-	<a href="addStudent.php">Add a Student</a><br><br>
+	<a href="registerUser.php?usertype=<?php echo 'addStudent'?>">Add a Student</a><br><br>
 
 	<!-- Table tag for displaying the student table -->
 	<table>

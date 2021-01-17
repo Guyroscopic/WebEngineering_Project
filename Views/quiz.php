@@ -47,12 +47,14 @@
 			exit();
 	}
 
+	if($student_loggedin){
 	//Fetching the score of previous attempt by student if any
 	$quiz_score_query_result = getStudentQuizScore($student_email, $quiz_id);
-	if(mysqli_num_rows($quiz_score_query_result) > 0){
+		if(mysqli_num_rows($quiz_score_query_result) > 0){
 
-		$quiz_score_array	= mysqli_fetch_array($quiz_score_query_result);
-		$score 				= $quiz_score_array["quiz_score"];
+			$quiz_score_array	= mysqli_fetch_array($quiz_score_query_result);
+			$score 				= $quiz_score_array["quiz_score"];
+		}
 	}
 
 	//Fetcing the info of logged in teacher and all of his created Quizzes
@@ -131,7 +133,8 @@
 				}
 				$quiz_question_list .= "</ul>";
 
-				$quiz_question_list .= "<b>Correct Answer: " . $correct_option . "</b><br><br>";
+				if($match > 0)
+					$quiz_question_list .= "<b>Correct Answer: " . $correct_option . "</b><br><br>";
 			}
 			
 			
