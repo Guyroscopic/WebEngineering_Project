@@ -93,7 +93,7 @@ ALTER TABLE quiz
 -- Creating the "question" table
 CREATE TABLE `webproject`.`question` ( `id` INT NOT NULL AUTO_INCREMENT , `quiz_id` INT NOT NULL , `statement` VARCHAR(1000) NOT NULL , `option1` VARCHAR(100) NOT NULL , `option2` VARCHAR(100) NOT NULL , `option3` VARCHAR(100) NULL , `option4` VARCHAR(100) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
--- Adding the Foregin Key reference from "question "to "question"
+-- Adding the Foregin Key reference from "question "to "quiz"
 ALTER TABLE `question` ADD `correct_option` VARCHAR(100) NOT NULL AFTER `option4`;
 ALTER TABLE question
     ADD CONSTRAINT quiz_id_inQuestion
@@ -117,7 +117,7 @@ ALTER TABLE student_tutorial_bridge
 -- Making the Composite Primary Key in "student_tutorial_bridge"
 ALTER TABLE `student_tutorial_bridge` ADD PRIMARY KEY( `student_email`, `tutorial_id`);
 
--- Adding the student_quiz_bridge_table with composite PRIMARY KEY --
+-- Creating the student_quiz_bridge_table with composite PRIMARY KEY --
 CREATE TABLE `webproject`.`student_quiz_bridge` ( `student_email` VARCHAR(100) NOT NULL, `quiz_id` INT NOT NULL, `$quiz_score` INT NOT NULL, CONSTRAINT PK_quiz_bridge PRIMARY KEY (student_email,quiz_id),
 FOREIGN KEY(student_email) REFERENCES student(email), FOREIGN KEY(quiz_id) REFERENCES quiz(id);
 

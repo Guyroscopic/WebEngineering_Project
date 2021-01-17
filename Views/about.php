@@ -6,10 +6,10 @@
     $teacher_loggedin  = false;    
 
     if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
-        $student_loggedin  = true;
+        $teacher_loggedin  = true;
     }
     elseif(isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])){
-        $teacher_loggedin  = true;            
+        $student_loggedin  = true;            
     }    
         
 ?>
@@ -72,13 +72,13 @@
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/about.php">ABOUT</a>
+                                        <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/login.php">Profile</a>
+                                        <a class="page-scroll" href="login.php">Profile</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/studentLogout.php">Logout</a>
+                                        <a class="page-scroll" href="studentLogout.php">Logout</a>
                                     </li>
                                 </ul>
                             </div>
