@@ -1,5 +1,6 @@
 -- Creating "webproject_new" Database
-DROP DATABSE IF EXISTS webproject_new;
+DROP DATABASE IF EXISTS webproject_new;
+CREATE DATABASE webproject_new;
 
 -- Using the Database
 USE webproject_new;
@@ -119,7 +120,13 @@ INSERT INTO `tutorial_categeory`(`name`) VALUES ("Maths");
 INSERT INTO `tutorial_categeory`(`name`) VALUES ("Biology");
 
 --Populating "tutorial" Table
-
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Python',    'In this tutorial we will have a bried overview of Python');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com','JavaScript', 'In this tutorial we will have a bried overview of JavaScript');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'C++',       'In this tutorial we will have a bried overview of C++');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Java',      'In this tutorial we will have a bried overview of Java' );
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'C',         'In this tutorial we will have a bried overview of C');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Variation', 'Lets have fun with Ratios and Variations!!');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Quadratic Formula', 'The most important formula you need to know');
 
 --Populating "paragraph" Table
 
