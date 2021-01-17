@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+
+  <title>View Quiz</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: white;
+    }
+    
+    .main {
+      margin-left: 250px;
+      padding: 0px 10px;
+      color: black;
+    }
+
+    .multi-text {
+        background-image: linear-gradient(to left, #43cae9 0%, #38f9d7 100%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 50px;
+        font-weight: bold;
+      }
+
+    .quiz-topic-name{
+        color: #708090;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+    .quiz-content text{
+        display: inline-block;
+        font-family: 'Poppins',sans-serif;
+        font-weight: 600;
+    }
+    .edit-quiz-btn{
+        display: flex;
+        color: #66FCF1;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        align-items: center;
+        border: 2px solid #66FCF1;
+        background-color: #ffffff;
+        padding: 12px 22px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;  
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        outline: none;
+    }
+
+    .edit-quiz-btn:hover{
+        background-color: #C5C6C7;
+        Color: black;
+        border: 2px solid #708090;
+    }
+
+    .logo{
+        position: relative;
+        left:40px;
+        width:150px;
+    }
+    .sidenav {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0; 
+        background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+        overflow-x: hidden;
+        padding-top: 20px;
+    }
+
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color:#ffffff;
+        display: block;
+    }
+
+    .sidenav a:hover {
+        color: #38f9d7;
+        background: #fff;
+        text-decoration: none;
+    }
+
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="sidenav">
+    <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
+    <br><br>
+    <a href="MainPage.html"><i class="fa fa-home"></i> Home</a>
+    <br>
+    <a href="About.html"><i class="fa fa-font"></i> About</a>
+    <br>
+    <a href="teacherProfile.html"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <br>
+    <a href="login.html"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <br>
+  </div>
+
+
+<div class="main ">
+  <h1><span class="multi-text"> View Quiz</span></h1>
+  <form action="#">
+      <h4><span class="quiz-topic-name">Quiz Topic</span></h4>
+      <button class="edit-quiz-btn">Edit Quiz</button>
+      <div class="quiz-content">
+          <ol>
+              <li>The life is</li>
+              <ul>
+                  <li>Delusion</li>
+                  <li>Ask</li>
+              </ul>
+              <text>Correct Answer: </text>
+              <br><br>
+              
+              <li>The life is</li>
+              <ul>
+                  <li>Delusion</li>
+                  <li>Ask</li>
+              </ul>
+              <text>Correct Answer: </text>
+          </ol>
+            
+        </div>
+      
+  </form>
+      
+</div>
+
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified Bootstrap JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html> 
+

@@ -16,6 +16,12 @@
     require_once "../Models/TutorialCategoryModel.php";
 
     $queryResult = getAllCategoriesQueryResult();
+    
+    //    while($row = mysqli_fetch_assoc($queryResult)) {                
+    //        echo $row["name"] . "<br>";
+    //    }
+    //exit();
+
 
     //Closing the connection
     global $database_connection;
@@ -78,21 +84,10 @@
             </div>
         <?php } ?>
 
-        <form>
-        <div class="tut-bg" id="createTutorialForm" action="../Controllers/CreateTutorialController.php" 
+        <form id="createTutorialForm" action="../Controllers/CreateTutorialController.php" 
               method="POST" enctype="multipart/form-data">
 
-            <!-- Drop Down menu for Tutorial Categories 
-            <label for="tutorialCategory">Select Category: </label>
-            <select name="tutorialCategory">
-                <?php
-                    while($row = mysqli_fetch_assoc($queryResult)) {                
-                        echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
-                    }
-                ?>
-            </select>
-            <br><br>
-            -->
+        <div class="tut-bg">
 
             <!-- Heading of Create Tutorial -->
             <div class="main-tut-header">
@@ -100,123 +95,68 @@
             </div>
             <br>
 
-                <label>Select a Category:</label>
-                <div>
-                    <select class="selectpicker show-tick" data-style="btn-info">
-                        <option>Programming</option>
-                        <option>Arts</option>
-                        <option>Mathematics</option>
-                        <option>Biology</option>
-                    </select>     
-                </div>
-                <br>
-
-            <div>
-                <label>Title:</label>
-                <input type="text" id="title" placeholder="Enter Title">
-            </div>
+            <!-- Drop Down menu for Tutorial Categories -->
+            <label>Select a Category:</label>            
+            <select name="tutorialCategory" class="selectpicker show-tick" data-style="btn-info">
+            <?php
+                while($row = mysqli_fetch_assoc($queryResult)) {                
+                    echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
+                }
+            ?>
+            </select>           
             <br>
 
-            <div>
-                <label>Description:</label>
-                <textarea id="title-desc" placeholder="Tutorial Description"></textarea>
-            </div>
+            <label>Title:</label>
+            <input type="text" name='title' id="title" placeholder="Enter Title" required>         
+            <br>
+
+            <label>Description:</label>
+            <textarea id="title-desc" name='description' placeholder="Tutorial Description" required></textarea>            
+            <br>            
+            
+            <label>Video(optional):</label>    
+            <input type="file" id="video" name="video" class='form-control-file'>           
+            <br>
+
+            
+            <label>Paragraph 1 Heading:</label>
+            <input type="text" id="para-head" name='heading_1' class='form-control' placeholder="Enter Heading" required>            
+            <br>
+           
+            <label>Content:</label>                
+            <textarea id='textarea_1' name='content_1' class='form-control'
+                      placeholder='Enter Paragraph Content' required></textarea>            
             <br>
             
-            <div>
-                <label>Video(optional):</label>
-                <div class="input-group">
-                    <label class="input-group-btn">
-                        <span class="btn btn-info">
-                            Browse...<input type="file" style="display: none;" multiple>
-                        </span>
-                    </label>
-                    <input type="text" class="form-control" readonly>
-                </div>
-            </div>
-            <br>
+            <input type="button" id="add-para-btn" onclick="addParagraph()" value="Add Another Paragraph"><br>
 
-            <div>
-                <label>Paragraph 1 Heading:</label>
-                <input type="text" id="para-head" placeholder="Enter Heading">
-            </div>
-            <br>
+            <input id="numOfParagraphs" type="hidden" name="numOfParagraphs" value=1>
 
-            <div>
-                <label>Content:</label>
-                <textarea id="para-content" placeholder="Enter Paragraph Content"></textarea>
-            </div>
-            <br>
-
-            <div>
-                <input type="button" id="add-para-btn" onclick="addParagraph()" value="Add Another Paragraph"><br>
-                <input id="numOfParagraphs" type="hidden" name="numOfParagraphs" value=1>
-                <button id="create-btn" name="create">Create</button>   
-            </div>
+            <button id="create-btn" name="create">Create</button>           
 
         </div>
         </form>
 
         
-
-        
+        <!-- Script for adding more input fields for additional paragraphs -->
         <script>
-        // JavaScript for adding another input field for paragraph 
-        
         let clicked = 1;
+
         function addParagraph(){
+
             clicked     += 1;
             textarea_id = "textarea_" + clicked
             str         = "<br><br><label>Paragraph " + clicked + " Heading: </label>" +
-                   "<input type='text' name='heading_" + clicked + "' placeholder='Enter Heading'" +
-                   "required><br><br>" +
-                   "<label>Content: </label>" +
-                   "<textarea id=" + textarea_id + " name='content_" + clicked + "' placeholder='Enter Paragraph Content'" + 
-                   "required></textarea>";  
-                   
-                   $("#numOfParagraphs").attr("value", clicked);
-                    $("#textarea_"+(clicked-1)).after(str);
-                    
-        }
+                           "<input type='text' name='heading_" + clicked + "' class='form-control' placeholder='Enter Heading'" +
+                           "required><br><br>" +
+                           "<label>Content: </label>" +
+                           "<textarea id=" + textarea_id + " name='content_" + clicked + "' class='form-control' placeholder='Enter Paragraph Content'" + 
+                           "required></textarea>";  
 
-            // JS Event for Auto Resize textarea to fit content 
-            textarea = document.querySelector("#title-desc"); 
-            textarea.addEventListener('input', autoResize, false); 
-              
-            function autoResize() { 
-                this.style.height = 'auto'; 
-                this.style.height = this.scrollHeight + 'px'; 
-            }
-            textarea = document.querySelector("#para-content"); 
-            textarea.addEventListener('input', autoResize, false); 
-              
-            function autoResize() { 
-                this.style.height = 'auto'; 
-                this.style.height = this.scrollHeight + 'px'; 
-            }
-             
-            /* Using JQuery toupload file */
-            $(function() {
-                $(document).on('change', ':file', function() { // This code will attach `fileselect` event to all file inputs on the page
-                    var input = $(this),
-                    numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-                    input.trigger('fileselect', [numFiles, label]);
-                });
-                
-                $(document).ready( function() {//below code executes on file input change and append name in text control
-                    
-                    $(':file').on('fileselect', function(event, numFiles, label) {
-                        var input = $(this).parents('.input-group').find(':text'),
-                        log = numFiles > 1 ? numFiles + ' files selected' : label;
-                        if( input.length ) {
-                            input.val(log);
-                        } else {
-                            if( log ) alert(log);
-                        }
-                    });
-                });
-            });
+            $("#numOfParagraphs").attr("value", clicked);
+            $("#textarea_"+(clicked-1)).after(str);
+
+        }
         </script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

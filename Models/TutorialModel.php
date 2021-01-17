@@ -8,10 +8,10 @@
 
 		$sql_query         = "INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`)". 				"VALUES ('$category_id', '$instructor', '$title', '$description')";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		/*if (!$sql_query_execute) {
+		if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));
 		    exit();
-		}*/
+		}
 		//$sql_query_result  = mysqli_fetch_assoc($sql_query_execute);
 
 		$tutorial_id =  mysqli_insert_id($database_connection);
@@ -38,7 +38,7 @@
 
 		global $database_connection;
 
-		$sql_query         = "SELECT * FROM tutorial";
+		$sql_query         = "SELECT * FROM tutorial ORDER BY id DESC";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		return $sql_query_execute;
@@ -48,7 +48,7 @@
 
 		global $database_connection;
 
-		$sql_query         = "SELECT * FROM tutorial WHERE instructor='$email'";
+		$sql_query         = "SELECT * FROM tutorial WHERE instructor='$email' ORDER BY id DESC";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 		/*if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));

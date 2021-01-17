@@ -1,5 +1,6 @@
 -- Creating "webproject_new" Database
-DROP DATABSE IF EXISTS webproject_new;
+DROP DATABASE IF EXISTS webproject_new;
+CREATE DATABASE webproject_new;
 
 -- Using the Database
 USE webproject_new;
@@ -119,8 +120,28 @@ INSERT INTO `tutorial_categeory`(`name`) VALUES ("Maths");
 INSERT INTO `tutorial_categeory`(`name`) VALUES ("Biology");
 
 --Populating "tutorial" Table
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Python',    'In this tutorial we will have a bried overview of Python');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com','JavaScript', 'In this tutorial we will have a bried overview of JavaScript');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'C++',       'In this tutorial we will have a bried overview of C++');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Java',      'In this tutorial we will have a bried overview of Java' );
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'C',         'In this tutorial we will have a bried overview of C');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Variation', 'Lets have fun with Ratios and Variations!!');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Quadratic Formula', 'The most important formula you need to know');
 
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'tofeeq@example.com', 'Complex Numbers', 'In this tutorial we will learn about Complex Numbers and iota');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Calculus', 'Newton invented Calculus and we will learn it!');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'tofeeq@example.com', 'Linear Algebra', 'Lets have a look on why Linear Algebra is the best branch of Maths');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Drawing', 'Lets have a look at Drawing' );
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Conceptual art', 'What is Conceptual Art?');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Ceramics', 'How to make realistic looking Ceremic Sculptures');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Painting', 'All you need to know about Painting');
 
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'hammad@example.com', 'How to get started with Photography', 'In this tutorial we will learn about the basics of Photography');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'What are the parts of Speech?', 'In this tutorial we will look at all 8 Parts of Speech');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'How to use the Past Perfect Tense', 'Lets Learn about Past Perfect Tense');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'What are Gerunds', 'Gerunds are an important part of English Grammer, in this tutorial we will get familiarized with them' );
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'How to improve your Vocabulary', 'In this tutorial we will look on different techniques to make your vocab better');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'How to Change Direct Sentences to Indirect Sentences', 'Direct and Indirect Sentences');
 --Populating "paragraph" Table
 
 

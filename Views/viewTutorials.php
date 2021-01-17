@@ -56,8 +56,9 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Style css -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Style css 
+    <link rel="stylesheet" href="../assets/css/style.css">-->
+    <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
     body {
@@ -178,10 +179,10 @@
     echo "<li>";
     echo "<a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] . "</a><br>";
     if($tutorial["video"]){
-      echo "<p>Video Based Tutorial | " . $tutorial["description"] ."</p>";
+      echo "<p>Video Based Tutorial - " . $tutorial["description"] ."</p>";
     }
     else{
-      echo "<p>Text Based Tutorial | "  . $tutorial["description"] ."</p>";
+      echo "<p>Text Based Tutorial - "  . $tutorial["description"] ."</p>";
     }   
     echo "<br></li>";
 

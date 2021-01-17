@@ -20,22 +20,22 @@
     <title>Tutor</title>
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" href="../web_project/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../web project/assets/css/bootstrap.min.css">
 
     <!-- Line Icons css -->
-    <link rel="stylesheet" href="../web_project/assets/css/LineIcons.css"> 
+    <link rel="stylesheet" href="../web project/assets/css/LineIcons.css"> 
     
     <!-- Slick css -->
-    <link rel="stylesheet" href="../web_project/assets/css/slick.css"> 
+    <link rel="stylesheet" href="../web project/assets/css/slick.css"> 
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="../web_project/assets/css/animate.css">
+    <link rel="stylesheet" href="../web project/assets/css/animate.css">
 
     <!-- Default css -->
-    <link rel="stylesheet" href="../web_project/assets/css/default.css">
+    <link rel="stylesheet" href="../web project/assets/css/default.css">
 
     <!-- Style css -->
-    <link rel="stylesheet" href="../web_project/assets/css/style.css">
+    <link rel="stylesheet" href="../web project/assets/css/style.css">
 
 
 </head>
@@ -161,30 +161,30 @@
 
     <!--====== jquery js ======-->
  
-    <script src="../web_project/assets/js/jquery-1.12.4.min.js"></script> 
+    <script src="../web project/assets/js/jquery-1.12.4.min.js"></script> 
 
     <!--====== Bootstrap js ======-->
-    <script src="../web_project/assets/js/bootstrap.min.js"></script>
+    <script src="../web project/assets/js/bootstrap.min.js"></script>
 
 
     <!--====== Slick js ======-->
-    <script src="../web_project/assets/js/slick.min.js"></script>
+    <script src="../web project/assets/js/slick.min.js"></script>
 
     <!--====== Isotope js ======-->
-    <script src="../web_project/assets/js/isotope.pkgd.min.js"></script>
+    <script src="../web project/assets/js/isotope.pkgd.min.js"></script>
 
     <!--====== Images Loaded js ======-->
-    <script src="../web_project/assets/js/imagesloaded.pkgd.min.js"></script> 
+    <script src="../web project/assets/js/imagesloaded.pkgd.min.js"></script> 
     
     <!-- Scrolling js -->
-    <script src="../web_project/assets/js/scrolling-nav.js"></script>
-    <script src="../web_project/assets/js/jquery.easing.min.js"></script> 
+    <script src="../web project/assets/js/scrolling-nav.js"></script>
+    <script src="../web project/assets/js/jquery.easing.min.js"></script> 
 
     <!-- wow js -->
-    <script src="../web_project/assets/js/wow.min.js"></script>
+    <script src="../web project/assets/js/wow.min.js"></script>
 
     <!-- Main js -->
-    <script src="../web_project/assets/js/main.js"></script>
+    <script src="../web project/assets/js/main.js"></script>
 
 </body>
 
