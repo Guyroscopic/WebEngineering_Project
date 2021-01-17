@@ -71,7 +71,7 @@
             <div class="register">
                 <h2>Register Here</h2>
                 <form id="register" action="#">
-                    <div class="radio">
+                    <div class="radio" align="center">
                         <label>Register as</label>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" value="student" name="registertype" class="student" required>
@@ -82,24 +82,22 @@
                     </div>
                     <br>
                     
-                    <label>Username</label>
+                    <div align=center>
                     <input type="text" name="uname" id="name" placeholder="Enter Your Username">
                     <br><br>
-
-                    <label>Email</label>
-                    <input type="email" name="email" id="name" placeholder="Enter Your Valid Email">
+                    
+                    <input type="email" name="email" id="name" placeholder="Enter Your Email">
                     <br><br>
                     
-                    <label>Password</label>
                     <input type="password" name="pass" id="password" placeholder="Enter Your Password">
                     <br><br>
                     
-                    <label>Confirm Password</label>
                     <input type="password" name="pass2" id="password" placeholder="Confirm Your Password">
                     <br><br>
+                    </div>
                     
                     <div class="reg-btn">
-                    <button type="submit" name="register">REGISTER</button>
+                        <button type="submit" name="register">REGISTER</button>
                     </div>
 
                     <div id="login">Already have an account?
