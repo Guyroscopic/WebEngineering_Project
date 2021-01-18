@@ -113,7 +113,7 @@
                         <button type="submit" name="registeruserbutton">REGISTER</button>
                     </div>
                     <br>
-                    <div id="login" style="padding: 0 50px 20px 50px">Already have an account?
+                    <div id="login" align=center style="padding: 0 50px 20px 50px">Already have an account?
                         <a href="login.php">Login Here</a>
                     </div>
                     

@@ -135,6 +135,13 @@
 		<button name='create'>Add Quiz for Tutorial</button>
 	</form><br>
 
+	<!-- Form for Deleting the Tutorial along with the tutorial ID -->
+	<form name="deleteTtorialForm" action="../Controllers/DeleteForTeacherController.php" method="POST">
+
+		<input type="hidden" name="tutorial_id" value=<?php echo $tutorial_id ?>>
+		<button name='delete'>Delete Tutorial</button>
+	</form><br>
+
 	<?php } ?>
 
 	
