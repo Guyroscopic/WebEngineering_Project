@@ -40,6 +40,19 @@
 		return $sql_query_execute;
 	}
 
+	function setParagraph($id, $heading, $content){
+
+		global $database_connection;
+
+		$sql_query         = "UPDATE paragraph SET heading='$heading', content='$content' " . 
+							 "WHERE id=$id";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		if (!$sql_query_execute) {
+		    printf("Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
+	} 
+
 	function deleteParagraph($id){
 
 		global $database_connection;

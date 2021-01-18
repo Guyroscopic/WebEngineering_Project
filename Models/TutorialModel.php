@@ -21,6 +21,19 @@
 		return $tutorial_id;
 	}
 
+	function setTutorialTitleAndDescription($tutorial_id, $title, $description){
+
+		global $database_connection;
+
+		$sql_query = "UPDATE tutorial SET title='$title', description='$description' " . 
+					 "WHERE id=$tutorial_id";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		if (!$sql_query_execute) {
+		    printf("Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
+	}
+
 	function setTutorialVideo($tutorial_id, $video){
 
 		global $database_connection;
