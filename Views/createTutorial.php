@@ -39,7 +39,19 @@
 
         <!--- CSS Link for Creat New Tutorials-->
         <link href="../assets/css/CreatTutorial.css" rel="stylesheet">
-
+        <style type="text/css">        
+            .flashMsg{
+              color: #fff;          
+              opacity: 0.7;
+              background-color: #db5a5a;
+              border-radius: 5px;
+              text-align: center;
+              margin-top: 30px;
+              margin-bottom: 30px;
+              font-size: 15px;
+              padding: 5px 0 5px 0;
+            }
+        </style>
 
         <!-- CSS Link for Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -72,23 +84,23 @@
         
         <!-- Main Content-->
 
-        <!-- Output divs for an empty submissoin -->
-        <?php if(@$_GET["empty"]){ ?>
-            <div style="color: red">OOPS! Looks like you left a field empty</div>
-        <?php } ?>
-
-        <!-- Output div for error in video upload -->
-        <?php if(@$_GET["error"]){ ?>
-            <div style="color: red">
-                OOPS! Looks like there was an error in your video uplaod<br>
-                ERROR: <?php echo $_GET["error"] ?>
-            </div>
-        <?php } ?>
-
         <form id="createTutorialForm" action="../Controllers/CreateTutorialController.php" 
               method="POST" enctype="multipart/form-data">
 
         <div class="tut-bg">
+
+            <!-- Output divs for an empty submissoin -->
+            <?php if(@$_GET["empty"]){ ?>
+                <div class="flashMsg">OOPS! Looks like you left a field empty</div>
+            <?php } ?>
+
+            <!-- Output div for error in video upload -->
+            <?php if(@$_GET["error"]){ ?>
+                <div class="flashMsg">
+                    OOPS! Looks like there was an error in your video uplaod<br>
+                    ERROR: <?php echo $_GET["error"] ?>
+                </div>
+            <?php } ?>
 
             <!-- Heading of Create Tutorial -->
             <div class="main-tut-header">

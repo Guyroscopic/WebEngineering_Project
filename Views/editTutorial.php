@@ -45,6 +45,11 @@
 		//echo "Number of Paragraphs: " . $paragraph_num;
 
 	}
+    elseif(@$_GET["empty"] || @$_GET["error"]){
+
+        //Extracting the tutorial from the URL
+        $tutorial_id = $_GET["id"];
+    }
 	else{
 		header("location: publishedTutorials.php?invalidAccess=true");
 	}
@@ -60,7 +65,19 @@
 
         <!--- CSS Link for Creat New Tutorials-->
         <link href="../assets/css/CreatTutorial.css" rel="stylesheet">
-
+        <style type="text/css">        
+            .flashMsg{
+              color: #fff;          
+              opacity: 0.7;
+              background-color: #db5a5a;
+              border-radius: 5px;
+              text-align: center;
+              margin-top: 30px;
+              margin-bottom: 30px;
+              font-size: 15px;
+              padding: 5px 0 5px 0;
+            }
+        </style>
 
         <!-- CSS Link for Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -95,18 +112,18 @@
 
         <!-- Output divs for an empty submissoin -->
         <?php if(@$_GET["empty"]){ ?>
-            <div style="color: red">OOPS! Looks like you left a field empty</div>
+            <div class="flashMsg">OOPS! Looks like you left a field empty</div>
         <?php } ?>
 
         <!-- Output div for error in video upload -->
         <?php if(@$_GET["error"]){ ?>
-            <div style="color: red">
+            <div class="flashMsg">
                 OOPS! Looks like there was an error in your video uplaod<br>
                 ERROR: <?php echo $_GET["error"] ?>
             </div>
         <?php } ?>
 
-        <form name="editTorialFrom" action="../Controllers/editTutorialController.php" method="POST">
+        <form name="editTorialFrom" action="../Controllers/EditTutorialController.php" method="POST">
 
         	<div class="tut-bg">
 
@@ -116,7 +133,7 @@
             </div>
             <br>
 
-            <input type="hidden" value=<?php echo $tutorial_id ?>>
+            <input type="hidden" name="tutorial_id" value=<?php echo $tutorial_id ?>>
 
             <label>Title:</label>
             <input type="text" name='title' id="title" value="<?php echo $tutorial["title"] ?>" 		   required>         

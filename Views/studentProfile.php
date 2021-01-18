@@ -30,7 +30,18 @@
 
     <!-- Title -->
     <title>Student Profile</title>
-
+    <style type="text/css">        
+        .flashMsg{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin: 20px 100px 0 100px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+    </style>
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -104,6 +115,12 @@
             <div class="big-image">
                 <div class="overlay1">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
+
+                         <!-- Output divs for flash msgs -->
+                        <?php if(@$_GET["invalidAccess"]){ ?>
+                            <div class="flashMsg">Your access was Invalid</div>
+                        <?php } ?>
+
                         <div class="text">
                             <h1>Welcome Student <?php echo $username ?></h1>                         
                             <p>Eamil ID: <?php echo $email ?></p>
@@ -118,11 +135,6 @@
 
     <!--====== NAVBAR PART ENDS ======-->
     </section>
-
-    <!-- Output divs for flash msgs -->
-    <?php if(@$_GET["invalidAccess"]){ ?>
-        <p style="color: red">Your access was Invalid</p>
-    <?php } ?>
 
     <!--====== SAIDEBAR PART START ======-->
 

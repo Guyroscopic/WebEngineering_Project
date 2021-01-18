@@ -1,15 +1,23 @@
 <?php
-
 	session_start();
 
 	if(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
-	        $current_admin_email    = $_SESSION['admin_email'];
-	        $current_admin_username = $_SESSION['admin_username'];
-	    }
-	    else{
-	    	header("location: adminLogin.php?notloggedin=true");
-	    }
+        $current_admin_email    = $_SESSION['admin_email'];
+        $current_admin_username = $_SESSION['admin_username'];
+	}
+	elseif(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username']))
+	{
+		header("location: studentProfile.php?invalidAccess=true");
+	}
+	elseif(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username']))
+	{
+		header("location: teacherProfile.php?invalidAccess=true");
+	}
+    else{
+    	header("location: adminLogin.php?notloggedin=true");
+    }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
