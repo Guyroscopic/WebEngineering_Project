@@ -7,11 +7,11 @@
         header("location: studentProfile.php");
     }
 
-    if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+    elseif(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
         header("location: teacherProfile.php");
     }
     //Redirecting in case admin is already logged in 
-    if(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
+    elseif(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
         header("location: adminPanel.php");
     }
 ?>
@@ -28,8 +28,9 @@
     <title>LOGIN</title>
     <style type="text/css">        
         .flashMsg{
-          color: red;
-          background-color: #d1c9c9;
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
           margin-top: 30px;
@@ -113,7 +114,7 @@
             <?php } ?>
 
             <?php if(@$_GET["logoutbeforelogin"]){ ?>
-                <div class="flashMsg">You need to Login before Logging Out!'</div>
+                <div class="flashMsg">You need to Login before Logging Out!</div>
             <?php } ?>
 
             <?php if(@$_GET["invalidemail"]){ ?>

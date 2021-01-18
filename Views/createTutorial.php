@@ -8,6 +8,13 @@
         $username = $_SESSION["current_teacher_username"];
             
     }
+    elseif(isset($_SESSION['admin_email']) && isset($_SESSION['admin_username'])){
+         header("location: adminPanel.php?invalidAccess=true");
+    }
+    elseif(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username']))
+    {
+        header("location: studentProfile.php?invalidAccess=true");
+    }
     else{
         header("location: login.php?notloggedin=true");
     }
@@ -16,12 +23,6 @@
     require_once "../Models/TutorialCategoryModel.php";
 
     $queryResult = getAllCategoriesQueryResult();
-    
-    //    while($row = mysqli_fetch_assoc($queryResult)) {                
-    //        echo $row["name"] . "<br>";
-    //    }
-    //exit();
-
 
     //Closing the connection
     global $database_connection;

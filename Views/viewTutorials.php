@@ -112,8 +112,9 @@
     }
 
     .flashMsg{
-      color: green;
-      background-color: #d1c9c9;
+      color: #fff;
+      background-color: #76e060;
+      opacity: 0.7;
       border-radius: 5px;
       text-align: center;
       margin-top: 30px;
@@ -149,60 +150,58 @@
   </div>
 
 
-<div class="main ">
+  <div class="main ">
 
-  <!-- Output div for flash msgs -->
-  <?php if(@$_GET["completed"]){ ?>
-    <div class="flashMsg">Tutorial Completed! Time for another one</div>
-  <?php } ?>
+    <!-- Output div for flash msgs -->
+    <?php if(@$_GET["completed"]){ ?>
+      <div class="flashMsg">Tutorial Completed! Time for another one</div>
+    <?php } ?>
 
-  <h1 align="center">
-    <span class="multi-text">Tutorials</span>
-  </h1>
+    <h1 align="center">
+      <span class="multi-text">Tutorials</span>
+    </h1>
 
-  <!-- Form for selecting Tutorial Category -->
-  <form action="viewTutorials.php" method="POST">
-    <label for="tutorialCategory">Select Category: </label>
-    <select name="tutorialCategory">
-      <option value="all">All</option>
-      <?php
-        while($row = mysqli_fetch_assoc($all_tutorial_categories_SQL_result)) {
+    <!-- Form for selecting Tutorial Category -->
+    <form action="viewTutorials.php" method="POST">
+      <label for="tutorialCategory">Select Category: </label>
+      <select name="tutorialCategory">
+        <option value="all">All</option>
+        <?php
+          while($row = mysqli_fetch_assoc($all_tutorial_categories_SQL_result)) {
 
-          if($category_id == $row["id"]){     
-            echo "<option value='" . $row["id"] . "' selected>" . $row["name"] . "</option>";
+            if($category_id == $row["id"]){     
+              echo "<option value='" . $row["id"] . "' selected>" . $row["name"] . "</option>";
+            }
+            else{
+              echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
+            }
           }
-          else{
-            echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
-          }
-        }
-      ?>
-    </select>
-    <button name="select">View Tutorials</button>
-  </form>
+        ?>
+      </select>
+      <button name="select">View Tutorials</button>
+    </form>
 
-  <!-- Displaying Tutorials -->
-  <?php
-  echo "<ol>";
-  while($tutorial = mysqli_fetch_assoc($tutorials_SQL_result)){
+    <!-- Displaying Tutorials -->
+    <?php
+    echo "<ol>";
+    while($tutorial = mysqli_fetch_assoc($tutorials_SQL_result)){
 
-    echo "<li>";
-    echo "<a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] . "</a><br>";
-    if($tutorial["video"]){
-      echo "<p>Video Based Tutorial - " . $tutorial["description"] ."</p>";
+      echo "<li>";
+      echo "<a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] . "</a><br>";
+      if($tutorial["video"]){
+        echo "<p>Video Based Tutorial - " . $tutorial["description"] ."</p>";
+      }
+      else{
+        echo "<p>Text Based Tutorial - "  . $tutorial["description"] ."</p>";
+      }   
+      echo "<br></li>";
+
     }
-    else{
-      echo "<p>Text Based Tutorial - "  . $tutorial["description"] ."</p>";
-    }   
-    echo "<br></li>";
+    echo "</ol>"
+    ?>
+  </div>
 
-  }
-  echo "</ol>"
-  ?>
-
-</div>
-
-   <!--===== FOOTERpart starts ======-->
-    
+  <!--===== FOOTERpart starts ======-->    
   <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -237,9 +236,9 @@
           </div>
         </div>
       </div>
-</footer>
-
+    </footer>
     <!--===== FOOTERpart ends ======-->
+    
 
 </body>
 </html> 
