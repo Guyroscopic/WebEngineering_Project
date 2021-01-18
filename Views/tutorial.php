@@ -18,6 +18,9 @@
 		$student_username  = $_SESSION["current_student_username"];
 		$student_loggedin  = true;
 	}
+	elseif(isset($_SESSION['admin_email']) && isset($_SESSION['admin_username'])){
+		header("location: adminPanel.php?invalidAcess=ture");
+	}
 	else{
 		header("location: login.php?notloggedin=true");
 	}

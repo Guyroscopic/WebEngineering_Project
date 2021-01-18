@@ -80,6 +80,15 @@
       text-decoration: none;
     }
 
+    .flashMsg{
+      color: green;
+      background-color: #d1c9c9;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
 
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
@@ -106,6 +115,11 @@
 
 
 <div class="main ">
+
+  <!-- Output divs for flash msgs -->
+  <?php if(@$_GET["deleted"]){ ?>
+    <div class="flashMsg">Tutorial Deleted Successfully!</div>
+  <?php } ?> 
 
   <h1 align="center">
     <span class="multi-text">Tutorials Published By You</span>

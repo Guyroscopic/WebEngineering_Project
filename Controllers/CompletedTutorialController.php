@@ -20,7 +20,7 @@
 		$tutorial_id   = $_POST["tutorial_id"];
 		$rating        = $_POST["rating"];
 		$student_email = $_POST["student_email"];
-
+	
 		//Marking the tutorial complete for student in the DB
 		markTutorialCompleteForStudent($student_email, $tutorial_id, $rating);
 

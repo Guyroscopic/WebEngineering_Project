@@ -111,6 +111,15 @@
       text-decoration: none;
     }
 
+    .flashMsg{
+      color: green;
+      background-color: #d1c9c9;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
 
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
@@ -144,7 +153,7 @@
 
   <!-- Output div for flash msgs -->
   <?php if(@$_GET["completed"]){ ?>
-    <p style="color: green">Tutorial Completed! Time for another one</p>
+    <div class="flashMsg">Tutorial Completed! Time for another one</div>
   <?php } ?>
 
   <h1 align="center">
