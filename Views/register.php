@@ -95,7 +95,7 @@
                     </div>
                     <br>
                     
-                    <div align=center>
+                    <div align=center style="padding: 0 50px 0 50px">
                     <input type="text" name="username" id="name" placeholder="Enter Your Username">
                     <br><br>
                     
@@ -109,11 +109,11 @@
                     <br><br>
                     </div>
                     
-                    <div class="reg-btn">
+                    <div class="reg-btn" style="padding: 0 50px 0 50px">
                         <button type="submit" name="registeruserbutton">REGISTER</button>
                     </div>
-
-                    <div id="login">Already have an account?
+                    <br>
+                    <div id="login" style="padding: 0 50px 20px 50px">Already have an account?
                         <a href="login.php">Login Here</a>
                     </div>
                     

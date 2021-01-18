@@ -8,9 +8,12 @@
 			header("location: studentProfile.php");
 		}
 
-	if(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+	elseif(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
 			header("location: teacherProfile.php");
 		}
+	elseif(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
+		header("location: adminPanel.php");
+	}
 
 	/* Including the User Model File */
 	require_once "../Models/UserModel.php";

@@ -72,13 +72,12 @@
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="Views/about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/login.php">PROFILE</a>
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="Views/login.php">Profile</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/studentLogout.php">LOGOUT</a>
+                                        <a class="page-scroll" href="Views/studentLogout.php">Logout</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li>
                                 </ul>
                             </div>
                             <?php }elseif($teacher_loggedin){ ?>
@@ -90,13 +89,12 @@
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="Views/about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/login.php">PROFILE</a>
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="Views/login.php">Profile</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/teacherLogout.php">LOGOUT</a>
+                                        <a class="page-scroll" href="Views/teacherLogout.php">Logout</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li>
                                 </ul>
                             </div>
                             <?php }else{ ?>
@@ -108,13 +106,13 @@
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="Views/about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
                                         <a class="page-scroll" href="Views/login.php">LOGIN</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/register.php">Register</a>
+                                        <a class="page-scroll" href="Views/register.php">REGISTER</a>
                                     </li>
-                                    <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li> 
+                                    </ul> 
                                 </ul>
                             </div>
                             <?php } ?>
