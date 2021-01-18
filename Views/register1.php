@@ -7,16 +7,20 @@
 
 	<h2>Sign Up</h2>
 
-    <?php if(@$_GET["Invalid"]){ ?>
-        <div><?php echo $_GET["Invalid"]; ?></div>
+    <?php if($_GET["invalid"]){ ?>
+        <div><?php echo $_GET["invalid"]; ?></div>
     <?php } ?>
 
-    <?php if(@$_GET["UserExists"]){ ?>
-        <div><?php echo $_GET["UserExists"]; ?></div>
+    <?php if($_GET["userexists"]){ ?>
+        <div><?php echo $_GET["userexists"]; ?></div>
+    <?php } ?>
+
+    <?php if($_GET["empty"]){ ?>
+        <div><?php echo $_GET["empty"]; ?></div>
     <?php } ?>        
 
     <label for="userType">SignUp as:</label>
-    <select name="userType"  form="signupForm">
+    <select name="registertype"  form="signupForm">
       <option value="student">Student</option>
       <option value="teacher">Teacher</option>
     </select>
@@ -39,7 +43,7 @@
         <label>Confirm Password</label>
         <input type="password" name="confirm-password" required>
         <br><br>
-        <input type="submit" name="submit">
+        <input type="submit" name="registeruserbutton">
 	</form>
    
 

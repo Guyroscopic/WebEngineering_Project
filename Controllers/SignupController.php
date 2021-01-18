@@ -11,6 +11,7 @@
 	elseif(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
 			header("location: teacherProfile.php");
 		}
+
 	elseif(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
 		header("location: adminPanel.php");
 	}
@@ -18,89 +19,102 @@
 	/* Including the User Model File */
 	require_once "../Models/UserModel.php";
 
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-	//if(isset($_POST["submit"])){
+	if(isset($_POST["register"])){
+
 		$username = stripslashes($_POST["username"]);
 		$email    = stripslashes($_POST["email"]);
 		$password = stripslashes($_POST["password"]);
 		$confirm_password = stripslashes($_POST["confirm-password"]);
-		$userType = $_POST["registertype"];
+		$userType = stripslashes($_POST["registertype"]);
+		$page = stripslashes($_POST["page"]);
 
-		// Validating the user entered credentials
-		// Check Empty Username
-		if(empty($username)){
-			//redirecting based on the register user form
-			if(isset($_POST["registeruserbutton"]))
-				header("location: ../Views/register.php?empty=Please Enter Username");
-			elseif(isset($_POST["registerbyadminbutton"]))
-				header("location: ../Views/registerUser.php?empty=Please Enter Username&usertype=add".$userType);
-		}
 
-		// Check Empty Email
-		elseif(empty($email)){
-			//redirecting based on the register user form			
-			if(isset($_POST["registeruserbutton"]))
-				header("location: ../Views/register.php?empty=Please Enter Email");
-			elseif(isset($_POST["registerbyadminbutton"]))
-				header("location: ../Views/registerUser.php?empty=Please Enter Email&usertype=add".$userType);
-		}
+		// checking for empty fields
+		if(empty($username) || empty($email) || empty($password) || empty($confirm_password) || empty($userType) || empty($email)){
 
-		if(isset($_POST["registeruserbutton"])){
-
-			// Check Empty Password
-			if(empty($password)){
-				header("location: ../Views/register.php?empty=Please Enter Password");
+			if($page == "userregister"){
+				header("location: ../Views/register.php?empty=true");
 			}
 
-			// Check Password Length
-			elseif(strlen($password) < 8){
-				header("location: ../Views/register.php?invalid=Password length cannot be less than length 8!");
-			}
-
-			// Check If Both Passwords are Same
-			elseif($password != $confirm_password){
-				header("location: ../Views/register.php?invalid=Password length cannot be less than length 8!");
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?empty=true&usertype=add".$userType);
 			}
 		}
 
-		$getUser = getUserFromEmailID($email, $userType);
-		// Check if user already exists
-		if (mysqli_num_rows($getUser) > 0) {
-			//redirecting based on the register user form			
-			if(isset($_POST["registeruserbutton"]))
-				header("location: ../Views/register.php?userexists=User Already Exists!");
-			elseif(isset($_POST["registerbyadminbutton"]))
-				header("location: ../Views/registerUser.php?userexists=User Already Exists!&usertype=add".$userType);
+		// verifying the email input
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+	      	if($page == "userregister"){
+				header("location: ../Views/register.php?invalid=Invalid Email");
+			}
+
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?invalid=Invalid Email&usertype=add".$userType);
+			}
+	    }
+
+		// verifying the length of password
+		if(strlen($password) < 8){
+
+			if($page == "userregister"){
+				header("location: ../Views/register.php?invalid=Password Length Cannot Be Less Than 8");
+			}
+
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?invalid=Invalid Email&usertype=add".$userType);
+			}
+		}
+		// verrifying if password and confirm-password are same
+		echo "here<br>";
+		if($password != $confirm_password){
+			if($page == "userregister"){
+				echo $password. "<br>";
+				echo $confirm_password;
+				header("location: ../Views/register.php?invalid=Passwords Don't Match");
+				exit();
+
+			}
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?invalid=Invalid Password&usertype=add".$userType);
+			}
 		}
 
-		// If Everything Goes Well
+		// check if user already exists
+		$user_record = getUserFromEmailID($email, $userType);
+		if(mysqli_num_rows($user_record) > 0){
+
+			if($page == "userregister"){
+				header("location: ../Views/register.php?invalid=User Already Exists");
+			}
+
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?invalid=User Already Exists&usertype=add".$userType);
+			}
+		}
+
 		else{
-			$register_user_query_result = registerUser($username, $email, $password, $userType);
+			// all inputs are verified and user does not exist
+			$register_user_query = registerUser($username, $email, $password, $userType);
+			if($register_user_query){
 
-			mysqli_close($database_connection);
-			if($register_user_query_result){
-				//redirecting based on the register user form			
-				if(isset($_POST["registeruserbutton"]))
+				if($page == "userregister"){
 					header("location: ../Views/login.php");
-				elseif(isset($_POST["registerbyadminbutton"]))
+				}
+
+				elseif($page == "adminregister"){
 					if($userType == "Teacher")
 						header("location: ../Views/teacherTable.php");
-					elseif($userType == "Student")
+					if($userType == "Student")
 						header("location: ../Views/StudentTable.php");
-			}
+				}
 
-			else{
-				//redirecting based on the register user form			
-				if(isset($_POST["registeruserbutton"]))
-					header("location: ../Views/register.php?empty= Could not Register, Try Again!");
-				elseif(isset($_POST["registerbyadminbutton"]))
-					header("location: ../Views/registerUser.php?empty= Could not Register, Try Again!");
 			}
-		} 
-		}
-	else{
-		echo "error";
+			else{
+				echo "Error";
+			}
 	}
+	}
+
 
 
 
