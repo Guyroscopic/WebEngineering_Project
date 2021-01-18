@@ -56,8 +56,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Style css 
-    <link rel="stylesheet" href="../assets/css/style.css">-->
+  <!-- Style css -->
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
@@ -147,11 +147,11 @@
     <p style="color: green">Tutorial Completed! Time for another one</p>
   <?php } ?>
 
-  <h1>
+  <h1 align="center">
     <span class="multi-text">Tutorials</span>
   </h1>
 
-  <!-- Form for seecting Tutorial Category -->
+  <!-- Form for selecting Tutorial Category -->
   <form action="viewTutorials.php" method="POST">
     <label for="tutorialCategory">Select Category: </label>
     <select name="tutorialCategory">

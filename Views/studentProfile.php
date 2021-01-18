@@ -49,6 +49,12 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .btn:hover{
+            color: #e0e0e0;
+            background-color: #828181;
+        }
+    </style>
 
 
 </head>
@@ -99,12 +105,12 @@
                 <div class="overlay1">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
                         <div class="text">
-                            <h1>Welcome Student <?php echo $username ?></h1>                           
-                            <p>Eamil ID: <?php echo $email ?></p> <br>
+                            <h1>Welcome Student <?php echo $username ?></h1>                         
+                            <p>Eamil ID: <?php echo $email ?></p>
                             <p>Tutorials Completed: <?php echo $num_completed_tutorials ?></p>
                         </div>
                          <a class="btn" href="viewTutorials.php">Browse Tutorials</a><br>
-                        <a class="btn" href="#">Link 2</a><br>  
+                         <a class="btn" href="#">Show Completed Tutorials</a><br>  
                     </div>
                 </div>
             </div>
@@ -131,13 +137,13 @@
             <div class="sidebar-menu">
                 <ul>
                     <li class="nav-item">
-                        <a class="page-scroll" href="studentProfile.php">Profile</a>
+                        <a class="page-scroll" href="about.php">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="page-scroll" href="viewTutorials.php">Browse All Tuorials</a>
-                    </li>
+                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
+                    </li>                    
                     <li class="nav-item">
-                        <a class="page-scroll" href="contactus.php">Contat Us</a>
+                        <a class="page-scroll" href="contactus.php">Contact Us</a>
                     </li>
                 </ul>
             </div> <!-- menu -->

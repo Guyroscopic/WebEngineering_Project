@@ -1,13 +1,25 @@
 <?php
+    //Checking if Teacher is logged in or not
+    session_start();
 
+    $student_loggedin  = false; 
+    $teacher_loggedin  = false;    
+
+    if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
+        $teacher_loggedin  = true;
+    }
+    elseif(isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])){
+        $student_loggedin  = true;            
+    }    
+
+    //Adding The required Models
     include "../Models/DBconfig.php";
-
     include "../Models/UserModel.php";
 
     $teacher_records = getTeacherTable()
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -17,7 +29,7 @@
     <meta name="description" content="">
 
     <!-- Title -->
-    <title>Tutor</title>
+    <title>Registered Teachers</title>
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="../web project/assets/css/bootstrap.min.css">
@@ -57,24 +69,59 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
                             </button>
 
+                            <?php if($student_loggedin){ ?>
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
                                     <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="MainPage.html">HOME</a>
+                                        <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="About.html">ABOUT</a>
+                                        <a class="page-scroll" href="about.php">ABOUT</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="login.php">Profile</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="TutorsPage.html">TUTORS</a>
+                                        <a class="page-scroll" href="studentLogout.php">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <?php }elseif($teacher_loggedin){ ?>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                        <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
                                     <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Contact.html">Contact</a>
+                                        <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                   <li><input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px; width: 170%;" type="text" placeholder="Search tutorial"></li> 
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="login.php">Profile</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="teacherLogout.php">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <?php }else{ ?>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                                <ul class="navbar-nav ml-auto">
+                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                        <a class="page-scroll" href="/webproject">HOME</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="about.php">ABOUT</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="login.php">LOGIN</a>
+                                    </li>
+                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                        <a class="page-scroll" href="register.php">REGISTER</a>
+                                    </li>
                                     </ul> 
                                 </ul>
                             </div>
+                            <?php } ?>
 
                             <div class="navbar-btn d-none mt-15 d-lg-inline-block">
                                 <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
@@ -99,16 +146,19 @@
             <div class="sidebar-menu">
                 <ul>
                     <li class="nav-item">
-                        <a class="page-scroll" href="About.html">About</a>
+                        <a class="page-scroll" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="page-scroll" href="TutorsPage.html">Tutors</a>
+                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
                     </li>
-                    <li><a href="register.html">Registration</a></li>
-                    <li><a href="login.html">Login</a></li>
                     <li class="nav-item">
-                        <a class="page-scroll" href="Contact.html">Contact</a>
+                        <a class="page-scroll" href="contactus.php">Contact Us</a>
                     </li>
+                    <?php if(!$student_loggedin && !$teacher_loggedin){ ?>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
+                    </li>
+                    <?php } ?>
                 </ul>
             </div> <!-- menu -->
           <div>

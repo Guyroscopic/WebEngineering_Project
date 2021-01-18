@@ -47,6 +47,14 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <style type="text/css">
+        .btn{
+            background-color: #828181;
+        }
+        .btn:hover{
+            background-color: #5c5b5b;
+        }
+    </style>
 
 
 </head>
@@ -102,10 +110,12 @@
                             <p>Email ID: <?php echo $email ?></p>
                             <p>Tutorials Published: <?php echo $num_teacher_tutorials ?></p>
                         </div>
+                        
                         <a class="btn" href="viewTutorials.php">View Tutorials</a><br>
                         <a class="btn" href="publishedTutorials.php">View Published Tutorials</a><br>
                         <a class="btn" href="createTutorial.php">Create New Tutorials</a><br>
-                        <a class="btn" href="updateInfo.php">Update Information</a><br>
+                        <a class="btn" href="updateInfo.php">Update Information</a><br><br><br>
+                        =
                     </div>
                 </div>
             </div>
