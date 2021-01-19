@@ -134,14 +134,6 @@
                                 <div class="flashMsgGreen">Tutorial Successfully Created!</div>
                             <?php } ?>
 
-                            <?php if(@$_GET["quizCreated"]){ ?>
-                                <div class="flashMsgGreen">Quiz Successfully Created!</div>
-                            <?php } ?>
-
-                            <?php if(@$_GET["quizUpdated"]){ ?>
-                                <div class="flashMsgGreen">Quiz Successfully Updated!</div>
-                            <?php } ?>
-
                             <h1>Welcome Teacher <?php echo $username ?></h1> 
                             <p>Email ID: <?php echo $email ?></p>
                             <p>Tutorials Published: <?php echo $num_teacher_tutorials ?></p>

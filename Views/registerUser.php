@@ -69,7 +69,9 @@
 
 	    <input type="hidden" name="confirm-password" value=12345678>
 
-	    <button name="registerbyadminbutton">Add User</button>
+		<input type="hidden" name="page" value="adminregister">
+
+	    <button name="register">Add User</button>
 
 	</form>
 

@@ -99,7 +99,6 @@
     <!-- REGISTRATION PART START -->
     <div class="main-register-form">
             <div class="register">
-
                 <!-- OUTPUT DIV FOR ERROR MESSAGES -->
                 <?php if(@$_GET["invalid"]){ ?>
                     <div class="flashMsg"><?php echo $_GET["invalid"]; ?></div>
@@ -140,9 +139,11 @@
                     <input type="password" name="confirm-password" id="password" placeholder="Confirm Your Password">
                     <br><br>
                     </div>
+
+                    <input type="hidden" name="page" value="userregister">
                     
                     <div class="reg-btn" style="padding: 0 50px 0 50px">
-                        <button type="submit" name="registeruserbutton">REGISTER</button>
+                        <button type="submit" name="register">REGISTER</button>
                     </div>
                     <br>
                     <div id="login" align=center style="padding: 0 50px 20px 50px">Already have an account?
