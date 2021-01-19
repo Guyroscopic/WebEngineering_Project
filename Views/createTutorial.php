@@ -8,6 +8,13 @@
         $username = $_SESSION["current_teacher_username"];
             
     }
+    elseif(isset($_SESSION['admin_email']) && isset($_SESSION['admin_username'])){
+         header("location: adminPanel.php?invalidAccess=true");
+    }
+    elseif(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username']))
+    {
+        header("location: studentProfile.php?invalidAccess=true");
+    }
     else{
         header("location: login.php?notloggedin=true");
     }
@@ -16,12 +23,6 @@
     require_once "../Models/TutorialCategoryModel.php";
 
     $queryResult = getAllCategoriesQueryResult();
-    
-    //    while($row = mysqli_fetch_assoc($queryResult)) {                
-    //        echo $row["name"] . "<br>";
-    //    }
-    //exit();
-
 
     //Closing the connection
     global $database_connection;
@@ -38,7 +39,19 @@
 
         <!--- CSS Link for Creat New Tutorials-->
         <link href="../assets/css/CreatTutorial.css" rel="stylesheet">
-
+        <style type="text/css">        
+            .flashMsg{
+              color: #fff;          
+              opacity: 0.7;
+              background-color: #db5a5a;
+              border-radius: 5px;
+              text-align: center;
+              margin-top: 30px;
+              margin-bottom: 30px;
+              font-size: 15px;
+              padding: 5px 0 5px 0;
+            }
+        </style>
 
         <!-- CSS Link for Icons-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -71,23 +84,23 @@
         
         <!-- Main Content-->
 
-        <!-- Output divs for an empty submissoin -->
-        <?php if(@$_GET["empty"]){ ?>
-            <div style="color: red">OOPS! Looks like you left a field empty</div>
-        <?php } ?>
-
-        <!-- Output div for error in video upload -->
-        <?php if(@$_GET["error"]){ ?>
-            <div style="color: red">
-                OOPS! Looks like there was an error in your video uplaod<br>
-                ERROR: <?php echo $_GET["error"] ?>
-            </div>
-        <?php } ?>
-
         <form id="createTutorialForm" action="../Controllers/CreateTutorialController.php" 
               method="POST" enctype="multipart/form-data">
 
         <div class="tut-bg">
+
+            <!-- Output divs for an empty submissoin -->
+            <?php if(@$_GET["empty"]){ ?>
+                <div class="flashMsg">OOPS! Looks like you left a field empty</div>
+            <?php } ?>
+
+            <!-- Output div for error in video upload -->
+            <?php if(@$_GET["error"]){ ?>
+                <div class="flashMsg">
+                    OOPS! Looks like there was an error in your video uplaod<br>
+                    ERROR: <?php echo $_GET["error"] ?>
+                </div>
+            <?php } ?>
 
             <!-- Heading of Create Tutorial -->
             <div class="main-tut-header">

@@ -58,10 +58,12 @@
 
 			if($page == "userregister"){
 				header("location: ../Views/register.php?invalid=Password Length Cannot Be Less Than 8");
+				exit();
 			}
 
 			elseif($page == "adminregister"){
 				header("location: ../Views/registerUser.php?invalid=Invalid Email&usertype=add".$userType);
+				exit();
 			}
 		}
 		// verrifying if password and confirm-password are same
@@ -76,6 +78,7 @@
 			}
 			elseif($page == "adminregister"){
 				header("location: ../Views/registerUser.php?invalid=Invalid Password&usertype=add".$userType);
+				exit();
 			}
 		}
 

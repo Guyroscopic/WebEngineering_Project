@@ -81,8 +81,9 @@
     }
 
     .flashMsg{
-      color: green;
-      background-color: #d1c9c9;
+      color: #fff;
+      background-color: #76e060;
+      opacity: 0.7;
       border-radius: 5px;
       text-align: center;
       margin-top: 30px;

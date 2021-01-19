@@ -16,7 +16,6 @@
     }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +25,20 @@
     <meta name="description" content="">
 
     <!-- Title -->
-    <title>LOGIN</title>
+    <title>Admin Login</title>
+    <style type="text/css">        
+        .flashMsg{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+    </style>
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -88,32 +100,34 @@
     </section>
     
     <!-- NAVBAR PART END -->
-
-    <!-- Output divs for flash msgs -->
-    <?php if(@$_GET["notloggedin"]){ ?>
-        <div style="color: red">You need to Login as Admin to Access that Page</div>
-    <?php } ?>
-
-    <?php if(@$_GET["empty"]){ ?>
-        <div style="color: red">Enter Values Before Submitting</div>
-    <?php } ?>
-
-    <?php if(@$_GET["logoutbeforelogin"]){ ?>
-        <div style="color: red">You need to Login before Logging Out!</div>
-    <?php } ?>
-
-    <?php if(@$_GET["invalidemail"]){ ?>
-        <div style="color: red">Invalid Email! Please Try Again</div>
-    <?php } ?>
-
-    <?php if(@$_GET["invalidpassword"]){ ?>
-        <div style="color: red">Wrong Password! Please Try Again</div>
-    <?php } ?>
     
     <!-- LOGIN PART START -->
     <div class="login-bg-img">
         <div class="login-box">
+
+            <!-- Output divs for flash msgs -->
+            <?php if(@$_GET["notloggedin"]){ ?>
+                <div class="flashMsg">You need to Login as Admin to Access that Page</div>
+            <?php } ?>
+
+            <?php if(@$_GET["empty"]){ ?>
+                <div class="flashMsg">Enter Values Before Submitting</div>
+            <?php } ?>
+
+            <?php if(@$_GET["logoutbeforelogin"]){ ?>
+                <div class="flashMsg">You need to Login before Logging Out!</div>
+            <?php } ?>
+
+            <?php if(@$_GET["invalidemail"]){ ?>
+                <div class="flashMsg">Invalid Email! Please Try Again</div>
+            <?php } ?>
+
+            <?php if(@$_GET["invalidpassword"]){ ?>
+                <div class="flashMsg">Wrong Password! Please Try Again</div>
+            <?php } ?>
+
             <header>Login Here</header>
+
             <form action="../Controllers/AdminLoginController.php" id="loginForm" method="POST">
                 <div class="login-type">
                     <label>LOGIN as ADMIN</label><!-- Login Type -->

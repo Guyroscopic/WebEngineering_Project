@@ -54,6 +54,30 @@
         .btn:hover{
             background-color: #5c5b5b;
         }
+
+        <style type="text/css">        
+        .flashMsgRed{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+        .flashMsgGreen{
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.7;
+          border-radius: 5px;
+          margin: 40px 50px 0px 50px;
+          text-align: center;
+          font-size: 20px;
+          padding: 5px 0 5px 0;
+        }
+    </style>
     </style>
 
 
@@ -104,8 +128,18 @@
           <!-- background image for teacher profile -->
             <div class="teacher-big-image">
                 <div class="teacher-overlay1">
-                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
+                    <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">                        
+                        <br>
                         <div class="text">
+                            <!-- Output divs for flash msgs -->
+                            <?php if(@$_GET["invalidAccess"]){ ?>
+                                <div class="flashMsgRed">Your access was Invalid</div>
+                            <?php } ?>
+
+                            <?php if(@$_GET["created"]){ ?>
+                                <div class="flashMsgGreen">Tutorial Successfully Created!</div>
+                            <?php } ?>
+
                             <h1>Welcome Teacher <?php echo $username ?></h1> 
                             <p>Email ID: <?php echo $email ?></p>
                             <p>Tutorials Published: <?php echo $num_teacher_tutorials ?></p>
@@ -122,23 +156,6 @@
     </section>
 
     <!--====== NAVBAR PART ENDS ======-->
-
-    <!-- Output divs for flash msgs -->
-    <?php if(@$_GET["invalidAccess"]){ ?>
-        <p style="color: red">Your access was Invalid</p>
-    <?php } ?>
-
-    <?php if(@$_GET["created"]){ ?>
-        <div style="color: green">Tutorial Successfully Created!</div>
-    <?php } ?>
-
-    <?php if(@$_GET["quizCreated"]){ ?>
-        <div style="color: green">Quiz Successfully Created!</div>
-    <?php } ?>
-
-    <?php if(@$_GET["quizUpdated"]){ ?>
-        <div style="color: green">Quiz Successfully Updated!</div>
-    <?php } ?>
 
     <!--====== SAIDEBAR PART START ======-->
 

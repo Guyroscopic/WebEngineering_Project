@@ -26,9 +26,11 @@
     <title>Home</title>
     <style type="text/css">        
         .flashMsg{
-          color: green;
-          background-color: #d1c9c9;
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.8;
           border-radius: 5px;
+          margin: 40px 50px 0px 50px;
           text-align: center;
           font-size: 20px;
           padding: 5px 0 5px 0;
@@ -147,16 +149,18 @@
 
                     <div class="carousel-inner">
                         <div class="carousel-item bg_cover active" style="background-image: url(https://static.wixstatic.com/media/nsplsh_6f7572514852544532494d~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_640,h_328,al_c,q_80,usm_0.66_1.00_0.01/nsplsh_6f7572514852544532494d~mv2_d_5472_3648_s_4_2.webp)">
+                            <!-- Output div for flash msgs -->
+                                <?php
+                                    //require 'DBinit.php';
+                                    if(@$_GET["loggedout"]){ ?>
+                                        <div class="flashMsg">Logged out Successfully!</div>
+                                <?php } ?>
                             <div class="carousel-caption">
                                 <div class="container">
+
                                     <div class="row justify-content-center">
                                         <div class="col-xl-6 col-lg-7 col-sm-10">
-                                            <!-- Output div for flash msgs -->
-                                            <?php
-                                                //require 'DBinit.php';
-                                                if(@$_GET["loggedout"]){ ?>
-                                                    <div class="flashMsg">Logged out Successfully!</div>
-                                            <?php } ?>
+                                            
                                             <h2 class="carousel-title">Learn from home</h2>
                                             
                                         </div>

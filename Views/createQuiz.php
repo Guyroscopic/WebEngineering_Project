@@ -18,78 +18,196 @@
 		header("location: login.php?notloggedin=true");
 	}
 
-	if(isset($_POST["create"])){
-		$tutorial_id = $_POST["tutorial_id"];
+	if(isset($_POST["create"]) || @$_GET["tutorial_id"]){
+
+		if(@$_GET["tutorial_id"])
+			$tutorial_id = $_GET["tutorial_id"];
+		else
+			$tutorial_id = $_POST["tutorial_id"];
 	}
-	else{
-		header("location: teacherProfile.php?invalidAccess=true");
-	}
+	
+		
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>WebEng Project</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+
+  <title>Create Quiz</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: white;
+    }
+    
+    .main {
+      margin-left: 250px;
+      padding: 0px 10px;
+      color: black;
+    }
+
+    .multi-text {
+        background-image: linear-gradient(to left, #43cae9 0%, #38f9d7 100%);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 50px;
+        font-weight: bold;
+      }
+
+    .logo{
+      position: relative;
+      left:40px;
+      width:150px;
+    }
+    .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0; 
+      background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .sidenav a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      color:#ffffff;
+      display: block;
+    }
+
+    .sidenav a:hover {
+      color: #38f9d7;
+      background: #fff;
+      text-decoration: none;
+    }
+
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+
+  </style>
+	<title>Create Quiz</title>
 
 	<!-- Importing jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>	
 
-	<!-- Output div for an empty submissoin -->
-	<?php if(@$_GET["empty"]){ ?>
-		<div style="color: red">OOPS! Looks like you left a field empty</div>
-	<?php } ?>
-
 	<!-- Output div for an Error -->
 	<?php if(@$_GET["error"]){ 	?>
 		<div style="color: red">An Unknown Error</div>
 	<?php } ?>
 
-	<h1>Create Quiz</h1>
+	<div class="sidenav">
+    <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
+    <br><br>
+    <a href="/webproject"><i class="fa fa-home"></i> Home</a>
+    <br>
+    <a href="About.php"><i class="fa fa-font"></i> About</a>
+    <br>
+    <a href="tutorial.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i>Tutorial</a>
+    <br>
+    <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <br>
+    <a href="login.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <br>
+    </div>
 
-	<form id="createQuiz" action="../Controllers/CreateQuizController.php" method="POST">
+    <div class="main">
+	<h1><span class="multi-text">Create Quiz</span></h1><br><br>
+
+	<!-- Output div for an empty submissoin -->
+	<?php if(@$_GET["empty"]){ ?>
+		<div style="color: red; align-content: center;"><?php echo $_GET["empty"]; ?></div>
+	<?php } ?>
+
+	<form class="form-horizontal" id="createQuiz" action="../Controllers/CreateQuizController.php" method="POST">
 
 		<input type="hidden" value="<?php echo "$tutorial_id"?>" name="tutorialId">
 
-		<label>Topic</label>
-		<input type="text" placeholder="Enter the Topic of Quiz" name="quiz_topic" required><br><br>
+		<div class="form-group row"> 		
+		<label class="col-sm-2 col-form-label col-form-label-lg" for="topic">Topic</label>
+		<div class="col-sm-10">
+		<input type="text" class="form-control form-control-lg" id="topic" placeholder="Enter the Topic of Quiz" name="quiz_topic" required>
+		</div>
+		</div>
 
-		<label>Question 1: </label>
-		<input type='text' name='question1' placeholder='Enter Question' required><br><br>
+		<div class="form-group row">
+		<label class="col-sm-2 col-form-label col-form-label-lg" >Question 1: </label>
+		<div class="col-sm-10">
+		<input type='text'class="form-control form-control-lg" name='question1' placeholder='Enter Question' required>
+		</div>
+		</div>
 
-		<label>Option1: </label>
-		<input type="text" id='option1' name='question1_option1' 
-				  placeholder='Option 1' required><br>
+		<div class="form-group row"> 
+		<label class="col-sm-2 col-form-label col-form-label">Option1: </label>
+		<div class="col-sm-10">
+		<input type="text" id='option1' class="form-control form-control" name='question1_option1' 
+				  placeholder='Option 1' required>
+		</div>
+		</div>
 
-		<label>Option2: </label>
-		<input type="text" id='option2' name='question1_option2' 
-				  placeholder='Option 2' required><br>
+		<div class="form-group row"> 
+		<label class="col-sm-2 col-form-label col-form-label">Option2: </label>
+		<div class="col-sm-10">
+		<input type="text" class="form-control form-control" id='option2' name='question1_option2' 
+				  placeholder='Option 2' required>
+		</div>
+		</div>
 
-		<label>Option3(Optional): </label>
-		<input type="text" id='option3' name='question1_option3' 
-				  placeholder='Option 3'><br>
+		<div class="form-group row"> 
+		<label class="col-sm-2 col-form-label col-form-label">Option3(Optional): </label>
+		<div class="col-sm-10">
+		<input type="text" id='option3' class="form-control form-control" name='question1_option3' 
+				  placeholder='Option 3'>
+		</div>
+		</div>
 
-		<label>Option4(Optional): </label>
-		<input type="text" id='option4' name='question1_option4' 
-				  placeholder='Option 4'><br>
+		<div class="form-group row">
+		<label class="col-sm-2 col-form-label col-form-label">Option4(Optional): </label>
+		<div class="col-sm-10">
+		<input type="text" id='option4' class="form-control form-control" name='question1_option4' 
+				  placeholder='Option 4'>
+		</div>
+		</div>
 
-		<label>Correct Answer: </label>
-		<select name="question1_correct_answer" id="correct_answer">
+		<div class="form-group row"> 
+		<label class="col-sm-2 col-form-label col-form-label-lg">Correct Answer: </label>
+		<div class="col-sm-10">
+		<select class="custom-select custom-select-lg mb-3" name="question1_correct_answer" id="correct_answer">
 		  <option value=''>Select</option>
 		  <option value="question1_option1">Option 1</option>
 		  <option value="question1_option2">Option 2</option>
 		  <option value="question1_option3">Option 3</option>
 		  <option value="question1_option4">Option 4</option>
-		</select><br>
+		</select>
 
 
-		<input type="button" id="addQuestionButton" onclick="addQuestions()" value="Add More Question"><br><br>
+		<button class="btn btn-info" type="submit" id="addQuestionButton" onclick="addQuestions()">Add More Question</button><br><br>
 
 		<input id="numOfQuestions" type="hidden" name="numOfQuestions" value=1>
-		<button name="create">Create</button>
+		<button class="btn btn-info" name="create">Create</button>
 
 	</form>
+</div>
 
 	<script>
 
@@ -99,19 +217,38 @@
 		function addQuestions(){
 
 			clicked    += 1;
-			str         = "<br><br><label>Question "+clicked+": </label>" +
-						  "<input type='text' name='question'"+ clicked + " placeholder='Enter Question' required><br>"+
+			str 		= "<br><br><div class='form-group row'>";
+			str         += "<label class='col-sm-2 col-form-label col-form-label-lg' for='ques'>Question "+clicked+": </label>" +
+			"<div class='col-sm-10'>"+
+						  "<input type='text' name='question"+ clicked + "' class='form-control form-control-lg' placeholder='Enter Question' required></div></div>"+
 
-						  "<label>Option1: </label>" + 
-						  "<input type='text' id='option1' name='question"+clicked+"_option1' placeholder='Enter the First Choice' required><br>" +
-						  "<label>Option2: </label>" + 
-						  "<input type='text' id='option2' name='question"+clicked+"_option2' placeholder='Enter the Second Choice' required><br>" +
-						  "<label>Option3: </label>" +
-						  "<input type='text' id='option3' name='question"+clicked+"_option3' placeholder='Enter the Third Choice(optional)'><br>"+
-						  "<label>Option4: </label>"+
-						  "<input type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
-						  "<label>Correct Answer: </label>" +
-						  "<select name='question"+clicked+"_correct_answer'>"+
+						  "<div class='form-group row'>" +
+						  "<label class='col-sm-2 col-form-label col-form-label'>Option1: </label>" + 
+						  "<div class='col-sm-10'>" +
+						  "<input class='form-control form-control' type='text' id='option1' name='question"+clicked+"_option1' placeholder='Enter the First Choice' required><br>" +
+						  "</div></div>" +
+
+						  "<div class='form-group row'>" +
+						  "<label class='col-sm-2 col-form-label col-form-label'>Option2: </label>" +
+						  "<div class='col-sm-10'>" + 
+						  "<input class='form-control form-control' type='text' id='option2' name='question"+clicked+"_option2' placeholder='Enter the Second Choice' required><br>" +
+						  "</div></div>" +
+
+						  "<div class='form-group row'>" +
+						  "<label class='col-sm-2 col-form-label col-form-label'>Option3: </label>" +
+						  "<div class='col-sm-10'>" + 
+						  "<input class='form-control form-control' type='text' id='option3' name='question"+clicked+"_option3' placeholder='Enter the Third Choice(optional)'><br>"+
+						  "</div></div>" +
+
+						  "<div class='form-group row'>" +
+						  "<label class='col-sm-2 col-form-label col-form-label'>Option4: </label>"+
+						  "<div class='col-sm-10'>" + 
+						  "<input class='form-control form-control' type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
+						  "</div></div>" +
+						  "<div class='form-group row'>" +
+						  "<label class='col-sm-2 col-form-label col-form-label-lg'>Correct Answer: </label>" +
+						  "<div class='col-sm-10'>" +
+						  "<select class='custom-select custom-select-lg mb-3' name='question"+clicked+"_correct_answer'>"+
 						  	  "<option value=''>Select</option>"+
 							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
 							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
@@ -125,6 +262,11 @@
 
 	</script>
 
+	<!-- jQuery library -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+	<!-- Latest compiled and minified Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 </body>

@@ -1,4 +1,22 @@
-<!Doctype html> 
+<?php
+    //Starting Session
+    session_start();
+
+    //Redirecting in case user is already logged in 
+    if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
+        header("location: studentProfile.php");
+    }
+
+    elseif(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
+        header("location: teacherProfile.php");
+    }
+    //Redirecting in case admin is already logged in 
+    elseif(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
+        header("location: adminPanel.php");
+    }
+?>
+
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -8,6 +26,18 @@
 
     <!-- Title -->
     <title>REGISTER</title>
+    <style type="text/css">        
+        .flashMsg{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin: 20px 50px 0 50px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+    </style>
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -69,20 +99,21 @@
     <!-- REGISTRATION PART START -->
     <div class="main-register-form">
             <div class="register">
-                    <h2>Register Here</h2>
+                <!-- OUTPUT DIV FOR ERROR MESSAGES -->
+                <?php if(@$_GET["invalid"]){ ?>
+                    <div class="flashMsg"><?php echo $_GET["invalid"]; ?></div>
+                <?php } ?>
 
-                    <!-- OUTPUT DIV FOR ERROR MESSAGES -->
-                    <?php if(@$_GET["invalid"]){ ?>
-                        <div style="color: red"><?php echo $_GET["invalid"]; ?></div>
-                    <?php } ?>
+                <?php if(@$_GET["userexists"]){ ?>
+                    <div class="flashMsg"><?php echo $_GET["userexists"]; ?></div>
+                <?php } ?> 
 
-                    <?php if(@$_GET["userexists"]){ ?>
-                        <div style="color: red"><?php echo $_GET["userexists"]; ?></div>
-                    <?php } ?> 
+                <?php if(@$_GET["empty"]){ ?>
+                    <div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+                <?php } ?>
 
-                    <?php if(@$_GET["empty"]){ ?>
-                        <div style="color: red"><?php echo $_GET["empty"]; ?></div>
-                    <?php } ?> 
+                <h2>Register Here</h2>
+
                 <form  action="../Controllers/SignupController.php" method="POST" id="signupForm">
                     <div class="radio" align="center">
                         <label>Register as</label>

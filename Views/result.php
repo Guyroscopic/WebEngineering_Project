@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<!-- Required Meta Tags-->
+        <meta charset="UTF-8">
+        <title>result</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--- CSS Link for view Tutorials-->
+        <link href="../assets/css/ViewTutorials.css" rel="stylesheet">
+
+        <!-- CSS Link for Icons-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>Quiz Result</title>
 </head>
 <body>
 
+	<!-- Left Fixed Sidebar-->
+        <div class="sidenav">
+            <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="logo">
+            <br><br>
+            <a href="MainPage.html"><i class="fa fa-home"></i> Home</a><br>
+            <a href="About.html"><i class="fa fa-font"></i> About</a><br>
+            <a href="teacherProfile.html"><i class="fa fa-hand-o-left"></i> Return to Profile</a><br>
+            <a href="#"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+        </div>
 	<?php
 
 	session_start();
@@ -61,21 +81,21 @@
 				$options 		 = array($question["option1"], $question["option2"], $question["option3"], $question["option4"]);
 				$correct_option  = $question["correct_option"];
 
-				$result_form .= "<li>". $statement;
+				$result_form .= "<br><li>". $statement;
 				foreach ($options as $option) {
 						
 						if($option){
 							if($option == $selected_option){
 
 								if($selected_option != $correct_option){
-									$result_form .= "<br><input type='radio' name='". $question_num. "' value='". $option."' checked='checked' disabled><label style='color:red'>".$option."</label>";
+									$result_form .= "<label style='color:red'><br><input type='radio' name='". $question_num. "' value='". $option."' checked='checked' disabled>".$option."</label>";
 								}
 								elseif($selected_option == $correct_option){
-								$result_form .= "<br><input type='radio' name='". $question_num. "' value='". $option."' checked='checked' disabled><label style='color:green'>".$option."</label>";
+								$result_form .= "<label style='color:green'><br><input type='radio' name='". $question_num. "' value='". $option."' checked='checked' disabled>".$option."</label>";
 							}
 							}
 							else{
-								$result_form .= "<br><input type='radio' name='". $question_num. "' value='". $option."'  disabled><label>".$option."</label>";
+								$result_form .= "<br><label><input type='radio' name='". $question_num. "' value='". $option."'  disabled>".$option."</label>";
 							}
 						
 					}	}		
@@ -95,32 +115,20 @@
 					insertStudentQuizScore($student_email, $quiz_id, $score);
 				}
 
-				$result_form .= "</ol></form>";
-				echo "<h4>You Scored". $score . "/". $num_of_question ."</h4>";
+				$result_form .= "</ol></form>";?>
+				<div class="tut-bg">
+			        <h1><span class="multi-text" style='color:black'> Result: Quiz No. <?php echo $quiz_id ?></span></h1>
+			    </div>
+				<div class="main-content5" style='color:black'><h2>You Scored <?php echo $score . "/". $num_of_question ?></h2>
+
+				<?php
 				echo $result_form;	
-				echo "<form action='viewQuiz.php' method='POST'><button type='submit' name='backbutton'>Go Back To Quizzes</button><input type='hidden' value='".$tutorial_id."' name='tutorial_id'></form>";
-				echo "<a href='quiz.php?id=".$quiz_id."'>Attempt Again</a>";
+				echo "<form action='viewQuiz.php' method='POST'><button class='quiz-button' type='submit' name='backbutton'>Go Back To Quizzes</button><input type='hidden' value='".$tutorial_id."' name='tutorial_id'></form>";
+				echo "<br><a href='quiz.php?id=".$quiz_id."'>Attempt Again</a>";
 
-}
+}				?>
+				</div>
 
 
-				
-				/*$result_form .= "<input type='radio' name='". $question_num. "' value='". $option2."'><label>".$option2."</label><br>";
-
-				if($option3){
-					$result_form .= "<input type='radio' name='". $question_num. "' value='". $option3."'><label>".$option3."</label><br>";
-				}
-				if($option4){
-					$result_form .= "<input type='radio' name='". $question_num. "' value='". $option4."'><label>".$option4."</label></li><br>";*/
-
-				//$result_form .= "<input type='hidden' name='". $question_num ."_answer' value='". $correct_option . "'>"; 
-
-			
-
-			//$result_form .= "<input type='hidden' value='". $question_num ."' name='num_of_question'>";
-			//$result_form .= "<button type='submit' name='showresult'>Show Quiz Result</button>";
-			
-			//header("location: quiz.php?score=$score");
-		?>
 </body>
 </html>

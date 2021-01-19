@@ -66,19 +66,40 @@
 			}
 			else{
 				$option4 = "";
-			}
+			} 
 
 			// retrieving the correct answer
 			$select_correct_answer = stripslashes($_POST[$q_correct_answer]);
-			if(!$select_correct_answer){
-				header("location: ../Views/editQuiz.php?Empty=true");
+			if(empty($select_correct_answer)){
+				header("location: ../Views/editQuiz.php?empty=Select The Correct Answer&quiz_id=".$quizId);
 				exit();
 			}
 			
 			$correct_answer = stripslashes($_POST[$select_correct_answer]);
+
+			if($correct_answer == $option3 && empty($option3)){
+				mysqli_close($database_connection);
+				header("location: ../Views/editQuiz.php?empty=Invalid Option Selected&quiz_id=".$quizId);
+				exit();
+			}
+
+			if($correct_answer == $option4 && empty($option4)){
+				mysqli_close($database_connection);
+				header("location: ../Views/editQuiz.php?empty=Invalid Option Selected&quiz_id=".$quizId);
+				exit();
+			}
 			// checking for empty and non empty fields
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
-				header("location: ../Views/teacherProfile.php?Empty=true");
+
+				if(empty($question))
+					header("location: ../Views/editQuiz.php?empty=You Left The Question Field Empty&quiz_id=".$quizId);
+				elseif(empty($option1))
+					header("location: ../Views/editQuiz.php?empty=You Left The Option 1 Empty&quiz_id=".$quizId);
+				elseif(empty($option2))
+					header("location: ../Views/editQuiz.php?empty=You Left The Option 2 Empty&quiz_id=".$quizId);
+				elseif(empty($correct_answer))
+					header("location: ../Views/editQuiz.php?empty=You Left The Correct Answer Field Empty&quiz_id=".$quizId);
+				exit();
 			}
 
 			// if a new question has been added to quiz, Add it to database
@@ -96,13 +117,13 @@
 
 		//Closing the DB Connection
 		mysqli_close($database_connection);	
-		header("location: ../Views/quiz.php?id=$quizId");	
+		header("location: ../Views/quiz.php?id=".$quizId);	
 	}
 
 	else{
 
 		//Closing the DB Connection
 		mysqli_close($database_connection);	
-		header("location: ../Views/editQuiz.php?Error=true");
+		header("location: ../Views/editQuiz.php?error=An Error Occured&quiz_id=".$quizId);
 	}
 ?>
