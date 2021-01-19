@@ -95,6 +95,11 @@
 </head>
 <body>
 
+	<!-- Output divs for flash msgs -->
+	<?php if(@$_GET["edited"]){ ?>
+		<div style="color: green">Tutorial Edited Successfully!</div>
+	<?php } ?>
+
 	<!-- Displaying Tutorial Information -->
 	<h1><?php echo $title ?></h1>
 	<h3>

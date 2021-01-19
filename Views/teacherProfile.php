@@ -53,17 +53,14 @@
         }
         .btn:hover{
             background-color: #5c5b5b;
-        }
-
-        <style type="text/css">        
+        }      
         .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin-top: 30px;
-          margin-bottom: 30px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
         }
@@ -72,15 +69,12 @@
           background-color: #76e060;
           opacity: 0.7;
           border-radius: 5px;
-          margin: 40px 50px 0px 50px;
+          margin: 0px 50px 0px 50px;
           text-align: center;
-          font-size: 20px;
+          font-size: 15px;
           padding: 5px 0 5px 0;
         }
     </style>
-    </style>
-
-
 </head>
 <body>
 
@@ -129,7 +123,7 @@
             <div class="teacher-big-image">
                 <div class="teacher-overlay1">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">                        
-                        <br>
+
                         <div class="text">
                             <!-- Output divs for flash msgs -->
                             <?php if(@$_GET["invalidAccess"]){ ?>
@@ -145,11 +139,12 @@
                             <p>Tutorials Published: <?php echo $num_teacher_tutorials ?></p>
                         </div>
                         
-                        <a class="btn" href="viewTutorials.php">View Tutorials</a><br>
-                        <a class="btn" href="publishedTutorials.php">View Published Tutorials</a><br>
-                        <a class="btn" href="createTutorial.php">Create New Tutorials</a><br>
-                        <a class="btn" href="updateInfo.php">Update Information</a><br><br><br>
-                        =
+                        <a class="btn" href="viewTutorials.php">View Tutorials</a>
+                        <a class="btn" href="publishedTutorials.php">View Published Tutorials</a>
+                        <a class="btn" href="createTutorial.php">Create New Tutorials</a>
+                        <a class="btn" href="updateInfo.php">Update Information</a>
+                        <a class="btn" href="#">Change Password</a>
+                        
                     </div>
                 </div>
             </div>
@@ -188,8 +183,8 @@
 
     <!--====== SAIDEBAR PART ENDS ======-->
 
-       <!--===== FOOTERpart starts ======-->
-    
+   <!--===== FOOTERpart starts ======-->
+
   <footer class="site-footer">
       <div class="container">
         <div class="row">

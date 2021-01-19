@@ -127,7 +127,7 @@
             <textarea id="title-desc" name='description' placeholder="Tutorial Description" required></textarea>            
             <br>            
             
-            <label>Video(optional):</label>    
+            <label>Video(optional):<br>Max Size: 256MB</label>    
             <input type="file" id="video" name="video" class='form-control-file'>           
             <br>
 

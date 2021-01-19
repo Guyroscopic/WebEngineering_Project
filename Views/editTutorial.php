@@ -28,19 +28,6 @@
 		//Extracting the tutorial from the form
 		$tutorial_id = $_POST["tutorial_id"];
 
-		//Fetching the Tutorial
-		$tutorial = getTutorialByID($tutorial_id);
-
-		//Fetching Tutorial Paragraphs
-		$tutoriral_paragraphs_SQL_result = getParagaphsByTutorialID($tutorial_id);
-
-		//Counting the number of paragraphs
-		$paragraph_num = 0;
-		$temp = getParagaphsByTutorialID($tutorial_id);
-		while($paragraph = $temp->fetch_assoc()){
-			$paragraph_num += 1;
-		}
-
 		//echo "Editing Tutorial with ID: " . $_POST["tutorial_id"] . "<br>";
 		//echo "Number of Paragraphs: " . $paragraph_num;
 
@@ -53,6 +40,19 @@
 	else{
 		header("location: publishedTutorials.php?invalidAccess=true");
 	}
+
+    //Fetching the Tutorial
+    $tutorial = getTutorialByID($tutorial_id);
+
+    //Fetching Tutorial Paragraphs
+    $tutoriral_paragraphs_SQL_result = getParagaphsByTutorialID($tutorial_id);
+
+    //Counting the number of paragraphs
+    $paragraph_num = 0;
+    $temp = getParagaphsByTutorialID($tutorial_id);
+    while($paragraph = $temp->fetch_assoc()){
+        $paragraph_num += 1;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -110,22 +110,22 @@
         
         <!-- Main Content-->
 
-        <!-- Output divs for an empty submissoin -->
-        <?php if(@$_GET["empty"]){ ?>
-            <div class="flashMsg">OOPS! Looks like you left a field empty</div>
-        <?php } ?>
-
-        <!-- Output div for error in video upload -->
-        <?php if(@$_GET["error"]){ ?>
-            <div class="flashMsg">
-                OOPS! Looks like there was an error in your video uplaod<br>
-                ERROR: <?php echo $_GET["error"] ?>
-            </div>
-        <?php } ?>
-
-        <form name="editTorialFrom" action="../Controllers/EditTutorialController.php" method="POST">
+        <form name="editTorialFrom" action="../Controllers/EditTutorialController.php" 
+              method="POST" enctype="multipart/form-data">
 
         	<div class="tut-bg">
+            <!-- Output divs for an empty submissoin -->
+            <?php if(@$_GET["empty"]){ ?>
+                <div class="flashMsg">OOPS! Looks like you left a field empty</div>
+            <?php } ?>
+
+            <!-- Output div for error in video upload -->
+            <?php if(@$_GET["error"]){ ?>
+                <div class="flashMsg">
+                    OOPS! Looks like there was an error in your video uplaod<br>
+                    ERROR: <?php echo $_GET["error"] ?>
+                </div>
+            <?php } ?>
 
             <!-- Heading of Create Tutorial -->
             <div class="main-tut-header">
@@ -143,7 +143,7 @@
             <textarea id="title-desc" name='description' required><?php echo $tutorial["description"] ?></textarea>
             <br>            
             
-            <label>Video(optional):</label>    
+            <label>Video(optional):<br>Max Size: 256MB</label>    
             <input type="file" id="video" name="video" class='form-control-file'>           
             <br>
             
@@ -160,6 +160,8 @@
 				$paragraph_num += 1;
 			}
 			?>
+
+            <input type="hidden" name="paragraph_num" value=<?php echo $paragraph_num ?>>
 
             <button name="apply" class="btn btn-info" style="margin-bottom:10px">
             	Apply Changes

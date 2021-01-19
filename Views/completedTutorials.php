@@ -1,24 +1,30 @@
 <?php
-  
-  //Checking if Teacher is logged in or not
-  session_start();
+	//Checking if Teacher is logged in or not
+	session_start();
 
-  if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
+	if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
+		header("location: teacherProfile.php?invalidAccess=true");
+	}
+	elseif(isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username']))
+	{		
+		$student_email     = $_SESSION["current_student_email"];
+		$student_username  = $_SESSION["current_student_username"];
+	}
+	elseif(isset($_SESSION['admin_email']) && isset($_SESSION['admin_username'])){
+		header("location: adminPanel.php?invalidAcess=ture");
+	}
+	else{
+		header("location: login.php?notloggedin=true");
+	}
 
-    $email    = $_SESSION["current_teacher_email"];
-    $username = $_SESSION["current_teacher_username"];
-      
-  }
-  else{
-    header("location: login.php?notloggedin=true");
-  }
+	//Adding the required Models
+	require_once "../Models/StudentTutorialBridgeModel.php";
+	require_once "../Models/TutorialModel.php";
 
-  //Adding the required Models
-  require_once "../Models/TutorialModel.php";
-
-  $instructor_Tutorials = getTutorialsByTeacherEmail($email);
-
+	//Fetching all the Tutorials Completed By the Student
+	$student_tutorials = getStudentCompletedTutorials($student_email);
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -135,44 +141,40 @@
     <br>
     <a href="login.php"><i class="fa fa-hand-o-left"></i> Profile</a>
     <br>   
-    <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>   
+    <a href="studentLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <br>
   </div>
 
 
-<div class="main ">
+  <div class="main ">
 
-  <!-- Output divs for flash msgs -->
-  <?php if(@$_GET["deleted"]){ ?>
-    <div class="flashMsg">Tutorial Deleted Successfully!</div>
-  <?php } ?> 
+    <h1 align="center">
+      <span class="multi-text">Completed Tutorials</span>
+    </h1>
 
-  <h1 align="center">
-    <span class="multi-text">Tutorials Published By You</span>
-  </h1>
+    <!-- Displaying Tutorials -->
+    <?php
+    echo "<ol>";
+    while($row = mysqli_fetch_assoc($student_tutorials)){
 
-  <!-- Displaying Published Tutorials -->
-  <?php
-  echo "<ol>";
-  while($tutorial = $instructor_Tutorials->fetch_assoc()) {       
+      $tutorial = getTutorialByID($row["tutorial_id"]);
+
       echo "<li class='card'>";
       echo "<a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] . "</a><br>";
-      
-      if($tutorial["video"]){
-      echo "<p><span class='type'>Video Based Tutorial - </span> " . $tutorial["description"] ."</p>";
+      if($tutorial["video"]){ 
+        echo "<p><span class='type'>Video Based Tutorial - </span> " . $tutorial["description"] ."</p>";
       }
       else{
-        echo "<p><span class='type'>Text Based Tutorial - </span>"  . $tutorial["description"] ."</p>";
+        echo "<p><span class='type'>Text Based Tutorial - </span> "  . $tutorial["description"] ."</p>";
       }   
-        echo "<br></li>";
-  }
-  echo "</ol>"
-  ?>
+      echo "<br></li>";
 
-</div>
+    }
+    echo "</ol>"
+    ?>
+  </div>
 
-   <!--===== FOOTERpart starts ======-->
-    
+  <!--===== FOOTERpart starts ======-->    
   <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -207,9 +209,10 @@
           </div>
         </div>
       </div>
-</footer>
-
+    </footer>
     <!--===== FOOTERpart ends ======-->
+    
 
 </body>
 </html> 
+
