@@ -77,4 +77,15 @@
 		return $sql_query_execute;
 	}
 
+	function getStudentCompletedTutorials($email){
+
+		global $database_connection;
+
+		$sql_query         = "SELECT * FROM student_tutorial_bridge WHERE " .
+		    				 "student_email='$email'";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		
+		return $sql_query_execute;
+	}
+
 ?>
