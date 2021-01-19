@@ -71,14 +71,17 @@
                             </a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
                             </button>
 
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                    <li class="nav-item active">
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li> 
                                 </ul>
@@ -95,10 +98,44 @@
     </section>
     
     <!-- NAVBAR PART END -->
+
+     <!-- SIDEBAR PART START -->
+     <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="#"><img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img1"></a>
+            </div> <!-- logo -->
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="about.php">About</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="page-scroll" href="contactus.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
+                    </li>
+                </ul>
+            </div> <!-- menu -->
+          <div>
+        </div> 
+        </div> <!-- content -->
+    </div> 
+    <div class="overlay-right"></div>
+    <!-- SIDEBAR PART ENDS -->
+
     
     <!-- REGISTRATION PART START -->
     <div class="main-register-form">
             <div class="register">
+
                 <!-- OUTPUT DIV FOR ERROR MESSAGES -->
                 <?php if(@$_GET["invalid"]){ ?>
                     <div class="flashMsg"><?php echo $_GET["invalid"]; ?></div>
@@ -139,11 +176,9 @@
                     <input type="password" name="confirm-password" id="password" placeholder="Confirm Your Password">
                     <br><br>
                     </div>
-
-                    <input type="hidden" name="page" value="userregister">
                     
                     <div class="reg-btn" style="padding: 0 50px 0 50px">
-                        <button type="submit" name="register">REGISTER</button>
+                        <button type="submit" name="registeruserbutton">REGISTER</button>
                     </div>
                     <br>
                     <div id="login" align=center style="padding: 0 50px 20px 50px">Already have an account?
@@ -155,37 +190,7 @@
         </div>
     <!-- REGISTRATION PART END -->
 
-    <!-- SIDEBAR PART START -->
-    <div class="sidebar-right">
-        <div class="sidebar-close">
-            <a class="close" href="#close"><i class="lni-close"></i></a>
-        </div>
-        <div class="sidebar-content">
-            <div class="sidebar-logo text-center">
-                <a href="#"><img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img1"></a>
-            </div> <!-- logo -->
-            <div class="sidebar-menu">
-                <ul>
-                    <li class="nav-item">
-                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="page-scroll" href="about.php">About</a>
-                    </li>                    
-                    <li class="nav-item">
-                        <a class="page-scroll" href="contactus.php">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
-                    </li>
-                </ul>
-            </div> <!-- menu -->
-          <div>
-        </div> 
-        </div> <!-- content -->
-    </div> 
-    <!-- SIDEBAR PART ENDS -->
-
+   
     <!--===== FOOTERpart starts ======-->
     
   <footer class="site-footer">

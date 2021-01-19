@@ -30,18 +30,7 @@
 
     <!-- Title -->
     <title>Student Profile</title>
-    <style type="text/css">        
-        .flashMsg{
-          color: #fff;          
-          opacity: 0.7;
-          background-color: #db5a5a;
-          border-radius: 5px;
-          text-align: center;
-          margin: 20px 100px 0 100px;
-          font-size: 15px;
-          padding: 5px 0 5px 0;
-        }
-    </style>
+
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -85,17 +74,22 @@
                             </a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                            
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>  
+                            
                             </button>
 
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                    <li class="nav-item active">
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                     <li input style="margin-top: 15px;margin-left: 500px; margin-bottom: 20px;" class="nav-item">
+                                     <li class="nav-item">
                                         <a class="page-scroll" href="studentLogout.php">LOGOUT</a>
                                     </li>
                                     </ul> 
@@ -115,20 +109,13 @@
             <div class="big-image">
                 <div class="overlay1">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
-
-                         <!-- Output divs for flash msgs -->
-                        <?php if(@$_GET["invalidAccess"]){ ?>
-                            <div class="flashMsg">Your access was Invalid</div>
-                        <?php } ?>
-
                         <div class="text">
                             <h1>Welcome Student <?php echo $username ?></h1>                         
                             <p>Eamil ID: <?php echo $email ?></p>
                             <p>Tutorials Completed: <?php echo $num_completed_tutorials ?></p>
                         </div>
                          <a class="btn" href="viewTutorials.php">Browse Tutorials</a><br>
-                         <a class="btn" href="completedTutorials.php">Show Completed Tutorials</a><br>
-                         <a class="btn" style="margin-bottom: 30px" href="#">Change Password</a><br>  
+                         <a class="btn" href="#">Show Completed Tutorials</a><br>  
                     </div>
                 </div>
             </div>
@@ -136,6 +123,11 @@
 
     <!--====== NAVBAR PART ENDS ======-->
     </section>
+
+    <!-- Output divs for flash msgs -->
+    <?php if(@$_GET["invalidAccess"]){ ?>
+        <p style="color: red">Your access was Invalid</p>
+    <?php } ?>
 
     <!--====== SAIDEBAR PART START ======-->
 

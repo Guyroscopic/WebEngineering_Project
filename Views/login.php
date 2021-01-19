@@ -25,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Title -->
-    <title>Login</title>
+    <title>LOGIN</title>
     <style type="text/css">        
         .flashMsg{
           color: #fff;          
@@ -75,14 +75,17 @@
                             </a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
                             </button>
 
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="/webproject">HOME</a>
+                                    <li class="nav-item active">
+                                        <a class="page-scroll" href="index.php">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
                                 </ul>
@@ -99,6 +102,38 @@
     </section>
     
     <!-- NAVBAR PART END -->
+
+        <!-- SIDEBAR PART START -->
+        <div class="sidebar-right">
+        <div class="sidebar-close">
+            <a class="close" href="#close"><i class="lni-close"></i></a>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-logo text-center">
+                <a href="#"><img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img1"></a>
+            </div> <!-- logo -->
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="about.php">About</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="page-scroll" href="contactus.php">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
+                    </li>
+                </ul>
+            </div> <!-- menu -->
+          <div>
+        </div> 
+        </div> <!-- content -->
+    </div> 
+    <div class="overlay-right"></div>
+    <!-- SIDEBAR PART ENDS -->
     
     <!-- LOGIN PART START -->
     <div class="login-bg-img">
@@ -165,36 +200,7 @@
     </div>
     <!-- LOGIN PART END -->
 
-    <!-- SIDEBAR PART START -->
-    <div class="sidebar-right">
-        <div class="sidebar-close">
-            <a class="close" href="#close"><i class="lni-close"></i></a>
-        </div>
-        <div class="sidebar-content">
-            <div class="sidebar-logo text-center">
-                <a href="#"><img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img1"></a>
-            </div> <!-- logo -->
-            <div class="sidebar-menu">
-                <ul>
-                    <li class="nav-item">
-                        <a class="page-scroll" href="teachers.php">Registered Teachers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="page-scroll" href="about.php">About</a>
-                    </li>                    
-                    <li class="nav-item">
-                        <a class="page-scroll" href="contactus.php">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="page-scroll" href="adminLogin.php">Login as Admin</a>
-                    </li>
-                </ul>
-            </div> <!-- menu -->
-          <div>
-        </div> 
-        </div> <!-- content -->
-    </div> 
-    <!-- SIDEBAR PART ENDS -->
+
     
      <br><br>
 
@@ -229,7 +235,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
+            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Team LazyLearn
             </p>
           </div>
         </div>

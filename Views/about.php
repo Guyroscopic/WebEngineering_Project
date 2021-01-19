@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="../assets/css/animate.css">
 
     <!-- Default css -->
-    <link rel="stylesheet" href="../assets/css/default.css">
+    <link rel="stylesheet" href="../assets/css/default.css"> 
 
     <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -63,38 +63,42 @@
                             </a>
 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>    
+                        
                             </button>
 
                             <?php if($student_loggedin){ ?>
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                    <li class="nav-item active">
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="login.php">Profile</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="studentLogout.php">Logout</a>
                                     </li>
                                 </ul>
                             </div>
                             <?php }elseif($teacher_loggedin){ ?>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
+                            <div class="collapse navbar-collapse sub-menu-bar">
                                 <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                    <li  class="nav-item active">
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="login.php">Profile</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="teacherLogout.php">Logout</a>
                                     </li>
                                 </ul>
@@ -102,16 +106,16 @@
                             <?php }else{ ?>
                             <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
                                 <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
+                                    <li class="nav-item active">
                                         <a class="page-scroll" href="/webproject">HOME</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="about.php">ABOUT</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="login.php">LOGIN</a>
                                     </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
+                                    <li class="nav-item">
                                         <a class="page-scroll" href="register.php">REGISTER</a>
                                     </li>
                                     </ul> 
