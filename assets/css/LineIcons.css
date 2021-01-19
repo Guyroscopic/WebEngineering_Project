@@ -2,16 +2,16 @@
 
 @font-face {
   font-family: 'LineIcons';
-
-  src: 
-
+  src:  url('../fonts/LineIcons.eot?y2l643');
+  src:  url('../fonts/LineIcons.eot?y2l643#iefix') format('embedded-opentype'),
     url('../fonts/LineIcons.ttf?y2l643') format('truetype'),
-
-    url('../fonts/LineIcons.svg?y2l643#LineIcons') format('svg'); 
+    url('../fonts/LineIcons.woff?y2l643') format('woff'),
+    url('../fonts/LineIcons.svg?y2l643#LineIcons') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 
-/*keeping the shape of the icons*/
 [class^="lni-"], [class*=" lni-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'LineIcons' !important;
@@ -21,26 +21,65 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  text-decoration: none;
 
   /* Better Font Rendering =========== */
-
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}  
-
-
-/*Provides menu bar icon*/
-.lni-menu:before {
-  content: "\eab8";
-  text-decoration: none;
 }
 
-/*Provides close icon*/
+
+
+.lni-menu:before {
+
+  content: "\eab8";
+
+}
+
 .lni-close:before {
   content: "\e951";
 }
 
-/*left and right arrows position*/
+
+/*left and right circle position*/
+.lni-chevron-up:before {
+  content: "\ea43";
+}
+.lni-chevron-left:before {
+  content: "\ea44";
+}
+.lni-chevron-down:before {
+  content: "\ea45";
+}
+.lni-chevron-right:before {
+  content: "\ea46";
+}
+.lni-arrow-down:before {
+  content: "\ea47";
+}
+.lni-arrows-horizontal:before {
+  content: "\ea48";
+}
+.lni-arrows-vertical:before {
+  content: "\ea49";
+}
+.lni-direction:before {
+  content: "\ea4a";
+}
+.lni-arrow-left:before {
+  content: "\ea4b";
+}
+.lni-arrow-right:before {
+  content: "\ea4c";
+}
+.lni-arrow-up:before {
+  content: "\ea4d";
+}
+.lni-arrow-down-circle:before {
+  content: "\ea4e";
+}
+.lni-anchor:before {
+  content: "\ea4f";
+}
 .lni-arrow-left-circle:before {
   content: "\ea50";
 }
@@ -68,8 +107,6 @@
 .lni-arrow-top-right:before {
   content: "\ea58";
 }
-
-/*left and right circle position*/
 .lni-chevron-down-circle:before {
   content: "\ea59";
 }
@@ -83,3 +120,7 @@
   content: "\ea5c";
 }
  
+
+.lni-github-original:before {
+  content: "\ea73";
+}

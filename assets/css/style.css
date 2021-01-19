@@ -14,30 +14,23 @@
 
 /*size of logo image*/
 .img4  {
-width: 130px;
-height: 100px;
+width: 90px;
+height: 70px;
 }
 
-/*for adjusting the contact images*/
-#container { 
-width: 600px;
-height: 230px;
-margin-left: 450px;
-margin-right: auto;
-    
+/*admin page text*/
+.admin-rights{
+  color: white;
 }
-#Box   {
-width: 300px;
-height: 300px;
+.admin-main{
+  margin-top: 100px;
+  padding: 40;
+  margin-left: 100px;
 }
-.img2  {
-width: 200px;
-height: 200px;
-padding: 20px;  
-padding-top: 20px;
-border-radius: 60px; 
 
-} 
+.admin-line{
+  float: left;
+}
 
 /*margin of right table headings*/
 ul, ol {
@@ -45,15 +38,7 @@ ul, ol {
   padding: 0px;
   list-style-type: none; }
 
-/*Home page images size*/
-.bg_cover {
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-   }
+
 
 /*Tutor heading*/
 .section-title .title {
@@ -75,40 +60,7 @@ ul, ol {
   margin-top: 24px; }
 
 
-   /*  HEADER css  */
-/* NAVBAR */
-.navbar-area {
 
-  background: -o-linear-gradient(left, #43cae9 0%, #38f9d7 100%);  /*navbar color*/
-  background: linear-gradient(to right, #43cae9 0%, #38f9d7 100%); 
-  padding: 10px 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  color: red;
-
-  transition: all 0.3s ease-out 0s; }
-  .navbar-area .navbar-brand img {
-    max-width: 150px; } 
-
-
-          /*Contents on the navbar*/
-      .navbar-area .navbar .navbar-nav .nav-item {
-        position: relative; }
-        .navbar-area .navbar .navbar-nav .nav-item a {
-          font-size: 16px;
-          line-height: 24px;
-          font-weight: 700;
-          padding: 1px 16px;
-          color: white;
-          text-transform: uppercase;
-          position: relative;
-          border-radius: 5px;
-          text-decoration: none;
-          transition: all 0.3s ease-out 0s;
-          margin: 14px 0; }
 
            /*picture on the student profile*/
           .big-image {
@@ -140,6 +92,7 @@ ul, ol {
             font-size: 1.5em;
             margin-bottom: 50px;
             padding: 40px;
+            color: white;
           }
    
    /*For button on the student profile page*/
@@ -194,238 +147,6 @@ ul, ol {
             background-color: rgba(56, 249, 215, 0.4); 
             text-decoration: none;
           } 
-
-          /*To alow the navbar hovering over the page*/
-  @media (max-width: 767px) {
-      .navbar-area.navbar-transparent-2 .navbar .navbar-nav .nav-item a {
-          color: #121212; } }
-      .navbar-area.navbar-transparent-2 .navbar .navbar-nav .nav-item a::before {
-          background-color: #38f9d7; }
-      .navbar-area.navbar-transparent-2 .navbar .navbar-nav .navbar .navbar-nav .nav-item:hover a {
-        text-decoration: none;
-          color: #38f9d7; }
-      .navbar-area.navbar-transparent-2 .navbar .menu-bar {
-          color: #fff; }
-      .navbar-area.navbar-transparent-2 .navbar .menu-bar:hover {
-        text-decoration: none;
-          color: #38f9d7; }
-      .navbar-area.navbar-transparent-2.sticky {
-          background-color: #fff; }
-      .navbar-area.sticky {
-          position: fixed;
-          box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-          padding: 5px 0; } 
-
-            /*Size of the side bar icon*/
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .navbar-area .navbar .navbar-btn {
-        position: absolute;
-        right: 70px;
-        top: 11px; } }
-    @media (max-width: 767px) {
-      .navbar-area .navbar .navbar-btn {
-        position: absolute;
-        right: 60px;
-        top: 11px; } }
-    .navbar-area .navbar .navbar-btn .menu-bar {
-      font-size: 32px;
-      position: relative;
-      overflow: hidden;
-      color: #fff;
-
-      transition: all 0.3s ease-out 0s; } 
-
-/*          Side bar css
-  Appearance of the right side bar */
-
-.sidebar-right {
-  position: fixed;
-  top: 0;
-  right: 0;
-  background-color: #f4f6f7;
-  height: 100%;
-  width: 300px;
-  padding-top: 80px;
-  z-index: 9999;
-
-  transform: translateX(100%);
-
-  transition: all 0.3s ease-out 0s; } 
-
-.sidebar-content .sidebar-logo img{width: 50%;}
-
-    .sidebar-right.open {
-    transform: translateX(0); } 
-
-  @media (max-width: 767px) {
-    .sidebar-right {
-      width: 250px; } }
-
-
-    /*Specifications of the close icon*/
-  .sidebar-right .sidebar-close {
-    position: absolute;
-    top: 30px;
-    left: 30px; }
-    .sidebar-right .sidebar-close .close {
-      font-size: 24px;
-      color: black; }
-
-      /*Contents of the side bar*/
-  .sidebar-right .sidebar-content .sidebar-menu {
-    margin-top: 40px; }
-    .sidebar-right .sidebar-content .sidebar-menu ul li a {
-      font-size: 16px;
-      line-height: 24px;
-      font-weight: 700;
-      padding: 11px 16px;
-      color: black;
-      text-transform: uppercase;
-      position: relative;
-      border-radius: 5px;
-
-      transition: all 0.3s ease-out 0s;
-      border-bottom: 1px solid #cbced1;
-      display: block; }
-
-      /*Specifications after putting the mouse hover over the item*/
-      .sidebar-right .sidebar-content .sidebar-menu ul li a:hover {
-        text-decoration: none;
-        color: #38f9d7; }
-
-      /*the display of the side bar overshadows the current page*/
-      .overlay-right {
-        position: fixed;
-        background-color: rgba(0, 0, 0, 0.6);
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: none;
-        z-index: 999; }
-  .overlay-right.open {
-    text-decoration: none;
-    display: block; }
-
-
-/* SLIDER ONE (picture on the home)*/
-.slider-area {
-  padding-top: 94px; }
-  .slider-area .bd-example .carousel .carousel-inner {
-    background-color: #38f9d7; }
-    .slider-area .bd-example .carousel .carousel-inner .carousel-item {
-      height: 700px; }
-      @media only screen and (min-width: 992px) and (max-width: 1199px) {
-        .slider-area .bd-example .carousel .carousel-inner .carousel-item {
-          height: 600px; } }
-      @media only screen and (min-width: 768px) and (max-width: 991px) {
-        .slider-area .bd-example .carousel .carousel-inner .carousel-item {
-          height: 600px; } }
-      @media (max-width: 767px) {
-        .slider-area .bd-example .carousel .carousel-inner .carousel-item {
-          height: 400px; } }
-      .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption {
-        top: 50%;
-        bottom: auto;
-
-        transform: translateY(-50%);
-        width: 100%;
-        left: 0; }
-        .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-title {
-          font-size: 44px;
-          font-weight: 700;
-          color: #fff;
-          line-height: 55px; }
-          @media (max-width: 767px) {
-            .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-title {
-              font-size: 24px;
-              line-height: 32px; } }
-        .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-btn li {
-          display: inline-block;
-          margin: 16px 8px 0; }
-          @media (max-width: 767px) {
-            .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-btn li {
-              margin: 16px 3px 0; } }
-          .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-btn li a.rounded-three {
-            border: 0; }
-          .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-btn li a.rounded-one {
-            border-color: #fff;
-            color: #fff; }
-            .slider-area .bd-example .carousel .carousel-inner .carousel-item .carousel-caption .carousel-btn li a.rounded-one:hover {
-              background-color: rgba(255, 255, 255, 0.3); }
-  .slider-area .bd-example .carousel .carousel-control-prev, .slider-area .bd-example .carousel .carousel-control-next {
-    top: 50%;
-    width: auto;
-    height: auto;
-    font-size: 70px;
-    color: #fff;
-
-    transform: translateY(-50%);
-    bottom: auto;
-    left: 0px;
-    opacity: 0;
-    z-index: 99;
-
-    transition: all 0.3s ease-out 0s; } 
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .slider-area .bd-example .carousel .carousel-control-prev, .slider-area .bd-example .carousel .carousel-control-next {
-        left: 30px;
-        font-size: 50px; } }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .slider-area .bd-example .carousel .carousel-control-prev, .slider-area .bd-example .carousel .carousel-control-next {
-        left: 30px;
-        font-size: 50px; } }
-    @media (max-width: 767px) {
-      .slider-area .bd-example .carousel .carousel-control-prev, .slider-area .bd-example .carousel .carousel-control-next {
-        left: 20px;
-        font-size: 20px; } }
-    @media only screen and (min-width: 576px) and (max-width: 767px) {
-      .slider-area .bd-example .carousel .carousel-control-prev, .slider-area .bd-example .carousel .carousel-control-next {
-        font-size: 34px; } }
-  .slider-area .bd-example .carousel .carousel-control-next {
-    right: 0px;
-    left: auto; }
-    @media only screen and (min-width: 992px) and (max-width: 1199px) {
-      .slider-area .bd-example .carousel .carousel-control-next {
-        right: 40px; } }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .slider-area .bd-example .carousel .carousel-control-next {
-        right: 40px; } }
-    @media (max-width: 767px) {
-      .slider-area .bd-example .carousel .carousel-control-next {
-        right: 20px; } }
-  .slider-area .bd-example .carousel .carousel-indicators {
-    margin-bottom: 20px; }
-    .slider-area .bd-example .carousel .carousel-indicators li {
-      width: 8px;
-      height: 8px;
-      background-color: rgba(255, 255, 255, 0.3);
-      border-radius: 50px;
-      border: 0; }
-      .slider-area .bd-example .carousel .carousel-indicators li.active {
-        width: 16px;
-        background-color: #fff;
-        border-radius: 5px; }
-  .slider-area .bd-example .carousel:hover .carousel-control-prev {
-    left: 70px;
-    opacity: 1; }
-  .slider-area .bd-example .carousel:hover .carousel-control-next {
-    right: 70px;
-    opacity: 1; }
-
-.slider-3 {
-  padding-top: 0px; }
-  .slider-3 .bd-example .carousel .carousel-inner .carousel-item {
-    height: 850px; }
-    @media only screen and (min-width: 768px) and (max-width: 991px) {
-      .slider-3 .bd-example .carousel .carousel-inner .carousel-item {
-        height: 650px; } }
-    @media (max-width: 767px) {
-      .slider-3 .bd-example .carousel .carousel-inner .carousel-item {
-        height: 550px; } }
-    @media only screen and (min-width: 576px) and (max-width: 767px) {
-      .slider-3 .bd-example .carousel .carousel-inner .carousel-item {
-        height: 650px; } } 
 
 
       /* ABOUT heading */ 
