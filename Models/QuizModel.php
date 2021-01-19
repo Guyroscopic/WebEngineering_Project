@@ -9,7 +9,7 @@
 		global $database_connection;
 
 		// executing the query to create a quiz
-		$sql_query = "INSERT INTO `quiz`(`tutorial_id`, `Topic`) VALUES ('$tutorial_id', '$quiz_topic')";
+		$sql_query = "INSERT INTO `quiz`(`tutorial_id`, `topic`) VALUES ('$tutorial_id', '$quiz_topic')";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		/*if (!$sql_query_execute) {
@@ -84,7 +84,7 @@
 
 		global $database_connection;
 
-		$sql_query = "SELECT Topic FROM quiz";
+		$sql_query = "SELECT topic FROM quiz";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		if (!$sql_query_execute) {
