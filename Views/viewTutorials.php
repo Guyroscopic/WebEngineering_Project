@@ -117,9 +117,33 @@
       opacity: 0.7;
       border-radius: 5px;
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 30px;
+      margin: 30px 0 30px 0;
       font-size: 20px;
+    }
+
+    .card{
+      border: 1px solid #38f9d7;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card a{
+      font-size: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #484c54
+      
+    }
+
+    .card a:hover{
+     color: #4d7bd6;
+    }
+
+    .type{
+      font-weight: 600;
+      color: #000000;
     }
 
     @media screen and (max-height: 450px) {
@@ -186,13 +210,13 @@
     echo "<ol>";
     while($tutorial = mysqli_fetch_assoc($tutorials_SQL_result)){
 
-      echo "<li>";
+      echo "<li class='card'>";
       echo "<a href='tutorial.php?id=" . $tutorial["id"] . "'>" . $tutorial["title"] . "</a><br>";
       if($tutorial["video"]){
-        echo "<p>Video Based Tutorial - " . $tutorial["description"] ."</p>";
+        echo "<p><span class='type'>Video Based Tutorial - </span> " . $tutorial["description"] ."</p>";
       }
       else{
-        echo "<p>Text Based Tutorial - "  . $tutorial["description"] ."</p>";
+        echo "<p><span class='type'>Text Based Tutorial - </span> "  . $tutorial["description"] ."</p>";
       }   
       echo "<br></li>";
 
