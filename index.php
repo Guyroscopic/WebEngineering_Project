@@ -3,14 +3,18 @@
     session_start();
 
     $student_loggedin  = false; 
-    $teacher_loggedin  = false;    
+    $teacher_loggedin  = false;
+    $admin_loggedin    = false;    
 
     if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
         $teacher_loggedin  = true;
     }
     elseif(isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])){
         $student_loggedin  = true;            
-    }        
+    }
+    elseif(isset($_SESSION['admin_email']) && isset($_SESSION['admin_username'])){
+        $admin_loggedin  = true; 
+    }   
 ?>
 
 <!DOCTYPE html>
@@ -35,8 +39,11 @@
           font-size: 20px;
           padding: 5px 0 5px 0;
         }
-    </style>
 
+        .navBackground{
+            background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+        }
+    </style>
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -56,88 +63,140 @@
     <!-- Style css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Bootstrap 4.5 --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
 <body>
 
-    <!-- NAVBAR PART START -->
-
     <section class="header-area">
-        <div class="navbar-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="#">
-                                <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
-                            </a>
 
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
-                            </button>
+        <!-- Navigation Bar -->
+        <header class="site-header">
+            <nav class="navbar navBackground navbar-light fixed-top fixed-right navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand ml-3" href="/webproject">
+                        <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
+                    </a>  
 
-                            <?php if($student_loggedin){ ?>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="/webproject">HOME</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/about.php">ABOUT</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/login.php">Profile</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/studentLogout.php">Logout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <?php }elseif($teacher_loggedin){ ?>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="/webproject">HOME</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/about.php">ABOUT</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/login.php">Profile</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/teacherLogout.php">Logout</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <?php }else{ ?>
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="/webproject">HOME</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/about.php">ABOUT</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 480px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/login.php">LOGIN</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 10px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="Views/register.php">REGISTER</a>
-                                    </li>
-                                    </ul> 
-                                </ul>
-                            </div>
-                            <?php } ?>
+                    <!-- Name of website -->
+                     <a class="nav-item nav-link navLinkFont" href="/webproject"
+                      style="font-size: 25px; font-weight: 600; color: #fff;">
+                        LazyLearn
+                    </a>           
 
-                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
-                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
-                            </div>
-                        </nav> <!-- navbar -->
-                    </div>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- navbar area -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                        <span style="color: #fff" class="navbar-toggler-icon"></span>    
+                    </button>
 
+                    <div class="collapse navbar-collapse ml-4" id="navbarToggle">
+
+                    <!-- Navigation bar extreme-right side -->
+                    <div class="navbar-nav ml-auto">
+
+                    <?php if($student_loggedin){ ?>
+                    <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                      style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Home
+                    </a>              
+                    <a class="nav-item nav-link navLinkFont mr-3" href="Views/about.php"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                        About
+                    </a>
+                    <a class="nav-item nav-link navLinkFont mr-3" href="Views/login.php"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Profile
+                    </a>
+                    <a class="nav-item nav-link navLinkFont mr-5" href="Views/studentLogout.php"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Logout
+                    </a>   
+                    <a class="nav-item nav-link" href="#side-menu-right"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        <b>
+                            <i style="color: #fff; font-weight: 600;" class="lni-menu">
+                            </i>
+                        </b>
+                    </a>
+                    <?php }elseif($teacher_loggedin){ ?>
+                    <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                      style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Home
+                    </a>              
+                    <a class="nav-item nav-link navLinkFont mr-3" href="Views/about.php"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                        About
+                    </a>
+                    <a class="nav-item nav-link navLinkFont mr-3" href="Views/login.php"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Profile
+                    </a>
+                    <a class="nav-item nav-link navLinkFont mr-5" href="Views/teacherLogout.php"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Logout
+                    </a>   
+                    <a class="nav-item nav-link" href="#side-menu-right"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        <b>
+                            <i style="color: #fff; font-weight: 600;" class="lni-menu">
+                            </i>
+                        </b>
+                    </a>
+                    <?php }elseif($admin_loggedin){ ?>
+                    <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                      style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Home
+                    </a>              
+                    <a class="nav-item nav-link navLinkFont mr-3" href="Views/about.php"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                        About
+                    </a>
+                    <a class="nav-item nav-link navLinkFont mr-3" href="Views/adminPanel.php"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Panel
+                    </a>
+                    <a class="nav-item nav-link navLinkFont mr-5" href="Views/adminLogout.php"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Logout
+                    </a>   
+                    <a class="nav-item nav-link" href="#side-menu-right"
+                    style="font-size: 18px; font-weight: 600; color: #fff;">
+                        <b>
+                            <i style="color: #fff; font-weight: 600;" class="lni-menu">
+                            </i>
+                        </b>
+                    </a>
+                  <?php }else{ ?>
+                  <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                     Home
+                  </a>              
+                  <a class="nav-item nav-link navLinkFont mr-3" href="Views/about.php"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                    About
+                  </a>
+                  <a class="nav-item nav-link navLinkFont mr-3" href="Views/login.php"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                    Login
+                  </a>
+                  <a class="nav-item nav-link navLinkFont mr-5" href="Views/register.php"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                    Register
+                  </a>   
+                  <a class="nav-item nav-link" href="#side-menu-right"
+                     style="font-size: 18px; font-weight: 600; color: #fff;">
+                    <b><i style="color: #fff; font-weight: 600;" class="lni-menu"></i></b>
+                  </a>
+                <?php } ?>
+
+                </div>                  
+              </div>
+            </div>
+          </nav>
+        </header>
+        <!-- End of Navigation Bar -->
+
+        <!-- Sliding Photos and flash msgs-->
         <div id="home" class="slider-area">
             <div class="bd-example">
                 <div id="carouselOne" class="carousel slide" data-ride="carousel">
@@ -149,12 +208,14 @@
 
                     <div class="carousel-inner">
                         <div class="carousel-item bg_cover active" style="background-image: url(https://static.wixstatic.com/media/nsplsh_6f7572514852544532494d~mv2_d_5472_3648_s_4_2.jpg/v1/fill/w_640,h_328,al_c,q_80,usm_0.66_1.00_0.01/nsplsh_6f7572514852544532494d~mv2_d_5472_3648_s_4_2.webp)">
+
                             <!-- Output div for flash msgs -->
-                                <?php
-                                    //require 'DBinit.php';
-                                    if(@$_GET["loggedout"]){ ?>
-                                        <div class="flashMsg">Logged out Successfully!</div>
-                                <?php } ?>
+                            <?php
+                            //require 'DBinit.php';
+                            if(@$_GET["loggedout"]){ ?>
+                                <div class="flashMsg">Logged out Successfully!</div>
+                            <?php } ?>
+
                             <div class="carousel-caption">
                                 <div class="container">
 
@@ -208,10 +269,8 @@
                 </div> <!-- carousel -->
             </div> <!-- bd-example -->
         </div>
-
     </section>
-
-    <!--====== NAVBAR PART ENDS ======-->
+     <!-- End of Sliding Photos and flash msgs-->
 
     <!--====== SAIDEBAR PART START ======-->
 
@@ -234,7 +293,7 @@
                     <li>
                         <a href="Views/contactus.php">Conact Us</a>
                     </li>
-                    <?php if(!$student_loggedin && !$teacher_loggedin){ ?>
+                    <?php if(!$student_loggedin && !$teacher_loggedin && !$admin_loggedin){ ?>
                     <li class="nav-item">
                         <a class="page-scroll" href="Views/adminLogin.php">Login as Admin</a>
                     </li>
@@ -317,6 +376,10 @@
     <!-- Main js -->
     <script src="assets/js/main.js"></script>
 
+    <!-- BOOTSTRAP JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
 </html>
