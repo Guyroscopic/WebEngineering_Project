@@ -174,7 +174,7 @@
                          style="font-size: 18px; font-weight: 600; color: #fff;">
                         About
                       </a>
-                      <a class="nav-item nav-link navLinkFont mr-5" href="teacherLogout.php"
+                      <a class="nav-item nav-link navLinkFont mr-5" href="adminLogout.php"
                          style="font-size: 18px; font-weight: 600; color: #fff;">
                         Logout
                       </a>   
