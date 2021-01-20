@@ -50,16 +50,23 @@
     }
     else{
     //Else Display the Quiz Topics
+    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Quizzes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Style css -->
+  <!-- Style css 
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
+    <link rel="stylesheet" href="../assets/css/ViewTutorials.css"> -->
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
+    integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
     body {
@@ -130,7 +137,7 @@
 
   </style>
 </head>
-<body>
+<body style="background-color: #d3ebe5;">
 
   <!-- Navbar Starts Here -->
   <div class="sidenav">
@@ -171,14 +178,12 @@
   }
   echo "</ol>";
   }
-  }
+  
   mysqli_close($database_connection);
   ?>
 
-  </div>
-
   <!--===== FOOTERpart starts ======-->    
-    <footer class="site-footer">
+    <footer style="background-color: #c5c6c7" class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -214,7 +219,12 @@
       </div>
     </footer>
     <!--===== FOOTERpart ends ======-->
-    
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>  
 
 </body>
 </html> 

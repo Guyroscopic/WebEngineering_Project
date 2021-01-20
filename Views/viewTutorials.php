@@ -56,9 +56,15 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Style css -->
+  <!-- Style css
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
+    <link rel="stylesheet" href="../assets/css/ViewTutorials.css"> -->
+
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
+      integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
     body {
@@ -124,6 +130,7 @@
     .card{
       border: 1px solid #38f9d7;
       border-radius: 5px;
+      width: 100%;
       background-color: rgba(0, 0, 0, 0.1);
       padding: 10px;
       margin-bottom: 10px;
@@ -146,6 +153,31 @@
       color: #000000;
     }
 
+    .rating-text{
+      font-size: 20px;
+      color: black;
+    }
+
+    .mark-btn{
+      width: fit-content;
+      color: #ffffff;
+      justify-content: center;
+      border: 2px solid #66FCF1;
+      padding: 12px 22px;
+      margin-left: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;  
+      border-radius: 15px;
+      text-decoration: none;
+      outline: none;
+      background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+    }
+
+    .mark-btn:hover{
+      background: #43cae9;
+    }
+
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
       .sidenav a {font-size: 18px;}
@@ -154,7 +186,7 @@
   </style>
 </head>
 
-<body>
+<body style="background-color: #d3ebe5;">
 
   <div class="sidenav">
     <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
@@ -187,8 +219,8 @@
 
     <!-- Form for selecting Tutorial Category -->
     <form action="viewTutorials.php" method="POST">
-      <label for="tutorialCategory">Select Category: </label>
-      <select name="tutorialCategory">
+      <label for="tutorialCategory" class="rating-text">Select Category: </label>
+      <select name="tutorialCategory" class="selectpicker show-tick">
         <option value="all">All</option>
         <?php
           while($row = mysqli_fetch_assoc($all_tutorial_categories_SQL_result)) {
@@ -202,7 +234,7 @@
           }
         ?>
       </select>
-      <button name="select">View Tutorials</button>
+      <button class="mark-btn" name="select">View Tutorials</button>
     </form>
 
     <!-- Displaying Tutorials -->
@@ -223,10 +255,10 @@
     }
     echo "</ol>"
     ?>
-  </div>
+  
 
   <!--===== FOOTERpart starts ======-->    
-  <footer class="site-footer">
+  <footer style="background-color: #c5c6c7" class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
@@ -262,7 +294,12 @@
       </div>
     </footer>
     <!--===== FOOTERpart ends ======-->
+
+    </div>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script> 
 
 </body>
 </html> 
