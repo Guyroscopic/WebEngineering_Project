@@ -31,15 +31,59 @@
     <!-- Title -->
     <title>Student Profile</title>
     <style type="text/css">        
-        .flashMsg{
+        .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin: 20px 100px 0 100px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
+        }
+
+        .flashMsgGreen{
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.7;
+          border-radius: 5px;
+          margin: 0px 50px 0px 50px;
+          text-align: center;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+
+        .navBackground{
+            background: linear-gradient(#43cae9 0%, #38f9d7 100%);
+        }
+
+        .btnA {
+          background-color: #43cae9;
+          color: #fff;
+          min-width: 160px;
+          font-size: 1.3rem;
+          padding: 10px 20px;
+          box-sizing: border-box;
+          cursor: pointer;
+          display: inline-flex;
+          justify-content: center;
+          text-align: center;
+          text-decoration: none;
+          transition: 0.3s;
+          border-radius: 15px;
+          border: 2px solid #1F2833;
+          font-weight: 500;
+          vertical-align: middle;
+          margin: 5px;
+          align-items:center;
+          position: relative;
+          left: 40px;
+        }
+
+        .btnA:hover{
+            color: #e0e0e0;
+            background-color: #828181;
+            text-decoration: none;
         }
     </style>
 
@@ -60,13 +104,9 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        .btn:hover{
-            color: #e0e0e0;
-            background-color: #828181;
-        }
-    </style>
 
+    <!-- Bootstrap 4.5 --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 </head>
 <body>
@@ -75,41 +115,54 @@
     <!-- NAVBAR PART START -->
 
     <section class="header-area">
-        <div class="navbar-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="#">
-                                <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
-                            </a>
+        
+        <!-- Navigation Bar -->
+        <header class="site-header">
+            <nav class="navbar navBackground navbar-light fixed-top fixed-right navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand ml-3" href="/webproject">
+                        <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
+                    </a>  
 
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
-                            </button>
+                    <!-- Name of website -->
+                     <a class="nav-item nav-link navLinkFont" href="/webproject"
+                      style="font-size: 25px; font-weight: 600; color: #fff;">
+                        LazyLearn
+                    </a>           
 
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="/webproject">HOME</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="about.php">ABOUT</a>
-                                    </li>
-                                     <li input style="margin-top: 15px;margin-left: 500px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="studentLogout.php">LOGOUT</a>
-                                    </li>
-                                    </ul> 
-                                </ul>
-                            </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                        <span style="color: #fff" class="navbar-toggler-icon"></span>    
+                    </button>
 
-                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
-                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
-                            </div>
-                        </nav> 
-                    </div>
-                </div> 
-            </div> 
-        </div>
+                    <div class="collapse navbar-collapse ml-4" id="navbarToggle">
+
+                    <!-- Navigation bar extreme-right side -->
+                    <div class="navbar-nav ml-auto">
+
+                      <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                         Home
+                      </a>              
+                      <a class="nav-item nav-link navLinkFont mr-3" href="about.php"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                        About
+                      </a>
+                      <a class="nav-item nav-link navLinkFont mr-5" href="studentLogout.php"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                        Logout
+                      </a>   
+                      <a class="nav-item nav-link" href="#side-menu-right"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                        <b><i style="color: #fff; font-weight: 600;" class="lni-menu"></i></b>
+                      </a>
+                
+
+                </div>                  
+              </div>
+            </div>
+          </nav>
+        </header>
+        <!-- End of Navigation Bar -->
 
           <!-- background image for student profile -->
             <div class="big-image">
@@ -118,7 +171,7 @@
 
                          <!-- Output divs for flash msgs -->
                         <?php if(@$_GET["invalidAccess"]){ ?>
-                            <div class="flashMsg">Your access was Invalid</div>
+                            <div class="flashMsgRed">Your access was Invalid</div>
                         <?php } ?>
 
                         <div class="text">
@@ -126,9 +179,10 @@
                             <p>Eamil ID: <?php echo $email ?></p>
                             <p>Tutorials Completed: <?php echo $num_completed_tutorials ?></p>
                         </div>
-                         <a class="btn" href="viewTutorials.php">Browse Tutorials</a><br>
-                         <a class="btn" href="completedTutorials.php">Show Completed Tutorials</a><br>
-                         <a class="btn" style="margin-bottom: 30px" href="changePassword.php">Change Password</a><br>  
+
+                         <a class="btnA" href="viewTutorials.php">Browse Tutorials</a><br>
+                         <a class="btnA" href="completedTutorials.php">Show Completed Tutorials</a><br>
+                         <a class="btnA" style="margin-bottom: 30px" href="#">Change Password</a><br><br>
                     </div>
                 </div>
             </div>
@@ -234,6 +288,11 @@
 
     <!-- Main js -->
     <script src="../assets/js/main.js"></script>
+
+    <!-- BOOTSTRAP JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </body>
 

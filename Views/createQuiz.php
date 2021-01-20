@@ -95,16 +95,26 @@
       text-decoration: none;
     }
 
-    .flashMsg{
+    .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin-top: 30px;
-          margin-bottom: 30px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
+        }
+
+    .flashMsgGreen{
+      color: #fff;
+      background-color: #76e060;
+      opacity: 0.7;
+      border-radius: 5px;
+      margin: 0px 50px 0px 50px;
+      text-align: center;
+      font-size: 15px;
+      padding: 5px 0 5px 0;
     }
 
     @media screen and (max-height: 450px) {
@@ -139,14 +149,14 @@
 
 	<!-- Output div for an empty submissoin -->
 	<?php if(@$_GET["empty"]){ ?>
-		<div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+		<div class="flashMsgRed"><?php echo $_GET["empty"]; ?></div>
 	<?php } ?>
 
 	<!-- Output div for an Error -->
 	<?php if(@$_GET["error"]){ 	?>
-		<div class="flashMsg"><?php echo $_GET["error"]; ?></div>
+		<div class="flashMsgRed"><?php echo $_GET["error"]; ?></div>
 	<?php } ?>
-
+	
 	<form class="form-horizontal" id="createQuiz" action="../Controllers/CreateQuizController.php" method="POST">
 
 		<input type="hidden" value="<?php echo $tutorial_id?>" name="tutorialId">

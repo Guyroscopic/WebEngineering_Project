@@ -27,15 +27,29 @@
     <!-- Title -->
     <title>REGISTER</title>
     <style type="text/css">        
-        .flashMsg{
+        .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin: 20px 50px 0 50px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
+        }
+        .flashMsgGreen{
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.7;
+          border-radius: 5px;
+          margin: 0px 50px 0px 50px;
+          text-align: center;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+
+        .navBackground{
+            background: linear-gradient(#43cae9 0%, #38f9d7 100%);
         }
     </style>
 
@@ -56,67 +70,79 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Bootstrap 4.5 --> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
     
 <body>
-    <!-- NAVBAR PART START -->
-    <section class="header-area">
-        <div class="navbar-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="#">
-                                <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
-                            </a>
-
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarEight" aria-controls="navbarEight" aria-expanded="false" aria-label="Toggle navigation">
-                            </button>
-
-                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarEight">
-                                <ul class="navbar-nav ml-auto">
-                                    <li input style="margin-top: 15px;margin-left: 40px; margin-bottom: 20px;" class="nav-item active">
-                                        <a class="page-scroll" href="/webproject">HOME</a>
-                                    </li>
-                                    <li input style="margin-top: 15px;margin-left: 2px; margin-bottom: 20px;" class="nav-item">
-                                        <a class="page-scroll" href="about.php">ABOUT</a>
-                                    </li> 
-                                </ul>
-                            </div>
-
-                            <div class="navbar-btn d-none mt-15 d-lg-inline-block">
-                                <a class="menu-bar" href="#side-menu-right"><i class="lni-menu"></i></a>
-                            </div>
-                        </nav> 
-                    </div>
-                </div> 
-            </div> 
-        </div>
-    </section>
     
-    <!-- NAVBAR PART END -->
+    <section class="header-area">
+        <!-- Navigation Bar -->
+    <header class="site-header">
+        <nav class="navbar navBackground navbar-light fixed-top fixed-right navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand ml-3" href="/webproject">
+                    <img src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png" alt="Logo" class="img4">
+                </a>  
+
+                <!-- Name of website -->
+                 <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                  style="font-size: 25px; font-weight: 600; color: #fff;">
+                    LazyLearn
+                </a>           
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span style="color: #fff" class="navbar-toggler-icon"></span>    
+                </button>
+
+                <div class="collapse navbar-collapse ml-4" id="navbarToggle">
+
+                    <!-- Navigation bar extreme-right side -->
+                    <div class="navbar-nav ml-auto">
+                      <a class="nav-item nav-link navLinkFont mr-3" href="/webproject"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                         Home
+                      </a>              
+                      <a class="nav-item nav-link navLinkFont mr-3" href="about.php"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                        About
+                      </a>
+                      <a class="nav-item nav-link" href="#side-menu-right"
+                         style="font-size: 18px; font-weight: 600; color: #fff;">
+                        <b><i style="color: #fff; font-weight: 600;" class="lni-menu"></i></b>
+                      </a>   
+
+                    </div>                  
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- End of Navigation Bar -->
+    </section>
     
     <!-- REGISTRATION PART START -->
     <div class="main-register-form">
             <div class="register">
                 <!-- OUTPUT DIV FOR ERROR MESSAGES -->
                 <?php if(@$_GET["invalid"]){ ?>
-                    <div class="flashMsg"><?php echo $_GET["invalid"]; ?></div>
+                    <div class="flashMsgRed"><?php echo $_GET["invalid"]; ?></div>
                 <?php } ?>
 
                 <?php if(@$_GET["userexists"]){ ?>
-                    <div class="flashMsg"><?php echo $_GET["userexists"]; ?></div>
+                    <div class="flashMsgRed"><?php echo $_GET["userexists"]; ?></div>
                 <?php } ?> 
 
                 <?php if(@$_GET["empty"]){ ?>
-                    <div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+                    <div class="flashMsgRed"><?php echo $_GET["empty"]; ?></div>
                 <?php } ?>
 
-                <h2>Register Here</h2>
+                <h2 style="margin: 30px 0 0 0">Register Here</h2>
 
                 <form  action="../Controllers/SignupController.php" method="POST" id="signupForm">
                     <div class="radio" align="center">
-                        <label>Register as</label>
+                        
+                        <label style="margin: 20px 0 20px 0">Register as</label>                        
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <input type="radio" value="student" name="registertype" class="student" required>
                         <span id="student">Student</span>
@@ -250,6 +276,11 @@
 
     <!-- Main js -->
     <script src="../assets/js/main.js"></script>
+
+    <!-- BOOTSTRAP JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     </body>
 

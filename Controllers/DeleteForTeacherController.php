@@ -34,15 +34,18 @@
 
 	if(isset($_POST["deleteQuiz"])){
 
-		$id = stripslashes($_POST["quiz_id"]);
+		$id = (int)stripslashes($_POST["quiz_id"]);
 		$tutorial_id = stripslashes($_POST["tutorial_id"]);
 
-		deleteQuiz($id);
+		$quiz_deleted = deleteQuiz($id);
 
 		//Closing the DB connection
-		mysqli_close($database_connection);
-
-		//Redirecting
-		header("location: ../Views/viewQuiz.php?quizDeleted=Quiz Deleted&tutorial_id=".$tutorial_id);
+		mysqli_close($database_connection); 
+		if($quiz_deleted)
+			//Redirecting
+			header("location: ../Views/viewQuiz.php?quizDeleted=Quiz Deleted&tutorial_id=".$tutorial_id);
+		else
+			echo "error";
+		exit();
 	}
 ?>

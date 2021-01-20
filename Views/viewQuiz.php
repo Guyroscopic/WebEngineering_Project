@@ -120,15 +120,26 @@
       text-decoration: none;
     }
 
-    .flashMsg{
+    .flashMsgRed{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin: 0px 50px 0px 50px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+
+    .flashMsgGreen{
       color: #fff;
       background-color: #76e060;
       opacity: 0.7;
       border-radius: 5px;
+      margin: 0px 50px 0px 50px;
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      font-size: 20px;
+      font-size: 15px;
+      padding: 5px 0 5px 0;
     }
 
     .card{
@@ -192,10 +203,10 @@
     <?php
 
     if(@$_GET["quizCreated"])
-      echo "<div class='flashMsg'>" . @$_GET["quizCreated"] . "</div>";
+      echo "<div class='flashMsgGreen'>" . @$_GET["quizCreated"] . "</div>";
 
     if(@$_GET["quizDeleted"])
-      echo "<div class='flashMsg' style='color:red'>" . @$_GET["quizDeleted"] . "</div>";
+      echo "<div class='flashMsgRed'>" . @$_GET["quizDeleted"] . "</div>";
 
   //echo "<ol>";
   $count = 0;
