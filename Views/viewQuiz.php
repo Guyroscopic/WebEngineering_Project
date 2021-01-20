@@ -1,39 +1,39 @@
-<?php	
-	//Checking if Teacher is logged in or not
-	session_start();
+<?php 
+  //Checking if Teacher is logged in or not
+  session_start();
 
-	$teacher_loggedin  = false;
-	$student_loggedin  = false;
+  $teacher_loggedin  = false;
+  $student_loggedin  = false;
 
-	// Checking If the Teacher is already Logged In
-	if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
+  // Checking If the Teacher is already Logged In
+  if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
 
-		$teacher_email     = $_SESSION["current_teacher_email"];
-		$teacher_username  = $_SESSION["current_teacher_username"];
-		$teacher_loggedin  = true;
-			
-	}
+    $teacher_email     = $_SESSION["current_teacher_email"];
+    $teacher_username  = $_SESSION["current_teacher_username"];
+    $teacher_loggedin  = true;
+      
+  }
 
-	// Checking If the Student is already Logged In	
-	elseif (isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])) {
-		
-		$student_email     = $_SESSION["current_student_email"];
-		$student_username  = $_SESSION["current_student_username"];
-		$student_loggedin  = true;
-	}
-	else{
-		header("location: login.php?notloggedin=true");
-	}
+  // Checking If the Student is already Logged In 
+  elseif (isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])) {
+    
+    $student_email     = $_SESSION["current_student_email"];
+    $student_username  = $_SESSION["current_student_username"];
+    $student_loggedin  = true;
+  }
+  else{
+    header("location: login.php?notloggedin=true");
+  }
 
-	
-	//Adding the required Models
-	require_once "../Models/QuizModel.php";
+  
+  //Adding the required Models
+  require_once "../Models/QuizModel.php";
 
 
-	if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"]){
+  if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"]){
 
-		//Extracting Tutorial ID from URL and fetching the respective Quizzes
-		 
+    //Extracting Tutorial ID from URL and fetching the respective Quizzes
+     
     if(@$_GET["id"]){
       $tutorial_id = $_GET["id"];
     }  
@@ -41,21 +41,21 @@
       $tutorial_id = $_POST["tutorial_id"];
     }
     
-		$quiz = getQuizByTutorialID($tutorial_id);
+    $quiz = getQuizByTutorialIDesc($tutorial_id);
 
-		//Check If the Quiz Doesnt Exist 
-		if(mysqli_num_rows($quiz) == 0){
-			echo "<h3>No Quiz for This Tutorial</h3>";
-			exit();
-		}
-		else{
-		//Else Display the Quiz Topics
+    //Check If the Quiz Doesnt Exist 
+    if(mysqli_num_rows($quiz) == 0){
+      echo "<h3>No Quiz for This Tutorial</h3>";
+      exit();
+    }
+    else{
+    //Else Display the Quiz Topics
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -132,8 +132,8 @@
 </head>
 <body>
 
-	<!-- Navbar Starts Here -->
-	<div class="sidenav">
+  <!-- Navbar Starts Here -->
+  <div class="sidenav">
     <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
     <br><br>
     <a href="/webproject"><i class="fa fa-home"></i> Home</a>
@@ -150,11 +150,11 @@
       <a href="studentLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <?php } ?>
     <br>
-  	</div>
-	<!-- Navbar Ends Here -->
+    </div>
+  <!-- Navbar Ends Here -->
 
-	<!-- Quiz List Starts Here -->
-	<h1 align="center">
+  <!-- Quiz List Starts Here -->
+  <h1 align="center">
       <span class="multi-text">Quizzes</span>
     </h1>
     <div class="main">
@@ -162,23 +162,23 @@
     <?php
 
     if(@$_GET["quizCreated"])
-      echo "<div>" . $_GET["quizCreated"] . "</div>";
+      echo "<div class='flashMsg' style='color:green'>" . $_GET["quizCreated"] . "</div>";
 
-	echo "<ol>";
-	while($row = mysqli_fetch_assoc($quiz)) {
+  echo "<ol>";
+  while($row = mysqli_fetch_assoc($quiz)) {
 
-		echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
-	}
-	echo "</ol>";
-	}
-	}
-	mysqli_close($database_connection);
-	?>
+    echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
+  }
+  echo "</ol>";
+  }
+  }
+  mysqli_close($database_connection);
+  ?>
 
-	</div>
+  </div>
 
-	<!--===== FOOTERpart starts ======-->    
-  	<footer class="site-footer">
+  <!--===== FOOTERpart starts ======-->    
+    <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">

@@ -46,7 +46,7 @@
 			echo "No Questions In This Quiz";
 			exit();
 	}
-
+ 
 	if($student_loggedin){
 	//Fetching the score of previous attempt by student if any
 	$quiz_score_query_result = getStudentQuizScore($student_email, $quiz_id);
@@ -186,6 +186,18 @@
         text-decoration: none;
     }
 
+    .flashMsg{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+    }
+
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
       .sidenav a {font-size: 18px;}
@@ -204,9 +216,9 @@
     <br>
     <a href="login.php"><i class="fa fa-hand-o-left"></i> Profile</a>
     <br>
-    <a href="tutorial.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i>Tutorial</a>
+    <a href="tutorial.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Tutorial</a>
     <br>
-    <a href="viewQuiz.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i>Quizzes</a>
+    <a href="viewQuiz.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Quizzes</a>
     <br>
     <?php if($teacher_loggedin){ ?>
       <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
@@ -221,6 +233,15 @@
 	<h1><span class="multi-text">Quiz</span></h1>
 	<h4><span class="quiz-topic-name"><?php echo $quiz_title; ?></span></h4>
 
+	<?php 
+	if(@$_GET["empty"]){?>
+		<div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+	<?php } ?>
+
+	<?php 
+	if(@$_GET["error"]){?>
+		<div class="flashMsg"><?php echo $_GET["error"]; ?></div>
+	<?php } ?>
 
 	<!-- Displaying The Quiz Content -->
 	<?php
@@ -229,10 +250,7 @@
 			// He can edit the respective quiz
 			if($match > 0){
 
-			if(@$_GET["quizCreated"]){?>
-				<div style="color: green">Quiz Created</div>
-			<?php }
-			// showing edit quiz button to quiz creator
+			// showing edit quiz button to quiz creator 
 	?>
 			<form name='EditQuizForm' method='POST' action='editQuiz.php'>
 				<button class="edit-quiz-btn" type='submit' name='editQuiz'>Edit Quiz</button>
@@ -297,17 +315,15 @@
 				$quiz_form .= "<li>". $statement;
 
 
-				$quiz_form .= "<label><br><input type='radio' name='". $question_num. "' value='".
-				               $option1 . "'>" . $option1 . "</label><br>";
+				$quiz_form .= "<label><br><input type='radio' name='". $question_num. "' value='option1'>" . $option1 . "</label><br>";
 
-				$quiz_form .= "<label><input type='radio' name='". $question_num. "' value='". 
-							   $option2 . "'>" . $option2 . "</label><br>";
+				$quiz_form .= "<label><input type='radio' name='". $question_num. "' value='option2'>" . $option2 . "</label><br>";
 
 				if($option3){
-					$quiz_form .= "<label><input type='radio' name='". $question_num. "' value='". $option3."'>".$option3."</label><br>";
+					$quiz_form .= "<label><input type='radio' name='". $question_num. "' value='option3'>".$option3."</label><br>";
 				}
 				if($option4){
-					$quiz_form .= "<label><input type='radio' name='". $question_num. "' value='". $option4."'>".$option4."</label></li><br>";
+					$quiz_form .= "<label><input type='radio' name='". $question_num. "' value='option4'>".$option4."</label></li><br>";
 				}
 
 				$quiz_form .= "<input type='hidden' name='". $question_num ."_answer' value='". $correct_option . "'>"; 
@@ -319,9 +335,14 @@
 			$quiz_form .= "</form>";
 
 			// if the student has already attempted the quiz before, displpaying his previous best score
-			if($score >= 0){
-				echo "<p style='color:green'>Your Best Score For This Quiz Has Been: " . $score . " out of " . $question_num ."</p>";
-			}
+			if($score > 0){ ?>
+				<h2 class="flashMsg" style="color: #fff;background-color: green;">Your Best Score For This Quiz Has Been:  <?php echo $score . " out of ". $question_num ?></h2>
+				<?php } ?>
+
+				 <?php if($score == 0){ ?>
+				<h2 class="flashMsg">Your Best Score For This Quiz Has Been: <?php echo $score . " out of ". $question_num ?></h2>
+				<?php }
+	
 			echo $quiz_form;			
 		}
 

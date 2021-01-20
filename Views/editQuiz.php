@@ -1,65 +1,104 @@
-<?php
+<?php 
+  //Checking if Teacher or Student is logged in or not
+  session_start();
 
-//Checking if Teacher or Student is logged in or not
-	session_start();
+  $teacher_loggedin  = false;
+  $student_loggedin  = false;
 
-	$teacher_loggedin  = false;
-	$student_loggedin  = false;
+  if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
 
-	if(isset($_SESSION['current_teacher_email']) && isset($_SESSION['current_teacher_username'])){
-
-		$teacher_email     = $_SESSION["current_teacher_email"];
-		$teacher_username  = $_SESSION["current_teacher_username"];
-		$teacher_loggedin  = true;
-			
-	}
-	elseif (isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])) {
-		
-		echo "Acces Denied";
-		header("location: studentProfile.php");
-	}
-	else{
-		header("location: login.php?notloggedin=true");
-	}	
-
-	//Adding the required Models
-	require_once "../Models/QuizModel.php";
-	require_once "../Models/QuizQuestionModel.php";
-
-	$quiz_question_list = "";
-	$num_of_questions = 0;
-
-	//Extracting Quiz ID from URL and fetching the respective Quiz and Its Questions
-  if(isset($_POST["quiz_id"]) || @$_GET["quiz_id"]){
-
-    if(isset($_POST["quiz_id"]))
-      $quiz_id = $_POST["quiz_id"];
-
-    elseif(@$_GET["quiz_id"])
-      $quiz_id = @$_GET["quiz_id"];
+    $teacher_email     = $_SESSION["current_teacher_email"];
+    $teacher_username  = $_SESSION["current_teacher_username"];
+    $teacher_loggedin  = true;
+      
+  }
+  elseif (isset($_SESSION['current_student_email']) && isset($_SESSION['current_student_username'])) {
+    
+    $student_email     = $_SESSION["current_student_email"];
+    $student_username  = $_SESSION["current_student_username"];
+    $student_loggedin  = true;
+  }
+  else{
+    header("location: login.php?notloggedin=true");
   }
 
-	
-	$quiz 	 		  = getQuizById($quiz_id);
-	$quiz_question    = getQuizQuestionById($quiz_id);
+  //Adding the required Models
+  require_once "../Models/QuizModel.php";
+  require_once "../Models/QuizQuestionModel.php";
+  require_once "../Models/StudentQuizBridgeModel.php";
+
+  //Extracting Quiz ID from URL and fetching the respective Quiz and Its Questions
+  $quiz_id      = $_GET["id"];
+  // Initializing the score of student as negative value, implying student has
+  // not score any number yet
+  $score        = -1;
+
+  // Retrieving the tutorial id using the quiz id
+  $tutorial_id_array= getTutorialByQuizId($quiz_id);
+  $tutorial_id      = $tutorial_id_array["tutorial_id"];
+
+  // Using the Quiz Model to load the quiz content including questions
+  $quiz         = getQuizById($quiz_id);
+  $quiz_question    = getQuizQuestionById($quiz_id);
+
+  // If no questions have been added to the quiz
+  if(mysqli_num_rows($quiz_question) == 0){
+      echo "No Questions In This Quiz";
+      exit();
+  }
+ 
+  if($student_loggedin){
+  //Fetching the score of previous attempt by student if any
+  $quiz_score_query_result = getStudentQuizScore($student_email, $quiz_id);
+    if(mysqli_num_rows($quiz_score_query_result) > 0){
+
+      $quiz_score_array = mysqli_fetch_array($quiz_score_query_result);
+      $score        = $quiz_score_array["quiz_score"];
+    }
+  }
+
+  //Fetcing the info of logged in teacher and all of his created Quizzes
+  if($teacher_loggedin){
+    $current_teacher_quiz = getAllQuizzesByEmail($teacher_email, $quiz_id);
+  }
+
+  //Checking if this is the logged in instructor's own tutorial
+  $match = 0;
+  if($teacher_loggedin){
+    while($row = mysqli_fetch_assoc($current_teacher_quiz)){
+
+      //echo "Tuorial ID: " . $tutorial["id"] . "<br>";
+      if($row["quiz_id"] == $quiz_id){
+        $match += 1;
+      }
+    }
+  }
+
+
+  $quiz_title = $quiz["topic"];
+  $quiz_question_list = "";
+  $quiz_form      = "";
+  $question_num     = 0;
+  
+  //Closing the DB Connection
+  $database_connection->close(); 
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz - <?php echo $quiz_title; ?></title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
 
-  <title>Edit Quiz</title>
+  <title>View Quiz</title>
+
+  <!--- CSS Link for view Tutorials-->
+    <link href="../assets/css/ViewTutorials.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <!-- IMP CSS FOR SELECT TAG-->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
-  integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  
+    
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
     body {
@@ -83,60 +122,17 @@
         font-weight: bold;
       }
 
-    .ques-input{
-      display: inline-block;
-      font-family: 'Poppins',sans-serif;
-      font-size: 14px;
-      width: 75%;
-      border-radius: 5px;
-      border: 2px solid #C5C6C7;
-      outline: none;
-    }
-
-    .ques-output{
-      display: inline-block;
-      font-family: 'Poppins',sans-serif;
-      font-size: 14px;
-      width:30%;
-      border-radius: 5px;
-      border: 2px solid #C5C6C7;
-      outline: none;
+    .quiz-topic-name{
+        color: #708090;
+        font-size: 30px;
+        text-transform: uppercase;
     }
     .quiz-content text{
         display: inline-block;
         font-family: 'Poppins',sans-serif;
         font-weight: 600;
-        font-size: 16px;
     }
-
-    #addQuestionButton{
-        display: flex;
-        color: #66FCF1;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        align-items: center;
-        border: 2px solid #66FCF1;
-        background-color: #ffffff;
-        padding: 10px 22px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;  
-        border-radius: 10px;
-        font-family: 'Poppins', sans-serif;
-        outline: none;
-    }
-
-    #addQuestionButton:hover{
-        background-color: #C5C6C7;
-        Color: black;
-        border: 2px solid #708090;
-    }
-
-    .new-ques input{
-    	margin-left: 3%;
-    }
-
-    #update-btn{
+    .edit-quiz-btn{
         display: flex;
         color: #66FCF1;
         text-transform: uppercase;
@@ -153,7 +149,7 @@
         outline: none;
     }
 
-    #update-btn:hover{
+    .edit-quiz-btn:hover{
         background-color: #C5C6C7;
         Color: black;
         border: 2px solid #708090;
@@ -190,6 +186,17 @@
         text-decoration: none;
     }
 
+    .flashMsg{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+    }
 
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
@@ -197,138 +204,150 @@
     }
 
   </style>
-
-	<title><?php echo "Edit Quiz"; echo  $quiz_id; ?></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 </head>
 <body>
 
-	<div class="sidenav">
+  <div class="sidenav">
     <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
     <br><br>
     <a href="/webproject"><i class="fa fa-home"></i> Home</a>
     <br>
     <a href="About.php"><i class="fa fa-font"></i> About</a>
     <br>
-    <a href="quiz.php?id=<?php echo $quiz_id; ?>"><i class="fa fa-hand-o-left"></i> Back To View Quiz</a>
+    <a href="login.php"><i class="fa fa-hand-o-left"></i> Profile</a>
     <br>
-    <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <a href="tutorial.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Tutorial</a>
     <br>
-    <a href="login.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <a href="viewQuiz.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Quizzes</a>
     <br>
-  	</div>
+    <?php if($teacher_loggedin){ ?>
+      <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <?php }elseif($student_loggedin){ ?>
+      <a href="studentLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <?php } ?>
+    <br>
+    </div>
 
-	<div class="main" id="main-content">
-  	<h1><span class="multi-text"> Edit Quiz</span></h1><br>
+    <div class="main ">
+  <!-- Displaying Quiz Information -->
+  <h1><span class="multi-text">Quiz</span></h1>
+  <h4><span class="quiz-topic-name"><?php echo $quiz_title; ?></span></h4>
 
-    <?php
-    if(@$_GET["empty"]){
-    ?>
-      <div style="color: red"><?php  echo $_GET["empty"]; ?></div>
-    <?php
+  <?php 
+  if(@$_GET["empty"]){?>
+    <div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+  <?php } ?>
+
+  <?php 
+  if(@$_GET["error"]){?>
+    <div class="flashMsg"><?php echo $_GET["error"]; ?></div>
+  <?php } ?>
+
+  <!-- Displaying The Quiz Content -->
+  <?php
+    if($teacher_loggedin){
+      // If the teacher is logged in and he has created the respective tutorial
+      // He can edit the respective quiz
+      if($match > 0){
+
+      // showing edit quiz button to quiz creator 
+  ?>
+      <form name='EditQuizForm' method='POST' action='editQuiz.php'>
+        <button class="edit-quiz-btn" type='submit' name='editQuiz'>Edit Quiz</button>
+        <input type='hidden' value="<?php echo $quiz_id; ?>" name='quiz_id'>
+      </form>
+      <?php } ?>
+
+      <!-- Displaying Quiz -->
+      <div class="quiz-content">
+      <?php
+      $quiz_question_list .= "<ol>";
+      while($question = mysqli_fetch_assoc($quiz_question)){
+
+        //fetching the quiz content
+        $statement     = $question["statement"];
+        $option1       = $question["option1"];
+        $option2       = $question["option2"];
+        $option3       = $question["option3"];
+        $option4       = $question["option4"];
+        $correct_option  = $question["correct_option"];
+
+        $quiz_question_list .= "<li>" . $statement .
+                     "<ul><li>" . $option1 . "</li><li>" . $option2 . "</li>";
+
+        if($option3){
+          $quiz_question_list .= "<li>" . $option3 . "</li>"; 
+        }
+        if($option4){
+          $quiz_question_list .= "<li>" . $option4 . "</li>";
+        }
+        $quiz_question_list .= "</ul>";
+
+        if($match > 0)
+          $quiz_question_list .= "<b>Correct Answer: " . $correct_option . "</b><br><br>";
       }
-    if(@$_GET["error"]){?>
-      <div style='color: red'><?php  echo $_GET["error"]; ?></div>
+      
+      
+      $quiz_question_list .= "</ol>";
+      echo $quiz_question_list;
+    } ?>
+  </div>
     <?php
-    }
+    if($student_loggedin){
     ?>
-	<form name='UpdateQuizForm' method='POST' action='../Controllers/EditQuizController.php'>
+    <div class="main-content5">
+    <?php
+      // if the student is logged in, he is able to attempt the quiz
+      $quiz_form .= "<form name='attemptQuiz' action='result.php' method='POST'>";
+      $quiz_form .= "<ol>";
 
-		<?php
-			$quiz_question_list .= "<ol id='quiz_list'>";
-			while($question = mysqli_fetch_assoc($quiz_question)){
+      while($question = mysqli_fetch_assoc($quiz_question)){
 
-				$num_of_questions += 1;
-				$i = $num_of_questions; 
+        $question_num += 1;
 
-				$statement 		 = $question["statement"];
-				$option1   		 = $question["option1"];
-				$option2   		 = $question["option2"];
-				$option3   		 = $question["option3"];
-				$option4   		 = $question["option4"];
-				$correct_option  = $question["correct_option"];
-				$question_id 	 = $question["id"];
+        $statement     = $question["statement"];
+        $option1       = $question["option1"];
+        $option2       = $question["option2"];
+        $option3       = $question["option3"];
+        $option4       = $question["option4"];
+        $correct_option  = $question["correct_option"];
 
-				$quiz_question_list .= "<li><input class='ques-input' type='text' name='question".$i."' value='".$statement.
-					 "'><br><br><ul style='list-style-type: square;'><li><input class='ques-output' type='text' name='question".$i."_option1' value='".$option1."' required></li><br><li><input class='ques-output' type='text' name='question".$i."_option2' value='".$option2."' required></li><br>";
-
-				if(!empty($option3)){
-					$quiz_question_list .= "<li><input type='text' class='ques-output' name='question".$i."_option3' value='".$option3."'></li><br>";	
-				}
-				else{
-					$quiz_question_list .= "<li><input type='text' class='ques-output' name='question".$i."_option3' value=''></li><br>";	
-				}
-				if(!empty($option4)){
-					$quiz_question_list .= "<li><input type='text' class='ques-output' name='question".$i."_option4' value='".$option4."'></li><br>";
-				}
-				else{
-					$quiz_question_list .= "<li><input type='text' class='ques-output' name='question".$i."_option4' value=''></li><br>";
-				}
+        $quiz_form .= "<li>". $statement;
 
 
-				$quiz_question_list .= "</ul><br>";
-				$quiz_question_list .= "<text id='correct_option'>Correct Answer: </text><select name='question".$i."_correct_answer' class='selectpicker show-tick' data-style='btn btn-info'>".
-							  "<option value=''>Select</option>".
-							  "<option value='question".$i."_option1'". (($correct_option == $option1) ? "selected='selected'":'').">Option 1</option>".
-							  "<option value='question".$i."_option2'". (($correct_option == $option2) ? "selected='selected'":'').">Option 2</option>".
-							  "<option value='question".$i."_option3'". (($correct_option == $option3) ? "selected='selected'":'').">Option 3</option>".
-							  "<option value='question".$i."_option4'". (($correct_option == $option4) ? "selected='selected'":'').">Option 4</option>".
-							  "</select><br><br>";
-				$quiz_question_list .= "<input type='hidden' name='question".$i."_id' value='". $question_id."'>";
-			}
-			
-			$quiz_question_list .= "</ol>";
-			echo $quiz_question_list;
-		?>
+        $quiz_form .= "<label><br><input type='radio' name='". $question_num. "' value='option1'>" . $option1 . "</label><br>";
 
-		<input type='hidden' value='<?php echo $quiz_id; ?>' name='quiz_id'>
-		<input type='hidden' value='<?php echo $num_of_questions; ?>' name='num_of_questions' id='numOfQuestions'>
-		<input type='hidden' value='' name='new_num_of_questions' id='newNumOfQuestions'>
-		<br>
-		<button class="btn btn-info" type="submit" id="addQuestionButton" onclick="addQuestions()">Add More Question</button>
-		<br>
-		<button type='submit' id="update-btn" name='update' value='Update'>Update</button>
-		</form>
+        $quiz_form .= "<label><input type='radio' name='". $question_num. "' value='option2'>" . $option2 . "</label><br>";
+
+        if($option3){
+          $quiz_form .= "<label><input type='radio' name='". $question_num. "' value='option3'>".$option3."</label><br>";
+        }
+        if($option4){
+          $quiz_form .= "<label><input type='radio' name='". $question_num. "' value='option4'>".$option4."</label></li><br>";
+        }
+
+        $quiz_form .= "<input type='hidden' name='". $question_num ."_answer' value='". $correct_option . "'>"; 
+
+      }
+      $quiz_form .= "<input type='hidden' value='". $quiz_id ."' name='quiz_id'>";
+      $quiz_form .= "<input type='hidden' value='". $question_num ."' name='num_of_question'>";
+      $quiz_form .= "<button class='quiz-button' type='submit' name='showresult'>Show Quiz Result</button>";
+      $quiz_form .= "</form>";
+
+      // if the student has already attempted the quiz before, displpaying his previous best score
+      if($score > 0){ ?>
+        <h2 class="flashMsg" style="color: #fff;background-color: green;">You Scored <?php echo $score . " out of ". $question_num ?></h2>
+        <?php } ?>
+
+         <?php if($score == 0){ ?>
+        <h2 class="flashMsg">You Scored <?php echo $score . " out of ". $num_of_question ?></h2>
+        <?php }
+  
+      echo $quiz_form;      
+    }
+
+  ?>
 </div>
 
-	<script type="text/javascript">
-		
-		let clicked = parseInt(document.getElementById("numOfQuestions").value);
-
-		/* Function to dynamically add questions to a Quiz */
-		function addQuestions(){
-
-			clicked    += 1;
-			str         = "<div class='new-ques'><br><br><label>Question "+clicked+": </label>" +
-						  "<input class='ques-input' type='text' name='question"+ clicked + "' placeholder='Enter Question' required><br><br>"+
-
-						  "<label>Option1: </label>" + 
-						  "<input class='ques-output' type='text' id='option1' name='question"+clicked+"_option1' placeholder='Enter the First Choice' required><br><br>" +
-						  "<label>Option2: </label>" + 
-						  "<input class='ques-output' type='text' id='option2' name='question"+clicked+"_option2' placeholder='Enter the First Choice' required><br><br>" +
-						  "<label>Option3: </label>" +
-						  "<input class='ques-output' type='text' id='option3' name='question"+clicked+"_option3' placeholder='Enter the Second Choice(optional)'><br><br>"+
-						  "<label>Option4: </label>"+
-						  "<input class='ques-output' type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br><br>" +
-						  "<label>Correct Answer: </label>" +
-						  "<select name='question"+clicked+"_correct_answer' id='correct_answer'>"+
-						  	  "<option value=''>Select</option>"+
-							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
-							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
-							  "<option value='question"+clicked+"_option3'>Option 3</option>"+
-							  "<option value='question"+clicked+"_option4'>Option 4</option>"+
-							"</select><br><br><div>";
-									  
-			$("#newNumOfQuestions").attr("value", clicked);
-			$("#quiz_list").after(str);
-		}
-
-	</script>
-
-	<!-- IMP JAVASCRIPT CODE FOR SELECT TAG-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script> 
 </body>
 </html>

@@ -24,9 +24,7 @@
 			$tutorial_id = $_GET["tutorial_id"];
 		else
 			$tutorial_id = $_POST["tutorial_id"];
-	}
-	
-		
+	}		
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +94,17 @@
       background: #fff;
       text-decoration: none;
     }
-
+    .flashMsg{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin-top: 30px;
+          margin-bottom: 30px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+    }
 
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
@@ -110,12 +118,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>	
-
-	<!-- Output div for an Error -->
-	<?php if(@$_GET["error"]){ 	?>
-		<div style="color: red">An Unknown Error</div>
-	<?php } ?>
-
 	<div class="sidenav">
     <img class="logo" src="https://www.concordia.ca/content/dam/common/icons/303x242/graduate-students.png">
     <br><br>
@@ -136,12 +138,17 @@
 
 	<!-- Output div for an empty submissoin -->
 	<?php if(@$_GET["empty"]){ ?>
-		<div style="color: red; align-content: center;"><?php echo $_GET["empty"]; ?></div>
+		<div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+	<?php } ?>
+
+	<!-- Output div for an Error -->
+	<?php if(@$_GET["error"]){ 	?>
+		<div class="flashMsg"><?php echo $_GET["error"]; ?></div>
 	<?php } ?>
 
 	<form class="form-horizontal" id="createQuiz" action="../Controllers/CreateQuizController.php" method="POST">
 
-		<input type="hidden" value="<?php echo "$tutorial_id"?>" name="tutorialId">
+		<input type="hidden" value="<?php echo $tutorial_id?>" name="tutorialId">
 
 		<div class="form-group row"> 		
 		<label class="col-sm-2 col-form-label col-form-label-lg" for="topic">Topic</label>
@@ -192,12 +199,12 @@
 		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label-lg">Correct Answer: </label>
 		<div class="col-sm-10">
-		<select class="custom-select custom-select-lg mb-3" name="question1_correct_answer" id="correct_answer">
+		<select class="custom-select custom-select-lg mb-3" name="question1_correct_answer" id="correct_answer_1">
 		  <option value=''>Select</option>
-		  <option value="question1_option1">Option 1</option>
-		  <option value="question1_option2">Option 2</option>
-		  <option value="question1_option3">Option 3</option>
-		  <option value="question1_option4">Option 4</option>
+		  <option value="option1">Option 1</option>
+		  <option value="option2">Option 2</option>
+		  <option value="option3">Option 3</option>
+		  <option value="option4">Option 4</option>
 		</select>
 
 
@@ -248,16 +255,16 @@
 						  "<div class='form-group row'>" +
 						  "<label class='col-sm-2 col-form-label col-form-label-lg'>Correct Answer: </label>" +
 						  "<div class='col-sm-10'>" +
-						  "<select class='custom-select custom-select-lg mb-3' name='question"+clicked+"_correct_answer'>"+
+						  "<select class='custom-select custom-select-lg mb-3' name='question"+clicked+"_correct_answer' id='correct_answer_" + clicked + "'>"+
 						  	  "<option value=''>Select</option>"+
-							  "<option value='question"+clicked+"_option1'>Option 1</option>"+
-							  "<option value='question"+clicked+"_option2'>Option 2</option>"+
-							  "<option value='question"+clicked+"_option3'>Option 3</option>"+
-							  "<option value='question"+clicked+"_option4'>Option 4</option>"+
+							  "<option value='option1'>Option 1</option>"+
+							  "<option value='option2'>Option 2</option>"+
+							  "<option value='option3'>Option 3</option>"+
+							  "<option value='option4'>Option 4</option>"+
 							"</select><br><br>";
 									  
 			$("#numOfQuestions").attr("value", clicked);
-			$("#correct_answer").after(str);
+			$("#correct_answer_" + (clicked-1)+"").after(str);
 		}
 
 	</script>

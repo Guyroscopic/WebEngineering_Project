@@ -69,21 +69,21 @@
 			} 
 
 			// retrieving the correct answer
-			$select_correct_answer = stripslashes($_POST[$q_correct_answer]);
-			if(empty($select_correct_answer)){
+			$correct_answer = stripslashes($_POST[$q_correct_answer]);
+			if(empty($correct_answer)){
 				header("location: ../Views/editQuiz.php?empty=Select The Correct Answer&quiz_id=".$quizId);
 				exit();
 			}
 			
-			$correct_answer = stripslashes($_POST[$select_correct_answer]);
+			//$correct_answer = stripslashes($_POST[$select_correct_answer]);
 
-			if($correct_answer == $option3 && empty($option3)){
+			if($correct_answer == 'option3' && empty($option3)){
 				mysqli_close($database_connection);
 				header("location: ../Views/editQuiz.php?empty=Invalid Option Selected&quiz_id=".$quizId);
 				exit();
 			}
 
-			if($correct_answer == $option4 && empty($option4)){
+			if($correct_answer == 'option4' && empty($option4)){
 				mysqli_close($database_connection);
 				header("location: ../Views/editQuiz.php?empty=Invalid Option Selected&quiz_id=".$quizId);
 				exit();

@@ -60,6 +60,24 @@
 		return $sql_query_execute;
 	}
 
+	function getQuizByTutorialIDesc($tutorial_id){
+
+		/* This function retrieves quiz using tutorial id */
+
+		global $database_connection;
+
+		$sql_query = "SELECT topic, id FROM quiz WHERE tutorial_id='$tutorial_id' ORDER BY id DESC;";
+
+
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+		if (!$sql_query_execute) {
+		    printf("Q Error: %s\n", mysqli_error($database_connection));
+		    exit();
+		}
+		//$result = mysqli_fetch_assoc($sql_query_execute);
+		return $sql_query_execute;
+	}
+
 
 	function getAllQuizzesByEmail($email,$quiz_id){
 
@@ -111,7 +129,7 @@
 		$quiz = mysqli_fetch_array($sql_query_execute);
 
 		return $quiz;
-
+ 
 	}
 
 	function getTutorialByQuizId($quiz_id){
