@@ -30,13 +30,16 @@
   require_once "../Models/QuizModel.php";
 
 
-  if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"]){
+  if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"] || @$_GET["tutorial_id"]){
 
     //Extracting Tutorial ID from URL and fetching the respective Quizzes
      
     if(@$_GET["id"]){
       $tutorial_id = $_GET["id"];
-    }  
+    }
+    elseif (@$_GET["tutorial_id"]) {
+        $tutorial_id = $_GET["tutorial_id"];
+      }  
     else{
       $tutorial_id = $_POST["tutorial_id"];
     }
@@ -60,6 +63,11 @@
   <!-- Style css -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
     body {
@@ -123,6 +131,28 @@
       font-size: 20px;
     }
 
+    .card{
+      border: 1px solid #38f9d7;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 8px;
+      margin-bottom: 2%;
+      margin-left: 5%;
+      text-align: center;
+    }
+
+    .card a{
+      font-size: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #484c54
+      
+    }
+
+    .card a:hover{
+     color: #4d7bd6;
+    }
+
     @media screen and (max-height: 450px) {
       .sidenav {padding-top: 15px;}
       .sidenav a {font-size: 18px;}
@@ -162,14 +192,26 @@
     <?php
 
     if(@$_GET["quizCreated"])
-      echo "<div class='flashMsg' style='color:green'>" . $_GET["quizCreated"] . "</div>";
+      echo "<div class='flashMsg'>" . @$_GET["quizCreated"] . "</div>";
 
-  echo "<ol>";
+    if(@$_GET["quizDeleted"])
+      echo "<div class='flashMsg' style='color:red'>" . @$_GET["quizDeleted"] . "</div>";
+
+  //echo "<ol>";
+  $count = 0;
   while($row = mysqli_fetch_assoc($quiz)) {
 
-    echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
+    if($count % 3 == 0 ){
+      echo "<div class='row'>";
+    }
+    //echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
+    echo "<div class='card col-lg-3 col-md-3 col-sm-3'><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></div>";
+    $count++;
+    if($count % 3 == 0){
+      echo "</div>";
+    }
   }
-  echo "</ol>";
+
   }
   }
   mysqli_close($database_connection);

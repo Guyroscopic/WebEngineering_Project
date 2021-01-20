@@ -128,7 +128,7 @@
                         </div>
                          <a class="btn" href="viewTutorials.php">Browse Tutorials</a><br>
                          <a class="btn" href="completedTutorials.php">Show Completed Tutorials</a><br>
-                         <a class="btn" style="margin-bottom: 30px" href="#">Change Password</a><br>  
+                         <a class="btn" style="margin-bottom: 30px" href="changePassword.php">Change Password</a><br>  
                     </div>
                 </div>
             </div>

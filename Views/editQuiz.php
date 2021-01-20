@@ -28,7 +28,7 @@
   require_once "../Models/StudentQuizBridgeModel.php";
 
   //Extracting Quiz ID from URL and fetching the respective Quiz and Its Questions
-  $quiz_id      = $_GET["id"];
+  $quiz_id      = @$_GET["id"];
   // Initializing the score of student as negative value, implying student has
   // not score any number yet
   $score        = -1;

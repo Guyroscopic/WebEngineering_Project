@@ -14,7 +14,7 @@
 
         <style type="text/css">
 
-        	.flashMsg{
+        .flashMsg {
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
@@ -24,7 +24,18 @@
           margin-bottom: 30px;
           font-size: 15px;
           padding: 5px 0 5px 0;
-    }
+    	}
+
+    	a.link-btn {
+    	  background-color: #66e0ff;
+		  color: white;
+		  padding: 14px 25px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  border-radius: 5px;
+		  text-transform: uppercase;
+    	}
 
         </style>
 	<title>Quiz Result</title>
@@ -156,12 +167,13 @@
 
 				 <?php if($score == 0){ ?>
 				<div class="main-content5"><h2 class="flashMsg">You Scored <?php echo $score . "/". $num_of_question ?></h2>
-				<?php } ?>
+				<?php } 
+				echo "<br><a class='link-btn' href='quiz.php?id=".$quiz_id."'>Attempt Again</a>";
+				?>
 
 				<?php
 				echo $result_form;	
 				echo "<form action='viewQuiz.php' method='POST'><button class='quiz-button' type='submit' name='backbutton'>Go Back To Quizzes</button><input type='hidden' value='".$tutorial_id."' name='tutorial_id'></form>";
-				echo "<br><a href='quiz.php?id=".$quiz_id."'>Attempt Again</a>";
 
 }				?>
 				</div>

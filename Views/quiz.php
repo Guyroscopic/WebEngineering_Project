@@ -155,6 +155,30 @@
         border: 2px solid #708090;
     }
 
+    .delete-quiz-btn{
+    	display: flex;
+        color: red;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        align-items: center;
+        border: 2px solid red;
+        background-color: #ffffff;
+        padding: 12px 22px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;  
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        outline: red;
+    }
+
+    .delete-quiz-btn:hover{
+    	background-color: #F08080;
+        Color: black;
+        color: white;
+        border: 2px solid red;
+    }
+
     .logo{
         position: relative;
         left:40px;
@@ -256,6 +280,13 @@
 				<button class="edit-quiz-btn" type='submit' name='editQuiz'>Edit Quiz</button>
 				<input type='hidden' value="<?php echo $quiz_id; ?>" name='quiz_id'>
 			</form>
+
+			<form name='DeleteQuizForm' method='POST' action='../Controllers/DeleteForTeacherController.php'>
+				<button class="delete-quiz-btn" type='submit' name='deleteQuiz'>Delete Quiz</button>
+				<input type='hidden' value="<?php echo $quiz_id; ?>" name='quiz_id'>
+				<input type='hidden' value="<?php echo $tutorial_id; ?>" name='tutorial_id'>
+			</form>
+
 			<?php } ?>
 
 			<!-- Displaying Quiz -->
