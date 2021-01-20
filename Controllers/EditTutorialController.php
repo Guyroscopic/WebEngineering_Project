@@ -43,6 +43,8 @@
             header("location: ../Views/editTutorial.php?id=" . $tutorial_id . "&empty=true");
         }
 
+        $tutorial = getTutorialByID($tutorial_id);
+
         //Updating the Tutorial Table
         setTutorialTitleAndDescription($tutorial_id, $title, $description);
 
@@ -97,7 +99,11 @@
                             $file_path = "../assets/videos/" . "videoForTutorial_" . $tutorial_id . 
                                          "." . $extension;
                             $result = move_uploaded_file($_FILES["video"]["tmp_name"], $file_path);
-                            //setTutorialVideo($tutorialID, $file_path);
+
+                            //Seeting the path of the video for tutorial
+                            if(!$tutorial["video"]){
+                                setTutorialVideo($tutorial_id, $file_path);
+                            }
 
                             //Closing the DB Connection
                             mysqli_close($database_connection);
