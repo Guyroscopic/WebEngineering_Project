@@ -53,16 +53,13 @@
 			$option2   = stripslashes($_POST[$q_option_2]);
 			$option3   = stripslashes($_POST[$q_option_3]);
 			$option4   = stripslashes($_POST[$q_option_4]);
-			$correct_answer_post = stripslashes($_POST[$q_correct_answer]);
+			$correct_answer = stripslashes($_POST[$q_correct_answer]);
 
 			// if the teacher doesnt provide the correct answer
-			if(empty($correct_answer_post)){
+			if(empty($correct_answer)){
 				header("location: ../Views/createQuiz.php?empty=Select The Correct Answer&tutorial_id=".$tutorial_id);
 				exit();
 			}
-
-			// else retrieving the correct answer
-			$correct_answer = stripslashes($_POST[$correct_answer_post]);
 
 			if(empty($question) || empty($option1) || empty($option2) || empty($correct_answer)){
 
@@ -77,13 +74,13 @@
 					exit();
 			}
 
-			if($correct_answer == $option3 && empty($option3)){
+			if($correct_answer == "option3" && empty($option3)){
 				mysqli_close($database_connection);
 				header("location: ../Views/createQuiz.php?empty=Invalid Option Selected&tutorial_id=".$tutorial_id);
 				exit();
 			}
 
-			if($correct_answer == $option4 && empty($option4)){
+			if($correct_answer == "option4" && empty($option4)){
 				mysqli_close($database_connection);
 				header("location: ../Views/createQuiz.php?empty=Invalid Option Selected&tutorial_id=".$tutorial_id);
 				exit();
