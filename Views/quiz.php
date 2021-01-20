@@ -155,6 +155,30 @@
         border: 2px solid #708090;
     }
 
+    .delete-quiz-btn{
+    	display: flex;
+        color: red;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        align-items: center;
+        border: 2px solid red;
+        background-color: #ffffff;
+        padding: 12px 22px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;  
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+        outline: red;
+    }
+
+    .delete-quiz-btn:hover{
+    	background-color: #F08080;
+        Color: black;
+        color: white;
+        border: 2px solid red;
+    }
+
     .logo{
         position: relative;
         left:40px;
@@ -186,16 +210,26 @@
         text-decoration: none;
     }
 
-    .flashMsg{
+    .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin-top: 30px;
-          margin-bottom: 30px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
+        }
+
+    .flashMsgGreen{
+      color: #fff;
+      background-color: #76e060;
+      opacity: 0.7;
+      border-radius: 5px;
+      margin: 0px 50px 0px 50px;
+      text-align: center;
+      font-size: 15px;
+      padding: 5px 0 5px 0;
     }
 
     @media screen and (max-height: 450px) {
@@ -235,16 +269,16 @@
 
 	<?php 
 	if(@$_GET["empty"]){?>
-		<div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+		<div class="flashMsgRed"><?php echo $_GET["empty"]; ?></div>
 	<?php } ?>
 
 	<?php 
 	if(@$_GET["error"]){?>
-		<div class="flashMsg"><?php echo $_GET["error"]; ?></div>
+		<div class="flashMsgRed"><?php echo $_GET["error"]; ?></div>
 	<?php } ?>
 
 	<!-- Displaying The Quiz Content -->
-	<?php
+	<?php 
 		if($teacher_loggedin){
 			// If the teacher is logged in and he has created the respective tutorial
 			// He can edit the respective quiz
@@ -256,6 +290,13 @@
 				<button class="edit-quiz-btn" type='submit' name='editQuiz'>Edit Quiz</button>
 				<input type='hidden' value="<?php echo $quiz_id; ?>" name='quiz_id'>
 			</form>
+
+			<form name='DeleteQuizForm' method='POST' action='../Controllers/DeleteForTeacherController.php'>
+				<button class="delete-quiz-btn" type='submit' name='deleteQuiz'>Delete Quiz</button>
+				<input type='hidden' value="<?php echo $quiz_id; ?>" name='quiz_id'>
+				<input type='hidden' value="<?php echo $tutorial_id; ?>" name='tutorial_id'>
+			</form>
+
 			<?php } ?>
 
 			<!-- Displaying Quiz -->
@@ -336,11 +377,11 @@
 
 			// if the student has already attempted the quiz before, displpaying his previous best score
 			if($score > 0){ ?>
-				<h2 class="flashMsg" style="color: #fff;background-color: green;">Your Best Score For This Quiz Has Been:  <?php echo $score . " out of ". $question_num ?></h2>
+				<h2 class="flashMsgGreen">Your Best Score For This Quiz Has Been:  <?php echo $score . " out of ". $question_num ?></h2>
 				<?php } ?>
 
 				 <?php if($score == 0){ ?>
-				<h2 class="flashMsg">Your Best Score For This Quiz Has Been: <?php echo $score . " out of ". $question_num ?></h2>
+				<h2 class="flashMsgRed">Try Again! No Best Score For This Quiz : <?php echo $score . " out of ". $question_num ?></h2>
 				<?php }
 	
 			echo $quiz_form;			

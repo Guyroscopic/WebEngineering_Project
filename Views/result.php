@@ -14,17 +14,38 @@
 
         <style type="text/css">
 
-        	.flashMsg{
+        .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin-top: 30px;
-          margin-bottom: 30px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
-    }
+        }
+
+        .flashMsgGreen{
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.7;
+          border-radius: 5px;
+          margin: 0px 50px 0px 50px;
+          text-align: center;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+
+    	a.link-btn {
+    	  background-color: #66e0ff;
+		  color: white;
+		  padding: 14px 25px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  border-radius: 5px;
+		  text-transform: uppercase;
+    	}
 
         </style>
 	<title>Quiz Result</title>
@@ -151,17 +172,18 @@
 			        <h1><span class="multi-text" > Result: Quiz No. <?php echo $quiz_id ?></span></h1>
 			    </div>
 			    <?php if($score > 0){ ?>
-				<div class="main-content5"><h2 class="flashMsg" style="color: #fff;background-color: green;">You Scored <?php echo $score . "/". $num_of_question ?></h2>
+				<div class="main-content5"><h2 class="flashMsgGreen">You Scored <?php echo $score . "/". $num_of_question ?></h2>
 				<?php } ?>
 
 				 <?php if($score == 0){ ?>
-				<div class="main-content5"><h2 class="flashMsg">You Scored <?php echo $score . "/". $num_of_question ?></h2>
-				<?php } ?>
+				<div class="main-content5"><h2 class="flashMsgRed">You Scored <?php echo $score . "/". $num_of_question ?></h2>
+				<?php } 
+				echo "<br><a class='link-btn' href='quiz.php?id=".$quiz_id."'>Attempt Again</a>";
+				?>
 
 				<?php
 				echo $result_form;	
 				echo "<form action='viewQuiz.php' method='POST'><button class='quiz-button' type='submit' name='backbutton'>Go Back To Quizzes</button><input type='hidden' value='".$tutorial_id."' name='tutorial_id'></form>";
-				echo "<br><a href='quiz.php?id=".$quiz_id."'>Attempt Again</a>";
 
 }				?>
 				</div>

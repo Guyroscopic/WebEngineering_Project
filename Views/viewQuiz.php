@@ -30,13 +30,16 @@
   require_once "../Models/QuizModel.php";
 
 
-  if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"]){
+  if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"] || @$_GET["tutorial_id"]){
 
     //Extracting Tutorial ID from URL and fetching the respective Quizzes
      
     if(@$_GET["id"]){
       $tutorial_id = $_GET["id"];
-    }  
+    }
+    elseif (@$_GET["tutorial_id"]) {
+        $tutorial_id = $_GET["tutorial_id"];
+      }  
     else{
       $tutorial_id = $_POST["tutorial_id"];
     }
@@ -59,13 +62,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Style css 
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/ViewTutorials.css"> -->
+    <link rel="stylesheet" href="../assets/css/style.css"> -->
+    <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" 
-    integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
@@ -119,15 +122,48 @@
       text-decoration: none;
     }
 
-    .flashMsg{
+    .flashMsgRed{
+          color: #fff;          
+          opacity: 0.7;
+          background-color: #db5a5a;
+          border-radius: 5px;
+          text-align: center;
+          margin: 0px 50px 0px 50px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+
+    .flashMsgGreen{
       color: #fff;
       background-color: #76e060;
       opacity: 0.7;
       border-radius: 5px;
+      margin: 0px 50px 30px 50px;
       text-align: center;
-      margin-top: 30px;
-      margin-bottom: 30px;
-      font-size: 20px;
+      font-size: 15px;
+      padding: 5px 0 5px 0;
+    }
+
+    .card{
+      border: 1px solid #38f9d7;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.1);
+      padding: 8px;
+      margin-bottom: 2%;
+      margin-left: 5%;
+      text-align: center;
+    }
+
+    .card a{
+      font-size: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #484c54
+      
+    }
+
+    .card a:hover{
+     color: #4d7bd6;
     }
 
     @media screen and (max-height: 450px) {
@@ -169,22 +205,34 @@
     <?php
 
     if(@$_GET["quizCreated"])
-      echo "<div class='flashMsg' style='color:green'>" . $_GET["quizCreated"] . "</div>";
+      echo "<div class='flashMsgGreen'>" . @$_GET["quizCreated"] . "</div>";
 
-  echo "<ol>";
+    if(@$_GET["quizDeleted"])
+      echo "<div class='flashMsgRed'>" . @$_GET["quizDeleted"] . "</div>";
+
+  //echo "<ol>";
+  $count = 0;
   while($row = mysqli_fetch_assoc($quiz)) {
 
-    echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
+    if($count % 3 == 0 ){
+      echo "<div class='row'>";
+    }
+    //echo "<li><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></li><br>";
+    echo "<div class='card col-lg-3 col-md-3 col-sm-3'><a href='quiz.php?id=" . $row["id"] . "'>".$row["topic"]."</a></div>";
+    $count++;
+    if($count % 3 == 0){
+      echo "</div>";
+    }
   }
-  echo "</ol>";
+
   }
   
   mysqli_close($database_connection);
   ?>
 
   <!--===== FOOTERpart starts ======-->    
-    <footer style="background-color: #c5c6c7" class="site-footer">
-      <div class="container">
+    <footer style="background-color: #c5c6c7;" class="site-footer">
+      <div class="container" style="background-color: #c5c6c7;">
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>About our Project</h6>
@@ -209,7 +257,7 @@
         </div>
         <hr>
       </div>
-      <div class="container">
+      <div class="container" style="background-color: #c5c6c7;">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
             <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang

@@ -94,16 +94,27 @@
       background: #fff;
       text-decoration: none;
     }
-    .flashMsg{
+
+    .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin-top: 30px;
-          margin-bottom: 30px;
+          margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
+        }
+
+    .flashMsgGreen{
+      color: #fff;
+      background-color: #76e060;
+      opacity: 0.7;
+      border-radius: 5px;
+      margin: 0px 50px 0px 50px;
+      text-align: center;
+      font-size: 15px;
+      padding: 5px 0 5px 0;
     }
 
     @media screen and (max-height: 450px) {
@@ -138,75 +149,48 @@
 
 	<!-- Output div for an empty submissoin -->
 	<?php if(@$_GET["empty"]){ ?>
-		<div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+		<div class="flashMsgRed"><?php echo $_GET["empty"]; ?></div>
 	<?php } ?>
 
 	<!-- Output div for an Error -->
 	<?php if(@$_GET["error"]){ 	?>
-		<div class="flashMsg"><?php echo $_GET["error"]; ?></div>
+		<div class="flashMsgRed"><?php echo $_GET["error"]; ?></div>
 	<?php } ?>
-
+	
 	<form class="form-horizontal" id="createQuiz" action="../Controllers/CreateQuizController.php" method="POST">
 
 		<input type="hidden" value="<?php echo $tutorial_id?>" name="tutorialId">
 
-		<div class="form-group row"> 		
 		<label class="col-sm-2 col-form-label col-form-label-lg" for="topic">Topic</label>
-		<div class="col-sm-10">
 		<input type="text" class="form-control form-control-lg" id="topic" placeholder="Enter the Topic of Quiz" name="quiz_topic" required>
-		</div>
-		</div>
-
-		<div class="form-group row">
+		
 		<label class="col-sm-2 col-form-label col-form-label-lg" >Question 1: </label>
-		<div class="col-sm-10">
 		<input type='text'class="form-control form-control-lg" name='question1' placeholder='Enter Question' required>
-		</div>
-		</div>
-
-		<div class="form-group row"> 
+		
 		<label class="col-sm-2 col-form-label col-form-label">Option1: </label>
-		<div class="col-sm-10">
 		<input type="text" id='option1' class="form-control form-control" name='question1_option1' 
 				  placeholder='Option 1' required>
-		</div>
-		</div>
 
-		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label">Option2: </label>
-		<div class="col-sm-10">
 		<input type="text" class="form-control form-control" id='option2' name='question1_option2' 
 				  placeholder='Option 2' required>
-		</div>
-		</div>
 
-		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label">Option3(Optional): </label>
-		<div class="col-sm-10">
 		<input type="text" id='option3' class="form-control form-control" name='question1_option3' 
 				  placeholder='Option 3'>
-		</div>
-		</div>
 
-		<div class="form-group row">
 		<label class="col-sm-2 col-form-label col-form-label">Option4(Optional): </label>
-		<div class="col-sm-10">
 		<input type="text" id='option4' class="form-control form-control" name='question1_option4' 
 				  placeholder='Option 4'>
-		</div>
-		</div>
 
-		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label-lg">Correct Answer: </label>
-		<div class="col-sm-10">
 		<select class="custom-select custom-select-lg mb-3" name="question1_correct_answer" id="correct_answer_1">
 		  <option value=''>Select</option>
 		  <option value="option1">Option 1</option>
 		  <option value="option2">Option 2</option>
 		  <option value="option3">Option 3</option>
 		  <option value="option4">Option 4</option>
-		</select>
-
+		</select><br><br>
 
 		<button class="btn btn-info" type="submit" id="addQuestionButton" onclick="addQuestions()">Add More Question</button><br><br>
 
@@ -224,37 +208,22 @@
 		function addQuestions(){
 
 			clicked    += 1;
-			str 		= "<br><br><div class='form-group row'>";
+			str 		= "<br><br>";
 			str         += "<label class='col-sm-2 col-form-label col-form-label-lg' for='ques'>Question "+clicked+": </label>" +
-			"<div class='col-sm-10'>"+
-						  "<input type='text' name='question"+ clicked + "' class='form-control form-control-lg' placeholder='Enter Question' required></div></div>"+
+						  "<input type='text' name='question"+ clicked + "' class='form-control form-control-lg' placeholder='Enter Question' required>"+
 
-						  "<div class='form-group row'>" +
 						  "<label class='col-sm-2 col-form-label col-form-label'>Option1: </label>" + 
-						  "<div class='col-sm-10'>" +
 						  "<input class='form-control form-control' type='text' id='option1' name='question"+clicked+"_option1' placeholder='Enter the First Choice' required><br>" +
-						  "</div></div>" +
 
-						  "<div class='form-group row'>" +
 						  "<label class='col-sm-2 col-form-label col-form-label'>Option2: </label>" +
-						  "<div class='col-sm-10'>" + 
 						  "<input class='form-control form-control' type='text' id='option2' name='question"+clicked+"_option2' placeholder='Enter the Second Choice' required><br>" +
-						  "</div></div>" +
 
-						  "<div class='form-group row'>" +
 						  "<label class='col-sm-2 col-form-label col-form-label'>Option3: </label>" +
-						  "<div class='col-sm-10'>" + 
 						  "<input class='form-control form-control' type='text' id='option3' name='question"+clicked+"_option3' placeholder='Enter the Third Choice(optional)'><br>"+
-						  "</div></div>" +
 
-						  "<div class='form-group row'>" +
 						  "<label class='col-sm-2 col-form-label col-form-label'>Option4: </label>"+
-						  "<div class='col-sm-10'>" + 
 						  "<input class='form-control form-control' type='text' id='option4' name='question"+clicked+"_option4' placeholder='Enter the Last Choice(optional)'><br>" +
-						  "</div></div>" +
-						  "<div class='form-group row'>" +
 						  "<label class='col-sm-2 col-form-label col-form-label-lg'>Correct Answer: </label>" +
-						  "<div class='col-sm-10'>" +
 						  "<select class='custom-select custom-select-lg mb-3' name='question"+clicked+"_correct_answer' id='correct_answer_" + clicked + "'>"+
 						  	  "<option value=''>Select</option>"+
 							  "<option value='option1'>Option 1</option>"+

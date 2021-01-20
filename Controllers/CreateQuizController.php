@@ -34,7 +34,7 @@
 			header("location: ../Views/createQuiz.php?empty=Quiz Topic is Empty&tutorial_id=".$tutorial_id);
 			exit();
 		}
-
+ 
 		// adding questions to quiz
 		for($i=1; $i<=$num_of_questions; $i++){
 

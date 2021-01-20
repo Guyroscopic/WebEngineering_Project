@@ -164,7 +164,9 @@
 		global $database_connection;
 
 		$sql_query         = "DELETE FROM quiz WHERE id='$id'";
-		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		return $sql_query_execute;		
 	}
 
 ?>

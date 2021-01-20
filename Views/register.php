@@ -27,13 +27,23 @@
     <!-- Title -->
     <title>REGISTER</title>
     <style type="text/css">        
-        .flashMsg{
+        .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin: 20px 50px 0 50px;
+          margin: 0px 50px 0px 50px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+        .flashMsgGreen{
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.7;
+          border-radius: 5px;
+          margin: 0px 50px 0px 50px;
+          text-align: center;
           font-size: 15px;
           padding: 5px 0 5px 0;
         }
@@ -116,15 +126,15 @@
             <div class="register">
                 <!-- OUTPUT DIV FOR ERROR MESSAGES -->
                 <?php if(@$_GET["invalid"]){ ?>
-                    <div class="flashMsg"><?php echo $_GET["invalid"]; ?></div>
+                    <div class="flashMsgRed"><?php echo $_GET["invalid"]; ?></div>
                 <?php } ?>
 
                 <?php if(@$_GET["userexists"]){ ?>
-                    <div class="flashMsg"><?php echo $_GET["userexists"]; ?></div>
+                    <div class="flashMsgRed"><?php echo $_GET["userexists"]; ?></div>
                 <?php } ?> 
 
                 <?php if(@$_GET["empty"]){ ?>
-                    <div class="flashMsg"><?php echo $_GET["empty"]; ?></div>
+                    <div class="flashMsgRed"><?php echo $_GET["empty"]; ?></div>
                 <?php } ?>
 
                 <h2 style="margin: 30px 0 0 0">Register Here</h2>

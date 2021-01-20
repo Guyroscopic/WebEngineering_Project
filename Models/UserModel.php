@@ -93,4 +93,34 @@
 		$sql_query         = "DELETE FROM teacher WHERE email='$email'";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);		
 	}
+
+	function changePassword($email, $password, $userType){
+
+		/* Function to change Password os user */
+		global $database_connection;
+
+		$sql_query = "UPDATE ". $userType . " SET `password`='$password' WHERE `email`='$email'";
+
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+	
+		return $sql_query_execute;
+
+	}
+
+	function getPassword($email, $userType){
+
+		/* Function to update the info of teacher */
+		global $database_connection;
+
+		$sql_query = "SELECT `password` FROM ". $userType . " WHERE `email`='$email'";
+
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+	
+		$result = mysqli_fetch_array($sql_query_execute);
+
+		$password = $result["password"];
+
+		return $password;
+
+	}
 ?>

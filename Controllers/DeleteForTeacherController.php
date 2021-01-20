@@ -17,6 +17,7 @@
 
 	//Adding the Required Models
 	require_once "../Models/TutorialModel.php";
+	require_once "../Models/QuizModel.php";
 
 	if(isset($_POST["delete"])){
 
@@ -29,5 +30,22 @@
 
 		//Redirecting
 		header("location: ../Views/publishedTutorials.php?deleted=true");
+	}
+
+	if(isset($_POST["deleteQuiz"])){
+
+		$id = (int)stripslashes($_POST["quiz_id"]);
+		$tutorial_id = stripslashes($_POST["tutorial_id"]);
+
+		$quiz_deleted = deleteQuiz($id);
+
+		//Closing the DB connection
+		mysqli_close($database_connection); 
+		if($quiz_deleted)
+			//Redirecting
+			header("location: ../Views/viewQuiz.php?quizDeleted=Quiz Deleted&tutorial_id=".$tutorial_id);
+		else
+			echo "error";
+		exit();
 	}
 ?>

@@ -31,13 +31,24 @@
     <!-- Title -->
     <title>Student Profile</title>
     <style type="text/css">        
-        .flashMsg{
+        .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin: 20px 100px 0 100px;
+          margin: 0px 50px 0px 50px;
+          font-size: 15px;
+          padding: 5px 0 5px 0;
+        }
+
+        .flashMsgGreen{
+          color: #fff;
+          background-color: #76e060;
+          opacity: 0.7;
+          border-radius: 5px;
+          margin: 0px 50px 0px 50px;
+          text-align: center;
           font-size: 15px;
           padding: 5px 0 5px 0;
         }
@@ -160,7 +171,7 @@
 
                          <!-- Output divs for flash msgs -->
                         <?php if(@$_GET["invalidAccess"]){ ?>
-                            <div class="flashMsg">Your access was Invalid</div>
+                            <div class="flashMsgRed">Your access was Invalid</div>
                         <?php } ?>
 
                         <div class="text">
@@ -168,6 +179,7 @@
                             <p>Eamil ID: <?php echo $email ?></p>
                             <p>Tutorials Completed: <?php echo $num_completed_tutorials ?></p>
                         </div>
+
                          <a class="btnA" href="viewTutorials.php">Browse Tutorials</a><br>
                          <a class="btnA" href="completedTutorials.php">Show Completed Tutorials</a><br>
                          <a class="btnA" style="margin-bottom: 30px" href="#">Change Password</a><br><br>
