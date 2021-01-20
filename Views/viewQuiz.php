@@ -53,21 +53,23 @@
     }
     else{
     //Else Display the Quiz Topics
+    }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Quizzes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Style css -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Style css 
+    <link rel="stylesheet" href="../assets/css/style.css"> -->
     <link rel="stylesheet" href="../assets/css/ViewTutorials.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
     body {
@@ -136,7 +138,7 @@
       background-color: #76e060;
       opacity: 0.7;
       border-radius: 5px;
-      margin: 0px 50px 0px 50px;
+      margin: 0px 50px 30px 50px;
       text-align: center;
       font-size: 15px;
       padding: 5px 0 5px 0;
@@ -171,7 +173,7 @@
 
   </style>
 </head>
-<body>
+<body style="background-color: #d3ebe5;">
 
   <!-- Navbar Starts Here -->
   <div class="sidenav">
@@ -224,15 +226,13 @@
   }
 
   }
-  }
+  
   mysqli_close($database_connection);
   ?>
 
-  </div>
-
   <!--===== FOOTERpart starts ======-->    
-    <footer class="site-footer">
-      <div class="container">
+    <footer style="background-color: #c5c6c7;" class="site-footer">
+      <div class="container" style="background-color: #c5c6c7;">
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>About our Project</h6>
@@ -257,7 +257,7 @@
         </div>
         <hr>
       </div>
-      <div class="container">
+      <div class="container" style="background-color: #c5c6c7;">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
             <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
@@ -267,7 +267,12 @@
       </div>
     </footer>
     <!--===== FOOTERpart ends ======-->
-    
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>  
 
 </body>
 </html> 
