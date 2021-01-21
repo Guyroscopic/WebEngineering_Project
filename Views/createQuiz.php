@@ -142,7 +142,7 @@
       <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
     <?php } ?>
     <br>
-    <a href="login.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <br>
     </div>
 

@@ -127,9 +127,9 @@
     <br>
     <a href="About.php"><i class="fa fa-font"></i> About</a>
     <br>
-    <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <a href="adminPanel.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
     <br>
-    <a href="login.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <a href="adminLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <br>
     </div>
 
