@@ -169,16 +169,17 @@
                 <div class="overlay1">
                     <div class="single-portfolio mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">
 
-                         <!-- Output divs for flash msgs -->
-                        <?php if(@$_GET["invalidAccess"]){ ?>
-                            <div class="flashMsgRed">Your access was Invalid</div>
-                        <?php } ?>
-
-                        <?php if(@$_GET["pwchanged"]){ ?>
-                            <div class="flashMsgGreen"><?php echo  @$_GET["pwchanged"]; ?></div>
-                        <?php } ?>
-
                         <div class="text">
+
+                          <!-- Output divs for flash msgs -->
+                          <?php if(@$_GET["invalidAccess"]){ ?>
+                              <div class="flashMsgRed">Your access was Invalid</div>
+                          <?php } ?>
+
+                          <?php if(@$_GET["pwchanged"]){ ?>
+                              <div class="flashMsgGreen"><?php echo  @$_GET["pwchanged"]; ?></div>
+                          <?php } ?>
+
                             <h1>Welcome Student <?php echo $username ?></h1>                         
                             <p>Eamil ID: <?php echo $email ?></p>
                             <p>Tutorials Completed: <?php echo $num_completed_tutorials ?></p>
