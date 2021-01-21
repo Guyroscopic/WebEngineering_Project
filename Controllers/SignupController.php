@@ -106,9 +106,9 @@
 
 				elseif($page == "adminregister"){
 					if($userType == "Teacher")
-						header("location: ../Views/teacherTable.php");
+						header("location: ../Views/teacherTable.php?added=User Added!");
 					if($userType == "Student")
-						header("location: ../Views/StudentTable.php");
+						header("location: ../Views/StudentTable.php?added=User Added!");
 				}
 
 			}

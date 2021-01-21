@@ -165,6 +165,10 @@
 		<div class="flashMsgGreen">Student Deleted Successfully!</div>
 	<?php } ?>
 
+    <?php if(@$_GET["added"]){ ?>
+        <div class="flashMsgGreen"><?php echo @$_GET["added"]; ?></div>
+    <?php } ?>
+
 	<h1><span class="multi-text">Manage Student Database</span></h1>
 
 	<!-- Anchor tag for adding a student -->
