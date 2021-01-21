@@ -183,7 +183,7 @@
 
 				<?php
 				echo $result_form;	
-				echo "<form action='viewQuiz.php' method='POST'><button class='quiz-button' type='submit' name='backbutton'>Go Back To Quizzes</button><input type='hidden' value='".$tutorial_id."' name='tutorial_id'></form>";
+				echo "<form action='tutorial.php' method='POST'><button class='quiz-button' type='submit' name='backbutton'>Go Back To Tutorial</button><input type='hidden' value='".$tutorial_id."' name='tutorial_id'></form>";
 
 }				?>
 				</div>

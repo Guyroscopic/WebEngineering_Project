@@ -19,8 +19,9 @@
     
     $student_email     = $_SESSION["current_student_email"];
     $student_username  = $_SESSION["current_student_username"];
-    $student_loggedin  = true;
+    header("location: studentProfile.php");
   }
+  
   else{
     header("location: login.php?notloggedin=true");
   }
@@ -28,7 +29,6 @@
   
   //Adding the required Models
   require_once "../Models/QuizModel.php";
-
 
   if (isset($_POST["view"]) || isset($_POST["backbutton"]) || @$_GET["id"] || @$_GET["tutorial_id"]){
 

@@ -34,7 +34,13 @@
     require_once "../Models/StudentTutorialBridgeModel.php";
 
     //Extracting Tutorial ID from URL and fetching the respective Tutorial
-    $tutorial_id = $_GET["id"];
+    if(isset($_POST["backbutton"])){
+        $tutorial_id = $_POST["tutorial_id"];
+    }
+    else{
+        $tutorial_id = $_GET["id"];
+    }
+    
     $tutorial    = getTutorialByID($tutorial_id);
 
     //Check If the tutorial doesnt exist 
