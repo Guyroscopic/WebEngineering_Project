@@ -138,9 +138,7 @@
     <br>
     <a href="tutorial.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i>Tutorial</a>
     <br>
-    <?php if($teacher_loggedin){ ?>
-      <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
-    <?php } ?>
+    <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
     <br>
     <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <br>

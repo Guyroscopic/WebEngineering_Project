@@ -252,8 +252,9 @@
     <br>
     <a href="tutorial.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Tutorial</a>
     <br>
-    <a href="viewQuiz.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Quizzes</a>
-    <br>
+    <?php if($match > 0){ ?>
+    <a href="viewQuiz.php?id=<?php echo $tutorial_id; ?>"><i class="fa fa-hand-o-left"></i> Quizzes</a><br>
+	<?php } ?>
     <?php if($teacher_loggedin){ ?>
       <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <?php }elseif($student_loggedin){ ?>
