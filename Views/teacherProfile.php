@@ -171,6 +171,10 @@
                             <div class="flashMsgGreen">Tutorial Successfully Created!</div>
                         <?php } ?>
 
+                        <?php if(@$_GET["pwchanged"]){ ?>
+                            <div class="flashMsgGreen"><?php echo  @$_GET["pwchanged"]; ?></div>
+                        <?php } ?>
+
                         <h1>Welcome Teacher <?php echo $username ?></h1> 
                         <p>Email ID: <?php echo $email ?></p>
                         <p>Tutorials Published: <?php echo $num_teacher_tutorials ?></p>
@@ -180,7 +184,7 @@
                     <a class="btnA" href="publishedTutorials.php">View Published Tutorials</a>
                     <a class="btnA" href="createTutorial.php">Create New Tutorials</a>
                     <a class="btnA" href="updateInfo.php">Update Information</a>
-                    <a class="btnA" href="#">Change Password</a>
+                    <a class="btnA" href="changePassword.php">Change Password</a>
                     
                 </div>
             </div>

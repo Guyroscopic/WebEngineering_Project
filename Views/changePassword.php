@@ -125,7 +125,7 @@
       .sidenav a {font-size: 18px;}
     }
 
-  </style>	<title>Create Quiz</title>
+  </style>
 
 	<!-- Importing jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -164,7 +164,7 @@
 		<div class="flashMsgRed"><?php echo $_GET["error"]; ?></div>
 	<?php } ?>
 
-	<form class="form-horizontal" name="changePassword" method="POST" action='../Controllers/ChangePasswordController.php'>
+	<br><br><form class="form-horizontal" name="changePassword" method="POST" action='../Controllers/ChangePasswordController.php'>
 
 		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label">Old Password</label>

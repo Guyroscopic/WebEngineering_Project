@@ -174,6 +174,10 @@
                             <div class="flashMsgRed">Your access was Invalid</div>
                         <?php } ?>
 
+                        <?php if(@$_GET["pwchanged"]){ ?>
+                            <div class="flashMsgGreen"><?php echo  @$_GET["pwchanged"]; ?></div>
+                        <?php } ?>
+
                         <div class="text">
                             <h1>Welcome Student <?php echo $username ?></h1>                         
                             <p>Eamil ID: <?php echo $email ?></p>
@@ -182,7 +186,7 @@
 
                          <a class="btnA" href="viewTutorials.php">Browse Tutorials</a><br>
                          <a class="btnA" href="completedTutorials.php">Show Completed Tutorials</a><br>
-                         <a class="btnA" style="margin-bottom: 30px" href="#">Change Password</a><br><br>
+                         <a class="btnA" style="margin-bottom: 30px" href="changePassword.php">Change Password</a><br><br>
                     </div>
                 </div>
             </div>

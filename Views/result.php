@@ -133,7 +133,7 @@
 				$options 		 = array("option1", "option2", "option3", "option4");
 				$correct_option  = $question["correct_option"];
 
-				$result_form .= "<br><li>". $statement;
+				$result_form .= "<br><li>". $statement."<br>";
 
 				foreach ($options as $option) {
 						if($question[$option]){
@@ -156,7 +156,7 @@
 				$quiz_score_query_result = getStudentQuizScore($student_email, $quiz_id);
 				
 				// storing the score of student in database
-				if(mysqli_num_rows($quiz_score_query_result)){
+				if(mysqli_num_rows($quiz_score_query_result) > 0){
 					$quiz_score_array		 = mysqli_fetch_array($quiz_score_query_result);
 					$previous_score 		 = $quiz_score_array["quiz_score"];
 					if($previous_score < $score){

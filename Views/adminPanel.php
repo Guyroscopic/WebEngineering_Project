@@ -239,7 +239,7 @@
                         </a>
                       </div>
                       <div class="row row px-5 mx-4">                      
-                        <a class="btnA" href="#">Student Quiz Brirdge Table</a>          
+                        <a class="btnA" href="studentQuizBridgeTable">Student Quiz Brirdge Table</a>          
                       </div>
                     </div>
 

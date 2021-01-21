@@ -8,7 +8,7 @@
 
 		global $database_connection;
 
-		$sql_query = "INSERT INTO `student_quiz_bridge` VALUES('$student_email', '$quiz_id', '$quiz_score');";
+		$sql_query = "INSERT INTO `student_quiz_bridge`(`student_email`, `quiz_id`, `quiz_score`) VALUES('$student_email', '$quiz_id', '$quiz_score');";
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 
 		if (!$sql_query_execute) {
@@ -48,6 +48,22 @@
 	    printf("Quiz Error: %s\n", mysqli_error($database_connection));
 	    exit();
 		}
+	}
+
+	function getStudentQuizBridgeTable(){
+
+		global $database_connection;
+
+		$sql_query = "SELECT * FROM `student_quiz_bridge`";
+		$sql_query_execute = mysqli_query($database_connection, $sql_query);
+
+		if (!$sql_query_execute) {
+	    printf("Quiz Error: %s\n", mysqli_error($database_connection));
+	    exit();
+		}
+
+		return $sql_query_execute;
+
 	}
 
 ?>
