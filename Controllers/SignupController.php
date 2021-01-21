@@ -5,15 +5,15 @@
 	
 	/* Check if user is Already Logged In and redirect to Profile Page*/
 	if(isset($_SESSION['current_student_email']) and isset($_SESSION['current_student_username'])){
-			header("location: studentProfile.php");
-		}
+			header("location: ../Views/studentProfile.php");
+	}
 
 	elseif(isset($_SESSION['current_teacher_email']) and isset($_SESSION['current_teacher_username'])){
-			header("location: teacherProfile.php");
-		}
+			header("location: ../Views/teacherProfile.php");
+	}
 
 	elseif(isset($_SESSION['admin_email']) and isset($_SESSION['admin_username'])){
-		header("location: adminPanel.php");
+		//header("location: ../Views/adminPanel.php");
 	}
 
 	/* Including the User Model File */

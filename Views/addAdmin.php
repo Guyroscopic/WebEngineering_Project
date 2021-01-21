@@ -120,7 +120,7 @@
         <div class="flashMsgRed">OOPS! Looks like you left a field empty</div>
     <?php } ?>
 
-	<form class="form-horizontal" action="../Controllers/AddAdminController.php" method="POST">
+	<form class="form-horizontal" action="../Controllers/SignUpController.php" method="POST">
 
 		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label">Username</label>

@@ -101,7 +101,7 @@
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin: 0px 50px 0px 50px;
+          margin: 0px 50px 20px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
         }
@@ -111,7 +111,7 @@
       background-color: #76e060;
       opacity: 0.7;
       border-radius: 5px;
-      margin: 0px 50px 0px 50px;
+      margin: 0px 50px 20px 50px;
       text-align: center;
       font-size: 15px;
       padding: 5px 0 5px 0;
