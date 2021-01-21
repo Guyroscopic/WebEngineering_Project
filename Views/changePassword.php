@@ -36,7 +36,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
 
-  <title>Create Quiz</title>
+  <title>Change Password</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
@@ -140,14 +140,12 @@
     <br>
     <a href="about.php"><i class="fa fa-font"></i> About</a>
     <br>
-    <?php if($teacher_loggedin){ ?>
-      <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
-    <?php }
-    if($student_loggedin){ ?>
-      <a href="studentProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <a href="login.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>    <br>
+    <?php if($student_loggedin){ ?>
+      <a href="studentLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
+    <?php }elseif($teacher_loggedin){ ?>
+      <a href="teacherLogout.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <?php } ?>
-    <br>
-    <a href="login.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <br>
     </div>
 
