@@ -192,7 +192,7 @@
 		  <option value="option4">Option 4</option>
 		</select><br><br>
 
-		<button class="btn btn-info" type="submit" id="addQuestionButton" onclick="addQuestions()">Add More Question</button><br><br>
+		<button class="btn btn-info" id="addQuestionButton" onclick="addQuestions()">Add More Question</button><br><br>
 
 		<input id="numOfQuestions" type="hidden" name="numOfQuestions" value=1>
 		<button class="btn btn-info" name="create">Create</button>
