@@ -176,45 +176,7 @@
   echo "</ol>"
   ?>
 
-
-   <!--===== FOOTERpart starts ======-->    
-  <footer style="background-color: #c5c6c7" class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About our Project</h6>
-            <p class="text-justify">Our project is tutoring website for students where teachers can post and edit tutorials while students can see tutorials and can examine themselves through quizes. It is managed by Admin. We have used PHP for backend and HTML, CSS, jQuery and Bootstrap for frontend.</p>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Contact Information</h6>
-            <ul>
-              <p>SEECS</p>
-              <p>NUST, H12 Campus</p>
-              <p>ISLAMABAD</p>
-            </ul>
-          </div>
-          <br><br><br>
-          <div class="col-xs-6 col-md-3"><br>
-            <ul>
-              <p>BESE9B</p>
-              <p>Batch'2k18</p>
-            </ul>
-          </div>
-        </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!--===== FOOTERpart ends ======-->
-</div>
+  </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

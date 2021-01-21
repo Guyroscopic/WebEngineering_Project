@@ -115,9 +115,9 @@ INSERT INTO `admin`(`email`, `username`, `password`) VALUES ('admin2@example.com
 
 -- Populating "tutorial_catageory" Table
 INSERT INTO `tutorial_categeory`(`name`) VALUES ("Programming");
-INSERT INTO `tutorial_categeory`(`name`) VALUES ("Arts");
 INSERT INTO `tutorial_categeory`(`name`) VALUES ("Maths");
-INSERT INTO `tutorial_categeory`(`name`) VALUES ("Biology");
+INSERT INTO `tutorial_categeory`(`name`) VALUES ("Arts");
+INSERT INTO `tutorial_categeory`(`name`) VALUES ("English");
 
 -- Populating "tutorial" Table
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Python',             'In this tutorial we will have a bried overview of Python');
