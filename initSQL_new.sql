@@ -212,9 +212,138 @@ INSERT INTO `paragraph`(`tutorial_id`, `heading`, `content`) VALUES (20, 'Inirec
 
 
 -- Populating "quiz" Table
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (1, 'Python Quiz - Easy');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (1, 'Python Quiz - Medium');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (2, 'JS Quiz - Easy');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (3, 'C++ Quiz - Medium');
 
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (6, 'Variance Quiz');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (7, 'Quadratic Formula Quiz');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (7, 'Quadratic Formula Quiz - II');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (8, 'Complex Numbers');
+
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (11, 'Drawing Quiz');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (12, 'Conceptual Art');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (12, 'Conceptual Art - II');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (13, 'Ceramics Concepts');
+
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (16, 'Parts of Speech Quiz');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (18, 'Gerands Basics');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (17, 'Use of Tenses');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (18, 'Gerands - II');
 
 -- Populating "question" Table
+-- Quiz 1 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (1, 'What is output for search. find(S)?', 's', '-1', 'None', 'A and B', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (1, 'What is output for b = [11,13,15,17,19,21] ptint(b[::2])', '[19,21]', '[11,15]', '[11,15,19]', ' [13,17,21]', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (1, 'Which of the function among will return 4 on the set s = {3, 4, 1, 2}?', 'Sum(s)', 'Len(s)', ' Max(s)', 'option 1 & 2', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (1, 'In the following options which are python libraries which are used for data analysis and scientific computations', 'Numpy', 'OS', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (1, 'Suppose we have a set a = {10,9,8,7}, and we execute a.remove(14) what will happen ?', ' We cannot remove an element from set.', 'Key error is raised', 'option2');
+
+-- Quiz 2 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (2, 'What is output of following : print(any.encode())', 'any', 'yan', 'bany', 'None', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (2, 'Select the correct function among them which can be used to write the data to perform for a binary output?', 'Write', 'Output.binary', 'Dump', 'Binary.output', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (2, 'What is output for b = [11,13,15,17,19,21] ptint(b[::2])', '[19,21]', '[11,15]', '[11,15,19]', ' [13,17,21]', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (2, 'Which built-in method returns the character at the specified index?', 'characterAt()', 'getCharAt()', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (2, 'What is output for search. find(S)?', 's', '-1', 'option2');
+
+-- Quiz 3 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (3, 'Which of the following is true about typeof operator in JavaScript?', 'The typeof is a unary operator.', 'Its value is a string indicating the data type of the operand.', 'Both of the above.', 'None', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (3, 'Select the correct function among them which can be used to write the data to perform for a binary output?', 'Write', 'Output.binary', 'Dump', 'Binary.output', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (3, 'What is output for b = [11,13,15,17,19,21] ptint(b[::2])', '[19,21]', '[11,15]', '[11,15,19]', ' [13,17,21]', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (3, 'Can you pass a anonymous function as an argument to another function?', 'true', 'false', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (3, 'What is output for search. find(S)?', 's', '-1', 'option2');
+
+-- Quiz 4 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (4, '‘cin’ is an __', 'Class', 'Object', 'Package', 'Namespace', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (4, 'The pointer which stores always the current active object address is __', 'auto_ptr', 'this', 'p', 'none of the above.', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (4, 'What is the full form of STL?', 'Standard template library.', 'System template library.', 'Standard topics library', ' None of the above.', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (4, 'Standard template library.', 'No', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (4, 'C++ can also be written as', 'Cpp', 'C+=', 'option1');
+
+-- Quiz 5 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (5, 'Which of the following statistics cannot be negative?', 'Covariance', 'Variance', 'E(r)', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (5, 'You are given : 6,3,5,2,6,4,9. Which is not true?', 'model is 6', 'median is 5', 'mean is 6', 'range is 7', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (5, 'Which of the follow is not a measure of dispersion?', 'Range', 'Standard Deviation', 'Variance', 'Median', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (5, 'To solve variance problems in python we can use', 'Cpp', 'numpy', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (5, 'What is statistical variance?', 'The square of the standard deviation', 'The square root of the standard deviation', 'option1');
+
+-- Quiz 6 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (6, 'x^2 = 36. What is the value of x?', '6', '4', '9', '8', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (6, '2x^2 - 5x + 3 = 0, x is:', '1', '3/2', '2/3', 'A and B', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (6, '3x^2 - x = 10', '-5/3', '2', '4', 'A and B', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (6, ' (x - 7)(x - 9) = 195', '-6', '-22', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (6, 'x/3 +3/x =  4 1/4', '12', '-12', 'option1');
+
+-- Quiz 7 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (7, 'x^2 = 36. What is the value of x?', '6', '4', '9', '8', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (7, '2x^2 - 5x + 3 = 0, x is:', '1', '3/2', '2/3', 'A and B', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (7, 'An equation ax^2 + bx + c = 0 is called', 'Linear', 'Quadratic', 'Cubic', 'A and B', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (7, 'For a quadratic equation ax^2 + bx + c = 0', 'b != 0', 'a != 0', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (7, 'Another name for a quadratic equation is', 'Second Degree', 'Linear', 'option1');
+
+-- Quiz 8 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (8, 'Which of the following statistics cannot be negative?', 'Covariance', 'Variance', 'E(r)', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (8, 'What is statistical variance?', 'The square of the standard deviation', 'The square root of the standard deviation', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (8, 'This is The Sixth Question For Python Quiz:', 'Yes', 'None', 'No', 'A and B', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (8, 'x^2 = 36. What is the value of x?', '6', '4', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (8, 'x/3 +3/x =  4 1/4', '12', '-12', 'option1');
+
+-- Quiz 9 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (9, 'Which of the following statistics cannot be negative?', 'Covariance', 'Variance', 'E(r)', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (9, 'x/3 +3/x =  4 1/4', '12', '-12', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (9, 'This is The Sixth Question For Python Quiz:', 'Yes', 'None', 'No', 'A and B', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (9, 'Another name for a quadratic equation is', 'Second Degree', 'Linear', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (9, 'C++ can also be written as', 'Cpp', 'C+=', 'option1');
+
+-- Quiz 10 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (10, 'Which of the following statistics cannot be negative?', 'Covariance', 'Variance', 'E(r)', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (10, 'Another name for a quadratic equation is', 'Second Degree', 'Linear', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (10, 'C++ can also be written as', 'Cpp', 'C+=', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (10, 'x/3 +3/x =  4 1/4', '12', '-12', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (10, 'Another name for a quadratic equation is', 'Second Degree', 'Linear', 'option1');
+
+-- Quiz 11 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (11, 'x^2 = 36. What is the value of x?', '6', '4', '9', '8', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (11, 'This is The Second Question For Python Quiz:', 'Yes', 'No', 'None', 'A and B', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (11, 'This is The Sixth Question For Python Quiz:', 'Yes', 'None', 'No', 'A and B', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (11, 'Another name for a quadratic equation is', 'Second Degree', 'Linear', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (11, 'This is The Fourth Question For Python Quiz:', 'None', 'A and B', 'option1');
+
+-- Quiz 12 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (12, 'What is output for search. find(S)?', 's', '-1', 'None', 'A and B', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (12, 'What is output for b = [11,13,15,17,19,21] ptint(b[::2])', '[19,21]', '[11,15]', '[11,15,19]', ' [13,17,21]', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (12, 'Which of the function among will return 4 on the set s = {3, 4, 1, 2}?', 'Sum(s)', ' Len(s)', ' Max(s)', 'option 1 & 2', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (12, 'In the following options which are python libraries which are used for data analysis and scientific computations', 'Numpy', 'OS', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (12, 'Suppose we have a set a = {10,9,8,7}, and we execute a.remove(14) what will happen ?', ' We cannot remove an element from set.', 'Key error is raised', 'option2');
+
+-- Quiz 13 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (13, 'What is output of following : print(any.encode())', 'any', 'yan', 'bany', 'None', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (13, 'Select the correct function among them which can be used to write the data to perform for a binary output?', 'Write', 'Output.binary', 'Dump', 'Binary.output', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (13, 'What is output for b = [11,13,15,17,19,21] ptint(b[::2])', '[19,21]', '[11,15]', '[11,15,19]', ' [13,17,21]', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (13, 'Which built-in method returns the character at the specified index?', 'characterAt()', 'getCharAt()', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (13, 'What is output for search. find(S)?', 's', '-1', 'option2');
+
+-- Quiz 14 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (14, 'Which of the following is true about typeof operator in JavaScript?', 'The typeof is a unary operator.', 'Its value is a string indicating the data type of the operand.', 'Both of the above.', 'None', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (14, 'Select the correct function among them which can be used to write the data to perform for a binary output?', 'Write', 'Output.binary', 'Dump', 'Binary.output', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (14, 'What is output for b = [11,13,15,17,19,21] ptint(b[::2])', '[19,21]', '[11,15]', '[11,15,19]', ' [13,17,21]', 'option3');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (14, 'Can you pass a anonymous function as an argument to another function?', 'true', 'false', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (14, 'What is output for search. find(S)?', 's', '-1', 'option2');
+
+-- Quiz 15 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (15, '‘cin’ is an __', 'Class', 'Object', 'Package', 'Namespace', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (15, 'The pointer which stores always the current active object address is __', 'auto_ptr', 'this', 'p', 'none of the above.', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (15, 'What is the full form of STL?', 'Standard template library.', 'System template library.', 'Standard topics library', ' None of the above.', 'option1');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (15, 'Standard template library.', 'No', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (15, 'C++ can also be written as', 'Cpp', 'C+=', 'option1');
+
+-- Quiz 16 --
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (16, 'Which of the following statistics cannot be negative?', 'Covariance', 'Variance', 'E(r)', 'None', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (16, 'You are given : 6,3,5,2,6,4,9. Which is not true?', 'model is 6', 'median is 5', 'mean is 6', 'range is 7', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (16, 'Which of the follow is not a measure of dispersion?', 'Range', 'Standard Deviation', 'Variance', 'Median', 'option4');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (16, 'To solve variance problems in python we can use', 'Cpp', 'numpy', 'option2');
+INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (16, 'What is statistical variance?', 'The square of the standard deviation', 'The square root of the standard deviation', 'option1');
 
 
 -- Populating "student_tutorial_bridge" Table

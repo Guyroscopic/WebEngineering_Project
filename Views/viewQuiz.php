@@ -45,15 +45,6 @@
     }
     
     $quiz = getQuizByTutorialIDesc($tutorial_id);
-
-    //Check If the Quiz Doesnt Exist 
-    if(mysqli_num_rows($quiz) == 0){
-      echo "<h3>No Quiz for This Tutorial</h3>";
-      exit();
-    }
-    else{
-    //Else Display the Quiz Topics
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -122,6 +113,12 @@
       text-decoration: none;
     }
 
+    .quiz-msg{
+        color: #708090;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+
     .flashMsgRed{
           color: #fff;          
           opacity: 0.7;
@@ -131,7 +128,7 @@
           margin: 0px 50px 0px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
-        }
+    }
 
     .flashMsgGreen{
       color: #fff;
@@ -200,9 +197,16 @@
   <h1 align="center">
       <span class="multi-text">Quizzes</span>
     </h1>
+    <br>
     <div class="main">
     <!-- Displaying All Quizzes For That Tutorial -->
     <?php
+
+    // if no quiz has been created for the tutorial
+    if(mysqli_num_rows($quiz) == 0){
+      echo "<h3 class='quiz-msg'>No Quiz for This Tutorial</h3>";
+      exit();
+    }
 
     if(@$_GET["quizCreated"])
       echo "<div class='flashMsgGreen'>" . @$_GET["quizCreated"] . "</div>";
