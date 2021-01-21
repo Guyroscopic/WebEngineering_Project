@@ -229,16 +229,16 @@
                   <div class="row mb-3">
 
                     <!-- Viewing Rights -->
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="col-lg-6 col-md-6 col-sm-6 border-right border-white">
                       <div class="row px-5 mx-3">
                         <span style="text-align: center" class="right-title">You have Viewing Rights on:</span>
                       </div>
-                      <div class="row row px-5 mx-4">
+                      <div class="row px-5 mx-3">
                         <a class="btnA" href="studentTutorialBridgeTable.php">
                           Student Tutorial Bridge Table
                         </a>
                       </div>
-                      <div class="row row px-5 mx-4">                      
+                      <div class="row px-5 mx-3">                      
                         <a class="btnA" href="studentQuizBridgeTable">Student Quiz Brirdge Table</a>          
                       </div>
                     </div>
