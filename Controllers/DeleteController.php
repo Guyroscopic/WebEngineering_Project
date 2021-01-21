@@ -59,7 +59,7 @@
     elseif(@$_GET["id"]){
 
     	$id = mysqli_real_escape_string($database_connection, stripslashes($_GET["id"]));
-        if($table == "tutorial_catageory"){
+        if($table == "tutorial_categeory"){
             deleteTutorialCategory($id);
 
             //Closing the DB Connection

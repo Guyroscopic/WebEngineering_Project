@@ -1,39 +1,39 @@
--- Creating "webproject_new" Database
-DROP DATABASE IF EXISTS webproject_new;
-CREATE DATABASE webproject_new;
+-- Creating "lazylearn" Database
+DROP DATABASE IF EXISTS lazylearn;
+CREATE DATABASE lazylearn;
 
 -- Using the Database
-USE webproject_new;
+USE lazylearn;
 
 -- Creating "student" Table
-CREATE TABLE `webproject_new`.`student` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`student` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
 
 -- Creating "teacher" Table
-CREATE TABLE `webproject_new`.`teacher` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , `education` VARCHAR(1000) NOT NULL , `description` VARCHAR(1000) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`teacher` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , `education` VARCHAR(1000) NULL , `description` VARCHAR(1000) NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
 
 -- Creating "admin" Table
-CREATE TABLE `webproject_new`.`admin` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`admin` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
 
 -- Creating "tutorial_catageory" Table
-CREATE TABLE `webproject_new`.`tutorial_categeory` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`tutorial_categeory` ( `id` INT NOT NULL AUTO_INCREMENT , `name` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Creating "tutorial" Table
-CREATE TABLE `webproject_new`.`tutorial` ( `id` INT NOT NULL AUTO_INCREMENT , `category_id` INT NOT NULL , `instructor` VARCHAR(100) NOT NULL , `title` VARCHAR(100) NOT NULL , `description` VARCHAR(1000) NOT NULL , `video` VARCHAR(100) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`tutorial` ( `id` INT NOT NULL AUTO_INCREMENT , `category_id` INT NOT NULL , `instructor` VARCHAR(100) NOT NULL , `title` VARCHAR(100) NOT NULL , `description` VARCHAR(1000) NOT NULL , `video` VARCHAR(100) NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Creating "paragraph" Table
-CREATE TABLE `webproject_new`.`paragraph` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , `heading` VARCHAR(100) NOT NULL , `content` VARCHAR(5000) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`paragraph` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , `heading` VARCHAR(100) NOT NULL , `content` VARCHAR(5000) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Creating "quiz" Table
-CREATE TABLE `webproject_new`.`quiz` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , `topic` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`quiz` ( `id` INT NOT NULL AUTO_INCREMENT , `tutorial_id` INT NOT NULL , `topic` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Creating "question" Table
-CREATE TABLE `webproject_new`.`question` ( `id` INT NOT NULL AUTO_INCREMENT , `quiz_id` INT NOT NULL , `statement` VARCHAR(1000) NOT NULL , `option1` VARCHAR(100) NOT NULL , `option2` VARCHAR(100) NOT NULL , `option3` VARCHAR(100) NULL , `option4` VARCHAR(100) NULL , `correct_option` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`question` ( `id` INT NOT NULL AUTO_INCREMENT , `quiz_id` INT NOT NULL , `statement` VARCHAR(1000) NOT NULL , `option1` VARCHAR(100) NOT NULL , `option2` VARCHAR(100) NOT NULL , `option3` VARCHAR(100) NULL , `option4` VARCHAR(100) NULL , `correct_option` VARCHAR(100) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Creating "student_tutorial_bridge" Table
-CREATE TABLE `webproject_new`.`student_tutorial_bridge` ( `id` INT NOT NULL AUTO_INCREMENT , `student_email` VARCHAR(100) NOT NULL , `tutorial_id` INT NOT NULL , `tutorial_rating` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`student_tutorial_bridge` ( `id` INT NOT NULL AUTO_INCREMENT , `student_email` VARCHAR(100) NOT NULL , `tutorial_id` INT NOT NULL , `tutorial_rating` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Creating "student_quiz_bridge" Table
-CREATE TABLE `webproject_new`.`student_quiz_bridge` ( `id` INT NOT NULL AUTO_INCREMENT , `student_email` VARCHAR(100) NOT NULL , `quiz_id` INT NOT NULL , `quiz_score` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `lazylearn`.`student_quiz_bridge` ( `id` INT NOT NULL AUTO_INCREMENT , `student_email` VARCHAR(100) NOT NULL , `quiz_id` INT NOT NULL , `quiz_score` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 -- Adding Foregin Key Reference from "tutorial" to "tutorial_catageory"
 ALTER TABLE tutorial 
@@ -230,7 +230,7 @@ INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (13, 'Ceramics Concepts');
 INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (16, 'Parts of Speech Quiz');
 INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (18, 'Gerands Basics');
 INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (17, 'Use of Tenses');
-INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (18, 'Gerands - II');
+INSERT INTO `quiz` (`tutorial_id`, `topic`) VALUES (18, 'Gerunds - II');
 
 -- Populating "question" Table
 -- Quiz 1 --
@@ -344,12 +344,3 @@ INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`,
 INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `option3`, `option4`, `correct_option`)  VALUES (16, 'Which of the follow is not a measure of dispersion?', 'Range', 'Standard Deviation', 'Variance', 'Median', 'option4');
 INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (16, 'To solve variance problems in python we can use', 'Cpp', 'numpy', 'option2');
 INSERT INTO `question` (`quiz_id`, `statement`, `option1`, `option2`, `correct_option`)  VALUES (16, 'What is statistical variance?', 'The square of the standard deviation', 'The square root of the standard deviation', 'option1');
-
-
--- Populating "student_tutorial_bridge" Table
-
-
---Populating "student_quiz_bridge"Table
-
-
-

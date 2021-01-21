@@ -119,14 +119,14 @@
         }
 
         .container td, .container th {
-            padding-bottom: 2%;
-            padding-top: 2%;
-            padding-left: 2%;  
+            padding-bottom: 1%;
+            padding-top: 1%;
+            padding-left: 1%;  
         }
 
         .container td:last-child{
-            padding-bottom: 2%;
-            padding-top: 2%;
+            padding-bottom: 1%;
+            padding-top: 1%;
         }
 
         /* Background-color of the odd rows */
@@ -184,8 +184,8 @@
 		</tr>
 		<?php while($row = mysqli_fetch_assoc($question_table)){ ?>
 		<tr>
-			<td><?php echo $row["id"] ?></td>
-			<td><?php echo $row["quiz_id"] ?></td>
+			<td style="min-width: 40px;"><?php echo $row["id"] ?></td>
+			<td style="min-width: 50px;"><?php echo $row["quiz_id"] ?></td>
 			<td><?php echo $row["statement"] ?></td>
 			<td><?php echo $row["option1"] ?></td>
 			<td><?php echo $row["option2"] ?></td>

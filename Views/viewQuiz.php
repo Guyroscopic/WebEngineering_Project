@@ -125,7 +125,7 @@
           background-color: #db5a5a;
           border-radius: 5px;
           text-align: center;
-          margin: 0px 50px 0px 50px;
+          margin: 0px 50px 30px 50px;
           font-size: 15px;
           padding: 5px 0 5px 0;
     }

@@ -119,14 +119,14 @@
         }
 
         .container td, .container th {
-            padding-bottom: 2%;
-            padding-top: 2%;
-            padding-left: 2%;  
+            padding-bottom: 1%;
+            padding-top: 1%;
+            padding-left: 1%; 
         }
 
         .container td:last-child{
-            padding-bottom: 2%;
-            padding-top: 2%;
+            padding-bottom: 1%;
+            padding-top: 1%;
         }
 
         /* Background-color of the odd rows */
@@ -158,6 +158,10 @@
 	        font-size: 15px;
 	        padding: 5px 0 5px 0;
     	}
+        td, th{
+            
+        }
+        
         
 	</style>
 </head>
@@ -183,10 +187,10 @@
 		<tbody>
 		<?php while($row = mysqli_fetch_assoc($paragraph_table)){ ?>
 		<tr>
-			<td><?php echo $row["id"] ?></td>
-			<td><?php echo $row["tutorial_id"] ?></td>
+			<td style="min-width: 50px;"><?php echo $row["id"] ?></td>
+			<td style="min-width: 60px;"><?php echo $row["tutorial_id"] ?></td>
 			<td><?php echo $row["heading"] ?></td>
-			<td><?php echo $row["content"] ?></td>
+			<td style="max-width: 2200px;"><?php echo $row["content"] ?></td>
 			<td><a href='../Controllers/DeleteController.php?table=paragraph&id=<?php echo $row["id"] ?>'>Delete</a></td>
 		</tr>
 		<?php } ?>
