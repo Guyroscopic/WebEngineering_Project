@@ -138,9 +138,14 @@
     <br><br>
     <a href="/webproject"><i class="fa fa-home"></i> Home</a>
     <br>
-    <a href="About.php"><i class="fa fa-font"></i> About</a>
+    <a href="about.php"><i class="fa fa-font"></i> About</a>
     <br>
-    <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <?php if($teacher_loggedin){ ?>
+      <a href="teacherProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <?php }
+    if($student_loggedin){ ?>
+      <a href="studentProfile.php"><i class="fa fa-hand-o-left"></i> Return to Profile</a>
+    <?php } ?>
     <br>
     <a href="login.php"><i class="fa fa-arrow-circle-right"></i> Logout</a>
     <br>
