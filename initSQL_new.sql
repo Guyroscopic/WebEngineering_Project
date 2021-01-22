@@ -120,25 +120,25 @@ INSERT INTO `tutorial_categeory`(`name`) VALUES ("Arts");
 INSERT INTO `tutorial_categeory`(`name`) VALUES ("English");
 
 -- Populating "tutorial" Table
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Python',             'In this tutorial we will have a bried overview of Python');
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com','JavaScript Features', 'In this tutorial we will have a bried overview of JavaScript Features');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (1, 'qaiser@example.com', 'Python',             'In this tutorial we will have a bried overview of Python', '../assets/videos/videoForTutorial_1.mp4');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (1, 'qaiser@example.com','JavaScript Features', 'In this tutorial we will have a bried overview of JavaScript Features', '../assets/videos/videoForTutorial_2.mp4');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'C++',                'In this tutorial we will have a bried overview of C++');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'Java Program Struture', 'In this tutorial we will have a bried overview of Java Program Structure' );
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (1, 'qaiser@example.com', 'C Data Types',          'In this tutorial we will have a bried overview of C Data Types');
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Population and Sample Variance','Lets have fun with Ratios and Variance!!');
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'Quadratic Formula',  'The most important formula you need to know');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (2, 'qaiser@example.com', 'Population and Sample Variance','Lets have fun with Ratios and Variance!!', '../assets/videos/videoForTutorial_6.mp4');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (2, 'qaiser@example.com', 'Quadratic Formula',  'The most important formula you need to know', '../assets/videos/videoForTutorial_7.mp4');
 
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'tofeeq@example.com', 'Complex Numbers', 'In this tutorial we will learn about Complex Numbers and iota');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'qaiser@example.com', 'History Calculus', 'Newton invented Calculus and we will learn how he did it!');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (2, 'tofeeq@example.com', 'Linear Algebra Vector Spaces', 'Lets have a look on why Linear Algebra is the best branch of Maths');
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Drawing', 'Lets have a look at Drawing' );
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Conceptual art', 'What is Conceptual Art?');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (3, 'tofeeq@example.com', 'Drawing', 'Lets have a look at Drawing', '../assets/videos/videoForTutorial_11.mp4');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (3, 'tofeeq@example.com', 'Conceptual art', 'What is Conceptual Art?', '../assets/videos/videoForTutorial_12.mp4');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Ceramics', 'How to make realistic looking Ceremic Sculptures');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'tofeeq@example.com', 'Painting', 'All you need to know about Painting');
 
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (3, 'hammad@example.com', 'How to get started with Photography', 'In this tutorial we will learn about the basics of Photography');
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'What are the parts of Speech?', 'In this tutorial we will look at all 8 Parts of Speech');
-INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'How to use the Past Perfect Tense', 'Lets Learn about Past Perfect Tense');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (4, 'hammad@example.com', 'What are the parts of Speech?', 'In this tutorial we will look at all 8 Parts of Speech', '../assets/videos/videoForTutorial_16.mp4');
+INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`, `video`) VALUES (4, 'hammad@example.com', 'How to use the Past Perfect Tense', 'Lets Learn about Past Perfect Tense', '../assets/videos/videoForTutorial_17.mp4');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'What are Gerunds', 'Gerunds are an important part of English Grammer, in this tutorial we will get familiarized with them' );
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'How to improve your Vocabulary', 'In this tutorial we will look on different techniques to make your vocab better');
 INSERT INTO `tutorial`(`category_id`, `instructor`, `title`, `description`) VALUES (4, 'hammad@example.com', 'How to Change Direct Sentences to Indirect Sentences', 'Direct and Indirect Sentences');
