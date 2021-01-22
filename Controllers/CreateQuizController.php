@@ -90,6 +90,9 @@
 			$question_array[$i] = $ques	;	
 		}
 
+		if(!$quiz_created){
+			$quiz_id = addQuiz($tutorial_id, $quiz_topic);
+		}
 		foreach ($question_array as $q) {
 
 			$question 		= $q["question"];
