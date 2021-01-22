@@ -109,6 +109,8 @@
 						header("location: ../Views/teacherTable.php?added=User Added!");
 					if($userType == "Student")
 						header("location: ../Views/StudentTable.php?added=User Added!");
+					if($userType == "Admin")
+						header("location: ../Views/adminTable.php?added=User Added!");
 				}
 
 			}

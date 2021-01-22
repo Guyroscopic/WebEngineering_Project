@@ -16,7 +16,7 @@
     else{
     	header("location: adminLogin.php?notloggedin=true");
     }
-?> 
+?>  
 
 <!DOCTYPE html>
 <html>
@@ -172,6 +172,17 @@
 			</div>
 		    </div>
 		<?php } ?>
+
+    <?php if(@$_GET["usertype"] == "addAdmin"){ ?>
+      <h1><span class="multi-text">Add Admin</span></h1><br><br>
+      <div class="form-group row"> 
+      <label class="col-sm-2 col-form-label col-form-label">User Type:</label>
+      <div class="col-sm-4">
+      <input class="form-control form-control" type="text" name="registertype" value="Admin" readonly>
+      <br>
+      </div>
+        </div>
+    <?php } ?>
 
 		<div class="form-group row"> 
 		<label class="col-sm-2 col-form-label col-form-label">Username</label>

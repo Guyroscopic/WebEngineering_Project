@@ -35,6 +35,7 @@
 			exit();
 		}
  
+ 		$question_array = Array();
 		// adding questions to quiz
 		for($i=1; $i<=$num_of_questions; $i++){
 
@@ -85,14 +86,23 @@
 				header("location: ../Views/createQuiz.php?empty=Invalid Option Selected&tutorial_id=".$tutorial_id);
 				exit();
 			}
+			$ques = Array("question"=>$question, "option1"=>$option1, "option2"=>$option2, "option3"=>$option3, "option4"=>$option4, "answer"=>$correct_answer);
+			$question_array[$i] = $ques	;	
+		}
 
-			if(!$quiz_created){
-				// creating quiz
-				$quiz_id = addQuiz($tutorial_id, $quiz_topic);
-				$quiz_created = true;
-			}
-			// calling addQuestions function to add questions to database
+		if(!$quiz_created){
+			$quiz_id = addQuiz($tutorial_id, $quiz_topic);
+		}
+		foreach ($question_array as $q) {
+
+			$question 		= $q["question"];
+			$option1  		= $q["option1"];
+			$option2  		= $q["option2"];
+			$option3  		= $q["option3"];
+			$correct_answer = $q["answer"];
+			//calling addQuestions function to add questions to database
 			addQuestions($quiz_id, $question, $option1, $option2, $option3, $option4, $correct_answer);
+
 		}
 
 		//Closing the DB Connection

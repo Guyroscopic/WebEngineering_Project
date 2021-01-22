@@ -162,13 +162,13 @@
 </head>
 <body>
 
-	<?php if(@$_GET["success"]){ ?>
-		<div class="flashMsgGreen">Admin Deleted Successfully!</div>
+	<?php if(@$_GET["added"]){ ?>
+		<div class="flashMsgGreen">Admin Added Successfully!</div>
 	<?php } ?>
 
 	<h1><span class="multi-text">Manage Admin Database</span></h1>
 	<!-- Anchor tag for adding a student -->
-	<h2><span id="add" class="fa fa-plus-circle">&nbsp;<a href="addAdmin.php">Add an Admin</a></span></h2><br><br>
+	<h2><span id="add" class="fa fa-plus-circle">&nbsp;<a href="registerUser.php?usertype=<?php echo 'addAdmin' ?>">Add an Admin</a></span></h2><br><br>
 
 	<!-- Table tag for displaying the student table -->
 	<table class="container">
