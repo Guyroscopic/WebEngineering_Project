@@ -10,10 +10,11 @@
 	*/
 
 	$DB_HOST = "localhost";
+
+	//ENTER YOUR OWN USER AND PASSWORD
 	$DB_USERNAME = "root";
 	$DB_PASSWORD = "";
 
-	//$DB_NAME = "webproject";
 	$DB_NAME = "lazylearn";
 
 	/* Connecting to MySql Database*/

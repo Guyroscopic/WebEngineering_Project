@@ -1,0 +1,25 @@
+-- Following are some guidelines you have to follow to Run the Website on your system
+
+1) Put the "webproject" directory in the "www" directory of WAMP. Make sure to name it "webproject" else the routing won't work, as the home route is set to "/webproject."
+2) Make sure the "webproject" directory contains 4 directories i.e "assets", "Controllers", "Models" and "Views", and three files i.e "index.php", "initSQL_new.sql" and "READ ME.txt".
+3) Open your phpMyAdmin and run the "initSQL_new.sql" file to make the Database for the website.
+4) Open the "webproject/Models/DBconfig.php" file and set the user and password of your phpMyAdmin user on line 15 and 16, respectively. 
+5) Set the "post_max_size" and "upload_max_filesize" to "256M" in your WAMP -> PHP settings, else you will not be able to upload videos in the website.
+6) Go to "localhost/webproject" to launch the website.
+
+-- Following are Some Student Credentials provided in the database that you can use to login as a Student.
+
+Email ID: "rafey@example.com" | "laraib@example.com" | "fatima@example.com" | "ghazala@example.com"
+Password: "12345678" (for all IDs)
+
+
+-- Following are Some Teacher Credentials provided in the database that you can use to login as a Teacher.
+
+Email ID: "qaiser@example.com" | "tofeeq@example.com" | "hammad@example.com"
+Password: "12345678" (for all IDs)
+
+
+-- Following are Some Admin Credentials provided in the database that you can use to login as an Admin.
+
+Email ID: "admin1@example.com" | "admin2@example.com"
+Password: "12345678" (for all IDs)
