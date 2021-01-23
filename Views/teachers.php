@@ -41,22 +41,22 @@
     </style>
 
     <!-- Bootstrap css -->
-    <link rel="stylesheet" href="../web project/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
     <!-- Line Icons css -->
-    <link rel="stylesheet" href="../web project/assets/css/LineIcons.css"> 
+    <link rel="stylesheet" href="../assets/css/LineIcons.css"> 
     
     <!-- Slick css -->
-    <link rel="stylesheet" href="../web project/assets/css/slick.css"> 
+    <link rel="stylesheet" href="../assets/css/slick.css"> 
 
     <!-- Animate css -->
-    <link rel="stylesheet" href="../web project/assets/css/animate.css">
+    <link rel="stylesheet" href="../assets/css/animate.css">
 
     <!-- Default css -->
-    <link rel="stylesheet" href="../web project/assets/css/default.css">
+    <link rel="stylesheet" href="../assets/css/default.css">
 
     <!-- Style css -->
-    <link rel="stylesheet" href="../web project/assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <!-- Bootstrap 4.5 --> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -271,30 +271,30 @@
 
     <!--====== jquery js ======-->
  
-    <script src="../web project/assets/js/jquery-1.12.4.min.js"></script> 
+    <script src="../assets/js/jquery-1.12.4.min.js"></script> 
 
     <!--====== Bootstrap js ======-->
-    <script src="../web project/assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
 
 
     <!--====== Slick js ======-->
-    <script src="../web project/assets/js/slick.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
 
     <!--====== Isotope js ======-->
-    <script src="../web project/assets/js/isotope.pkgd.min.js"></script>
+    <script src="../assets/js/isotope.pkgd.min.js"></script>
 
     <!--====== Images Loaded js ======-->
-    <script src="../web project/assets/js/imagesloaded.pkgd.min.js"></script> 
+    <script src="../assets/js/imagesloaded.pkgd.min.js"></script> 
     
     <!-- Scrolling js -->
-    <script src="../web project/assets/js/scrolling-nav.js"></script>
-    <script src="../web project/assets/js/jquery.easing.min.js"></script> 
+    <script src="../assets/js/scrolling-nav.js"></script>
+    <script src="../assets/js/jquery.easing.min.js"></script> 
 
     <!-- wow js -->
-    <script src="../web project/assets/js/wow.min.js"></script>
+    <script src="../assets/js/wow.min.js"></script>
 
     <!-- Main js -->
-    <script src="../web project/assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <!-- BOOTSTRAP JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
