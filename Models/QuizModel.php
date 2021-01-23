@@ -18,7 +18,7 @@
 		}*/
 		$quiz_id =  mysqli_insert_id($database_connection);
 
-		return $quiz_id;
+		return $quiz_id; 
 	}
 
 	function addQuestions($quiz_id, $questionStatement, $option1, $option2, $option3, $option4, $correct_option){

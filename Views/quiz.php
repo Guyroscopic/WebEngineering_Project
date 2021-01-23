@@ -278,6 +278,16 @@
 		<div class="flashMsgRed"><?php echo $_GET["error"]; ?></div>
 	<?php } ?>
 
+	<?php 
+	if(@$_GET["error"]){?>
+		<div class="flashMsgRed"><?php echo $_GET["error"]; ?></div>
+	<?php } ?>
+
+	<?php 
+	if(@$_GET["success"]){?>
+		<div class="flashMsgGreen"><?php echo $_GET["success"]; ?></div>
+	<?php } ?>
+
 	<!-- Displaying The Quiz Content -->
 	<?php 
 		if($teacher_loggedin){

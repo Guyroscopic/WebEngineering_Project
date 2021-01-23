@@ -117,7 +117,7 @@
 
 		//Closing the DB Connection
 		mysqli_close($database_connection);	
-		header("location: ../Views/quiz.php?id=".$quizId);	
+		header("location: ../Views/quiz.php?id=".$quizId."&success=Quiz Edited");	
 	}
 
 	else{
