@@ -142,12 +142,10 @@
             }
 
             .white-box { 
-                width: 300px; 
-                height: 100px;
-                display: flex;
-                flex-direction: row;
+                width: 25%; 
+                height: 100%;
                 background: rgba(255,255,255,0.3);
-                padding: 0 15px;
+                padding: 15px 15px 0 15px;
                 box-shadow: 0 1px 2px rgba(0,0,0,0.50);
                 border-radius: 5px;
             }
@@ -155,8 +153,7 @@
             .white-box:hover{
                 cursor: pointer;
                 background: #AFEEEE;
-                width: 320px;
-                height: 90px;
+                height: 110%;
             }
 
             .main-content1{
@@ -318,7 +315,7 @@
                 <h4>
                     Category: <?php echo $category["name"] ?>
                 </h4>
-            </div>
+            </div>  
           </div>
           <br><br>
 
@@ -329,7 +326,7 @@
             <?php if($video_path){ ?>
             <h2 class="main-content2">Video</h2>
             <div class="video">
-                <video width="640" height="480" controls>Your browser does not support the video tag.
+                <video width="70%" height="90%" controls>Your browser does not support the video tag.
                     <source src="<?php echo $video_path ?>"/>
                 </video>
             </div>

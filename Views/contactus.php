@@ -239,8 +239,8 @@
 
             <!-- <div class="mt-30 wow fadeInUp" data-wow-duration="1.5s" data-wow-delay="0.7s">  -->
             <div class="text-color">
-                <h1>Contact</h1>
-                <p><b>For further queries you can reach us out through our email 
+                <h1 align="center">Contact</h1>
+                <p align="center"><b>For further queries you can reach us out through our email 
                 adresses.</b></p>
             </div>                
         </div>
@@ -252,23 +252,23 @@
             
         <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <a align="center" href="mailto:fkhalid.bese18seecs@seecs.edu.pk">
+        <div class="col-lg-2 col-md-2 col-sm-2" align="center">
+            <a href="mailto:fkhalid.bese18seecs@seecs.edu.pk">
                 <img src="../assets/images/student-1.jpg" alt="s1" class="img2">
             </a>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <a align="center" href="mailto:larjamand.bese18seecs@seecs.edu.pk">
+        <div class="col-lg-2 col-md-2 col-sm-2" align="center">
+            <a href="mailto:larjamand.bese18seecs@seecs.edu.pk">
                 <img src="../assets/images/student-2.jpg" alt="s2"class="img2">
             </a>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <a align="center" href="mailto:arafey.bese18seecs@seecs.edu.pk">
+        <div class="col-lg-2 col-md-2 col-sm-2" align="center">
+            <a href="mailto:arafey.bese18seecs@seecs.edu.pk">
                 <img src="../assets/images/student-3.jpg" alt="s3"class="img2">
             </a>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2">
-            <a align="center" href="mailto:gbibi.bese18seecs@seecs.edu.pk">
+        <div class="col-lg-2 col-md-2 col-sm-2" align="center">
+            <a href="mailto:gbibi.bese18seecs@seecs.edu.pk">
                 <img src="../assets/images/student-4.jpg" alt="s4"class="img2">
             </a>
         </div>
@@ -347,11 +347,6 @@
 
     <!-- Main js -->
     <script src="../assets/js/main.js"></script>
-
-    <!-- BOOTSTRAP JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </body>
 

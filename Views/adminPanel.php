@@ -199,17 +199,18 @@
                     Welcome <?php echo $username ?>
                   </h1> 
                    
+                  <div class="container">
                   <div class="row border-bottom border-white mb-3 pb-3">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                       <span class="right-title">You have Add/Delete Rights on:</span>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
                       <a class="btnA" href="studentTable.php">Student Table</a>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2">
+                    <div class="col-12 col-lg-2 col-md-2 col-sm-2">
                       <a class="btnA" href="teacherTable.php">Teacher Table</a>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-12 col-lg-4 col-md-4 col-sm-4">
                       <a class="btnA" href="tutorialCategoryTable.php">
                         Tutorial Category Table
                       </a>
@@ -230,15 +231,15 @@
 
                     <!-- Viewing Rights -->
                     <div class="col-lg-6 col-md-6 col-sm-6 border-right border-white">
-                      <div class="row px-5 mx-3">
+                      <div class="row mx-3" >
                         <span style="text-align: center" class="right-title">You have Viewing Rights on:</span>
                       </div>
-                      <div class="row px-5 mx-3">
+                      <div class="row">
                         <a class="btnA" href="studentTutorialBridgeTable.php">
                           Student Tutorial Bridge Table
                         </a>
                       </div>
-                      <div class="row px-5 mx-3">                      
+                      <div class="row">                      
                         <a class="btnA" href="studentQuizBridgeTable">Student Quiz Brirdge Table</a>          
                       </div>
                     </div>
@@ -269,7 +270,7 @@
                       
                   </div>
                   <!-- End of Bottom Row -->                
-                             
+                </div>          
                 </div>  
                 
             </div>
@@ -307,46 +308,6 @@
 
     <!--====== SAIDEBAR PART ENDS ======-->
 
-   <!--===== FOOTERpart starts ======-->
-  
-  <footer class="site-footer">    
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About our Project</h6>
-            <p class="text-justify">Our project is tutoring website for students where teachers can post and edit tutorials while students can see tutorials and can examine themselves through quizes. It is managed by Admin. We have used PHP for backend and HTML, CSS, jQuery and Bootstrap for frontend.</p>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Contact Information</h6>
-            <ul>
-              <p>SEECS</p>
-              <p>NUST, H12 Campus</p>
-              <p>ISLAMABAD</p>
-            </ul>
-          </div>
-          <br><br><br>
-          <div class="col-xs-6 col-md-3"><br>
-            <ul>
-              <p>BESE9B</p>
-              <p>Batch'2k18</p>
-            </ul>
-          </div>
-        </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2021 All rights reserved by Babloo Gang
-            </p>
-          </div>
-        </div>
-      </div>
-</footer>
-
-    <!--===== FOOTERpart ends ======-->
-
     <!-- Jquery js -->
     <script src="../assets/js/jquery-1.12.4.min.js"></script> 
 
@@ -372,11 +333,6 @@
 
     <!-- Main js -->
     <script src="../assets/js/main.js"></script>
-
-     <!-- BOOTSTRAP JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 </body>
 
