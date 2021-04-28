@@ -18,6 +18,7 @@
 
 	/* Including the User Model File */
 	require_once "../Models/UserModel.php";
+	require_once "../Models/Transaction.php";
 
 	if(isset($_POST["register"])){
 
@@ -25,12 +26,14 @@
 		$email    = stripslashes($_POST["email"]);
 		$password = stripslashes($_POST["password"]);
 		$confirm_password = stripslashes($_POST["confirm-password"]);
+		$phone    = stripslashes($_POST["phone"]);
+		$cnic     = stripslashes($_POST["cnic"]);
 		$userType = stripslashes($_POST["registertype"]);
-		$page = stripslashes($_POST["page"]);
+		$page     = stripslashes($_POST["page"]);
 
 
 		// checking for empty fields
-		if(empty($username) || empty($email) || empty($password) || empty($confirm_password) || empty($userType) || empty($email)){
+		if(empty($username) || empty($email) || empty($password) || empty($confirm_password) || empty($userType) || empty($email) || empty($phone) || empty($cnic)){
 
 			if($page == "userregister"){
 				header("location: ../Views/register.php?empty=true");
@@ -67,7 +70,6 @@
 			}
 		}
 		// verrifying if password and confirm-password are same
-		echo "here<br>";
 		if($password != $confirm_password){
 			if($page == "userregister"){
 				echo $password. "<br>";
@@ -78,6 +80,33 @@
 			}
 			elseif($page == "adminregister"){
 				header("location: ../Views/registerUser.php?invalid=Invalid Password&usertype=add".$userType);
+				exit();
+			}
+		}
+
+		// verifying the length of phone
+		if(strlen($phone) > 11){
+
+			if($page == "userregister"){
+				header("location: ../Views/register.php?invalid=Invalid Phone Number");
+				exit();
+			}
+
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?invalid=Invalid Phone Number&usertype=add".$userType);
+				exit();
+			}
+		}
+		// verifying the length of cnic
+		if(strlen($cnic) > 6){
+
+			if($page == "userregister"){
+				header("location: ../Views/register.php?invalid=Enter Only 6 Digits of CNIC");
+				exit();
+			}
+
+			elseif($page == "adminregister"){
+				header("location: ../Views/registerUser.php?invalid=Enter Only 6 Digits of CNIC&usertype=add".$userType);
 				exit();
 			}
 		}
@@ -96,10 +125,14 @@
 		}
 
 		else{
+			// making transaction
+			$response = makeTransaction($phone, $cnic, 20);
+			echo response;
+			exit();
 			// all inputs are verified and user does not exist
-			$register_user_query = registerUser($username, $email, $password, $userType);
+			$register_user_query = registerUser($username, $email, $password, $phone, $cnic, $userType);
 			if($register_user_query){
-
+				echo "no";
 				if($page == "userregister"){
 					header("location: ../Views/login.php");
 				}

@@ -208,7 +208,23 @@
 	    </div>
 		</div>
 
-	    <input type="hidden" name="confirm-password" value=12345678>
+    <div class="form-group row"> 
+    <label class="col-sm-2 col-form-label col-form-label">CNIC</label>
+    <div class="col-sm-4">
+      <input class="form-control form-control" type="text" name="cnic" placeholder="Enter Last 6 Digits of CNIC">
+      <br>
+      </div>
+    </div>
+
+    <div class="form-group row"> 
+    <label class="col-sm-2 col-form-label col-form-label">Phone</label>
+    <div class="col-sm-4">
+      <input class="form-control form-control" type="text" name="phone" placeholder="Enter Phone">
+      <br>
+      </div>
+    </div>
+
+	  <input type="hidden" name="confirm-password" value=12345678>
 
 		<input type="hidden" name="page" value="adminregister">
 

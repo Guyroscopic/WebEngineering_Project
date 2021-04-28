@@ -939,7 +939,7 @@ label{
   font-size: 18px;
 }
 
-#name,#password{
+#name, #password, #email, #cnic, #phone{
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 3px;
