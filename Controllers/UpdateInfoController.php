@@ -11,7 +11,7 @@
 
 
 		$updateinfo = updateTeacherInfo($email, $education, $description);
- 
+
 		if($updateinfo){
 			header("location: ../Views/teacherProfile.php");
 		} 

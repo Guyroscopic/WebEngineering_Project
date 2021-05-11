@@ -19,12 +19,13 @@
 		return $sql_query_execute;
 	}
 
-	function registerUser($username, $email, $password, $phone, $cnic, $userType){
+	function registerUser($username, $email, $password, $userType){
 
 		/* Function to Add User into the database */
 		global $database_connection;
 		
-		$sql_query = "INSERT INTO " . $userType . "(`email`, `username`, `password`, `phone`, `cnic`) VALUES ('$email', '$username', '$password', '$phone', '$cnic');";
+		$sql_query = "INSERT INTO " . $userType . "(`email`, `username`, `password`) VALUES ('$email', '$username', '$password');";
+
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
 		if (!$sql_query_execute) {
 		    printf("Error: %s\n", mysqli_error($database_connection));
@@ -42,10 +43,7 @@
 		$sql_query = "UPDATE `teacher` SET `education`='$education', `description`='$description' WHERE `email`='$email'";
 
 		$sql_query_execute = mysqli_query($database_connection, $sql_query);
-		if (!$sql_query_execute) {
-		    printf("Error: %s\n", mysqli_error($database_connection));
-		    exit();
-		}
+	
 		return $sql_query_execute;
 	}
 

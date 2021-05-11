@@ -156,7 +156,7 @@
                     <input type="text" name="username" id="name" placeholder="Enter Your Username">
                     <br><br>
                     
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email">
+                    <input type="email" name="email" id="name" placeholder="Enter Your Email">
                     <br><br>
                     
                     <input type="password" name="password" id="password" placeholder="Enter Your Password">
@@ -164,13 +164,6 @@
                     
                     <input type="password" name="confirm-password" id="password" placeholder="Confirm Your Password">
                     <br><br>
-
-                    <input type="text" name="cnic" id="cnic" placeholder="Enter Last 6 Digits of Your CNIC">
-                    <br><br>
-
-                    <input type="text" name="phone" id="phone" placeholder="Enter Your Phone Number">
-                    <br><br>
-
                     </div>
 
                     <input type="hidden" name="page" value="userregister">

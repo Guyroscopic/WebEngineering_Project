@@ -92,7 +92,7 @@
             <div class="main-tut-header">
                 <h1><span class="tut-header">Update Your Information</span></h1>
             </div>
-            <br> 
+            <br>
   			
 			<label>Qualification</label>
 			<input type="text" name="education" class="form-control" value=<?php echo $education; ?>>

@@ -7,17 +7,9 @@ USE lazylearn;
 
 -- Creating "student" Table
 CREATE TABLE `lazylearn`.`student` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
--- Adding Updated Columns
-ALTER TABLE `lazylearn`.`student` 
-ADD COLUMN `phone` VARCHAR(11) UNIQUE NOT NULL,
-ADD COLUMN `cnic` VARCHAR(6) UNIQUE NOT NULL;
 
 -- Creating "teacher" Table
 CREATE TABLE `lazylearn`.`teacher` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , `education` VARCHAR(1000) NULL , `description` VARCHAR(1000) NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
--- Adding Updated Columns
-ALTER TABLE `lazylearn`.`teacher` 
-ADD COLUMN `phone` VARCHAR(11) UNIQUE NOT NULL,
-ADD COLUMN `cnic` VARCHAR(6) UNIQUE NOT NULL;
 
 -- Creating "admin" Table
 CREATE TABLE `lazylearn`.`admin` ( `email` VARCHAR(100) NOT NULL , `username` VARCHAR(100) NOT NULL , `password` VARCHAR(100) NOT NULL , PRIMARY KEY (`email`)) ENGINE = InnoDB;
@@ -107,15 +99,15 @@ ALTER TABLE student_quiz_bridge
     ON DELETE CASCADE;
 
 -- Populating "student" Table
-INSERT INTO `student`(`email`, `username`, `password`, `phone`, `cnic`) VALUES ("rafey@example.com",   "Abdul Rafey",   "12345678", "03207047670", "567891");
-INSERT INTO `student`(`email`, `username`, `password`, `phone`, `cnic`) VALUES ("laraib@example.com",  "Laraib Arjamand",  "12345678", "03207047671", "567892");
-INSERT INTO `student`(`email`, `username`, `password`, `phone`, `cnic`) VALUES ("fatima@example.com",  "Fatima Khalid",  "12345678", "03207047672", "567893");
-INSERT INTO `student`(`email`, `username`, `password`, `phone`, `cnic`) VALUES ("ghazala@example.com", "Ghazala Bibi", "12345678", "03207047673", "567894");
+INSERT INTO `student`(`email`, `username`, `password`) VALUES ("rafey@example.com",   "Abdul Rafey",   "12345678");
+INSERT INTO `student`(`email`, `username`, `password`) VALUES ("laraib@example.com",  "Laraib Arjamand",  "12345678");
+INSERT INTO `student`(`email`, `username`, `password`) VALUES ("fatima@example.com",  "Fatima Khalid",  "12345678");
+INSERT INTO `student`(`email`, `username`, `password`) VALUES ("ghazala@example.com", "Ghazala Bibi", "12345678");
 
 -- Populating "teacher" Table
-INSERT INTO `teacher`(`email`, `username`, `password`, `education`, `description`, `phone`, `cnic`) VALUES ("qaiser@example.com", "Qaiser Riaz",     "12345678", "PhD in xyz, From abc University",   "I am a Professor at NUST, Islamabad, Pakistan. I teach Web Development to 2nd and 3rd Year Students.", "03207047671", "567891");
-INSERT INTO `teacher`(`email`, `username`, `password`, `education`, `description`, `phone`, `cnic`) VALUES ("tofeeq@example.com", "Tofeq ur Rehman", "12345678", "PhD in qwe, From def University",   "I am a Professor at NUST, Islamabad, Pakistan. I teach Computer Organization and Operating Systems to 2nd and 3rd Year Students.", "03207047672", "567892");
-INSERT INTO `teacher`(`email`, `username`, `password`, `education`, `description`, `phone`, `cnic`) VALUES ("hammad@example.com", "Hammad Ahmed",    "12345678", "MS in pop, From qwerty University", "I am a Professor at NUST, Islamabad, Pakistan. I teach Machine Learning to 2nd and 3rd Year Students.", "03207047673", "567893");
+INSERT INTO `teacher`(`email`, `username`, `password`, `education`, `description`) VALUES ("qaiser@example.com", "Qaiser Riaz",     "12345678", "PhD in xyz, From abc University",   "I am a Professor at NUST, Islamabad, Pakistan. I teach Web Development to 2nd and 3rd Year Students.");
+INSERT INTO `teacher`(`email`, `username`, `password`, `education`, `description`) VALUES ("tofeeq@example.com", "Tofeq ur Rehman", "12345678", "PhD in qwe, From def University",   "I am a Professor at NUST, Islamabad, Pakistan. I teach Computer Organization and Operating Systems to 2nd and 3rd Year Students.");
+INSERT INTO `teacher`(`email`, `username`, `password`, `education`, `description`) VALUES ("hammad@example.com", "Hammad Ahmed",    "12345678", "MS in pop, From qwerty University", "I am a Professor at NUST, Islamabad, Pakistan. I teach Machine Learning to 2nd and 3rd Year Students.");
 
 -- Populating "admin" Table
 INSERT INTO `admin`(`email`, `username`, `password`) VALUES ('admin1@example.com', 'Admin 1', '12345678');
